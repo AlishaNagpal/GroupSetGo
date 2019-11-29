@@ -64,6 +64,10 @@ export default styles = StyleSheet.create({
         color: Colors.white,
         fontFamily:'SourceSansPro-Semibold',
         fontSize:vh(16.7),
+    },
+    iconPos:{
+        marginLeft: vw(20),
+        marginTop:vh(50)
     }
     
 })
