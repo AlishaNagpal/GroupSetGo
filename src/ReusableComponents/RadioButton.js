@@ -1,40 +1,23 @@
 import React, { Component } from 'react';
-import { View, TouchableOpacity } from 'react-native';
-import { Colors, vh, vw } from '../Constants';
+import { View } from 'react-native';
+import {vh, vw, Colors } from '../Constants';
+import Icon from 'react-native-vector-icons/Ionicons'
+Icon.loadFont()
 
 export default class RadioButton extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {isCheck: this.props.isCheck};
-  }
-
-  checkClicked = async () => {
-    await this.setState(prevState => ({
-      isCheck: !prevState.isCheck,
-    }))
-    this.props.clicked && this.props.clicked(this.props.id,this.state.isCheck );
-  }
-
   render() {
     return (
-      <TouchableOpacity onPress={this.checkClicked} style={this.props.style}>
-        <View style={{
-          height: vh(24),
-          width: vh(24),
-          borderWidth: vw(2),
-          borderRadius: vh(12),
-          borderColor: Colors.softRed2,
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}>
-          <View style={{
-            height: vh(12),
-            width: vh(12),
-            borderRadius: vh(6),
-            backgroundColor: this.state.isCheck ? Colors.softRed2 : Colors.white,
-          }} />
-        </View>
-      </TouchableOpacity>
+      <View style={{
+        height: vh(30),
+        width: vh(30),
+        borderWidth: vw(2),
+        borderRadius: vh(15),
+        borderColor: this.props.outColor,
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}>
+        <Icon name="md-checkmark-circle" size = {25} color = {this.props.isCheck ? this.props.inColor : Colors.noColor}  />
+      </View>
     )
   }
 }

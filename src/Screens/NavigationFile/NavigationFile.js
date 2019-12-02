@@ -4,7 +4,7 @@ import SplashScreen from '../SplashScreen/SplashScreen'
 import LoginScreen from "../LoginScreen/LoginScreen.js";
 import {createAccountName} from '../SignUpScreen/createAccountName.js'
 import {createAccountEmail} from '../SignUpScreen/createAccountEmail.js'
-import {createAccountGender} from '../SignUpScreen/createAccountGender.js'
+import createAccountGender from '../SignUpScreen/createAccountGender.js'
 import {createAccountPassword} from '../SignUpScreen/createAccountPassword.js'
 import createAccountBirth from '../SignUpScreen/CreateAccountBirth.js'
 
@@ -19,7 +19,7 @@ const AppNavigator = createStackNavigator({
     SplashScreen: {screen: SplashScreen,navigationOptions: {header: null,}},
 },
     {
-        initialRouteName: 'SplashScreen',
+        initialRouteName: 'createAccountName',
         defaultNavigationOptions: ({ navigation }) => ({
             headerBackTitle: null,
         }),

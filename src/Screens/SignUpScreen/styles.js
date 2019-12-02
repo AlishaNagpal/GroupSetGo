@@ -67,7 +67,22 @@ export default styles = StyleSheet.create({
     },
     iconPos:{
         marginLeft: vw(20),
-        marginTop:vh(50)
+        marginTop:vh(40)
+    },
+    radioButtonView:{
+        flexDirection:'row',
+        alignItems:'center',
+        marginTop: vh(59),
+        marginLeft: vw(150)
+    },
+    radioButton:{
+        marginRight: vw(10),
+    },
+    radioText:{
+        color:Colors.white,
+        fontFamily:'SourceSansPro-Semibold',
+        fontWeight:'500',
+        fontSize: vh(18)
     }
     
 })
