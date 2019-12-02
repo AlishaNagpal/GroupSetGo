@@ -1,59 +1,102 @@
 import React, { Component } from 'react';
-import { View, Text, Animated, Easing, StyleSheet } from 'react-native';
-import {Gradient} from '../../Constants/Gradient';
+import {
+  View,
+  Text,
+  Animated,
+  Easing,
+  Image
+} from 'react-native';
+
+// Custom Imports
+import { Gradient } from '../../Constants/Gradient';
+import styles from './styles';
+import Pics from '../../Constants/images';
+import { vh, vw, Colors } from '../../Constants';
 
 export default class SplashScreen extends Component {
   constructor(props) {
     super(props);
+    this.moveAnimationLogo = new Animated.ValueXY({ x: 0, y: vh(285) })
+    this.moveAnimationText = new Animated.ValueXY({ x: vw(300), y: vh(305) })
     this.animatedValue = new Animated.Value(0)
+    this.state = {
+      back: true
+    }
   }
 
-  componentDidMount(){
-    return(
-      
-        <Gradient />
-        
-    ), () => this.animate()
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        back: false
+      })
+      this.animateMove()
+    }, 2000)
   }
 
-  animate = () => {
-    this.animatedValue.setValue(0)
-    Animated.timing(
-      this.animatedValue,
-      {
-        toValue: 1,
-        duration: 2000,
-        easing: Easing.linear
-      }
-    ).start(() => this.animate())
+  animateMove = () => {
+    Animated.parallel([
+      Animated.timing(this.moveAnimationLogo, {
+        toValue: { x: vw(200), y: vh(285) },
+      }),
+      Animated.timing(this.moveAnimationText, {
+        toValue: { x: vw(150), y: vh(305) },
+      })
+    ]).start(() => this.animateSize())
   }
+
+animateSize = () => {
+  this.animatedValue.setValue(0)
+  Animated.parallel([
+    Animated.timing(this.animatedValue, {
+      toValue: 1,
+      duration: 3000,
+    }),
+    Animated.timing(this.animatedValue, {
+      toValue: 1,
+      duration: 3000,
+    }), 
+  ]).start()
+}
 
   render() {
-    const marginLeft = this.animatedValue.interpolate({
+
+    const logoScaleX = this.animatedValue.interpolate({
       inputRange: [0, 1],
-      outputRange: [0, 300]
+      outputRange: [0.5,1.6]
+    })
+    const logoScaleY = this.animatedValue.interpolate({
+      inputRange: [0, 1],
+      outputRange: [0.5, 1.6]
+    })
+    const textSize = this.animatedValue.interpolate({
+      inputRange: [0, 1],
+      outputRange: [15, 25]
     })
 
-    return (
-      <View style={{flex: 1}}>
-      <Gradient />
-      <View style={styles.container}>
-        
-        <Animated.View
-        style={{
-          marginLeft,
-          height: 30,
-          width: 40,
-          backgroundColor: 'red'}} />
-      </View>
-      </View>
-    );
+    if (this.state.back === true) {
+      return (
+        <View style={{ flex: 1 }}>
+          <Gradient />
+          <Image source={Pics.logo} style={styles.myLogo} />
+        </View>
+      );
+    }
+    else {
+      return (
+        <View style={{ flex: 1 }}>
+          <Animated.Image
+            source={Pics.logoSmall} style={{ ...this.moveAnimationLogo.getLayout(), height: 40, width: 40, transform: [{scaleX: logoScaleX}, {scaleY: logoScaleY}] }}
+          />
+          <Animated.Text
+            style={{ ...this.moveAnimationText.getLayout(), color: Colors.darkPink, fontSize: textSize, }}
+          >
+            Group Set Go
+        </Animated.Text>
+        </View>
+      )
+    }
   }
 }
-const styles = StyleSheet.create({
-  container: {
-  
-  }
-})
+
 
 

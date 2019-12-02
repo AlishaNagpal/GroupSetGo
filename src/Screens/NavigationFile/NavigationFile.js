@@ -19,7 +19,7 @@ const AppNavigator = createStackNavigator({
     SplashScreen: {screen: SplashScreen,navigationOptions: {header: null,}},
 },
     {
-        initialRouteName: 'createAccountName',
+        initialRouteName: 'SplashScreen',
         defaultNavigationOptions: ({ navigation }) => ({
             headerBackTitle: null,
         }),
