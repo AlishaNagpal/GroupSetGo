@@ -7,7 +7,8 @@ const Colors = {
     darkPink: '#a02d5f',
     darkViolet: '#7E2561',
     rosa: '#ff90b0',
-    darkModeratePink:'#9B2F60'
+    darkModeratePink:'#9B2F60',
+    noColor: '#ffffff00'
 }
 
 export default Colors;
