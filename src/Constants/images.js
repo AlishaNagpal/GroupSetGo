@@ -4,7 +4,8 @@ const Images = {
     logoImage: require('../Assets/Images/icLoginLogo.png'),
     googleLogo: require('../Assets/Images/googlePlus.png'),
     facebookLogo: require('../Assets/Images/facebook.png'),
-    crossImage: require('../Assets/Images/icCancel.png')
+    crossImage: require('../Assets/Images/icCancel.png'),
+    party : require('../Assets/Images/partyImg.jpg'),
 }
 
 export default Images;
