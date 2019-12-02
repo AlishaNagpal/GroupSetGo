@@ -91,7 +91,7 @@ class LoginWithEmail extends PureComponent {
                         <Text style={styles.loginButtonTitleStyle}>Login</Text>
                     </TouchableOpacity>
                     <View style={styles.createAnAccountViewStyle}>
-                        <Text style={styles.newToGroupSetGoStyle}>{strings.newToGroupSetGo}</Text>
+                    <Text style={styles.newToGroupSetGoStyle}>{strings.newToGroupSetGo}</Text>
                         <TouchableOpacity>
                             <Text style={styles.createAccountTextStyle}>Create an account </Text>
                         </TouchableOpacity>
