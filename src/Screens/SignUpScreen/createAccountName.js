@@ -13,7 +13,7 @@ const colors = [Colors.moderateRed, Colors.moderatePink, Colors.darkModeratePink
 export const createAccountName = React.memo(function pureFunction(props) {
     return (
         <LinearGradient start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} colors={colors} style={styles.gradient}>
-            <TouchableOpacity onPress={()=>{props.navigation.navigate('LoginScreen')}} >
+            <TouchableOpacity onPress={()=>{props.navigation.goBack()}} >
                 <Icon name="ios-arrow-back" size={vh(30)} color={Colors.white} style={styles.iconPos} />
             </TouchableOpacity>
             <Text style={[styles.mainHeading, { marginTop: vh(100) }]}> Awesome!</Text>
