@@ -83,6 +83,11 @@ export default styles = StyleSheet.create({
         fontFamily:'SourceSansPro-Semibold',
         fontWeight:'500',
         fontSize: vh(18)
+    },
+    eyeIcon:{
+        position: 'absolute',
+        top: vh(50),
+        left: vw(300)
     }
     
 })

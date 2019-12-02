@@ -5,8 +5,9 @@ import LoginScreen from "../LoginScreen/LoginScreen.js";
 import {createAccountName} from '../SignUpScreen/createAccountName.js'
 import {createAccountEmail} from '../SignUpScreen/createAccountEmail.js'
 import createAccountGender from '../SignUpScreen/createAccountGender.js'
-import {createAccountPassword} from '../SignUpScreen/createAccountPassword.js'
+import createAccountPassword from '../SignUpScreen/createAccountPassword.js'
 import createAccountBirth from '../SignUpScreen/CreateAccountBirth.js'
+import ExploreHomeScreen01 from '../ExploreHome/ExploreHomeScreen01'
 
 const AppNavigator = createStackNavigator({
     LoginScreen:{screen:LoginScreen},
@@ -16,6 +17,7 @@ const AppNavigator = createStackNavigator({
     createAccountBirth:{screen:createAccountBirth, navigationOptions:{header:null}},
     createAccountPassword:{screen:createAccountPassword, navigationOptions:{header:null}},
     SplashScreen: {screen: SplashScreen,navigationOptions: {header: null,}},
+    ExploreHomeScreen01:{screen: ExploreHomeScreen01, navigationOptions: {header: null} }
 },
     {
         initialRouteName: 'createAccountName',

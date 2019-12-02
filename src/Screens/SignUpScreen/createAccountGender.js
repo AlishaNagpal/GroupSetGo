@@ -38,7 +38,7 @@ export default class createAccountGender extends Component {
                 </TouchableOpacity>
                 <Text style={[styles.mainHeading, { marginTop: vh(100) }]}> Awesome!</Text>
                 <Text style={styles.mainHeading}> Lets get your account created.</Text>
-                <Text style={styles.stepText} > STEP 1 OF 5 </Text>
+                <Text style={styles.stepText} > STEP 4 OF 5 </Text>
                 <Text style={styles.belowStep} > Your gender? </Text>
                 <Text style={styles.description}>Some of our events are gender specific. sLet us know which gender you belong to.</Text>
 
