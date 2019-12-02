@@ -86,7 +86,7 @@ export default styles = StyleSheet.create({
     },
     eyeIcon:{
         position: 'absolute',
-        top: vh(50),
+        top: vh(-32),
         left: vw(300)
     }
     

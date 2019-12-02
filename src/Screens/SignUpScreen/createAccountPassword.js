@@ -12,6 +12,13 @@ const colors = [Colors.moderateRed, Colors.moderatePink, Colors.darkModeratePink
 
 export default class createAccountPassword extends Component {
     state = { show: false }
+
+    change(show){
+        this.setState({
+            show: !show
+        })
+    }
+    
     render() {
         return (
             < LinearGradient start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} colors={colors} style={styles.gradient} >
@@ -29,10 +36,11 @@ export default class createAccountPassword extends Component {
                         placeholder={'••••••'}
                         style={styles.textInputStyle}
                         placeholderTextColor={Colors.black}
+                        secureTextEntry = {!this.state.show}
                     />
 
-                    <TouchableOpacity onPress = {()=>{this.change}} >
-                    <Icon name={this.state.show ? "ios-eye" : "ios-eye-off"} color={Colors.black} size={30} style={styles.eyeIcon} />
+                    <TouchableOpacity onPress = {()=>{this.change(this.state.show)}} >
+                    <Icon name={this.state.show ? "md-eye" : "md-eye-off"} color={Colors.black} size={25} style={styles.eyeIcon} />
                     </TouchableOpacity>
                 </View>
 
