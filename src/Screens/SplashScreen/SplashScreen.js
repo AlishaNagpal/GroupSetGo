@@ -55,7 +55,7 @@ animateSize = () => {
       toValue: 1,
       duration: 3000,
     }), 
-  ]).start()
+  ]).start(()=>{this.props.navigation.navigate('OnboardingLogin')})
 }
 
   render() {
