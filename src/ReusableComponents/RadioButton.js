@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, TouchableOpacity } from 'react-native';
 import { Colors, vh, vw } from '../Constants';
 
-export default class radioButton extends Component {
+export default class RadioButton extends Component {
   constructor(props) {
     super(props);
     this.state = {isCheck: this.props.isCheck};

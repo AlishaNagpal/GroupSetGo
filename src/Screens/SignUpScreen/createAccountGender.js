@@ -7,6 +7,7 @@ Icon.loadFont()
 //Custom Imports
 import styles from './styles'
 import { Colors, vh } from '../../Constants';
+import RadioButton from '../../ReusableComponents/RadioButton'
 
 const colors = [Colors.moderateRed, Colors.moderatePink, Colors.darkModeratePink, Colors.darkViolet, Colors.darkViolet, Colors.darkViolet]
 
@@ -21,7 +22,8 @@ export const createAccountGender = React.memo(function pureFunction(props) {
             <Text style={styles.stepText} > STEP 1 OF 5 </Text>
             <Text style={styles.belowStep} > Your gender? </Text>
             <Text style={styles.description}>Some of our events are gender specific. sLet us know which gender you belong to.</Text>
-            
+            {/* <RadioButton outColor = {Colors.white} inColor = {Colors.white} clicked = {} /> */}
+            {/* <RadioButton/> */}
             <TouchableOpacity style={styles.buttonStyle} onPress={() => { props.navigation.navigate('createAccountPassword') }} >
                 <Text style={styles.buttonText}> Next </Text>
             </TouchableOpacity>
