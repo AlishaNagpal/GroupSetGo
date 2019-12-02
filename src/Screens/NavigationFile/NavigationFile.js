@@ -8,7 +8,6 @@ import createAccountGender from '../SignUpScreen/createAccountGender.js'
 import {createAccountPassword} from '../SignUpScreen/createAccountPassword.js'
 import createAccountBirth from '../SignUpScreen/CreateAccountBirth.js'
 
-
 const AppNavigator = createStackNavigator({
     LoginScreen:{screen:LoginScreen},
     createAccountName:{screen:createAccountName, navigationOptions:{header:null}},
