@@ -6,6 +6,19 @@ const Images = {
     facebookLogo: require('../Assets/Images/facebook.png'),
     crossImage: require('../Assets/Images/icCancel.png'),
     party : require('../Assets/Images/partyImg.jpg'),
+    maleImage: require('../Assets/Images/maleImage.jpg'),
+    notification: require('../Assets/Images/icNotificationsFilled.png'),
+    res1: require('../Assets/Images/res1.jpg'),
+    res2: require('../Assets/Images/res2.jpg'),
+    heartFilled: require('../Assets/Images/icSavedActive.png'),
+    heartEmpty: require('../Assets/Images/icSavedDeactive.png'),
+    cheers: require('../Assets/Images/cheers.png'),
+    travel: require('../Assets/Images/travel.jpg'),
+    music: require('../Assets/Images/music.jpg'),
+    musicIcon: require('../Assets/Images/music-player.png'),
+    trekIcon: require('../Assets/Images/hiking.png'),
+    calendar: require('../Assets/Images/calendar.png'),
+    logoIcon: require('../Assets/Images/icMyeventsDeselect.png')
 }
 
 export default Images;
