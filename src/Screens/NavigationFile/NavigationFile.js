@@ -7,7 +7,7 @@ import {createAccountEmail} from '../SignUpScreen/createAccountEmail.js'
 import createAccountGender from '../SignUpScreen/createAccountGender.js'
 import createAccountPassword from '../SignUpScreen/createAccountPassword.js'
 import createAccountBirth from '../SignUpScreen/CreateAccountBirth.js'
-import ExploreHomeScreen01 from '../ExploreHome/ExploreHomeScreen01'
+import ExploreHomeScreen01 from '../ExploreHome/ExploreHomeScreen01/ExploreHomeScreen01'
 import OnboardingLogin from '../OnboardingLogin/OnboardingLogin'
 import HomeDetails6 from '../ExploreHome/HomeDetails6';
 

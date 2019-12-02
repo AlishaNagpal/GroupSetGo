@@ -3,13 +3,10 @@ import { Text, TouchableOpacity } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient'
 import DatePicker from '@react-native-community/datetimepicker'
 import { connect } from 'react-redux'
-import Icon from 'react-native-vector-icons/Ionicons'
-Icon.loadFont()
-
 
 //Custom Imports
 import styles from './styles'
-import { Colors, vh } from '../../Constants';
+import { VectorIcons, Colors, vh } from '../../Constants';
 import { pickDate } from '../../Store/Action/Action'
 
 const colors = [Colors.moderateRed, Colors.moderatePink, Colors.darkModeratePink, Colors.darkViolet, Colors.darkViolet, Colors.darkViolet]
@@ -23,7 +20,7 @@ class CreateAccountBirth extends Component {
         return (
             <LinearGradient start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} colors={colors} style={styles.gradient}>
                 <TouchableOpacity onPress={() => { this.props.navigation.navigate('createAccountEmail') }} >
-                    <Icon name="ios-arrow-back" size={vh(30)} color={Colors.white} style={styles.iconPos} />
+                    <VectorIcons.Ionicons name="ios-arrow-back" size={vh(30)} color={Colors.white} style={styles.iconPos} />
                 </TouchableOpacity>
                 <Text style={[styles.mainHeading, { marginTop: vh(100) }]}> Awesome!</Text>
                 <Text style={styles.mainHeading}> Lets get your account created.</Text>

@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { Text, TextInput, TouchableOpacity, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient'
-import Icon from 'react-native-vector-icons/Ionicons'
-Icon.loadFont()
 
 //Custom Imports
 import styles from './styles'
-import { Colors, vh } from '../../Constants';
+import { Colors, vh, VectorIcons } from '../../Constants';
 
 const colors = [Colors.moderateRed, Colors.moderatePink, Colors.darkModeratePink, Colors.darkViolet, Colors.darkViolet, Colors.darkViolet]
 
@@ -23,7 +21,7 @@ export default class createAccountPassword extends Component {
         return (
             < LinearGradient start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} colors={colors} style={styles.gradient} >
                 <TouchableOpacity onPress={() => { this.props.navigation.navigate('createAccountGender') }} >
-                    <Icon name="ios-arrow-back" size={vh(30)} color={Colors.white} style={styles.iconPos} />
+                    <VectorIcons.Ionicons name="ios-arrow-back" size={vh(30)} color={Colors.white} style={styles.iconPos} />
                 </TouchableOpacity>
                 <Text style={[styles.mainHeading, { marginTop: vh(100) }]}> Awesome!</Text>
                 <Text style={styles.mainHeading}> Lets get your account created.</Text>
@@ -40,7 +38,7 @@ export default class createAccountPassword extends Component {
                     />
 
                     <TouchableOpacity onPress = {()=>{this.change(this.state.show)}} >
-                    <Icon name={this.state.show ? "md-eye" : "md-eye-off"} color={Colors.black} size={25} style={styles.eyeIcon} />
+                    <VectorIcons.Ionicons name={this.state.show ? "md-eye" : "md-eye-off"} color={Colors.black} size={25} style={styles.eyeIcon} />
                     </TouchableOpacity>
                 </View>
 
