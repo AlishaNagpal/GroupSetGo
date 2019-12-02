@@ -6,7 +6,7 @@ export default styles = StyleSheet.create({
         flex:1,
     },
     mainHeading:{
-        fontSize: vh(26.7),
+        fontSize: vh(23.3),
         fontFamily: 'SourceSansPro-Semibold',
         color: Colors.white,
         fontWeight:'bold',
@@ -50,7 +50,7 @@ export default styles = StyleSheet.create({
     buttonStyle:{
         alignItems:'center',
         justifyContent:'center',
-        backgroundColor:null,
+        backgroundColor:Colors.darkViolet,
         borderRadius:vh(20),
         height: vh(47),
         width: vw(267),

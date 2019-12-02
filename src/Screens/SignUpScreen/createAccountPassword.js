@@ -7,7 +7,7 @@ import LinearGradient from 'react-native-linear-gradient'
 import styles from './styles'
 import {Colors} from '../../Constants';
 
-const colors = [Colors.moderateRed,Colors.moderatePink, '#9B2F60',Colors.darkViolet,Colors.darkViolet,Colors.darkViolet]
+const colors = [Colors.moderateRed,Colors.moderatePink, Colors.darkModeratePink,Colors.darkViolet,Colors.darkViolet,Colors.darkViolet]
 
 export const createAccountPassword = React.memo(function pureFunction() {
     return (

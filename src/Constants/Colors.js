@@ -6,7 +6,8 @@ const Colors = {
     moderateRed: '#BA3A5F',
     darkPink: '#a02d5f',
     darkViolet: '#7E2561',
-    rosa: '#ff90b0'
+    rosa: '#ff90b0',
+    darkModeratePink:'#9B2F60'
 }
 
 export default Colors;

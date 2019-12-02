@@ -3,6 +3,7 @@ import Strings from './Strings';
 import Colors from './Colors';
 import Styles from './Style';
 import Images from './images'
+import Gradient from './Gradient'
 
 export {
     vh,
@@ -12,5 +13,6 @@ export {
     Strings,
     Styles,
     Colors,
-    Images
+    Images,
+    Gradient
 }

@@ -5,8 +5,8 @@ import LoginScreen from "../LoginScreen/LoginScreen.js";
 import {createAccountName} from '../SignUpScreen/createAccountName.js'
 import {createAccountEmail} from '../SignUpScreen/createAccountEmail.js'
 import {createAccountGender} from '../SignUpScreen/createAccountGender.js'
-import {createAccountBirth} from '../SignUpScreen/createAccountBirth.js'
 import {createAccountPassword} from '../SignUpScreen/createAccountPassword.js'
+import createAccountBirth from '../SignUpScreen/CreateAccountBirth.js'
 
 
 const AppNavigator = createStackNavigator({
