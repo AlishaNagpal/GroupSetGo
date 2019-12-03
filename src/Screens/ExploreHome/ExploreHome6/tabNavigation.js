@@ -26,7 +26,7 @@ const NavTabBar = createMaterialTopTabNavigator({
             labelStyle: {
                 inactiveTintColor: 'black',
                 color: Colors.fadedRed,
-                fontSize: vh(14.6),
+                fontSize: vw(14.6),
                 fontWeight: '600',
             },
             showIcon: false,
