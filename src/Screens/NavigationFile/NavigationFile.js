@@ -13,7 +13,7 @@ import ForgotPassword from '../ForgotPassword/ForgotPassword'
 import LoginWithEmail from '../LoginScreen/LoginWithEmail'
 import ResetPassword from '../ResetPassword/ResetPassword'
 import ExploreNoOfParticipants from '../ExploreNoOfParticipants/ExploreNoOfParticipants'
-import HomeDetails6 from '../ExploreHome/ExploreHome6/HomeDetails6';
+import HomeDetails6 from '../ExploreHome/ExploreHomeEventScreen/MainComponent/HomeDetails6';
 import ExploreHomeScreen02 from '../ExploreHome/ExploreHomeScreen02/ExploreHomeScreen02'
 
 

@@ -2,10 +2,10 @@ import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 import { createAppContainer } from 'react-navigation';
 
 //Custom Imports
-import About from './About';
-import Participants from './Participants';
-import Settlement from './Settlement';
-import { VectorIcons, vh, vw, Images, Colors } from '../../../Constants/index';
+import About from './About/About';
+import Participants from './Participants/Participants';
+import Settlement from './Settlement/Settlement';
+import { vh, Colors } from '../../../../Constants/index';
 
 const NavTabBar = createMaterialTopTabNavigator({
 
@@ -22,16 +22,10 @@ const NavTabBar = createMaterialTopTabNavigator({
     {
         initialRouteName: 'Participants',
         tabBarOptions: {
-            
-            labelStyle: {
-                inactiveTintColor: 'black',
-                color: Colors.fadedRed,
-                fontSize: vw(14.6),
-                fontWeight: '600',
-            },
-            showIcon: false,
+            activeTintColor: Colors.fadedRed,
+            inactiveTintColor: Colors.gray,
             style: {
-                backgroundColor: 'white',
+                backgroundColor: Colors.white
             },
             indicatorStyle: {
                 backgroundColor: Colors.fadedRed,

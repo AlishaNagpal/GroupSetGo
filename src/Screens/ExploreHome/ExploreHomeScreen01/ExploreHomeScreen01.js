@@ -7,8 +7,7 @@ import { createBottomTabNavigator } from 'react-navigation-tabs'
 
 //Custom Imports
 import styles from './style'
-import { Images, VectorIcons, Colors, vh } from '../../../Constants'
-import ExploreHomeScreen02 from '../ExploreHomeScreen02/ExploreHomeScreen02'
+import { Images, VectorIcons, Colors, vh, vw } from '../../../Constants'
 
 const colors = [Colors.moderateRed, Colors.moderatePink, Colors.darkModeratePink, Colors.darkViolet, Colors.darkViolet, Colors.darkViolet]
 class ExploreHomeScreen01 extends Component {
@@ -25,13 +24,12 @@ class ExploreHomeScreen01 extends Component {
     return (
       <View style={styles.flatlistView} >
         <TouchableOpacity onPress={() => this.callScreen()} >
-          <ImageBackground source={item.source} style={styles.flatlistImage} >
-            <Image source={Images.heartEmpty} style={styles.heart} />
-            <Image source={Images.heartFilled} style={styles.heart} />
-            <View style={styles.cheersView} >
-              <Image source={Images.cheers} style={styles.cheers} />
-            </View>
-          </ImageBackground>
+          <Image source={item.source} style={styles.flatlistImage} />
+          <Image source={Images.heartEmpty} style={styles.heart} />
+          <Image source={Images.heartFilled} style={styles.heart2} />
+          <View style={styles.cheersView} >
+            <Image source={Images.cheers} style={styles.cheers} />
+          </View>
           <View style={styles.belowImage} >
             <View style={styles.goingView} >
               <Text style={styles.timeText} > {item.time} </Text>
@@ -56,15 +54,14 @@ class ExploreHomeScreen01 extends Component {
   renderData2 = (rowData) => {
     let { item } = rowData
     return (
-      <View style={[styles.flatlistView, { width: vh(187), height: vh(198), }]} >
+      <View style={[styles.flatlistView, { width: vw(187), height: vw(220), }]} >
         <TouchableOpacity>
-          <ImageBackground source={item.source} style={styles.flatlist2Image} >
-            <Image source={Images.heartEmpty} style={styles.flatlist2Heart} />
-            <View style={styles.IconView} >
-              <Image source={item.icon} style={styles.iconSize} />
-            </View>
-          </ImageBackground>
-          <View style={[styles.belowImage, { width: vh(187) }]} >
+          <Image source={item.source} style={styles.flatlist2Image} />
+          <Image source={Images.heartEmpty} style={styles.flatlist2Heart} />
+          <View style={styles.IconView} >
+            <Image source={item.icon} style={styles.iconSize} />
+          </View>
+          <View style={styles.belowImage} >
             <View style={styles.goingView} >
               <Text style={styles.timeText} > {item.time} </Text>
               <View style={styles.goingIcon} >
@@ -72,7 +69,7 @@ class ExploreHomeScreen01 extends Component {
                 <Text style={styles.goingText} > {item.going} </Text>
               </View>
             </View>
-            <Text style={[styles.headingText, { fontSize: vh(16.7) }]} > {item.heading} </Text>
+            <Text style={[styles.headingText, { fontSize: vw(16.7) }]} > {item.heading} </Text>
             <Text style={styles.place} > {item.place} </Text>
             <View style={styles.perPerson} >
               <Text style={styles.moneyText} > {item.money} </Text>
@@ -130,16 +127,13 @@ class ExploreHomeScreen01 extends Component {
           />
         </View>
         <Text style={styles.allEvents} > All Events </Text>
-        <View style={styles.flatlistHeight2} >
-          <FlatList
-            keyExtractor={(item, index) => { index.toString() }}
-            data={DATA2}
-            renderItem={this.renderData2}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-          />
-        </View>
-
+        <FlatList
+          keyExtractor={(item, index) => { index.toString() }}
+          data={DATA2}
+          renderItem={this.renderData2}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+        />
         <LinearGradient colors={colors} style={styles.gradient} >
           <TouchableOpacity>
             <Image source={Images.calendar} style={styles.calendar} />
@@ -266,10 +260,44 @@ const DATA = [
     place: 'Coffee Palace, Las Vegas',
     money: '$800- $1000',
     going: 7
+  },
+  {
+    source: Images.res1,
+    time: 'TODAY,JUL 14 • 7 PM',
+    heading: 'Dance Floor Table @ Omnia',
+    place: 'Caesars Palace, Las Vegas',
+    money: '$600- $800',
+    going: 10
+  },
+  {
+    source: Images.res2,
+    time: 'SAT,JUL 19 • 3 PM',
+    heading: 'Tea Time Party @ Resolutions',
+    place: 'Coffee Palace, Las Vegas',
+    money: '$800- $1000',
+    going: 7
   }
 ]
 
 const DATA2 = [
+  {
+    source: Images.travel,
+    time: 'MON,JUL 16 • 7 AM',
+    heading: 'Backpacking & Hiking...',
+    place: 'Lake Havasu',
+    money: '$200 - 250',
+    going: 4,
+    icon: Images.trekIcon
+  },
+  {
+    source: Images.music,
+    time: 'WED, Jul 18 • 7 pm ',
+    heading: 'Chicago Music Fest...',
+    place: 'Randolph St, Chicago',
+    money: '$45- $90',
+    going: 35,
+    icon: Images.musicIcon
+  },
   {
     source: Images.travel,
     time: 'MON,JUL 16 • 7 AM',

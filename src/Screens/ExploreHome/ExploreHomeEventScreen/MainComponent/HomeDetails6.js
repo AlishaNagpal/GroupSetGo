@@ -10,8 +10,8 @@ import Icon from 'react-native-vector-icons/SimpleLineIcons'
 
 // Custom Imports
 import styles from './styles';
-import { VectorIcons, vh, vw, Images } from '../../../Constants/index';
-import MyTab from './tabNavigation';
+import { VectorIcons, vh, vw, Images } from '../../../../Constants';
+import MyTab from '../TabScreens/tabNavigation';
 
 Icon.loadFont()
 

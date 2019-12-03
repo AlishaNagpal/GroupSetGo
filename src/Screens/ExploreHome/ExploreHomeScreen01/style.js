@@ -38,45 +38,47 @@ export default styles = StyleSheet.create({
     notification: {
         marginLeft: vw(10)
     },
-    sortFilterView:{
-        flexDirection:'row',
-        alignItems:'center',
+    sortFilterView: {
+        flexDirection: 'row',
+        alignItems: 'center',
         marginTop: vh(13.7),
         marginLeft: vw(69.7)
     },
-    sortStyle:{
+    sortStyle: {
         borderRadius: vh(5),
         borderColor: Colors.lightGray,
         borderWidth: vw(1),
         height: vh(26.7),
         width: vw(66.7),
-        alignSelf:'center',
-        justifyContent:'center',
+        alignSelf: 'center',
+        justifyContent: 'center',
         marginLeft: vw(10)
     },
-    sortText:{
+    sortText: {
         color: Colors.black,
-        fontWeight:'600',
-        alignSelf:'center',
-        fontSize:vh(14.7),
-        fontFamily:'SourceSansPro-Semibold'
+        fontWeight: '600',
+        alignSelf: 'center',
+        fontSize: vw(14.7),
+        fontFamily: 'SourceSansPro-Semibold'
     },
-    recommendedText:{
+    recommendedText: {
         marginLeft: vw(28),
         marginTop: vh(17),
         fontFamily: 'SourceSansPro-Bold',
         fontSize: vh(17)
     },
-    allEvents:{
+    allEvents: {
         marginLeft: vw(28),
         fontFamily: 'SourceSansPro-Bold',
-        fontSize: vh(17)
+        fontSize: vh(17),
+        marginTop: vh(20),
     },
-    flatlistView:{
+    flatlistView: {
         marginLeft: vw(20),
+        marginRight: vw(20),
         marginTop: vh(10),
-        backgroundColor:Colors.white,
-        shadowColor:Colors.gray,
+        backgroundColor: Colors.white,
+        shadowColor: Colors.gray,
         shadowOpacity: vh(0.5),
         height: vh(215),
         width: vw(360),
@@ -84,122 +86,129 @@ export default styles = StyleSheet.create({
         borderColor: Colors.fadedGray,
         borderRadius: vh(10),
     },
-    flatlistImage:{
-        height: vh(140),
-        width: vw(360),   
-
+    flatlistImage: {
+        height: vw(138),
+        width: vw(360),
+        borderTopRightRadius: vh(10),
+        borderTopLeftRadius: vh(10)
     },
-    heart:{
+    heart: {
+        position: 'absolute',
         marginLeft: vw(327.7),
         marginTop: vh(10)
     },
-    cheers:{
+    heart2: {
+        position: 'absolute',
+        marginLeft: vw(327.7),
+        marginTop: vh(40)
+    },
+    cheers: {
         height: vh(25),
         width: vh(25)
     },
-    cheersView:{
+    cheersView: {
+        position: 'absolute',
         backgroundColor: Colors.black,
         height: vh(30),
         width: vh(30),
         borderRadius: vh(25),
-        alignItems:'center',
-        marginTop:vh(55),
-        marginLeft: vw(10)
+        alignItems: 'center',
+        top: vw(100),
+        left: vw(10)
     },
-    belowImage:{
-        backgroundColor: Colors.white,
-        width: vw(360),
+    belowImage: {
         marginTop: vh(10)
     },
-    timeText:{
+    timeText: {
         color: Colors.fadedRed,
-        fontFamily:'SourceSansPro-Semibold',
-        fontSize: vh(15.3)
+        fontFamily: 'SourceSansPro-Semibold',
+        fontSize: vw(15.3)
     },
-    headingText:{
-        fontFamily:'SourceSansPro-Semibold',
-        fontSize: vh(18.7)
+    headingText: {
+        fontFamily: 'SourceSansPro-Semibold',
+        fontSize: vw(18.7)
     },
-    moneyView:{
-        flexDirection:'row',
-        alignItems:'center',
+    moneyView: {
+        flexDirection: 'row',
+        alignItems: 'center',
     },
-    place:{
-        fontFamily:'SourceSansPro-Regular',
-        fontSize: vh(12),
+    place: {
+        fontFamily: 'SourceSansPro-Regular',
+        fontSize: vw(14),
         color: Colors.fadedGray
     },
-    elongatedView:{
+    elongatedView: {
         height: vh(12),
         width: vw(1),
         backgroundColor: Colors.fadedGray
     },
-    moneyText:{
+    moneyText: {
         fontFamily: 'SourceSansPro-Semibold',
-        fontSize:vh(13.7)
+        fontSize: vw(13.7)
     },
-    moneyPerson:{
+    moneyPerson: {
         fontFamily: 'SourceSansPro-Regular',
-        fontSize:vh(13.7)
+        fontSize: vw(13.7)
     },
-    goingView:{
-        flexDirection:'row',
-        justifyContent:'space-between'
+    goingView: {
+        flexDirection: 'row',
+        justifyContent: 'space-between'
     },
-    goingText:{
-        fontFamily:'SourceSansPro-Regular',
-        fontSize: vh(12),
+    goingText: {
+        fontFamily: 'SourceSansPro-Regular',
+        fontSize: vw(12),
         color: Colors.fadedGray
     },
-    goingIcon:{
-        flexDirection:'row'
+    goingIcon: {
+        flexDirection: 'row'
     },
-    flatlistHeight:{
+    flatlistHeight: {
         height: vh(230)
     },
-    flatlist2Heart:{
-        marginLeft: vw(170),
+    flatlist2Heart: {
+        position: 'absolute',
+        left: vw(155),
         marginTop: vh(10)
     },
-    flatlistHeight2:{
-        height: vh(208),
+    flatlist2Image: {
+        height: vw(126),
+        width: vw(190),
+        borderTopRightRadius: vh(10),
+        borderTopLeftRadius: vh(10)
     },
-    flatlist2Image:{
-        height: vh(106),
-        width: vw(227)
-    },
-    IconView:{
+    IconView: {
+        position: 'absolute',
         backgroundColor: Colors.black,
         height: vh(30),
         width: vh(30),
         borderRadius: vh(25),
-        alignItems:'center',
-        marginTop:vh(45),
+        alignItems: 'center',
+        top: vh(70),
         marginLeft: vw(10),
-        justifyContent:'center'
+        justifyContent: 'center'
     },
-    iconSize:{
+    iconSize: {
         height: vh(20),
         width: vh(20)
     },
-    perPerson:{
-        flexDirection:'row'
+    perPerson: {
+        flexDirection: 'row'
     },
-    gradient:{
+    gradient: {
         height: vh(50),
         width: vh(50),
-        position:'absolute',
+        position: 'absolute',
         top: vh(600),
-        left:vw(350),
+        left: vw(350),
         borderRadius: vh(25),
-        alignItems:'center',
-        justifyContent:'center'
+        alignItems: 'center',
+        justifyContent: 'center'
     },
-    calendar:{
+    calendar: {
         height: vh(25),
         width: vh(25)
     },
-    iconTab:{
-        marginTop: 5 
+    iconTab: {
+        marginTop: 5
     }
 })
