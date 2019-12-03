@@ -22,6 +22,8 @@ const Colors = {
     fadedGray2: 'rgb(123, 123, 123)',
     shareBlue: 'rgb(60, 117, 151)',
     whitishGray: 'rgb(245, 245, 245)',
+    strokeColor: 'rgba(144, 201, 244,0.5)',
+    fillColor: 'rgba(197, 221, 235,0.5)',
 }
 
 export default Colors;

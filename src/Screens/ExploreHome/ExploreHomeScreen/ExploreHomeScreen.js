@@ -55,7 +55,7 @@ class ExploreHomeScreen01 extends Component {
     let { item } = rowData
     return (
       <View style={[styles.flatlistView, { width: vw(187), height: vw(220), }]} >
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => this.callScreen()} >
           <Image source={item.source} style={styles.flatlist2Image} />
           <Image source={Images.heartEmpty} style={styles.flatlist2Heart} />
           <View style={styles.IconView} >

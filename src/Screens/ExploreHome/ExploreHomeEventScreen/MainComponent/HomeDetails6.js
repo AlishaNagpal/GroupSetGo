@@ -132,12 +132,8 @@ export default class HomeDetails6 extends Component {
                             </TouchableOpacity>
                         </View>
                     </View>
-                    <View style={styles.separator}>
-                    </View>
-                    <View style={styles.viewThree}>
+                    <View style={styles.separator}/>
                         <MyTab />
-                    </View>
-
                 </ScrollView>
             </View>
         );

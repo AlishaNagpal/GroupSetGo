@@ -5,7 +5,7 @@ import { createAppContainer } from 'react-navigation';
 import About from './About/About';
 import Participants from './Participants/Participants';
 import Settlement from './Settlement/Settlement';
-import { vh, Colors } from '../../../../Constants/index';
+import { vh, Colors, vw } from '../../../../Constants/index';
 
 const NavTabBar = createMaterialTopTabNavigator({
 
@@ -20,12 +20,16 @@ const NavTabBar = createMaterialTopTabNavigator({
     },
 },
     {
-        initialRouteName: 'Participants',
+        initialRouteName: 'About',
         tabBarOptions: {
             activeTintColor: Colors.fadedRed,
             inactiveTintColor: Colors.gray,
             style: {
-                backgroundColor: Colors.white
+                backgroundColor: Colors.white,
+            },
+            labelStyle: {
+                fontSize: vw(13.6),
+                fontWeight: '600',
             },
             indicatorStyle: {
                 backgroundColor: Colors.fadedRed,

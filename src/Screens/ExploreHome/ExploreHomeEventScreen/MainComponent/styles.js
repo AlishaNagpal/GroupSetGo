@@ -4,6 +4,7 @@ import { vh, vw, Colors } from '../../../../Constants'
 export default styles = StyleSheet.create({
     mainView: {
         flex: 1,
+        marginTop: vh(25),
     },
     viewOne: {
         height: vh(270),
@@ -164,9 +165,6 @@ export default styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-around'
-    },
-    viewThree: {
-        height: vh(372),
     },
     center: {
         alignItems: 'center'
