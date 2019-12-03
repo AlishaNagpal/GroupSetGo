@@ -9,7 +9,7 @@ import createAccountPassword from '../SignUpScreen/createAccountPassword.js'
 import createAccountBirth from '../SignUpScreen/CreateAccountBirth.js'
 import ExploreHomeScreen01 from '../ExploreHome/ExploreHomeScreen01/ExploreHomeScreen01'
 import OnboardingLogin from '../OnboardingLogin/OnboardingLogin'
-import HomeDetails6 from '../ExploreHome/HomeDetails6';
+import HomeDetails6 from '../ExploreHome/ExploreHome6/HomeDetails6';
 import ExploreHomeScreen02 from '../ExploreHome/ExploreHomeScreen02/ExploreHomeScreen02'
 
 const AppNavigator = createStackNavigator({
@@ -25,7 +25,7 @@ const AppNavigator = createStackNavigator({
     ExploreHomeScreen02:{screen:ExploreHomeScreen02, navigationOptions:{header: null}}
 },
     {
-        initialRouteName: 'ExploreHomeScreen01',
+        initialRouteName: 'HomeDetails6',
         defaultNavigationOptions: ({ navigation }) => ({
             headerBackTitle: null,
         }),
