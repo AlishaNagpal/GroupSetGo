@@ -7,7 +7,12 @@ const strings = {
     youCanAlsoLoginWith: "You can also login with",
     skipLogin: "SKIP LOGIN",
     welcomeBack: 'Welcome Back!',
-    signInToContinue: 'Sign in to continue...'
+    signInToContinue: 'Sign in to continue...',
+    forgotyourPassword: 'Forgot your password?',
+    dontWorry: "Don't worry. We can help.",
+    resetPassword: 'Reset Password.',
+    keepItStrong: 'Keep it super strong.' ,
+    participantList: 'Participant List'
 }
 
 export default strings;
