@@ -9,10 +9,14 @@ const Colors = {
     rosa: '#ff90b0',
     darkModeratePink:'#9B2F60',
     noColor: '#ffffff00',
-    fadedRed: 'rgb(220,71,94)',
     darkGray: 'rgb(48,47,47)',
-    lightGray: 'rgb(83,83,83)',
-    checkmarkGreen: 'green'
+    // lightGray: 'rgb(83,83,83)',
+    checkmarkGreen: 'green',
+    fadedRed: '#dc475e',
+    lightGray: '#E9E9E9',
+    fadedGray: '#7c7c7c',
+    gray: '#848484',
+    redShadow:'#bd2e44'
 }
 
 export default Colors;

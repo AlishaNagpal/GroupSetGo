@@ -11,7 +11,7 @@ import {
 import { Gradient } from '../../Constants/Gradient';
 import styles from './styles';
 import Pics from '../../Constants/images';
-import { vh, vw, Colors } from '../../Constants';
+import { vh, vw, Colors } from '../../Constants/index';
 
 export default class SplashScreen extends Component {
   constructor(props) {

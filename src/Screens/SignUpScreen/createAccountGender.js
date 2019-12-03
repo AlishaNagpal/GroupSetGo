@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient'
-import Icon from 'react-native-vector-icons/Ionicons'
-Icon.loadFont()
 
 //Custom Imports
 import styles from './styles'
-import { Colors, vh } from '../../Constants';
+import { Colors, vh, VectorIcons } from '../../Constants';
 import RadioButton from '../../ReusableComponents/RadioButton'
 
 const colors = [Colors.moderateRed, Colors.moderatePink, Colors.darkModeratePink, Colors.darkViolet, Colors.darkViolet, Colors.darkViolet]
@@ -34,11 +32,11 @@ export default class createAccountGender extends Component {
         return (
             <LinearGradient start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} colors={colors} style={styles.gradient}>
                 <TouchableOpacity onPress={() => { this.props.navigation.navigate('createAccountBirth') }} >
-                    <Icon name="ios-arrow-back" size={vh(30)} color={Colors.white} style={styles.iconPos} />
+                    <VectorIcons.Ionicons name="ios-arrow-back" size={vh(30)} color={Colors.white} style={styles.iconPos} />
                 </TouchableOpacity>
                 <Text style={[styles.mainHeading, { marginTop: vh(100) }]}> Awesome!</Text>
                 <Text style={styles.mainHeading}> Lets get your account created.</Text>
-                <Text style={styles.stepText} > STEP 1 OF 5 </Text>
+                <Text style={styles.stepText} > STEP 4 OF 5 </Text>
                 <Text style={styles.belowStep} > Your gender? </Text>
                 <Text style={styles.description}>Some of our events are gender specific. sLet us know which gender you belong to.</Text>
 

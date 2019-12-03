@@ -1,12 +1,10 @@
 import React from 'react';
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient'
-import Icon from 'react-native-vector-icons/Ionicons'
-Icon.loadFont()
 
 //Custom Imports
 import styles from './styles'
-import { Colors, vh } from '../../Constants';
+import { VectorIcons, Colors, vh } from '../../Constants';
 
 const colors = [Colors.moderateRed, Colors.moderatePink, Colors.darkModeratePink, Colors.darkViolet, Colors.darkViolet, Colors.darkViolet]
 
@@ -14,7 +12,7 @@ export const createAccountEmail = React.memo(function pureFunction(props) {
     return (
         <LinearGradient start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} colors={colors} style={styles.gradient}>
             <TouchableOpacity onPress={()=>{props.navigation.navigate('createAccountName')}} >
-                <Icon name="ios-arrow-back" size={vh(30)} color={Colors.white} style={styles.iconPos} />
+                <VectorIcons.Ionicons name="ios-arrow-back" size={vh(30)} color={Colors.white} style={styles.iconPos} />
             </TouchableOpacity>
             <Text style={[styles.mainHeading, { marginTop: vh(100) }]}> Awesome!</Text>
             <Text style={styles.mainHeading}> Lets get your account created.</Text>
