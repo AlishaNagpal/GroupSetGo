@@ -11,13 +11,17 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         paddingHorizontal: vw(40),
     },
-    welcomeBackStyle: {
+    backButtonStyle: {
+        left: vw(20),
+        marginTop: vh(40),
+    },
+    resetPasswordTextStyle: {
         color: 'rgb(226,90,113)',
         fontSize: vw(26.7),
-        marginTop: vh(163.7),
+        marginTop: vh(180.7),
         fontFamily: 'SourceSansPro-Semibold'
     },
-    signInToContinueStyle: {
+    keepItStrongTextStyle: {
         fontSize: vw(26.7),
         fontFamily: 'SourceSansPro-Semibold'
     },
@@ -43,12 +47,21 @@ export const styles = StyleSheet.create({
         fontFamily: 'SourceSansPro-Semibold',
         width: vw(185)
     },
-    passwordInputViewStyle: {
+    newPasswordInputViewStyle: {
         flexDirection: 'row',
         alignItems: 'center',
         backgroundColor: '#fff',
         height: vh(35),
-        marginTop: vh(29),
+        marginTop: vh(34),
+        borderBottomWidth: vw(1),
+        width: vw(245.4),
+    },
+    confirmPasswordInputViewStyle: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        backgroundColor: '#fff',
+        height: vh(35),
+        marginTop: vh(21),
         borderBottomWidth: vw(1),
         width: vw(245.4),
     },
@@ -61,13 +74,13 @@ export const styles = StyleSheet.create({
         fontFamily: 'SourceSansPro-Regular',
         marginTop: vh(13)
     },
-    loginButtonStyle: {
+    resetButtonStyle: {
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'red',
         width: vw(325),
         height: vh(46.5),
-        marginTop: vh(66),
+        marginTop: vh(29),
         backgroundColor: 'rgb(127,36,97)',
         borderRadius: vw(23.3)
     },

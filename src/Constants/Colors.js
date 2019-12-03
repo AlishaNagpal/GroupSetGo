@@ -8,7 +8,11 @@ const Colors = {
     darkViolet: '#7E2561',
     rosa: '#ff90b0',
     darkModeratePink:'#9B2F60',
-    noColor: '#ffffff00'
+    noColor: '#ffffff00',
+    fadedRed: 'rgb(220,71,94)',
+    darkGray: 'rgb(48,47,47)',
+    lightGray: 'rgb(83,83,83)',
+    checkmarkGreen: 'green'
 }
 
 export default Colors;

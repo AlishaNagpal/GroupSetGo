@@ -11,17 +11,20 @@ import LoginWithEmail from '../LoginScreen/LoginWithEmail'
 
 export default class OnboardingLogin extends PureComponent {
     state = {
-        modalVisible: false,
+        modalVisible: false
     }
 
-    loginButtnTapped = () => {
-        this.setState({modalVisible: true})
+    toggleModalVisibility = () => {        
+        this.setState({modalVisible: !this.state.modalVisible})
     }
 
     render() {
         return (
             <View style={styles.containerStyle}>
-                {this.state.modalVisible && <LoginWithEmail navigation = {this.props.navigation} modalVisible = {this.state.modalVisible}/>}
+                {this.state.modalVisible && <LoginWithEmail 
+                navProps = {this.props.navigation}
+                toggleModalVisibility={()=>this.toggleModalVisibility()}
+                modalVisible = {this.state.modalVisible}/>}
                 <Image
                     style={styles.logoImageStyle}
                     source={Images.logoImage}
@@ -30,7 +33,7 @@ export default class OnboardingLogin extends PureComponent {
                 <Text style={styles.helloStrangerStyle}>{strings.helloStrangers}</Text>
                 <Text style={styles.welcomeTextStyle}>{strings.welcomeTo}</Text>
                 <Text style={styles.whereSharingTextStyle}>{strings.whereSharingExperiences}</Text>
-                <TouchableOpacity onPress={this.loginButtnTapped} style={styles.loginButtonStyle}>
+                <TouchableOpacity onPress={this.toggleModalVisibility} style={styles.loginButtonStyle}>
                     <Text style={styles.loginButtonTitleStyle}>Login using email</Text>
                 </TouchableOpacity>
                 <View style={styles.createAnAccountViewStyle}>
