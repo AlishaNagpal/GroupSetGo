@@ -42,7 +42,7 @@ export default class createAccountPassword extends Component {
                     </TouchableOpacity>
                 </View>
 
-                <TouchableOpacity style={styles.buttonStyle} onPress={() => { this.props.navigation.navigate('ExploreHomeScreen01') }} >
+                <TouchableOpacity style={styles.buttonStyle} onPress={() => { this.props.navigation.navigate('HomeDetails6') }} >
                     <Text style={styles.buttonText}> Submit </Text>
                 </TouchableOpacity>
             </LinearGradient >
