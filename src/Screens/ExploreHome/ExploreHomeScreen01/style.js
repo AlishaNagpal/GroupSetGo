@@ -148,7 +148,7 @@ export default styles = StyleSheet.create({
     },
     goingText:{
         fontFamily:'SourceSansPro-Regular',
-        fontSize: vh(13.3),
+        fontSize: vh(12),
         color: Colors.fadedGray
     },
     goingIcon:{
@@ -189,7 +189,7 @@ export default styles = StyleSheet.create({
         height: vh(50),
         width: vh(50),
         position:'absolute',
-        top: vh(655),
+        top: vh(600),
         left:vw(350),
         borderRadius: vh(25),
         alignItems:'center',

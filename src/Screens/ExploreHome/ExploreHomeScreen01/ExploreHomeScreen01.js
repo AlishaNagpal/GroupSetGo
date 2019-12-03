@@ -8,37 +8,47 @@ import { createBottomTabNavigator } from 'react-navigation-tabs'
 //Custom Imports
 import styles from './style'
 import { Images, VectorIcons, Colors, vh } from '../../../Constants'
+import ExploreHomeScreen02 from '../ExploreHomeScreen02/ExploreHomeScreen02'
 
 const colors = [Colors.moderateRed, Colors.moderatePink, Colors.darkModeratePink, Colors.darkViolet, Colors.darkViolet, Colors.darkViolet]
 class ExploreHomeScreen01 extends Component {
+
+  callScreen() {
+    this.props.navigation.navigate('ExploreHomeScreen02', {
+      data: { DATA3 }
+    })
+  }
+
+
   renderData = (rowData) => {
     let { item } = rowData
     return (
       <View style={styles.flatlistView} >
-        <ImageBackground source={item.source} style={styles.flatlistImage} >
-          <Image source={Images.heartEmpty} style={styles.heart} />
-          <Image source={Images.heartFilled} style={styles.heart} />
-          <View style={styles.cheersView} >
-            <Image source={Images.cheers} style={styles.cheers} />
-          </View>
-        </ImageBackground>
-        <View style={styles.belowImage} >
-          <View style={styles.goingView} >
-            <Text style={styles.timeText} > {item.time} </Text>
-            <View style={styles.goingIcon} >
-              <VectorIcons.MaterialCommunityIcons name='run-fast' size={vh(15)} color={Colors.fadedGray} />
-              <Text style={styles.goingText} > {item.going} </Text>
+        <TouchableOpacity onPress={() => this.callScreen()} >
+          <ImageBackground source={item.source} style={styles.flatlistImage} >
+            <Image source={Images.heartEmpty} style={styles.heart} />
+            <Image source={Images.heartFilled} style={styles.heart} />
+            <View style={styles.cheersView} >
+              <Image source={Images.cheers} style={styles.cheers} />
+            </View>
+          </ImageBackground>
+          <View style={styles.belowImage} >
+            <View style={styles.goingView} >
+              <Text style={styles.timeText} > {item.time} </Text>
+              <View style={styles.goingIcon} >
+                <VectorIcons.MaterialCommunityIcons name='run-fast' size={vh(12)} color={Colors.fadedGray} />
+                <Text style={styles.goingText} > {item.going} </Text>
+              </View>
+            </View>
+            <Text style={styles.headingText} > {item.heading} </Text>
+            <View style={styles.moneyView} >
+              <Text style={styles.place} > {item.place} </Text>
+              <View style={styles.elongatedView} />
+              <Text style={styles.moneyText} > {item.money} </Text>
+              <Text style={styles.moneyPerson} > per person </Text>
             </View>
           </View>
-          <Text style={styles.headingText} > {item.heading} </Text>
-          <View style={styles.moneyView} >
-            <Text style={styles.place} > {item.place} </Text>
-            <View style={styles.elongatedView} />
-            <Text style={styles.moneyText} > {item.money} </Text>
-            <Text style={styles.moneyPerson} > per person </Text>
-          </View>
-        </View>
-
+        </TouchableOpacity>
       </View>
     )
   }
@@ -47,28 +57,29 @@ class ExploreHomeScreen01 extends Component {
     let { item } = rowData
     return (
       <View style={[styles.flatlistView, { width: vh(187), height: vh(198), }]} >
-        <ImageBackground source={item.source} style={styles.flatlist2Image} >
-          <Image source={Images.heartEmpty} style={styles.flatlist2Heart} />
-          <View style={styles.IconView} >
-            <Image source={item.icon} style={styles.iconSize} />
-          </View>
-        </ImageBackground>
-        <View style={[styles.belowImage, { width: vh(187) }]} >
-          <View style={styles.goingView} >
-            <Text style={styles.timeText} > {item.time} </Text>
-            <View style={styles.goingIcon} >
-              <VectorIcons.MaterialCommunityIcons name='run-fast' size={vh(15)} color={Colors.fadedGray} />
-              <Text style={styles.goingText} > {item.going} </Text>
+        <TouchableOpacity>
+          <ImageBackground source={item.source} style={styles.flatlist2Image} >
+            <Image source={Images.heartEmpty} style={styles.flatlist2Heart} />
+            <View style={styles.IconView} >
+              <Image source={item.icon} style={styles.iconSize} />
+            </View>
+          </ImageBackground>
+          <View style={[styles.belowImage, { width: vh(187) }]} >
+            <View style={styles.goingView} >
+              <Text style={styles.timeText} > {item.time} </Text>
+              <View style={styles.goingIcon} >
+                <VectorIcons.MaterialCommunityIcons name='run-fast' size={vh(12)} color={Colors.fadedGray} />
+                <Text style={styles.goingText} > {item.going} </Text>
+              </View>
+            </View>
+            <Text style={[styles.headingText, { fontSize: vh(16.7) }]} > {item.heading} </Text>
+            <Text style={styles.place} > {item.place} </Text>
+            <View style={styles.perPerson} >
+              <Text style={styles.moneyText} > {item.money} </Text>
+              <Text style={styles.moneyPerson} > per person </Text>
             </View>
           </View>
-          <Text style={[styles.headingText, { fontSize: vh(16.7) }]} > {item.heading} </Text>
-          <Text style={styles.place} > {item.place} </Text>
-          <View style={styles.perPerson} >
-            <Text style={styles.moneyText} > {item.money} </Text>
-            <Text style={styles.moneyPerson} > per person </Text>
-          </View>
-        </View>
-
+        </TouchableOpacity>
       </View>
     )
   }
@@ -205,18 +216,18 @@ const TabNavigator = createAppContainer(
             )
           } else if (routeName === 'Saved') {
             return (
-              <VectorIcons.Ionicons name={'ios-heart-empty'} size={vh(25)} color={tintColor} style={{ marginTop: 5 }} />
+              <VectorIcons.Ionicons name={'ios-heart-empty'} size={vh(25)} color={tintColor} style={styles.iconTab} />
             )
           } else if (routeName === 'MyEvents') {
             return (
               <Image
                 source={Images.logoIcon}
-                style={[styles.iconImage, { tintColor: tintColor }]}
+                style={[styles.iconTab, { tintColor: tintColor }]}
               />
             )
           } else if (routeName === 'Chat') {
             return (
-              <VectorIcons.AntDesign name={'message1'} size={vh(25)} color={tintColor} style={{ marginTop: 5 }} />
+              <VectorIcons.AntDesign name={'message1'} size={vh(25)} color={tintColor} style={styles.iconTab} />
             )
           }
         },
@@ -226,7 +237,10 @@ const TabNavigator = createAppContainer(
         inactiveTintColor: 'gray',
       },
     }
-  )
+  ),
+  {
+    initialRouteName: 'Explore'
+  },
 );
 
 TabNavigator.navigationOptions = {
@@ -273,6 +287,21 @@ const DATA2 = [
     money: '$45- $90',
     going: 35,
     icon: Images.musicIcon
+  }
+]
+
+const DATA3 = [
+  {
+    image: Images.res1,
+    iconImage: Images.cheers,
+    time: 'TODAY,JUL 14 • 7 PM',
+    heading: 'Dance Floor Table @ Omnia',
+    hashtag: '#Dancefloortable',
+    reviewRating: '4.5',
+    going: '8',
+    place: 'Caesars Palace, Las Vegas',
+    money: '$600- $800',
+    going: 10
   }
 ]
 
