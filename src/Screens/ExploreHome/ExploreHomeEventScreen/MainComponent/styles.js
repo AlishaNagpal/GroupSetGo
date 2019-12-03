@@ -133,6 +133,15 @@ export default styles = StyleSheet.create({
         padding: vh(15.3),
         borderBottomWidth: vh(0.7),
         borderBottomColor: 'rgba(184, 184, 184, 0.3)',
+     },
+     viewTwo4: {
+         padding: vh(20.7),
+         flexDirection: 'row', 
+         alignItems: 'center',
+         justifyContent: 'space-around'
+     },
+    viewThree: {
+
     },
     location: {
         flexDirection: 'row',

@@ -45,7 +45,7 @@ export default class SplashScreen extends Component {
   }
 
 animateSize = () => {
-  this.animatedValue.setValue(0)
+  
   Animated.parallel([
     Animated.timing(this.animatedValue, {
       toValue: 1,
