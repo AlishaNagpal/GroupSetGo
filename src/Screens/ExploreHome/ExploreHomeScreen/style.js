@@ -80,26 +80,26 @@ export default styles = StyleSheet.create({
         backgroundColor: Colors.white,
         shadowColor: Colors.gray,
         shadowOpacity: vh(0.5),
-        height: vh(215),
-        width: vw(360),
+        height: vw(230),
+        width: vw(340),
         borderWidth: vw(0.2),
         borderColor: Colors.fadedGray,
         borderRadius: vh(10),
     },
     flatlistImage: {
         height: vw(138),
-        width: vw(360),
+        width: vw(340),
         borderTopRightRadius: vh(10),
         borderTopLeftRadius: vh(10)
     },
     heart: {
         position: 'absolute',
-        marginLeft: vw(327.7),
+        marginLeft: vw(310),
         marginTop: vh(10)
     },
     heart2: {
         position: 'absolute',
-        marginLeft: vw(327.7),
+        marginLeft: vw(310),
         marginTop: vh(40)
     },
     cheers: {
@@ -135,20 +135,24 @@ export default styles = StyleSheet.create({
     place: {
         fontFamily: 'SourceSansPro-Regular',
         fontSize: vw(14),
-        color: Colors.fadedGray
+        color: Colors.fadedGray,
+        top: vw(5)
     },
     elongatedView: {
         height: vh(12),
         width: vw(1),
-        backgroundColor: Colors.fadedGray
+        backgroundColor: Colors.fadedGray,
+        top: vw(5)
     },
     moneyText: {
         fontFamily: 'SourceSansPro-Semibold',
-        fontSize: vw(13.7)
+        fontSize: vw(13.7),
+        top: vw(5)
     },
     moneyPerson: {
         fontFamily: 'SourceSansPro-Regular',
-        fontSize: vw(13.7)
+        fontSize: vw(13.7),
+        top: vw(5)
     },
     goingView: {
         flexDirection: 'row',

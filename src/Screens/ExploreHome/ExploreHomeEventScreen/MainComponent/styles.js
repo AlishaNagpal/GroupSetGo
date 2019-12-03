@@ -13,10 +13,17 @@ export default styles = StyleSheet.create({
         height: vh(270),
         width: vw(414)
     },
-    backBtn: {
+    backButton: {
         position: 'absolute',
         top: vh(41.3),
         left: vw(13.3)
+    },
+    shade: {
+        position: 'absolute',
+        opacity: 0.3,
+        height: vh(70),
+        width: vw(414),
+        backgroundColor: Colors.black,
     },
     flagBtn: {
         position: 'absolute',
@@ -25,7 +32,6 @@ export default styles = StyleSheet.create({
     },
     cheersView: {
         backgroundColor: 'black',
-        opacity: 0.75,
         position: 'absolute',
         left: vw(13.3),
         bottom: vh(12),
@@ -35,10 +41,7 @@ export default styles = StyleSheet.create({
         justifyContent: "center",
         borderRadius: vh(20.1),
     },
-    viewTwo: {
-       
-    },
-    viewTwo1: {
+    belowImage: {
         flexDirection: 'row',
         borderBottomWidth: vh(0.7),
         borderBottomColor: 'rgba(184, 184, 184, 0.3)',
@@ -50,31 +53,42 @@ export default styles = StyleSheet.create({
         color: Colors.fadedRed,
         fontWeight: '600',
         textTransform: "uppercase",
-        fontSize: vh(15.3)
+        fontSize: vw(18),
+        fontFamily: 'SourceSansPro-Semibold'
     },
     titleText: {
         paddingTop: vh(8),
         fontWeight: '500',
-        fontSize: vh(18.7)
+        fontSize: vw(18.7),
+        fontFamily: 'SourceSansPro-Semibold'
     },
     tagText: {
-        color: Colors.grey,
-        fontSize: vh(14),
+        color: Colors.fadedGray,
+        fontSize: vw(14),
         paddingTop: vh(3),
-        textTransform: "capitalize"
+        textTransform: "capitalize",
+        fontFamily: 'SourceSansPro-Regular'
+    },
+    profilePicture: {
+        justifyContent: 'flex-end',
+        left: vw(65),
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     imgView: {
-        backgroundColor: 'rgba(184, 184, 184, 0.3)',
+        backgroundColor: Colors.tealBlue,
         height: vh(40),
         width: vh(40),
         borderRadius: vh(20),
         marginRight: vw(0.7),
-        marginTop: vh(10)
+        marginTop: vh(10),
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     ratingView: {
-        backgroundColor: 'rgba(34, 138, 51, 1)',
-        height: vh(20.3),
-        width: vh(32.3),
+        backgroundColor: Colors.green,
+        height: vw(22),
+        width: vw(40),
         marginRight: vh(2),
         marginTop: vh(3),
         flexDirection: 'row',
@@ -83,49 +97,94 @@ export default styles = StyleSheet.create({
     },
     ratingText: {
         color: 'white',
-        fontSize: vh(12),
+        fontSize: vw(12),
         fontWeight: '600'
     },
     viewTwo2: {
         borderBottomWidth: vh(0.7),
-        borderBottomColor: 'rgba(184, 184, 184, 0.3)',
+        borderBottomColor: Colors.lightGray,
         paddingBottom: vh(7.3)
     },
     progressText: {
-        fontSize: vh(13.7),
-        paddingLeft: vw(67),
-        paddingTop: vh(10.3)
+        fontSize: vh(16),
+        paddingLeft: vw(30),
+        paddingTop: vh(10.3),
+        fontFamily: 'SourceSansPro-Semibold',
+        color: Colors.darkGray2
     },
     progressBar: {
         margin: vh(13),
-        backgroundColor: 'rgba(222, 222, 222, 1)',
-        height: vh(6),
-        borderRadius: vh(3),
-        marginBottom: vh(3.3)
-    },
-    progress: {
-        backgroundColor: 'rgba(34, 138, 51, 1)',
-        width: vh(150),
-        flex: 1,
-        borderRadius: vh(3),
     },
     progressValue: {
-        flexDirection: 'row', 
+        flexDirection: 'row',
         marginLeft: vw(257.3)
     },
-    viewTwo3: { 
+    barNumber: {
+        color: Colors.fadedGray2,
+        fontSize: vh(12)
+    },
+    barNumber2: {
+        color: Colors.fadedGray2,
+        fontSize: vh(12),
+        marginLeft: vw(100)
+    },
+    viewTwo3: {
         padding: vh(15.3),
         borderBottomWidth: vh(0.7),
         borderBottomColor: 'rgba(184, 184, 184, 0.3)',
-     },
-     viewTwo4: {
-         padding: vh(20.7),
-         flexDirection: 'row', 
-         alignItems: 'center',
-         justifyContent: 'space-around'
-     },
+    },
+    location: {
+        flexDirection: 'row',
+        paddingBottom: vh(15.3)
+    },
+    locationText: {
+        fontSize: vw(16),
+        color: Colors.darkGray2,
+        fontFamily: 'SourceSansPro-Regular'
+    },
+    money: {
+        fontSize: vw(16),
+        color: Colors.darkGray2,
+        fontFamily: 'SourceSansPro-Regular'
+    },
+    moneyView: {
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
+    iconPlace: {
+        flexDirection: 'row'
+    },
+    cancel: {
+        fontSize: vw(16),
+        fontFamily: 'SourceSansPro-Semibold',
+        color: Colors.black
+    },
+    viewTwo4: {
+        padding: vh(20.7),
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-around'
+    },
     viewThree: {
         height: vh(372),
-
     },
+    center: {
+        alignItems: 'center'
+    },
+    joinText: {
+        fontSize: vh(15),
+        color: Colors.green
+    },
+    saveText: {
+        fontSize: vh(15),
+        color: Colors.fadedRed
+    },
+    shareText: {
+        fontSize: vh(15),
+        color: Colors.shareBlue
+    },
+    separator: {
+        backgroundColor: Colors.whitishGray,
+        padding: vh(6)
+    }
 })

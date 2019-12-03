@@ -13,7 +13,7 @@ const colors = [Colors.moderateRed, Colors.moderatePink, Colors.darkModeratePink
 class ExploreHomeScreen01 extends Component {
 
   callScreen() {
-    this.props.navigation.navigate('ExploreHomeScreen02', {
+    this.props.navigation.navigate('HomeDetails6', {
       data: { DATA3 }
     })
   }
@@ -318,19 +318,19 @@ const DATA2 = [
   }
 ]
 
-const DATA3 = [
-  {
-    image: Images.res1,
-    iconImage: Images.cheers,
-    time: 'TODAY,JUL 14 • 7 PM',
-    heading: 'Dance Floor Table @ Omnia',
-    hashtag: '#Dancefloortable',
-    reviewRating: '4.5',
-    going: '8',
-    place: 'Caesars Palace, Las Vegas',
-    money: '$600- $800',
-    going: 10
-  }
-]
+const DATA3 = {
+  image: Images.res1,
+  iconImage: Images.cheers,
+  profile: Images.maleImage,
+  time: 'TODAY,JUL 14 • 7 PM',
+  heading: 'Dance Floor Table @ Omnia',
+  hashtag: '#Dancefloortable',
+  reviewRating: '4.5',
+  going: '8',
+  location: '3570 S Las Vegas Blvd, Las Vegas, NV 89109',
+  money: '$600- $800',
+  cancelDate: '06/30/2018'
+}
+
 
 
