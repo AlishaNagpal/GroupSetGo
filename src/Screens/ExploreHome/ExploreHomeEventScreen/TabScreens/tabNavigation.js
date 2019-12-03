@@ -22,8 +22,13 @@ const NavTabBar = createMaterialTopTabNavigator({
     {
         initialRouteName: 'About',
         tabBarOptions: {
-            activeTintColor: Colors.fadedRed,
             inactiveTintColor: Colors.gray,
+            activeTintColor: Colors.fadedRed,
+            labelStyle: {
+                fontSize: vw(14.6),
+                fontWeight: '600',
+            },
+            showIcon: false,
             style: {
                 backgroundColor: Colors.white,
             },
