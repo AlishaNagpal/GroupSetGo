@@ -4,7 +4,7 @@ import LinearGradient from 'react-native-linear-gradient'
 
 //Custom Imports
 import styles from './styles'
-import { Colors, vh } from '../../Constants/index';
+import { Colors, vh, VectorIcons } from '../../Constants';
 
 const colors = [Colors.moderateRed, Colors.moderatePink, Colors.darkModeratePink, Colors.darkViolet, Colors.darkViolet, Colors.darkViolet]
 
