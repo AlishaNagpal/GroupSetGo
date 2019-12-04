@@ -6,7 +6,7 @@ export default styles = StyleSheet.create({
         flex:1,
     },
     mainHeading:{
-        fontSize: vh(23.3),
+        fontSize: vw(23.3),
         fontFamily: 'SourceSansPro-Semibold',
         color: Colors.white,
         fontWeight:'bold',
@@ -14,7 +14,7 @@ export default styles = StyleSheet.create({
     },
     stepText:{
         fontFamily:'SourceSansPro-Regular',
-        fontSize:vh(14),
+        fontSize:vw(14),
         color: Colors.rosa,
         marginTop: vh(46.7),
         alignSelf:'center'
@@ -22,7 +22,7 @@ export default styles = StyleSheet.create({
     belowStep:{
         fontFamily:'SourceSansPro-Semibold',
         color:Colors.white,
-        fontSize:vh(17),
+        fontSize:vw(17),
         alignSelf:'center',
         fontWeight:'500',
         marginTop: vh(13)
@@ -31,7 +31,7 @@ export default styles = StyleSheet.create({
         fontFamily:'SourceSansPro-Regular',
         color:Colors.white,
         width: vw(280),
-        fontSize:vh(14),
+        fontSize:vw(14),
         textAlign:'center',
         marginTop:vh(15),
         alignSelf:'center'
@@ -63,7 +63,7 @@ export default styles = StyleSheet.create({
     buttonText:{
         color: Colors.white,
         fontFamily:'SourceSansPro-Semibold',
-        fontSize:vh(16.7),
+        fontSize:vw(16.7),
     },
     iconPos:{
         marginLeft: vw(20),
@@ -82,7 +82,7 @@ export default styles = StyleSheet.create({
         color:Colors.white,
         fontFamily:'SourceSansPro-Semibold',
         fontWeight:'500',
-        fontSize: vh(18)
+        fontSize: vw(18)
     },
     eyeIcon:{
         position: 'absolute',

@@ -7,7 +7,7 @@ import { createAccountEmail } from '../SignUpScreen/createAccountEmail.js'
 import createAccountGender from '../SignUpScreen/createAccountGender.js'
 import createAccountPassword from '../SignUpScreen/createAccountPassword.js'
 import createAccountBirth from '../SignUpScreen/CreateAccountBirth.js'
-import ExploreHomeScreen01 from '../ExploreHome/ExploreHomeScreen01/ExploreHomeScreen01'
+import ExploreHomeScreen from '../ExploreHome/ExploreHomeScreen/ExploreHomeScreen'
 import OnboardingLogin from '../OnboardingLogin/OnboardingLogin'
 import ForgotPassword from '../ForgotPassword/ForgotPassword'
 import LoginWithEmail from '../LoginScreen/LoginWithEmail'
@@ -66,7 +66,7 @@ const AppNavigator = createStackNavigator({
 },
 
     {
-        initialRouteName: 'ExploreEventsUsers',
+        initialRouteName: 'SplashScreen',
         defaultNavigationOptions: ({ navigation }) => ({
             headerBackTitle: null,
         }),

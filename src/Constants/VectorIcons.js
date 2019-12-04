@@ -20,11 +20,11 @@ const FontAwesome = props => <FontAwesomeI {...props} />
 const MaterialIcons = props => <MaterialIconsI {...props} />
 const Entypo = props => <EntypoI {...props} />
 const AntDesign = props => <AntDesignI {...props} />
- const FontAwesome5 = props => <FontAwesome5I {...props} />
- const SimpleLineIcons = props => <SimpleLineIconsI {...props} />
+const FontAwesome5 = props => <FontAwesome5I {...props} />
+const SimpleLineIcons = props => <SimpleLineIconsI {...props} />
 const EvilIcons = props => <EvilIconsI {...props} />
 
-export default  {
+export default {
     Octicons,
     MaterialCommunityIcons,
     FontAwesome,

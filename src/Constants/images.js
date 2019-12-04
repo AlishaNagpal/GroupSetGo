@@ -18,7 +18,10 @@ const Images = {
     musicIcon: require('../Assets/Images/music-player.png'),
     trekIcon: require('../Assets/Images/hiking.png'),
     calendar: require('../Assets/Images/calendar.png'),
-    logoIcon: require('../Assets/Images/icMyeventsDeselect.png')
+    logoIcon: require('../Assets/Images/icMyeventsDeselect.png'),
+    person1: require('../Assets/Images/person1.jpeg'),
+    person2: require('../Assets/Images/person2.jpeg'),
+    person3: require('../Assets/Images/person3.jpeg'),
 }
 
 export default Images;
