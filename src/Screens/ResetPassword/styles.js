@@ -45,7 +45,7 @@ export const styles = StyleSheet.create({
         paddingVertical: vh(8),
         fontSize: vw(16.7),
         fontFamily: 'SourceSansPro-Semibold',
-        width: vw(185)
+        width: vw(185),
     },
     newPasswordInputViewStyle: {
         flexDirection: 'row',

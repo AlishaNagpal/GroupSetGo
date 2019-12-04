@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native'
 import { vh, vw, DesignWidth } from '../../Constants';
 
 import Colors from '../../Constants/Colors'
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
     containerStyle: {
         flex: 1,
         alignItems: 'center'
@@ -136,3 +136,5 @@ export const styles = StyleSheet.create({
         color: Colors.darkGray
     }
 });
+
+export default styles;

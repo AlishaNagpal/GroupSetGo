@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { View, Modal, Text, Image } from 'react-native'
-import { styles } from './styles'
+import styles from './styles'
 
 import { vh } from '../../Constants/Dimension'
 import { FlatList } from 'react-native-gesture-handler'

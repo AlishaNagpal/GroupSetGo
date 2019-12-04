@@ -12,7 +12,8 @@ const strings = {
     dontWorry: "Don't worry. We can help.",
     resetPassword: 'Reset Password.',
     keepItStrong: 'Keep it super strong.' ,
-    participantList: 'Participant List'
+    participantList: 'Participant List',
+    recentSearches : 'RECENT SEARCHES'
 }
 
 export default strings;

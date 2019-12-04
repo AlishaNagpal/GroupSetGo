@@ -16,7 +16,8 @@ const Colors = {
     lightGray: '#E9E9E9',
     fadedGray: '#7c7c7c',
     gray: '#848484',
-    redShadow:'#bd2e44'
+    redShadow:'#bd2e44',
+    backgroundColorLightGray: 'rgb(245,245,245)'
 }
 
 export default Colors;

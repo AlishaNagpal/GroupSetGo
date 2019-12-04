@@ -25,7 +25,8 @@ export default class LoginWithEmail extends PureComponent {
         email: '',
         password: '',
         passwordVisible: false,
-        forgotModalVisible: false
+        forgotModalVisible: false,
+        modalVisible: this.props.modalVisible
     }
 
     togglePasswordVisibility = () => {
@@ -34,7 +35,7 @@ export default class LoginWithEmail extends PureComponent {
         })
     }
 
-    toggleModalVisibility = () => {
+    forgotPasswordModel = () => {
         this.setState({
             forgotModalVisible: !this.state.forgotModalVisible
         })
@@ -44,11 +45,11 @@ export default class LoginWithEmail extends PureComponent {
             <Modal
                 animationType='slide'
                 transparent={false}
-                visible={this.props.modalVisible}
+                visible={this.state.modalVisible}
                 onRequestClose={this.props.toggleModalVisibility}>
                 {this.state.forgotModalVisible && <ForgotPassword
                     modalVisible={this.state.forgotModalVisible}
-                    toggleModalVisibility={() => this.toggleModalVisibility()}
+                    forgotPasswordModel={() => this.forgotPasswordModel()}
                 />}
                 <View style={styles.containerStyle}>
                     <TouchableOpacity
@@ -89,19 +90,23 @@ export default class LoginWithEmail extends PureComponent {
                             <Icon2
                                 name={this.state.passwordVisible ? "eye-off-outline" : "eye-outline"}
                                 size={vw(16.4)}
-                                onPress={this.togglePasswordVisibility}
-                            />
+                                onPress={this.togglePasswordVisibility} />
                         }
                     </View>
-                    <TouchableOpacity onPress={this.toggleModalVisibility}>
+                    <TouchableOpacity onPress={this.forgotPasswordModel}>
                         <Text style={styles.forgotPasswordTextStyle}>Forgot password?</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={this.loginButtnTapped} style={styles.loginButtonStyle}>
-                            <Text style={styles.loginButtonTitleStyle}>Login</Text>
+                        <Text style={styles.loginButtonTitleStyle}>Login</Text>
                     </TouchableOpacity>
                     <View style={styles.createAnAccountViewStyle}>
                         <Text style={styles.newToGroupSetGoStyle}>{strings.newToGroupSetGo}</Text>
-                        <TouchableOpacity onPress={() => { this.props.navProps.navigate('createAccountName') }}>
+                        <TouchableOpacity onPress={() => {
+                            this.setState({ modalVisible: false }, () => {
+                                this.props.toggleModalVisibility
+                                this.props.navProps.navigate("createAccountName")
+                            })
+                        }}>
                             <Text style={styles.createAccountTextStyle}>Create an account </Text>
                         </TouchableOpacity>
                     </View>

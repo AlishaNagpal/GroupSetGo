@@ -7,7 +7,7 @@ Icon.loadFont()
  * custom imports
  */
 import strings from '../../Constants/Strings'
-import { styles } from './styles'
+import styles from './styles'
 import { vh, Colors, vw } from '../../Constants'
 import { FlatList } from 'react-native-gesture-handler'
 import Card from './Card'

@@ -25,12 +25,10 @@ export default class ForgotPassword extends PureComponent {
                 animationType='slide'
                 transparent={false}
                 visible={this.props.forgotModalVisible}
-                onRequestClose={this.props.toggleModalVisibility}>
+                onRequestClose={this.props.forgotPasswordModel}>
                 <View style={styles.containerStyle}>
                     <View style={{ width: vw(DesignWidth) }}>
-                        <TouchableOpacity onPress={this.props.toggleModalVisibility}>
-                        <Icon1 name="ios-arrow-back" size={vh(30)} color={Colors.rosa} style={styles.backButtonStyle} />
-                        </TouchableOpacity>
+                        <Icon1 onPress={this.props.forgotPasswordModel} name="ios-arrow-back" size={vh(30)} color={Colors.rosa} style={styles.backButtonStyle} />
                     </View>
                     <Text style={styles.forgotPasswordTextStyle}>{strings.forgotyourPassword}</Text>
                     <Text style={styles.dontWorryTextStyle}>{strings.dontWorry}</Text>
@@ -46,7 +44,7 @@ export default class ForgotPassword extends PureComponent {
                             returnKeyType='next'
                             onChangeText={text => { this.setState({ email: text }) }} />
                     </View>
-                    <TouchableOpacity  style={styles.submitButtonStyle}>
+                    <TouchableOpacity style={styles.submitButtonStyle}>
                         <Text style={styles.loginButtonTitleStyle}>Submit</Text>
                     </TouchableOpacity>
                 </View>
