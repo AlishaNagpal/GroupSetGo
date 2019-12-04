@@ -27,6 +27,8 @@ const Colors = {
     strokeColor: 'rgba(144, 201, 244,0.5)',
     fillColor: 'rgba(197, 221, 235,0.5)',
     darkGreen: 'rgb(34, 138, 51)',
+    chatBlue: '#1F94DA',
+    orange: '#FA6C00'
 }
 
 export default Colors;

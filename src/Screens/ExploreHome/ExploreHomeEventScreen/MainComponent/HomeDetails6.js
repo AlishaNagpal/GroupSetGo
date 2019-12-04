@@ -6,7 +6,6 @@ import {
     ScrollView,
     TouchableOpacity,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/SimpleLineIcons'
 
 // Custom Imports
 import styles from './styles';
@@ -14,22 +13,75 @@ import { VectorIcons, vh, vw, Colors } from '../../../../Constants';
 import MyTab from '../TabScreens/tabNavigation';
 import * as Progress from 'react-native-progress';
 
-Icon.loadFont()
-
 export default class HomeDetails6 extends Component {
-    state = { data: this.props.navigation.getParam('data') }
+    state = {
+        data: this.props.navigation.getParam('data'),
+        going: false
+    }
+
+    goingJoin = () => {
+        if (this.state.going === false) {
+            return (
+                <TouchableOpacity style={styles.center} onPress={() => this.setState({ going: true })} >
+                    <VectorIcons.Ionicons
+                        name="ios-add-circle-outline"
+                        color={Colors.orange}
+                        size={vh(25)}
+                    />
+                    <Text style={styles.saveText}>Waitlist</Text>
+                </TouchableOpacity>
+            )
+        } else {
+            return (
+                <TouchableOpacity style={styles.center}>
+                    <VectorIcons.Ionicons
+                        name="ios-checkmark-circle-outline"
+                        color={Colors.green}
+                        size={vh(25)}
+                    />
+                    <Text style={styles.goingText}> Going </Text>
+                </TouchableOpacity>
+            )
+        }
+    }
+
+    goingSave = () => {
+        if (this.state.going === false) {
+            return (
+                <TouchableOpacity style={styles.center}>
+                    <VectorIcons.Ionicons
+                        name="ios-add-circle-outline"
+                        color={Colors.green}
+                        size={vh(25)}
+                    />
+                    <Text style={styles.joinText}>Join</Text>
+                </TouchableOpacity>
+            )
+        } else {
+            return (
+                <TouchableOpacity style={styles.center}>
+                    <VectorIcons.AntDesign
+                        name="message1"
+                        color={Colors.chatBlue}
+                        size={vh(25)}
+                    />
+                    <Text style={styles.chattingText}> Chat </Text>
+                </TouchableOpacity>
+            )
+        }
+    }
     render() {
         const { DATA3 } = this.state.data;
         return (
             <View style={styles.mainView}>
-                <ScrollView bounces = {false} >
+                <ScrollView bounces={false} >
                     <View style={styles.viewOne}>
                         <Image
                             source={DATA3.image}
                             style={styles.pic}
                         />
                         <View style={styles.shade} />
-                        <TouchableOpacity onPress={() => this.props.navigation.navigate('ExploreHomeScreen')} style={styles.backButton} >
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate('HomeNavigator')} style={styles.backButton} >
                             <VectorIcons.MaterialCommunityIcons
                                 name='keyboard-backspace'
                                 color={Colors.white}
@@ -74,7 +126,7 @@ export default class HomeDetails6 extends Component {
                     </View>
                     <View style={styles.viewTwo3}>
                         <View style={styles.location}>
-                            <Icon
+                            <VectorIcons.SimpleLineIcons
                                 name='location-pin'
                                 color={Colors.darkGray2}
                                 size={vh(17.3)}
@@ -101,39 +153,19 @@ export default class HomeDetails6 extends Component {
                         </View>
                     </View>
                     <View style={styles.viewTwo4}>
-                        <View>
-                            <TouchableOpacity style={styles.center}>
-                                <VectorIcons.Ionicons
-                                    name="ios-add-circle-outline"
-                                    color = {Colors.green}
-                                    size={vh(25)}
-                                />
-                                <Text style={styles.joinText}>Join</Text>
-                            </TouchableOpacity>
-                        </View>
-                        <View>
-                            <TouchableOpacity style={styles.center}>
-                                <VectorIcons.MaterialCommunityIcons
-                                    name="heart-outline"
-                                    color={Colors.fadedRed}
-                                    size={vh(25)}
-                                />
-                                <Text style={styles.saveText}>Save</Text>
-                            </TouchableOpacity>
-                        </View>
-                        <View>
-                            <TouchableOpacity style={styles.center} >
-                                <Icon
-                                    name="share"
-                                    color={Colors.shareBlue}
-                                    size={vh(25)}
-                                />
-                                <Text style={styles.shareText}>Share</Text>
-                            </TouchableOpacity>
-                        </View>
+                        {this.goingJoin()}
+                        {this.goingSave()}
+                        <TouchableOpacity style={styles.center} >
+                            <VectorIcons.SimpleLineIcons
+                                name="share"
+                                color={Colors.shareBlue}
+                                size={vh(25)}
+                            />
+                            <Text style={styles.shareText}>Share</Text>
+                        </TouchableOpacity>
                     </View>
-                    <View style={styles.separator}/>
-                        <MyTab />
+                    <View style={styles.separator} />
+                    <MyTab />
                 </ScrollView>
             </View>
         );

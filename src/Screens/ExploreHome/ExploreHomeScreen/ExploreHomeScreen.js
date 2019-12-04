@@ -91,7 +91,7 @@ export default class ExploreHomeScreen extends Component {
             <Text style={styles.headerTextInput} > Search event, users </Text>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={() => this.props.navigation.navigate('ExploreMapScreen')} >
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('Map')} >
             <VectorIcons.FontAwesome name={"map-o"} size={vh(18)} color={Colors.fadedRed} style={styles.map} />
           </TouchableOpacity>
 

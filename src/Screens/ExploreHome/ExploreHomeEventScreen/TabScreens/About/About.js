@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
+import LinearGradient from 'react-native-linear-gradient'
 
 //custom imports
 import styles from './style'
+const colors = [Colors.moderateRed, Colors.moderatePink, Colors.darkModeratePink, Colors.darkViolet, Colors.darkViolet, Colors.darkViolet]
+import {VectorIcons, Colors, vh} from '../../../../../Constants'
 
 export default class About extends Component {
   constructor(props) {
@@ -96,6 +99,11 @@ export default class About extends Component {
             />
           ))}
         </MapView>
+        <LinearGradient colors={colors} style={styles.gradient} >
+          <TouchableOpacity>
+            <VectorIcons.AntDesign name = "adduser" color = {Colors.white} size={vh(25) } />
+          </TouchableOpacity>
+        </LinearGradient>
       </View>
     );
   }

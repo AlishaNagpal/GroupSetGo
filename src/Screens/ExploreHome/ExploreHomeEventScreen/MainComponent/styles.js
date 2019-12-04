@@ -184,7 +184,7 @@ export default styles = StyleSheet.create({
     },
     saveText: {
         fontSize: vh(15),
-        color: Colors.fadedRed
+        color: Colors.orange
     },
     shareText: {
         fontSize: vh(15),
@@ -193,5 +193,13 @@ export default styles = StyleSheet.create({
     separator: {
         backgroundColor: Colors.whitishGray,
         padding: vh(6)
-    }
+    },
+    goingText: {
+        fontSize: vh(15),
+        color: Colors.green
+    },
+    chattingText: {
+        fontSize: vh(15),
+        color: Colors.chatBlue
+    },
 })
