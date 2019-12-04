@@ -58,7 +58,7 @@ const AppNavigator = createStackNavigator({
 },
 
     {
-        initialRouteName: 'ExploreHomeScreen',
+        initialRouteName: 'SplashScreen',
         defaultNavigationOptions: ({ navigation }) => ({
             headerBackTitle: null,
         }),

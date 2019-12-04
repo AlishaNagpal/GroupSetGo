@@ -19,6 +19,7 @@ Icon.loadFont()
 export default class HomeDetails6 extends Component {
     state = { data: this.props.navigation.getParam('data') }
     render() {
+        console.warn('mystate', this.props.navigation.getParam('data'))
         const { DATA3 } = this.state.data;
         return (
             <View style={styles.mainView}>
