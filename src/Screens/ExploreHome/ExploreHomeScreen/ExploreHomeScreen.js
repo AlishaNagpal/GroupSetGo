@@ -1,23 +1,19 @@
 import React, { Component } from 'react';
-import { View, Text, Image, TextInput, FlatList, ImageBackground, TouchableOpacity, TouchableHighlight } from 'react-native';
+import { View, Image, TouchableOpacity, Text, FlatList, } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient'
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
-import { createBottomTabNavigator } from 'react-navigation-tabs'
 
 //Custom Imports
 import styles from './style'
 import { Images, VectorIcons, Colors, vh, vw } from '../../../Constants'
 
 const colors = [Colors.moderateRed, Colors.moderatePink, Colors.darkModeratePink, Colors.darkViolet, Colors.darkViolet, Colors.darkViolet]
-class ExploreHomeScreen01 extends Component {
+export default class ExploreHomeScreen extends Component {
 
   callScreen() {
     this.props.navigation.navigate('HomeDetails6', {
       data: { DATA3 }
     })
   }
-
 
   renderData = (rowData) => {
     let { item } = rowData
@@ -81,6 +77,7 @@ class ExploreHomeScreen01 extends Component {
     )
   }
 
+
   render() {
     return (
       <View style={styles.mainContainer} >
@@ -89,16 +86,12 @@ class ExploreHomeScreen01 extends Component {
             source={Images.maleImage}
             style={styles.headerImage}
           />
-          <View style={styles.textInputView} >
+          <TouchableOpacity style={styles.textInputView} onPress={() => this.props.navigation.navigate('ExploreEventsUsers')} >
             <VectorIcons.Ionicons name="md-search" size={vh(20)} color={Colors.black} />
-            <TextInput
-              placeholder={'Search event, users'}
-              placeholderTextColor={Colors.black}
-              style={styles.headerTextInput}
-            />
-          </View>
+            <Text style={styles.headerTextInput} > Search event, users </Text>
+          </TouchableOpacity>
 
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('ExploreMapScreen')} >
             <VectorIcons.FontAwesome name={"map-o"} size={vh(18)} color={Colors.fadedRed} style={styles.map} />
           </TouchableOpacity>
 
@@ -107,7 +100,6 @@ class ExploreHomeScreen01 extends Component {
               style={styles.notification} />
           </TouchableOpacity>
         </View>
-
         <View style={styles.sortFilterView} >
           <TouchableOpacity style={styles.sortStyle} >
             <Text style={styles.sortText} > Sort </Text>
@@ -119,7 +111,7 @@ class ExploreHomeScreen01 extends Component {
         <Text style={styles.recommendedText} > Recommended </Text>
         <View style={styles.flatlistHeight} >
           <FlatList
-            keyExtractor={(item, index) => { index.toString() }}
+            keyExtractor={() => Math.random().toString()}
             data={DATA}
             renderItem={this.renderData}
             horizontal
@@ -128,7 +120,7 @@ class ExploreHomeScreen01 extends Component {
         </View>
         <Text style={styles.allEvents} > All Events </Text>
         <FlatList
-          keyExtractor={(item, index) => { index.toString() }}
+          keyExtractor={() => Math.random().toString()}
           data={DATA2}
           renderItem={this.renderData2}
           horizontal
@@ -139,109 +131,10 @@ class ExploreHomeScreen01 extends Component {
             <Image source={Images.calendar} style={styles.calendar} />
           </TouchableOpacity>
         </LinearGradient>
-
       </View>
     );
   }
 }
-
-const Explore = createStackNavigator({ Explore: ExploreHomeScreen01 },
-  {
-    defaultNavigationOptions: {
-      header: null,
-    },
-  }
-);
-const Saved = createStackNavigator({ Saved: ExploreHomeScreen01, },
-  {
-    defaultNavigationOptions: {
-      header: null,
-    },
-  });
-const MyEvents = createStackNavigator({ MyEvents: ExploreHomeScreen01 },
-  {
-    defaultNavigationOptions: {
-      header: null,
-    },
-  });
-const Chat = createStackNavigator({ Chat: ExploreHomeScreen01 },
-  {
-    defaultNavigationOptions: {
-      header: null,
-    },
-  });
-
-
-const TabNavigator = createAppContainer(
-  createBottomTabNavigator(
-    {
-      Explore: {
-        screen: Explore,
-        navigationOptions: ({ navigation }) => ({
-          title: "EXPLORE"
-        })
-      },
-      Saved: {
-        screen: Saved,
-        navigationOptions: ({ navigation }) => ({
-          title: "SAVED"
-        })
-      },
-      MyEvents: {
-        screen: MyEvents,
-        navigationOptions: ({ navigation }) => ({
-          title: "MY EVENTS"
-        })
-      },
-      Chat: {
-        screen: Chat,
-        navigationOptions: ({ navigation }) => ({
-          title: "CHAT"
-        })
-      },
-    },
-    {
-      defaultNavigationOptions: ({ navigation }) => ({
-        tabBarIcon: ({ focused, horizontal, tintColor }) => {
-          const { routeName } = navigation.state;
-          if (routeName === 'Explore') {
-            return (
-              <VectorIcons.Ionicons name={'md-search'} size={vh(25)} color={tintColor} style={styles.iconTab} />
-            )
-          } else if (routeName === 'Saved') {
-            return (
-              <VectorIcons.Ionicons name={'ios-heart-empty'} size={vh(25)} color={tintColor} style={styles.iconTab} />
-            )
-          } else if (routeName === 'MyEvents') {
-            return (
-              <Image
-                source={Images.logoIcon}
-                style={[styles.iconTab, { tintColor: tintColor }]}
-              />
-            )
-          } else if (routeName === 'Chat') {
-            return (
-              <VectorIcons.AntDesign name={'message1'} size={vh(25)} color={tintColor} style={styles.iconTab} />
-            )
-          }
-        },
-      }),
-      tabBarOptions: {
-        activeTintColor: 'red',
-        inactiveTintColor: 'gray',
-      },
-    }
-  ),
-  {
-    initialRouteName: 'Explore'
-  },
-);
-
-TabNavigator.navigationOptions = {
-  headerShown: false,
-};
-
-export default TabNavigator;
 
 
 const DATA = [

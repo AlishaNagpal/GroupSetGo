@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-import MapView, { Marker } from 'react-native-maps';
+import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 
 //custom imports
 import styles from './style'
-import { Colors } from '../../../../../Constants';
-RADIUS = 500;
+
 export default class About extends Component {
   constructor(props) {
     super(props);
@@ -14,15 +13,8 @@ export default class About extends Component {
         latlng: {
           latitude: 36.116442, longitude: -115.175079
         },
-        title: DATA.location
+        title: DATA.location,
       }],
-      mapRegion: null,
-      currentLatitude: null,
-      currentLongitude: null,
-      LATLNG: {
-        latitude: 36.116442,
-        longitude: -115.175079
-      },
     };
   }
 
@@ -76,21 +68,24 @@ export default class About extends Component {
           </TouchableOpacity>
         </View>
         <View style={styles.separator} />
-        
+
         <View style={styles.row2} >
           <Text style={styles.detailsTextHead} > Venue Location </Text>
           <TouchableOpacity>
             <Text style={styles.viewMoreText} > {DATA.reviews} reviews </Text>
           </TouchableOpacity>
         </View>
-        
+
         <MapView
           style={styles.mapStyle}
+          provider={PROVIDER_GOOGLE}
+          zoomEnabled={true}
+          maxZoomLevel={13.3}
           region={{
             latitude: 36.116442,
             longitude: -115.175079,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421
+            latitudeDelta: 0.015,
+            longitudeDelta: 0.0121,
           }}
         >
           {this.state.markers.map(marker => (
@@ -100,17 +95,6 @@ export default class About extends Component {
               description={marker.description}
             />
           ))}
-
-          <MapView.Circle
-            center={{
-              latitude: 36.116442,
-              longitude: -115.175079,
-            }}
-            radius={3000}
-            strokeWidth={1}
-            strokeColor={Colors.strokeColor}
-            fillColor={Colors.fillColor}
-          />
         </MapView>
       </View>
     );
