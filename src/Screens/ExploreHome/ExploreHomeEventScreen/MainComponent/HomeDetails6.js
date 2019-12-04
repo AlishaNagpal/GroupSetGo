@@ -74,7 +74,7 @@ export default class HomeDetails6 extends Component {
         const { DATA3 } = this.state.data;
         return (
             <View style={styles.mainView}>
-                <ScrollView bounces={false} >
+                <ScrollView bounces = {false}>
                     <View style={styles.viewOne}>
                         <Image
                             source={DATA3.image}

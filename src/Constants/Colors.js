@@ -28,7 +28,8 @@ const Colors = {
     fillColor: 'rgba(197, 221, 235,0.5)',
     darkGreen: 'rgb(34, 138, 51)',
     chatBlue: '#1F94DA',
-    orange: '#FA6C00'
+    orange: '#FA6C00',
+    red: 'rgb(211, 20, 38)',
 }
 
 export default Colors;

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { 
-  View, 
-  Text, 
+import {
+  View,
+  Text,
   Image,
   FlatList,
+  TouchableOpacity
 } from 'react-native';
 
 import { Images, vh, vw, VectorIcons, Colors } from '../../../../../Constants';
@@ -13,6 +14,7 @@ export default class Participants extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      count: 0
     };
   }
 
@@ -24,76 +26,97 @@ export default class Participants extends Component {
     );
   }
 
-renderItems = (rawData) => {
-  const {item, id} = rawData
-  return(
-    <View style={styles.flatListView}>
-      <View style={styles.leftView}>
-            <Image
-              source={item.pic}
-              style={styles.orgPic}
-            />
-            {item.online && 
+  renderItems = (rawData) => {
+    const { item, id } = rawData
+    console.warn('rawData ', rawData)
+    return (
+      <View style={styles.flatListView}>
+        <View style={styles.leftView}>
+          <Image
+            source={item.pic}
+            style={styles.orgPic}
+          />
+          {item.online &&
             <VectorIcons.MaterialCommunityIcons
-                  name="checkbox-marked-circle"
-                  color={Colors.darkGreen}
-                  size={vh(12.3)}
-                  style={styles.check}
-                />}
-            <View style={styles.nameView}>
-              <Text style={{ ...styles.orgName }}>{item.name}</Text>
-            </View>
-            </View>
-            <View style={styles.rightView}>
-               <View style={{...styles.chatView, backgroundColor: item.unseen > 0 ? Colors.darkGreen : 'white',}}>
-               {item.unseen > 0 && <Text style={styles.num}>+{item.unseen}</Text>}
-                </View>
-              <View style={styles.msgView}>
-              <VectorIcons.MaterialCommunityIcons
-                  name="message-text-outline"
-                  color={Colors.lightGrey}
-                  size={vh(20.5)}
-                />
-                <VectorIcons.MaterialCommunityIcons
-                  name="dots-vertical"
-                  color={Colors.lightGrey}
-                  size={vh(20.5)}
-                  onPress={() => this.delete(id)}
-                />
-                </View>
-            </View>
+              name="checkbox-marked-circle"
+              color={Colors.darkGreen}
+              size={vh(12.3)}
+              style={styles.check}
+            />}
+          <View style={styles.nameView}>
+            <Text style={{ ...styles.orgName }}>{item.name}</Text>
           </View>
-  );
-}
-
-delete = (key) => {
-  console.warn('hii')
-  return(
-    <View style={styles.deleteChat}>
-      <Text>okkk</Text>
-      </View>
-  );
-}
-
-renderWaitlist = (rawData) =>{
-  const {item, id} = rawData
-  return(
-    <View>
-      <Image
-              source={item.pic}
-              style={styles.waitPic}
+        </View>
+        <View style={styles.rightView}>
+          <View style={{ ...styles.chatView, backgroundColor: item.unseen > 0 ? Colors.darkGreen : 'white', }}>
+            {item.unseen > 0 && <Text style={styles.num}>+{item.unseen}</Text>}
+          </View>
+          <View style={styles.msgView}>
+            <VectorIcons.MaterialCommunityIcons
+              name="message-text-outline"
+              color={Colors.lightGrey}
+              size={vh(20.5)}
             />
+            <VectorIcons.MaterialCommunityIcons
+              name="dots-vertical"
+              color={Colors.lightGrey}
+              size={vh(20.5)}
+              onPress={() => this.delete(id)}
+            />
+          </View>
+        </View>
       </View>
-  );
+    );
+  }
+
+  delete = (key) => {
+    console.warn('hii')
+    return (
+      <View style={styles.deleteChat}>
+        <Text>okkk</Text>
+      </View>
+    );
+  }
+
+  renderParticipantslist = (rawData) => {
+    const { item, index } = rawData
+    if (index < 5) {
+      return (
+        <View>
+          <Image
+            source={item.pic}
+            style={styles.waitPic}
+          />
+        </View>
+      );
+    }
+  }
+
+listOfParticipants = () => {
+  console.warn('press');
+  () => {this.props.navigation.navigate('ExploreNoOfParticipants')}
 }
+
+  renderWaitlist = (rawData) => {
+    const { item, id } = rawData
+    return (
+      <View>
+        <Image
+          source={item.pic}
+          style={styles.waitPic}
+        />
+      </View>
+    );
+  }
 
   render() {
     return (
       <View style={styles.mainView}>
-        {/* -------------- Organizer ----------------- */}
+        {/* -------------- Organizer ----------------- */} 
         <View style={styles.viewOne}>
           <Text style={{ ...styles.orgHeading }}>Organizer</Text>
           <View style={styles.picView}>
+            <View style={styles.leaveView}>
             <Image
               source={ORGANIZER.pic}
               style={styles.orgPic}
@@ -109,12 +132,18 @@ renderWaitlist = (rawData) =>{
                 />
               </View>
             </View>
+            </View>
+            <View>
+            <TouchableOpacity style={styles.leave}>
+              <Text style={styles.leaveText}>Leave Event</Text>
+              </TouchableOpacity>
+              </View>
           </View>
         </View>
         {/* -------------- Participants ----------------- */}
         <View style={styles.viewTwo}>
-          <Text style={{ ...styles.orgHeading, marginLeft: vw(13), }}>Participants</Text>
-          <FlatList 
+          <Text style={{ ...styles.orgHeading }}>Participants</Text>
+          {/* <FlatList 
           style={styles.myFlatList}
           data = {PARTICIPANTS}
           keyExtractor = {(item, id) => id.toString()}
@@ -122,20 +151,36 @@ renderWaitlist = (rawData) =>{
           ItemSeparatorComponent = {this.FlatListItemSeparator}
           showsVerticalScrollIndicator={false}
           nestedScrollEnabled= {true}
-          />
-        </View> 
+          /> */}
+          <View style={styles.plus}>
+            <FlatList
+              data={PARTICIPANTS2}
+              keyExtractor={(item, id) => id.toString()}
+              renderItem={this.renderParticipantslist}
+              horizontal={true}
+              scrollEnabled={false}
+            />
+            {PARTICIPANTS2.length > 5 && <TouchableOpacity onPress={this.listOfParticipants}>
+              <View style={styles.plusView}>
+                <Text style={styles.plusText}>+{PARTICIPANTS2.length - 5}</Text>
+              </View>
+            </TouchableOpacity>}
+          </View>
+        </View>
         {/* -------------- Waitlist ----------------- */}
         <View style={styles.viewThree}>
           <Text style={{ ...styles.orgHeading }}>Waitlist</Text>
-          <FlatList 
-          data = {WAITLIST}
-          keyExtractor = {(item, id) => id.toString()}
-          renderItem = {this.renderWaitlist}
-          horizontal= {true}
-          nestedScrollEnabled= {true}
+          <FlatList
+            data={WAITLIST}
+            keyExtractor={(item, id) => id.toString()}
+            renderItem={this.renderWaitlist}
+            horizontal={true}
+            nestedScrollEnabled={true}
+            bounces={false}
+            showsHorizontalScrollIndicator={false}
           />
-          </View>
         </View>
+      </View>
     );
   }
 }
@@ -197,11 +242,29 @@ const PARTICIPANTS = [
   },
 ]
 
+const PARTICIPANTS2 = [
+  { pic: Images.person1 },
+  { pic: Images.person2 },
+  { pic: Images.person3 },
+  { pic: Images.person1 },
+  { pic: Images.person2 },
+  { pic: Images.person3 },
+  { pic: Images.person1 },
+  { pic: Images.person2 },
+  { pic: Images.person3 },
+]
+
 const WAITLIST = [
-  {pic: Images.person1},
-  {pic: Images.person2},
-  {pic: Images.person3},
-  {pic: Images.person1},
-  {pic: Images.person2},
-  {pic: Images.person3},
+  { pic: Images.person1 },
+  { pic: Images.person2 },
+  { pic: Images.person3 },
+  { pic: Images.person1 },
+  { pic: Images.person2 },
+  { pic: Images.person3 },
+  { pic: Images.person1 },
+  { pic: Images.person2 },
+  { pic: Images.person3 },
+  { pic: Images.person1 },
+  { pic: Images.person2 },
+  { pic: Images.person3 },
 ]

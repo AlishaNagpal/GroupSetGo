@@ -111,7 +111,7 @@ const AppNavigator = createStackNavigator({
 },
 
     {
-        initialRouteName: 'HomeNavigator',
+        initialRouteName: 'SplashScreen',
         defaultNavigationOptions: ({ navigation }) => ({
             headerBackTitle: null,
         }),
