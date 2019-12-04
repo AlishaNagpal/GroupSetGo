@@ -4,7 +4,6 @@ import {
   Text, 
   Image,
   FlatList,
-  ScrollView
 } from 'react-native';
 
 import { Images, vh, vw, VectorIcons, Colors } from '../../../../../Constants';
