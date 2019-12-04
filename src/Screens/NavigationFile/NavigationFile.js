@@ -13,8 +13,7 @@ import ForgotPassword from '../ForgotPassword/ForgotPassword'
 import LoginWithEmail from '../LoginScreen/LoginWithEmail'
 import ResetPassword from '../ResetPassword/ResetPassword'
 import ExploreNoOfParticipants from '../ExploreNoOfParticipants/ExploreNoOfParticipants'
-import HomeDetails6 from '../ExploreHome/ExploreHome6/HomeDetails6';
-import ExploreHomeScreen02 from '../ExploreHome/ExploreHomeScreen02/ExploreHomeScreen02'
+import HomeDetails6 from '../ExploreHome/ExploreHomeEventScreen/MainComponent/HomeDetails6';
 import ExploreEventsUsers from '../ExploreEventsUsers/ExploreEventsUsers'
 
 const AppNavigator = createStackNavigator({
@@ -23,9 +22,8 @@ const AppNavigator = createStackNavigator({
     createAccountGender: { screen: createAccountGender, navigationOptions: { header: null } },
     createAccountBirth: { screen: createAccountBirth, navigationOptions: { header: null } },
     createAccountPassword: { screen: createAccountPassword, navigationOptions: { header: null } },
-    ExploreHomeScreen01: { screen: ExploreHomeScreen01, navigationOptions: { header: null } },
+    ExploreHomeScreen: { screen: ExploreHomeScreen, navigationOptions: { header: null } },
     HomeDetails6: { screen: HomeDetails6, navigationOptions: { header: null, } },
-    ExploreHomeScreen02: { screen: ExploreHomeScreen02, navigationOptions: { header: null } },
     SplashScreen: { screen: SplashScreen, navigationOptions: { header: null, } },
     OnboardingLogin: {
         screen: OnboardingLogin,
