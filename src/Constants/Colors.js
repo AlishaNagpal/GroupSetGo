@@ -10,6 +10,7 @@ const Colors = {
     darkModeratePink:'#9B2F60',
     noColor: '#ffffff00',
     darkGray: 'rgb(48,47,47)',
+    lightGrey: 'rgb(83,83,83)',
     checkmarkGreen: 'green',
     fadedRed: '#dc475e',
     lightGray: '#E9E9E9',
@@ -24,6 +25,7 @@ const Colors = {
     whitishGray: 'rgb(245, 245, 245)',
     strokeColor: 'rgba(144, 201, 244,0.5)',
     fillColor: 'rgba(197, 221, 235,0.5)',
+    darkGreen: 'rgb(34, 138, 51)',
 }
 
 export default Colors;
