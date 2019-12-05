@@ -3,6 +3,8 @@ import { Text, View, Image, Modal, TextInput, TouchableOpacity } from 'react-nat
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Icon1 from 'react-native-vector-icons/AntDesign'
 import Icon2 from 'react-native-vector-icons/MaterialCommunityIcons'
+import LinearGradient from 'react-native-linear-gradient'
+
 Icon.loadFont()
 Icon1.loadFont()
 Icon2.loadFont()
@@ -13,10 +15,12 @@ Icon2.loadFont()
  */
 import { styles } from './styles'
 import strings from '../../Constants/Strings'
+import {Colors} from '../../Constants'
 import { vw, } from '../../Constants/Dimension'
 import ForgotPassword from '../ForgotPassword/ForgotPassword'
 import images from '../../Constants/images'
 
+const colors = [Colors.moderateRed ,Colors.moderatePink, Colors.darkModeratePink, Colors.darkViolet, Colors.darkViolet, Colors.darkViolet]
 
 export default class LoginWithEmail extends PureComponent {
     state = {
@@ -96,9 +100,11 @@ export default class LoginWithEmail extends PureComponent {
                     <TouchableOpacity onPress={this.forgotPasswordModel}>
                         <Text style={styles.forgotPasswordTextStyle}>Forgot password?</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={this.loginButtnTapped} style={styles.loginButtonStyle}>
+                    <LinearGradient colors={colors} start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} style={styles.loginButtonStyle} >
+                    <TouchableOpacity onPress={this.loginButtnTapped}>
                         <Text style={styles.loginButtonTitleStyle}>Login</Text>
                     </TouchableOpacity>
+                    </LinearGradient>
                     <View style={styles.createAnAccountViewStyle}>
                         <Text style={styles.newToGroupSetGoStyle}>{strings.newToGroupSetGo}</Text>
                         <TouchableOpacity onPress={() => {

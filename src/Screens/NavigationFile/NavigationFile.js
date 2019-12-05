@@ -109,9 +109,8 @@ const AppNavigator = createStackNavigator({
     ResetPassword: { screen: ResetPassword, navigationOptions: () => ({ header: null }) },
     HomeNavigator: { screen: TabNavigator, navigationOptions: { header: null } },
 },
-
     {
-        initialRouteName: 'SplashScreen',
+        initialRouteName: 'OnboardingLogin',
         defaultNavigationOptions: ({ navigation }) => ({
             headerBackTitle: null,
         }),

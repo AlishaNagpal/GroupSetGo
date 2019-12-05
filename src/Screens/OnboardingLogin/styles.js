@@ -38,7 +38,7 @@ export const styles = StyleSheet.create({
         height: vh(46.5),
         marginTop: vh(21),
         backgroundColor: 'rgb(127,36,97)',
-        borderRadius: vw(23.3)
+        borderRadius: vh(23.3)
     },
     loginButtonTitleStyle: {
         color: 'white',

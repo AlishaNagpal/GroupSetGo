@@ -27,6 +27,7 @@ const Colors = {
     strokeColor: 'rgba(144, 201, 244,0.5)',
     fillColor: 'rgba(197, 221, 235,0.5)',
     darkGreen: 'rgb(34, 138, 51)',
+    shadowColor: 'rgba(184,184,184,0.3)',
     chatBlue: '#1F94DA',
     orange: '#FA6C00',
     red: 'rgb(211, 20, 38)',

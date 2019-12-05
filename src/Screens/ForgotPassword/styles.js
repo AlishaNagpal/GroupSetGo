@@ -17,6 +17,9 @@ export const styles = StyleSheet.create({
         marginTop: vh(180.7),
         fontFamily: 'SourceSansPro-Semibold'
     },
+    searchIcon: {
+        padding: vh(10),
+    },
     dontWorryTextStyle: {
         fontSize: vw(26.7),
         fontFamily: 'SourceSansPro-Semibold'
@@ -44,7 +47,7 @@ export const styles = StyleSheet.create({
         height: vh(46.5),
         marginTop: vh(26),
         backgroundColor: 'rgb(127,36,97)',
-        borderRadius: vw(23.3)
+        borderRadius: vh(23.3)
     },
     loginButtonTitleStyle: {
         color: 'white',

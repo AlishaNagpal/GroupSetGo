@@ -4,6 +4,8 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 import Icon1 from 'react-native-vector-icons/Ionicons'
 Icon.loadFont()
 Icon1.loadFont()
+import LinearGradient from 'react-native-linear-gradient'
+
 
 /**
  * custom imports
@@ -13,6 +15,8 @@ import Images from '../../Constants/images'
 import strings from '../../Constants/Strings'
 import { vw, vh, DesignWidth } from '../../Constants/Dimension'
 import Colors from '../../Constants/Colors'
+
+const colors = [Colors.moderateRed, Colors.moderatePink, Colors.darkModeratePink, Colors.darkViolet, Colors.darkViolet, Colors.darkViolet]
 
 export default class ForgotPassword extends PureComponent {
     state = {
@@ -44,11 +48,13 @@ export default class ForgotPassword extends PureComponent {
                             returnKeyType='next'
                             onChangeText={text => { this.setState({ email: text }) }} />
                     </View>
-                    <TouchableOpacity style={styles.submitButtonStyle}>
-                        <Text style={styles.loginButtonTitleStyle}>Submit</Text>
-                    </TouchableOpacity>
+                    <LinearGradient colors={colors} start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} style={styles.submitButtonStyle}>
+                        <TouchableOpacity >
+                            <Text style={styles.loginButtonTitleStyle}>Submit</Text>
+                        </TouchableOpacity>
+                        </LinearGradient>
                 </View>
             </Modal>
-        )
-    }
+                )
+            }
 }
