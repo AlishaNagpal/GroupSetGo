@@ -13,7 +13,18 @@ const strings = {
     resetPassword: 'Reset Password.',
     keepItStrong: 'Keep it super strong.' ,
     participantList: 'Participant List',
-    recentSearches : 'RECENT SEARCHES'
+    recentSearches : 'RECENT SEARCHES',
+    priceDetails: 'Price Details',
+    totalBudget: 'Total Budget',
+    finalBudget: 'Final Budget',
+    amountRefunded: 'Amount Refunded',
+    raiseIncedent: 'RAISE INCEDENT',
+    rateReview: 'RATE & REVIEW',
+    eventDate: 'Event Date',
+    lastDateToLeave: 'Last Date to Leave Event',
+    costBreakdown: 'Cost Breakdown',
+    totalCost: 'Total Cost',
+    agreeToTerms: 'I agree to the Terms and Conditions'
 }
 
 export default strings;

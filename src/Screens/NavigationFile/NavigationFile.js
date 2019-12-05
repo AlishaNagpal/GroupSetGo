@@ -15,6 +15,7 @@ import ResetPassword from '../ResetPassword/ResetPassword'
 import ExploreNoOfParticipants from '../ExploreNoOfParticipants/ExploreNoOfParticipants'
 import HomeDetails6 from '../ExploreHome/ExploreHomeEventScreen/MainComponent/HomeDetails6';
 import ExploreEventsUsers from '../ExploreEventsUsers/ExploreEventsUsers'
+import Review from '../Review/Review'
 
 const AppNavigator = createStackNavigator({
     createAccountName: { screen: createAccountName, navigationOptions: { header: null } },
@@ -43,10 +44,17 @@ const AppNavigator = createStackNavigator({
             header: null
         })
     },
+    Review: {
+        screen: Review,
+        navigationOptions: () => ({
+            header: null
+        })
+    },
     LoginWithEmail: {
         screen: LoginWithEmail,
         navigationOptions: () => ({
-            header: null
+            header: null,
+            
         })
     },
     ExploreNoOfParticipants: {
@@ -62,9 +70,8 @@ const AppNavigator = createStackNavigator({
         })
     },
 },
-
     {
-        initialRouteName: 'SplashScreen',
+        initialRouteName: 'OnboardingLogin',
         defaultNavigationOptions: ({ navigation }) => ({
             headerBackTitle: null,
         }),

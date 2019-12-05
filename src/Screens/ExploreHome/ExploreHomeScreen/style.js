@@ -198,16 +198,6 @@ export default styles = StyleSheet.create({
     perPerson: {
         flexDirection: 'row'
     },
-    gradient: {
-        height: vh(50),
-        width: vh(50),
-        position: 'absolute',
-        top: vh(600),
-        left: vw(350),
-        borderRadius: vh(25),
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
     calendar: {
         height: vh(25),
         width: vh(25)
