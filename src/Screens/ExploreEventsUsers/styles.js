@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     headerView: {
-        alignItems: 'center',
+        // alignItems: 'center',
         height: vh(90),
         backgroundColor: Colors.fadedRed,
         width: vw(DesignWidth),

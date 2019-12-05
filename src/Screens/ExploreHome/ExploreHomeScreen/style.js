@@ -17,13 +17,11 @@ export default styles = StyleSheet.create({
         marginLeft: vw(20)
     },
     headerTextInput: {
-        height: vh(33.3),
-        width: vw(200),
-        marginLeft: vw(13),
+        fontSize: vh(15.3),
+        paddingLeft: vw(10)
     },
     textInputView: {
         flexDirection: 'row',
-        alignItems: 'center',
         marginLeft: vw(10),
         shadowOpacity: vh(0.2),
         shadowColor: Colors.gray,
@@ -31,6 +29,10 @@ export default styles = StyleSheet.create({
         backgroundColor: Colors.white,
         paddingLeft: vw(10),
         width: vw(260),
+        borderWidth: vh(0.5),
+        borderColor: Colors.lightGray,
+        height: vh(34),
+        alignItems:'center'
     },
     map: {
         marginLeft: vw(10)
@@ -204,5 +206,32 @@ export default styles = StyleSheet.create({
     },
     iconTab: {
         marginTop: 5
+    },
+    mapStyle: {
+        height: vh(580),
+        width: vw(414),
+        marginTop: vh(10)
+    },
+    mainCardView: {
+        flex: 1,
+        position: 'absolute',
+        height: vw(230),
+        width: vw(340),
+        borderRadius: vh(16.7),
+        marginHorizontal: vw(40),
+        marginTop: vh(10),
+        backgroundColor: Colors.white,
+        borderWidth: vw(0.2),
+        borderColor: Colors.fadedGray,
+        bottom: vh(60)
+
+    },
+    marker: {
+        height: 30,
+        width: 30
+    },
+    calloutView: {
+        width: 180,
+        alignItems: 'center'
     }
 })

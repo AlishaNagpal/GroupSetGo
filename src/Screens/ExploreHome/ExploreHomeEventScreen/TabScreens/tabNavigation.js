@@ -10,7 +10,7 @@ import { vh, Colors, vw } from '../../../../Constants/index';
 const NavTabBar = createMaterialTopTabNavigator({
 
     About: {
-        screen: About,
+        screen: About
     },
     Participants: {
         screen: Participants

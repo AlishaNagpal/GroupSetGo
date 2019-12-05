@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { View } from 'react-native'
+import { View, TouchableOpacity } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
 Icon.loadFont()
 
@@ -14,9 +14,11 @@ export default class ExploreEventsUsers extends PureComponent {
         return (
             <View style={styles.containerStyle}>
                 <View style={styles.headerView}>
-                    <Icon onPress={() => console.warn("back button tapped")} name="ios-arrow-back" size={vh(30)} color={Colors.white} style={styles.backButtonStyle} />
-                    <View style = {styles.tabbarViewStyle}>
-                    <TabNavigator />
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('HomeNavigator')} >
+                        <Icon name="ios-arrow-back" size={vh(30)} color={Colors.white} style={styles.backButtonStyle} />
+                    </TouchableOpacity>
+                    <View style={styles.tabbarViewStyle}>
+                        <TabNavigator />
                     </View>
                 </View>
             </View>

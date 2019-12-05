@@ -35,4 +35,5 @@ export default {
     FontAwesome5,
     SimpleLineIcons,
     EvilIcons,
+
 }

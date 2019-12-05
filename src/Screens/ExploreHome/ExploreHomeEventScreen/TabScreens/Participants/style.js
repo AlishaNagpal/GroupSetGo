@@ -4,6 +4,7 @@ import { vh, vw, Colors } from '../../../../../Constants';
 const styles = StyleSheet.create({
     mainView: {
         flex: 1,
+        height: 100
     },
     viewOne: {
         borderBottomColor: Colors.lightGray,
@@ -18,6 +19,12 @@ const styles = StyleSheet.create({
     },
     picView: {
         flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between'
+    },
+    leaveView: {
+        flexDirection: 'row',
+        alignItems: 'center',
     },
     orgPic: {
         height: vw(52),
@@ -32,6 +39,7 @@ const styles = StyleSheet.create({
     orgName: {
         fontSize: vh(15.3),
         fontFamily: 'SourceSansPro-Semibold',
+        marginBottom: vw(8)
     },
     ratingView: {
         height: vw(17.7),
@@ -49,9 +57,25 @@ const styles = StyleSheet.create({
         fontSize: vh(12),
         fontFamily: 'SourceSansPro-Semibold',
     },
+    leave: {
+        backgroundColor: Colors.red,
+        height: vh(30),
+        width: vw(106.7),
+        borderRadius: vh(1.7),
+        marginRight: vw(0.7),
+        alignItems: 'center'
+    },
+    leaveText: {
+        fontSize: vh(15.3),
+        fontFamily: 'SourceSansPro-Semibold',
+        color: 'white',
+        paddingTop: vh(4)
+    },
     viewTwo: {
         borderBottomColor: Colors.lightGray,
         borderBottomWidth: vw(0.7),
+        marginLeft: vw(13),
+        paddingBottom: vw(13),
     },
     flatListView: {
         flexDirection: 'row',
@@ -105,6 +129,23 @@ const styles = StyleSheet.create({
         height: 50,
         width: 50,
         backgroundColor: 'red'
+    },
+    plus: {
+        flexDirection: 'row',
+        width: vw(356)
+    },
+    plusView: {
+        height: vw(52),
+        width: vw(52),
+        borderRadius: vw(26),
+        backgroundColor: Colors.fadedRed,
+        alignItems: 'center',
+    },
+    plusText: {
+        color: 'white',
+        fontSize: vh(23.3),
+        fontFamily: 'SourceSansPro-Regular',
+        paddingTop: vh(10)
     },
     viewThree: {
         margin: vw(13),
