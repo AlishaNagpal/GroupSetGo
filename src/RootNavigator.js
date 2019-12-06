@@ -11,8 +11,8 @@ import { VectorIcons, vh, Images } from './Constants'
 import SplashScreen from './Screens/SplashScreen/SplashScreen'
 import OnboardingLogin from './Screens/OnboardingLogin/OnboardingLogin'
 import LoginWithEmail from './Screens/LoginScreen/LoginWithEmail'
-import createAccountName  from './Screens/SignUpScreen/createAccountName.js'
-import createAccountEmail  from './Screens/SignUpScreen/createAccountEmail.js'
+import createAccountName from './Screens/SignUpScreen/createAccountName.js'
+import createAccountEmail from './Screens/SignUpScreen/createAccountEmail.js'
 import createAccountGender from './Screens/SignUpScreen/createAccountGender.js'
 import createAccountPassword from './Screens/SignUpScreen/createAccountPassword.js'
 import createAccountBirth from './Screens/SignUpScreen/CreateAccountBirth.js'
@@ -110,15 +110,15 @@ const MainStack = createStackNavigator(
         HomeDetails6: {
             screen: HomeDetails6
         },
-        MyTab : {
-            screen : MyTab
+        MyTab: {
+            screen: MyTab
         },
         Review: {
             screen: Review
         }
     },
     {
-        initialRouteName: 'SplashScreen',
+        initialRouteName: 'HomeNavigator',
         defaultNavigationOptions: ({ navigation }) => ({
             headerBackTitle: null,
             header: null
@@ -137,11 +137,12 @@ const transparentStack = createStackNavigator({
             backgroundColor: Colors.black,
             opacity: 0.5
         }
-    })
+    }
+)
 
 const RootStack = createStackNavigator(
     {
-        Main: {screen : MainStack},
+        Main: { screen: MainStack },
         LoginWithEmail: {
             screen: LoginWithEmail,
         },
@@ -169,9 +170,9 @@ const RootStack = createStackNavigator(
         transparentStack: {
             screen: transparentStack
         },
-        Review: {
-            screen: Review
-        }
+        // Review: {
+        //     screen: Review
+        // }
     },
     {
         mode: 'modal',

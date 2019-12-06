@@ -11,18 +11,18 @@ export default class SkipLoginDialog extends PureComponent {
     render() {
         return (
             <View style={styles.containerStyle}>
-                <View style = {styles.dialogboxStyle}>
-                    <Text style = {styles.alertTextStyle}>{strings.alertText}</Text>
-                    <View style = {styles.buttonsViewStyle}>
-                        <TouchableOpacity activeOpacity = {1} style = {styles.yesContinueButtonStyle}>
-                            <Text style = {styles.yesContinueTextStyle}>Yes, Continue</Text>
+                <View style={styles.dialogboxStyle}>
+                    <Text style={styles.alertTextStyle}>{strings.alertText}</Text>
+                    <View style={styles.buttonsViewStyle}>
+                        <TouchableOpacity activeOpacity={1} style={styles.yesContinueButtonStyle}>
+                            <Text style={styles.yesContinueTextStyle}>Yes, Continue</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress = {()=>this.props.navigation.goBack()} activeOpacity = {1} style = {styles.loginButtonStyle}>
-                            <Text style = {styles.loginTextStyle}>I'll Login</Text>
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate('OnboardingLogin')} activeOpacity={1} style={styles.loginButtonStyle}>
+                            <Text style={styles.loginTextStyle}>I'll Login</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
-                </View>
-                )
-            }
-        }
+            </View>
+        )
+    }
+}

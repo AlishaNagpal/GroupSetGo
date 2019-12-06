@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient'
 
@@ -9,7 +9,7 @@ import RadioButton from '../../ReusableComponents/RadioButton'
 
 const colors = [Colors.moderateRed, Colors.moderatePink, Colors.darkModeratePink, Colors.darkViolet, Colors.darkViolet, Colors.darkViolet]
 
-export default class createAccountGender extends Component {
+export default class createAccountGender extends PureComponent {
     state = { maleChosen: true, femaleChosen: false }
 
     clicked(check, id) {

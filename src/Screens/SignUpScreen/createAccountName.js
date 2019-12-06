@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Text, TextInput, TouchableOpacity, Animated } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scrollview'
@@ -10,7 +10,7 @@ import styles from './styles'
 import { Colors, vh, VectorIcons } from '../../Constants';
 const colors = [Colors.moderateRed, Colors.moderatePink, Colors.darkModeratePink, Colors.darkViolet, Colors.darkViolet, Colors.darkViolet]
 
-export default class createAccountName extends Component {
+export default class createAccountName extends PureComponent {
 
     constructor(props) {
         super(props);
@@ -20,18 +20,25 @@ export default class createAccountName extends Component {
     }
 
     error = () => {
-        console.log("hjcsvjhkasdcv")
         Animated.timing(this.state.animatedValue, {
-            toValue: 30,
+            toValue: 40,
             duration: 400,
-        }).start(() => {
-            setInterval(() => {
-                Animated.timing(this.state.animatedValue, {
-                    toValue: -30,
-                    duration: 400
-                }).start()
-            }, 1000)
-        });
+        }).start();
+    }
+
+    close = () => {
+        Animated.timing(this.state.animatedValue, {
+            toValue: -40,
+            duration: 400
+        }).start()
+    }
+
+    focus = () => {
+        if (this.input1 === '') {
+            this.input1.focus()
+        } else {
+            this.input2.focus()
+        }
     }
 
 
@@ -74,31 +81,43 @@ export default class createAccountName extends Component {
                                     <ErrorMessage name="firstName">{(msg) => {
                                         return (
                                             <Animated.View style={[styles.errorView, { marginTop: this.state.animatedValue }]} >
+                                                <Animated.Text style={styles.infoText} >  Info </Animated.Text>
                                                 <Animated.Text style={styles.errorMessage}>{msg}</Animated.Text>
+                                                <TouchableOpacity style={styles.headerButton} onPress={() => this.close()}  >
+                                                    <VectorIcons.AntDesign name="close" size={vh(25)} color={Colors.fadedGray2} />
+                                                </TouchableOpacity>
                                             </Animated.View>
                                         )
                                     }}
                                     </ErrorMessage>
 
                                     <TextInput
-                                        placeholder={'Enter First Name'}
                                         style={styles.textInputStyle}
+                                        placeholder={'Enter First Name'}
                                         placeholderTextColor={Colors.black}
+                                        returnKeyType='next'
+                                        returnKeyLabel='Next'
+                                        autoCorrect={false}
+                                        value={values.firstName}
+                                        onChangeText={handleChange('firstName')}
+                                        ref={(ref) => { this.input1 = ref }}
                                         onBlur={() => {
                                             setFieldTouched('firstName')
                                             this.error()
                                         }}
-                                        value={values.firstName}
-                                        onChangeText={handleChange('firstName')}
-                                        autoCorrect={false}
-                                        onSubmitEditing={() => this.input.focus()}
+                                        onSubmitEditing={this.focus}
+
                                     />
                                 </React.Fragment>
                                 <React.Fragment>
                                     <ErrorMessage name="lastName">{(msg) => {
                                         return (
                                             <Animated.View style={[styles.errorView, { marginTop: this.state.animatedValue }]} >
+                                                <Animated.Text style={styles.infoText} >  Info </Animated.Text>
                                                 <Animated.Text style={styles.errorMessage}>{msg}</Animated.Text>
+                                                <TouchableOpacity style={styles.headerButton} onPress={() => this.close()}  >
+                                                    <VectorIcons.AntDesign name="close" size={vh(25)} color={Colors.fadedGray2} />
+                                                </TouchableOpacity>
                                             </Animated.View>
                                         )
                                     }}
@@ -107,11 +126,12 @@ export default class createAccountName extends Component {
                                         style={[styles.textInputStyle, { marginTop: vh(14) }]}
                                         placeholder={'Enter Last Name'}
                                         placeholderTextColor={Colors.black}
+                                        returnKeyType='done'
                                         returnKeyLabel='Submit'
                                         autoCorrect={false}
                                         value={values.lastName}
                                         onChangeText={handleChange('lastName')}
-                                        ref={(ref) => { this.input = ref }}
+                                        ref={(ref) => { this.input2 = ref }}
                                         onBlur={() => {
                                             setFieldTouched('lastName')
                                             this.error()
