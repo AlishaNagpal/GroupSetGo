@@ -5,6 +5,7 @@ const Colors = {
     moderatePink: '#be385f',
     moderateRed: '#BA3A5F',
     darkPink: '#a02d5f',
+    darkishPink: 'rgb(127,36,97)',
     darkViolet: '#7E2561',
     rosa: '#ff90b0',
     darkModeratePink:'#9B2F60',
@@ -12,7 +13,7 @@ const Colors = {
     darkGray: 'rgb(48,47,47)',
     lightGrey: 'rgb(83,83,83)',
     checkmarkGreen: 'green',
-    fadedRed: '#dc475e',
+    fadedRed: 'rgb(220,71,94)',
     lightGray: '#E9E9E9',
     fadedGray: '#7c7c7c',
     gray: '#848484',
@@ -31,6 +32,7 @@ const Colors = {
     chatBlue: '#1F94DA',
     orange: '#FA6C00',
     red: 'rgb(211, 20, 38)',
+    fontColor: 'rgb(167,167,167)'
 }
 
 export default Colors;

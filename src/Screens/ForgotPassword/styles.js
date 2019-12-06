@@ -4,12 +4,14 @@ import { StyleSheet } from 'react-native'
  * custom imports
  */
 import { vw, vh } from '../../Constants/Dimension';
+import { Colors } from '../../Constants';
 
 export const styles = StyleSheet.create({
     containerStyle: {
         flex: 1,
         alignItems: 'center',
         paddingHorizontal: vw(40),
+        backgroundColor: Colors.white
     },
     forgotPasswordTextStyle: {
         color: 'rgb(226,90,113)',
@@ -42,11 +44,13 @@ export const styles = StyleSheet.create({
     submitButtonStyle: {
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'red',
+        width: vw(325),
+        height: vh(46.5),
+    },
+    gradientStyle: {
         width: vw(325),
         height: vh(46.5),
         marginTop: vh(26),
-        backgroundColor: 'rgb(127,36,97)',
         borderRadius: vh(23.3)
     },
     loginButtonTitleStyle: {

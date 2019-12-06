@@ -24,7 +24,8 @@ const strings = {
     lastDateToLeave: 'Last Date to Leave Event',
     costBreakdown: 'Cost Breakdown',
     totalCost: 'Total Cost',
-    agreeToTerms: 'I agree to the Terms and Conditions'
+    agreeToTerms: 'I agree to the Terms and Conditions',
+    alertText: 'Please note that you cannot create or join events without logging in.'
 }
 
 export default strings;

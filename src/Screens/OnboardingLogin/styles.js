@@ -33,11 +33,13 @@ export const styles = StyleSheet.create({
     loginButtonStyle: {
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'red',
+        width: vw(325),
+        height: vh(46.6)
+    },
+    gradientStyle: {
         width: vw(325),
         height: vh(46.5),
         marginTop: vh(21),
-        backgroundColor: 'rgb(127,36,97)',
         borderRadius: vh(23.3)
     },
     loginButtonTitleStyle: {

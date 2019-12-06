@@ -65,10 +65,10 @@ const styles = StyleSheet.create({
         textAlign: 'right'
     },
     priceDetailsViewStyle: {
-        height: vh(262),
+        height: vh(280),
         width: vw(DesignWidth),
-        borderTopWidth: vw(0.25),
-        borderBottomWidth: vw(0.25),
+        borderTopWidth: (0.25),
+        borderBottomWidth: (0.25),
         borderColor: Colors.shadowColor
 
     }

@@ -13,7 +13,7 @@ import styles from './styles'
 import { vh, Colors, vw } from '../../Constants'
 import strings from '../../Constants/Strings'
 
-const colors = [Colors.moderateRed, Colors.moderatePink, Colors.darkModeratePink, Colors.darkViolet, Colors.darkViolet, Colors.darkViolet]
+const colors = [Colors.fadedRed, Colors.darkishPink]
 
 export default class Review extends PureComponent {
     state = {

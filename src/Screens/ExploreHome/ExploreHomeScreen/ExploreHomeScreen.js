@@ -19,7 +19,7 @@ export default class ExploreHomeScreen extends Component {
     let { item } = rowData
     return (
       <View style={styles.flatlistView} >
-        <TouchableOpacity onPress={() => this.callScreen()} >
+        <TouchableOpacity activeOpacity = {1} onPress={() => this.callScreen()} >
           <Image source={item.source} style={styles.flatlistImage} />
           <Image source={Images.heartEmpty} style={styles.heart} />
           <Image source={Images.heartFilled} style={styles.heart2} />
@@ -51,7 +51,7 @@ export default class ExploreHomeScreen extends Component {
     let { item } = rowData
     return (
       <View style={[styles.flatlistView, { width: vw(187), height: vw(220), }]} >
-        <TouchableOpacity onPress={() => this.callScreen()} >
+        <TouchableOpacity activeOpacity = {1} onPress={() => this.callScreen()} >
           <Image source={item.source} style={styles.flatlist2Image} />
           <Image source={Images.heartEmpty} style={styles.flatlist2Heart} />
           <View style={styles.IconView} >
@@ -111,7 +111,7 @@ export default class ExploreHomeScreen extends Component {
         <Text style={styles.recommendedText} > Recommended </Text>
         <View style={styles.flatlistHeight} >
           <FlatList
-            keyExtractor={() => Math.random().toString()}
+            keyExtractor={(item) => item.serialNo.toString() }
             data={DATA}
             renderItem={this.renderData}
             horizontal
@@ -120,7 +120,7 @@ export default class ExploreHomeScreen extends Component {
         </View>
         <Text style={styles.allEvents} > All Events </Text>
         <FlatList
-          keyExtractor={() => Math.random().toString()}
+          keyExtractor={(item) => item.serialNo.toString()}
           data={DATA2}
           renderItem={this.renderData2}
           horizontal
@@ -138,7 +138,7 @@ export default class ExploreHomeScreen extends Component {
 
 
 const DATA = [
-  {
+  { serialNo: 1,
     source: Images.res1,
     time: 'TODAY,JUL 14 • 7 PM',
     heading: 'Dance Floor Table @ Omnia',
@@ -146,7 +146,7 @@ const DATA = [
     money: '$600- $800',
     going: 10
   },
-  {
+  { serialNo: 2,
     source: Images.res2,
     time: 'SAT,JUL 19 • 3 PM',
     heading: 'Tea Time Party @ Resolutions',
@@ -154,7 +154,7 @@ const DATA = [
     money: '$800- $1000',
     going: 7
   },
-  {
+  { serialNo: 3,
     source: Images.res1,
     time: 'TODAY,JUL 14 • 7 PM',
     heading: 'Dance Floor Table @ Omnia',
@@ -162,7 +162,7 @@ const DATA = [
     money: '$600- $800',
     going: 10
   },
-  {
+  { serialNo: 4,
     source: Images.res2,
     time: 'SAT,JUL 19 • 3 PM',
     heading: 'Tea Time Party @ Resolutions',
@@ -173,7 +173,7 @@ const DATA = [
 ]
 
 const DATA2 = [
-  {
+  { serialNo: 1,
     source: Images.travel,
     time: 'MON,JUL 16 • 7 AM',
     heading: 'Backpacking & Hiking...',
@@ -182,7 +182,7 @@ const DATA2 = [
     going: 4,
     icon: Images.trekIcon
   },
-  {
+  { serialNo: 2,
     source: Images.music,
     time: 'WED, Jul 18 • 7 pm ',
     heading: 'Chicago Music Fest...',
@@ -191,7 +191,7 @@ const DATA2 = [
     going: 35,
     icon: Images.musicIcon
   },
-  {
+  { serialNo: 3,
     source: Images.travel,
     time: 'MON,JUL 16 • 7 AM',
     heading: 'Backpacking & Hiking...',
@@ -200,7 +200,7 @@ const DATA2 = [
     going: 4,
     icon: Images.trekIcon
   },
-  {
+  { serialNo: 4,
     source: Images.music,
     time: 'WED, Jul 18 • 7 pm ',
     heading: 'Chicago Music Fest...',

@@ -13,7 +13,6 @@ import { createAccountEmail } from '../SignUpScreen/createAccountEmail.js'
 import createAccountGender from '../SignUpScreen/createAccountGender.js'
 import createAccountPassword from '../SignUpScreen/createAccountPassword.js'
 import createAccountBirth from '../SignUpScreen/CreateAccountBirth.js'
-import ExploreHomeScreen from '../ExploreHome/ExploreHomeScreen/ExploreHomeScreen'
 import OnboardingLogin from '../OnboardingLogin/OnboardingLogin'
 import ForgotPassword from '../ForgotPassword/ForgotPassword'
 import LoginWithEmail from '../LoginScreen/LoginWithEmail'
@@ -21,6 +20,7 @@ import ResetPassword from '../ResetPassword/ResetPassword'
 import ExploreNoOfParticipants from '../ExploreNoOfParticipants/ExploreNoOfParticipants'
 import HomeDetails6 from '../ExploreHome/ExploreHomeEventScreen/MainComponent/HomeDetails6';
 import ExploreEventsUsers from '../ExploreEventsUsers/ExploreEventsUsers'
+import ExploreHomeScreen from '../ExploreHome/ExploreHomeScreen/ExploreHomeScreen'
 import ExploreMapScreen from '../ExploreHome/ExploreHomeScreen/ExploreMapScreen'
 
 console.ignoredYellowBox = true;
@@ -114,6 +114,10 @@ const AppNavigator = createStackNavigator({
         defaultNavigationOptions: ({ navigation }) => ({
             headerBackTitle: null,
         }),
-    }
+    },
+    {
+        mode: 'modal',
+        headerMode: 'none',
+      }
 );
 export default createAppContainer(AppNavigator);

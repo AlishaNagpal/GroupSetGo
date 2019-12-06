@@ -9,7 +9,8 @@
     "test": "jest",
     "lint": "eslint .",
     "pods": "cd ios && pod install",
-    "emu": "emulator -avd Pixel_2_API_28 -gpu host"
+    "emu": "emulator -avd Pixel_2_API_28 -gpu host",
+    "installPod": " cd ios && pod install"
   },
   "dependencies": {
     "@react-native-community/datetimepicker": "^2.1.0",

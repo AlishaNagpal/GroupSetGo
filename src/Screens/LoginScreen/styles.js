@@ -4,12 +4,14 @@ import { StyleSheet } from 'react-native'
  * custom imports
  */
 import { vw, vh } from '../../Constants/Dimension';
+import { Colors } from '../../Constants';
 
 export const styles = StyleSheet.create({
     containerStyle: {
         flex: 1,
         alignItems: 'center',
         paddingHorizontal: vw(40),
+        backgroundColor: Colors.white
     },
     welcomeBackStyle: {
         color: 'rgb(226,90,113)',
@@ -22,10 +24,11 @@ export const styles = StyleSheet.create({
         fontFamily: 'SourceSansPro-Semibold'
     },
     emailTextInputStyle: {
-        paddingHorizontal: vw(12),
+        marginHorizontal: vw(12),
         paddingVertical: vh(8),
         fontSize: vw(16.7),
         fontFamily: 'SourceSansPro-Semibold',
+        width: vw(185),
     },
     emailInputViewStyle: {
         flexDirection: 'row',
@@ -41,7 +44,7 @@ export const styles = StyleSheet.create({
         paddingVertical: vh(8),
         fontSize: vw(16.7),
         fontFamily: 'SourceSansPro-Semibold',
-        width: vw(185)
+        width: vw(185),
     },
     passwordInputViewStyle: {
         flexDirection: 'row',
@@ -61,15 +64,17 @@ export const styles = StyleSheet.create({
         fontFamily: 'SourceSansPro-Regular',
         marginTop: vh(13)
     },
-    loginButtonStyle: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: 'red',
+    gradientStyle: {
         width: vw(325),
         height: vh(46.5),
         marginTop: vh(66),
-        backgroundColor: 'rgb(127,36,97)',
         borderRadius: vh(23.3)
+    },
+    loginButtonStyle: {
+        width: vw(325),
+        height: vh(46.5),
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     loginButtonTitleStyle: {
         color: 'white',

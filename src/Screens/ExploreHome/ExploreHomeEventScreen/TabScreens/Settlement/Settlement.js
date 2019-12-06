@@ -46,12 +46,18 @@ export default class Settlement extends Component {
                         <Text style={{ fontSize: vw(15.3), fontFamily: 'SourceSansPro-Semibold', color: Colors.darkGray, textAlign: 'right' }}>$200</Text>
                     </View>
                 </View>
-                <View style={{ flexDirection: 'row', height: vh(60) }}>
-                    <TouchableOpacity style={{ width: vw(DesignWidth / 2),alignItems: 'center' }}>
-                        <Text style = {{marginVertical: vh(22),color: Colors.fadedRed, fontFamily: 'SourceSansPro-Semibold', fontSize: vw(16.7)}}>{strings.raiseIncedent}</Text>
+                <View style={{ flexDirection: 'row', height: vh(60), marginBottom: vh(25) }}>
+                    <TouchableOpacity style={{ width: vw(DesignWidth / 2), alignItems: 'center' }}>
+                        <Text style={{ marginVertical: vh(22), color: Colors.fadedRed, fontFamily: 'SourceSansPro-Semibold', fontSize: vw(16.7) }}>{strings.raiseIncedent}</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress = {()=>{this.props.navigation.navigate('Review')}} style={{ width: vw(DesignWidth / 2), alignItems: 'center', backgroundColor: Colors.fadedRed }}>
-                        <Text style = {{marginVertical: vh(22), color: Colors.white, fontFamily: 'SourceSansPro-Semibold', fontSize: vw(16.7)}}>{strings.rateReview}</Text>
+                    <TouchableOpacity onPress={() => {
+
+                        console.warn("data", this.props)
+
+                        this.props.navigation.navigate('Review')}} 
+                        
+                        style={{ width: vw(DesignWidth / 2), alignItems: 'center', backgroundColor: Colors.fadedRed }}>
+                        <Text style={{ marginVertical: vh(22), color: Colors.white, fontFamily: 'SourceSansPro-Semibold', fontSize: vw(16.7) }}>{strings.rateReview}</Text>
                     </TouchableOpacity>
                 </View>
             </View>

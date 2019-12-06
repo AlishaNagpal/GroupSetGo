@@ -22,7 +22,7 @@ export default class HomeDetails6 extends Component {
     goingJoin = () => {
         if (this.state.going === false) {
             return (
-                <TouchableOpacity style={styles.center} onPress={() => this.setState({ going: true })} >
+                <TouchableOpacity style={styles.center} >
                     <VectorIcons.Ionicons
                         name="ios-add-circle-outline"
                         color={Colors.orange}
@@ -48,7 +48,7 @@ export default class HomeDetails6 extends Component {
     goingSave = () => {
         if (this.state.going === false) {
             return (
-                <TouchableOpacity style={styles.center}>
+                <TouchableOpacity style={styles.center} onPress={() => this.setState({ going: true })}>
                     <VectorIcons.Ionicons
                         name="ios-add-circle-outline"
                         color={Colors.green}
@@ -124,13 +124,13 @@ export default class HomeDetails6 extends Component {
                             <Text style={styles.barNumber2}>100</Text>
                         </View>
                     </View>
-                    <View style={styles.viewTwo3}>
+                <View style={styles.viewTwo3}>
                         <View style={styles.location}>
-                            <VectorIcons.SimpleLineIcons
+                            {/* <VectorIcons.SimpleLineIcons
                                 name='location-pin'
                                 color={Colors.darkGray2}
                                 size={vh(17.3)}
-                            />
+                            /> */}
                             <Text style={styles.locationText}> {DATA3.location} </Text>
                         </View>
                         <View style={styles.moneyView}>
@@ -156,11 +156,11 @@ export default class HomeDetails6 extends Component {
                         {this.goingJoin()}
                         {this.goingSave()}
                         <TouchableOpacity style={styles.center} >
-                            <VectorIcons.SimpleLineIcons
+                            {/* <VectorIcons.SimpleLineIcons
                                 name="share"
                                 color={Colors.shareBlue}
                                 size={vh(25)}
-                            />
+                            /> */}
                             <Text style={styles.shareText}>Share</Text>
                         </TouchableOpacity>
                     </View>

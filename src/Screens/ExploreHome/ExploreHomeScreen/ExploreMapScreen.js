@@ -72,7 +72,7 @@ export default class ExploreMapScreen extends Component {
           </TouchableOpacity>
 
           <TouchableOpacity onPress={() => this.props.navigation.navigate('HomeNavigator')}>
-            <VectorIcons.SimpleLineIcons name={"calendar"} size={vh(18)} color={Colors.fadedRed} style={styles.map} />
+            {/* <VectorIcons.SimpleLineIcons name={"calendar"} size={vh(18)} color={Colors.fadedRed} style={styles.map} /> */}
           </TouchableOpacity>
 
           <TouchableOpacity>
