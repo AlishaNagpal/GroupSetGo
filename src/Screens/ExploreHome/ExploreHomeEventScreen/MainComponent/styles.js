@@ -4,11 +4,9 @@ import { vh, vw, Colors } from '../../../../Constants'
 export default styles = StyleSheet.create({
     mainView: {
         flex: 1,
-        marginTop: vh(25),
     },
     viewOne: {
         height: vh(270),
-
     },
     pic: {
         height: vh(270),
@@ -18,13 +16,6 @@ export default styles = StyleSheet.create({
         position: 'absolute',
         top: vh(41.3),
         left: vw(13.3)
-    },
-    shade: {
-        position: 'absolute',
-        opacity: 0.3,
-        height: vh(70),
-        width: vw(414),
-        backgroundColor: Colors.black,
     },
     flagBtn: {
         position: 'absolute',
@@ -42,37 +33,40 @@ export default styles = StyleSheet.create({
         justifyContent: "center",
         borderRadius: vh(20.1),
     },
+    cheersIcon: {
+        height: vh(22.7),
+        width: vw(25.3)
+    },
     belowImage: {
         flexDirection: 'row',
         borderBottomWidth: vh(0.7),
         borderBottomColor: 'rgba(184, 184, 184, 0.3)',
         paddingTop: vh(10.3),
         padding: vh(13.3),
-        paddingBottom: vh(10.3),
+        justifyContent: 'space-between',
+        alignItems: 'center',
     },
     redText: {
         color: Colors.fadedRed,
-        fontWeight: '600',
         textTransform: "uppercase",
         fontSize: vw(18),
         fontFamily: 'SourceSansPro-Semibold'
     },
     titleText: {
-        paddingTop: vh(8),
-        fontWeight: '500',
+        paddingTop: vw(8),
         fontSize: vw(18.7),
         fontFamily: 'SourceSansPro-Semibold'
     },
     tagText: {
         color: Colors.fadedGray,
         fontSize: vw(14),
-        paddingTop: vh(3),
+        paddingTop: vw(7),
         textTransform: "capitalize",
         fontFamily: 'SourceSansPro-Regular'
     },
     profilePicture: {
         justifyContent: 'flex-end',
-        left: vw(65),
+        right: vw(0.7),
         justifyContent: 'center',
         alignItems: 'center'
     },
@@ -88,13 +82,13 @@ export default styles = StyleSheet.create({
     },
     ratingView: {
         backgroundColor: Colors.green,
-        height: vw(22),
-        width: vw(40),
-        marginRight: vh(2),
-        marginTop: vh(3),
+        height: vw(22.3),
+        width: vw(35.3),
+        marginTop: vw(4.3),
         flexDirection: 'row',
         alignItems: 'center',
-        padding: vh(2.3)
+        borderRadius: vh(1.9),
+        justifyContent: 'space-evenly'
     },
     ratingText: {
         color: 'white',
@@ -145,7 +139,8 @@ export default styles = StyleSheet.create({
     },
     location: {
         flexDirection: 'row',
-        paddingBottom: vh(15.3)
+        paddingBottom: vh(15.3),
+        alignItems: 'center',
     },
     locationText: {
         fontSize: vw(16),
@@ -155,14 +150,16 @@ export default styles = StyleSheet.create({
     money: {
         fontSize: vw(16),
         color: Colors.darkGray2,
-        fontFamily: 'SourceSansPro-Regular'
+        fontFamily: 'SourceSansPro-Regular',
     },
     moneyView: {
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        alignItems: 'center',
     },
     iconPlace: {
-        flexDirection: 'row'
+        flexDirection: 'row',
+        alignItems: 'center',
     },
     cancel: {
         fontSize: vw(16),
@@ -170,24 +167,25 @@ export default styles = StyleSheet.create({
         color: Colors.black
     },
     viewTwo4: {
-        padding: vh(20.7),
+        padding: vw(19),
+        paddingBottom: vw(15.3),
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'space-around'
+        justifyContent: 'space-around',
     },
     center: {
         alignItems: 'center'
     },
     joinText: {
-        fontSize: vh(15),
+        fontSize: vw(15.3),
         color: Colors.green
     },
     saveText: {
-        fontSize: vh(15),
+        fontSize: vw(15.3),
         color: Colors.orange
     },
     shareText: {
-        fontSize: vh(15),
+        fontSize: vw(15.3),
         color: Colors.shareBlue
     },
     separator: {
@@ -195,11 +193,11 @@ export default styles = StyleSheet.create({
         padding: vh(6)
     },
     goingText: {
-        fontSize: vh(15),
+        fontSize: vw(15.3),
         color: Colors.green
     },
     chattingText: {
-        fontSize: vh(15),
+        fontSize: vw(15.3),
         color: Colors.chatBlue
     },
 })

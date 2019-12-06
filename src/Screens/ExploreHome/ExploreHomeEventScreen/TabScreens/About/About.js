@@ -33,7 +33,7 @@ export default class About extends Component {
           <Text style={styles.detailsTextHead} > Event ID </Text>
           <Text style={styles.detailsText} > {DATA.eventID} </Text>
         </View>
-        <View style={styles.line} />
+        <View style={styles.line} /> 
         <View style={styles.row} >
           <View style={styles.detailView} >
             <Text style={styles.detailsTextHead} > Verified Users Only </Text>

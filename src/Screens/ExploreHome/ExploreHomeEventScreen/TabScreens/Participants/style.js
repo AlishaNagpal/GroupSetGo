@@ -143,19 +143,103 @@ const styles = StyleSheet.create({
     },
     plusText: {
         color: 'white',
-        fontSize: vh(23.3),
+        fontSize: vw(23.3),
         fontFamily: 'SourceSansPro-Regular',
-        paddingTop: vh(10)
+        paddingTop: vw(9.3)
     },
     viewThree: {
         margin: vw(13),
-        marginBottom: vw(38)
+        marginBottom: vw(18.7)
     },
     waitPic: {
         height: vw(52),
         width: vw(52),
         borderRadius: vw(26),
         marginRight: vw(9),
+    },
+    separator2: {
+        backgroundColor: Colors.whitishGray,
+        padding: vh(6)
+    },
+    reviewHead: {
+        borderBottomWidth: vw(0.7),
+        borderBottomColor: Colors.lightGray,
+    },
+    reviewText: {
+        fontFamily: 'SourceSansPro-Semibold',
+        fontSize: vw(16.7),
+        paddingLeft: vw(14.7),
+        paddingTop: vw(17),
+        paddingBottom: vw(16.3)
+    },
+    rwView: {
+        padding: vw(13.6),
+    },
+    imgView: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
+    imgView2: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
+    rwPic: {
+        height: vw(52),
+        width: vw(52),
+        borderRadius: vw(26)
+    },
+    rwNameView: {
+        margin: vw(6.7),
+        alignItems: 'flex-start',
+        justifyContent: 'space-evenly'
+    },
+    rwName: {
+        fontFamily: 'SourceSansPro-Semibold',
+        fontSize: vh(15.3),
+    },
+    rwDate: {
+        fontFamily: 'SourceSansPro-Semibold',
+        fontSize: vh(13.3),
+        color: Colors.midGrey
+    },
+    reviewRatingView: {
+        height: vw(21),
+        width: vw(45.7),
+        backgroundColor: Colors.darkGreen,
+        marginTop: vw(7.4),
+        borderRadius: vw(1.9),
+        alignItems: 'center',
+        flexDirection: 'row',
+        justifyContent: 'space-evenly'
+    },
+    reviewRatingText: {
+        fontSize: vw(15),
+        fontFamily: 'SourceSansPro-Semibold',
+        color: 'white'
+    },
+    rwText: {
+        fontFamily: 'SourceSansPro-Regular',
+        fontSize: vh(15.3),
+        color: Colors.verLightGrey,
+        paddingLeft: vw(1.7),
+        paddingRight: vw(27),
+    },
+    readMore: {
+        fontFamily: 'SourceSansPro-Regular',
+        fontSize: vh(15.3),
+        color: Colors.fadedRed
+    },
+    reviewBtn: {
+        alignItems: 'center',
+        borderTopWidth: vw(0.7),
+        borderTopColor: Colors.lightGray,
+    },
+    readReviewText: {
+        fontFamily: 'SourceSansPro-Semibold',
+        fontSize: vh(16.7),
+        textTransform: 'uppercase',
+        color: Colors.fadedRed,
+        padding: vw(24)
     },
 })
 

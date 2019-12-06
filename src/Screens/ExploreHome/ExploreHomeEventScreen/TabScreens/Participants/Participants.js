@@ -14,7 +14,8 @@ export default class Participants extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      count: 0
+      count: 0,
+      // textShown: -1
     };
   }
 
@@ -92,10 +93,10 @@ export default class Participants extends Component {
     }
   }
 
-listOfParticipants = () => {
-  console.warn('press');
-  () => {this.props.navigation.navigate('ExploreNoOfParticipants')}
-}
+  listOfParticipants = () => {
+    console.warn('press');
+    () => { this.props.navigation.navigate('ExploreNoOfParticipants') }
+  }
 
   renderWaitlist = (rawData) => {
     const { item, id } = rawData
@@ -112,32 +113,32 @@ listOfParticipants = () => {
   render() {
     return (
       <View style={styles.mainView}>
-        {/* -------------- Organizer ----------------- */} 
+        {/* -------------- Organizer ----------------- */}
         <View style={styles.viewOne}>
           <Text style={{ ...styles.orgHeading }}>Organizer</Text>
           <View style={styles.picView}>
             <View style={styles.leaveView}>
-            <Image
-              source={ORGANIZER.pic}
-              style={styles.orgPic}
-            />
-            <View style={styles.nameView}>
-              <Text style={{ ...styles.orgName }}>{ORGANIZER.organizer}</Text>
-              <View style={styles.ratingView}>
-                <Text style={styles.ratingText}>{ORGANIZER.rating}</Text>
-                <VectorIcons.Ionicons
-                  name="ios-star"
-                  color='white'
-                  size={vw(9)}
-                />
+              <Image
+                source={ORGANIZER.pic}
+                style={styles.orgPic}
+              />
+              <View style={styles.nameView}>
+                <Text style={{ ...styles.orgName }}>{ORGANIZER.organizer}</Text>
+                <View style={styles.ratingView}>
+                  <Text style={styles.ratingText}>{ORGANIZER.rating}</Text>
+                  <VectorIcons.Ionicons
+                    name="ios-star"
+                    color='white'
+                    size={vw(9)}
+                  />
+                </View>
               </View>
-            </View>
             </View>
             <View>
-            <TouchableOpacity style={styles.leave}>
-              <Text style={styles.leaveText}>Leave Event</Text>
+              <TouchableOpacity style={styles.leave}>
+                <Text style={styles.leaveText}>Leave Event</Text>
               </TouchableOpacity>
-              </View>
+            </View>
           </View>
         </View>
         {/* -------------- Participants ----------------- */}
@@ -179,6 +180,42 @@ listOfParticipants = () => {
             bounces={false}
             showsHorizontalScrollIndicator={false}
           />
+        </View>
+        <View style={styles.separator2} />
+        {/* -------------- Reviews ----------------- */}
+        <View>
+          <View style={styles.reviewHead}>
+            <Text style={styles.reviewText}>Reviews</Text>
+          </View>
+          <View style={styles.rwView}>
+            <View style={styles.imgView}>
+              <View style={styles.imgView2}>
+                <Image
+                  source={REVIEWS[0].pic}
+                  style={styles.rwPic}
+                />
+                <View style={styles.rwNameView}>
+                  <Text style={styles.rwName}>{REVIEWS[0].name}</Text>
+                  <Text style={styles.rwDate}>{REVIEWS[0].date}</Text>
+                </View>
+              </View>
+              <View style={styles.reviewRatingView}>
+                <Text style={styles.reviewRatingText}>{REVIEWS[0].rating}</Text>
+                <VectorIcons.Ionicons
+                  name="ios-star"
+                  color='white'
+                  size={vw(12)}
+                />
+              </View>
+            </View>
+            <View style={{ paddingTop: vw(9.9) }}>
+              <Text style={styles.rwText} numberOfLines={3}>{REVIEWS[0].text}</Text>
+              <Text style={styles.readMore}>read more</Text>
+            </View>
+          </View>
+          <TouchableOpacity style={styles.reviewBtn}>
+            <Text style={styles.readReviewText}>read all {REVIEWS.length} Reviews</Text>
+          </TouchableOpacity>
         </View>
       </View>
     );
@@ -267,4 +304,28 @@ const WAITLIST = [
   { pic: Images.person1 },
   { pic: Images.person2 },
   { pic: Images.person3 },
+]
+
+const REVIEWS = [
+  {
+    pic: Images.person3,
+    name: 'Nandini',
+    date: 'February 2018',
+    rating: 4.5,
+    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+  },
+  {
+    pic: Images.person2,
+    name: 'Emily',
+    date: 'February 2018',
+    rating: 4.5,
+    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
+  },
+  {
+    pic: Images.person1,
+    name: 'Anna',
+    date: 'February 2018',
+    rating: 3,
+    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+  },
 ]

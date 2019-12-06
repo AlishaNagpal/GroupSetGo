@@ -42,10 +42,6 @@ export default class ExploreMapScreen extends Component {
     };
   }
 
-  componentDidMount() {
-    this.marker.showCallout()
-  }
-
   Press = () => {
     this.setState({
       cardIsRendered: true
@@ -92,7 +88,6 @@ export default class ExploreMapScreen extends Component {
             latitudeDelta: 0.015,
             longitudeDelta: 0.0121,
           }}
-          onLayout={() => this.marker.showCallout()}
         >
           {this.state.markers && this.state.markers.map(marker => (
             <MapView.Marker

@@ -9,9 +9,12 @@ import {
 
 // Custom Imports
 import styles from './styles';
+import LinearGradient from 'react-native-linear-gradient'
 import { VectorIcons, vh, vw, Colors } from '../../../../Constants';
+import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import MyTab from '../TabScreens/tabNavigation';
 import * as Progress from 'react-native-progress';
+Icon.loadFont()
 
 export default class HomeDetails6 extends Component {
     state = {
@@ -26,7 +29,7 @@ export default class HomeDetails6 extends Component {
                     <VectorIcons.Ionicons
                         name="ios-add-circle-outline"
                         color={Colors.orange}
-                        size={vh(25)}
+                        size={vh(20)}
                     />
                     <Text style={styles.saveText}>Waitlist</Text>
                 </TouchableOpacity>
@@ -37,7 +40,7 @@ export default class HomeDetails6 extends Component {
                     <VectorIcons.Ionicons
                         name="ios-checkmark-circle-outline"
                         color={Colors.green}
-                        size={vh(25)}
+                        size={vh(20)}
                     />
                     <Text style={styles.goingText}> Going </Text>
                 </TouchableOpacity>
@@ -52,7 +55,7 @@ export default class HomeDetails6 extends Component {
                     <VectorIcons.Ionicons
                         name="ios-add-circle-outline"
                         color={Colors.green}
-                        size={vh(25)}
+                        size={vh(20)}
                     />
                     <Text style={styles.joinText}>Join</Text>
                 </TouchableOpacity>
@@ -63,7 +66,7 @@ export default class HomeDetails6 extends Component {
                     <VectorIcons.AntDesign
                         name="message1"
                         color={Colors.chatBlue}
-                        size={vh(25)}
+                        size={vh(20)}
                     />
                     <Text style={styles.chattingText}> Chat </Text>
                 </TouchableOpacity>
@@ -74,32 +77,31 @@ export default class HomeDetails6 extends Component {
         const { DATA3 } = this.state.data;
         return (
             <View style={styles.mainView}>
-                <ScrollView bounces = {false}>
+                <ScrollView bounces={false}>
                     <View style={styles.viewOne}>
                         <Image
                             source={DATA3.image}
                             style={styles.pic}
                         />
-                        <View style={styles.shade} />
                         <TouchableOpacity onPress={() => this.props.navigation.navigate('HomeNavigator')} style={styles.backButton} >
                             <VectorIcons.MaterialCommunityIcons
                                 name='keyboard-backspace'
                                 color={Colors.white}
-                                size={vh(30)}
+                                size={vh(24.3)}
                             />
                         </TouchableOpacity>
                         <VectorIcons.MaterialCommunityIcons
                             name='flag-outline'
                             style={styles.flagBtn}
                             color='white'
-                            size={vh(30)}
+                            size={vh(19.3)}
                         />
                         <View style={styles.cheersView}>
                             <Image source={DATA3.iconImage} style={styles.cheersIcon} />
                         </View>
                     </View>
                     <View style={styles.belowImage}>
-                        <View style={{ width: vw(280) }}>
+                        <View>
                             <Text style={styles.redText}> {DATA3.time} </Text>
                             <Text style={styles.titleText}>{DATA3.heading}</Text>
                             <Text style={styles.tagText}> {DATA3.hashtag} </Text>
@@ -110,8 +112,8 @@ export default class HomeDetails6 extends Component {
                                 <Text style={styles.ratingText}> {DATA3.reviewRating} </Text>
                                 <VectorIcons.Ionicons
                                     name="ios-star"
-                                    color='white'
-                                    size={vh(11)}
+                                    color={Colors.white}
+                                    size={vw(11)}
                                 />
                             </View>
                         </View>
@@ -127,6 +129,7 @@ export default class HomeDetails6 extends Component {
                 <View style={styles.viewTwo3}>
                         <View style={styles.location}>
                             {/* <VectorIcons.SimpleLineIcons
+                            <Icon
                                 name='location-pin'
                                 color={Colors.darkGray2}
                                 size={vh(17.3)}
@@ -161,6 +164,11 @@ export default class HomeDetails6 extends Component {
                                 color={Colors.shareBlue}
                                 size={vh(25)}
                             /> */}
+                            <Icon
+                                name="share"
+                                color={Colors.shareBlue}
+                                size={vh(20)}
+                            />
                             <Text style={styles.shareText}>Share</Text>
                         </TouchableOpacity>
                     </View>

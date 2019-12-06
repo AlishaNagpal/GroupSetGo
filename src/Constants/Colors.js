@@ -34,6 +34,8 @@ const Colors = {
     red: 'rgb(211, 20, 38)',
     fontColor: 'rgb(167,167,167)',
     beige: '#fbfbf0',
+    midGrey: 'rgb(153, 153, 153)',
+    verLightGrey: 'rgb(148, 148, 148)',
 }
 
 export default Colors;

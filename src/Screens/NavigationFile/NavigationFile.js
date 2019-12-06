@@ -110,7 +110,7 @@ const AppNavigator = createStackNavigator({
     HomeNavigator: { screen: TabNavigator, navigationOptions: { header: null } },
 },
     {
-        initialRouteName: 'OnboardingLogin',
+        initialRouteName: 'HomeNavigator',
         defaultNavigationOptions: ({ navigation }) => ({
             headerBackTitle: null,
         }),

@@ -8,6 +8,8 @@ import Settlement from './Settlement/Settlement';
 import { vh, Colors, vw } from '../../../../Constants/index';
 import { createStackNavigator } from 'react-navigation-stack';
 
+let scene = false;
+
 const NavTabBar = createMaterialTopTabNavigator({
 
     About: {
@@ -16,9 +18,7 @@ const NavTabBar = createMaterialTopTabNavigator({
     Participants: {
         screen: Participants
     },
-    Settlement: {
-        screen: Settlement
-    },
+    ...(scene === true ? { Settlement: { screen: Settlement } } : {}),
 },
     {
         initialRouteName: 'About',
@@ -26,16 +26,12 @@ const NavTabBar = createMaterialTopTabNavigator({
             inactiveTintColor: Colors.gray,
             activeTintColor: Colors.fadedRed,
             labelStyle: {
-                fontSize: vw(13.6),
+                fontSize: (scene === true) ? vw(13.6): vw(15.3),
                 fontWeight: '600',
             },
             showIcon: false,
             style: {
                 backgroundColor: Colors.white,
-            },
-            labelStyle: {
-                fontSize: vw(13.6),
-                fontWeight: '600',
             },
             indicatorStyle: {
                 backgroundColor: Colors.fadedRed,
