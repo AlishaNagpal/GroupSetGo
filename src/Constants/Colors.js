@@ -32,7 +32,8 @@ const Colors = {
     chatBlue: '#1F94DA',
     orange: '#FA6C00',
     red: 'rgb(211, 20, 38)',
-    fontColor: 'rgb(167,167,167)'
+    fontColor: 'rgb(167,167,167)',
+    beige: '#fbfbf0',
 }
 
 export default Colors;
