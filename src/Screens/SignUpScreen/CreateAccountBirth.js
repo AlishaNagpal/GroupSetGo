@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient'
-import DatePicker from '@react-native-community/datetimepicker'
+import DatePicker from 'react-native-custom-datetimepicker'
 import { connect } from 'react-redux'
+import EvilIcons from 'react-native-vector-icons/EvilIcons'
+EvilIcons.loadFont()
+
 
 //Custom Imports
 import styles from './styles'
 import { VectorIcons, Colors, vh } from '../../Constants';
 import { pickDate } from '../../Store/Action/Action'
+import moment from 'moment';
 
 const colors = [Colors.moderateRed, Colors.moderatePink, Colors.darkModeratePink, Colors.darkViolet, Colors.darkViolet, Colors.darkViolet]
 
@@ -15,6 +19,20 @@ class CreateAccountBirth extends Component {
     setDate = (event, date) => {
         date = date
         this.props.pickDate(date)
+    }
+
+    componentWillMount() {
+        this.getDate()
+    }
+
+    getDate = () => {
+        const date = new Date();
+        const year = date.getFullYear();
+        const month = date.getMonth();
+        const day = date.getDate();
+        const c = new Date(year - 18, month, day)
+        console.log("djsabck", c)
+        return( c )
     }
     render() {
         return (
@@ -28,11 +46,15 @@ class CreateAccountBirth extends Component {
                 <Text style={styles.belowStep} > Your birthday? </Text>
                 <Text style={styles.description}>Some of our events have age restrictions for participants. Don’t worry, we won’t share this information on any other platform</Text>
                 <DatePicker
-                    value={this.props.date}
+                    style={styles.datePicker}
+                    date={this.props.date}
+                    placeholder="select date"
+                    format='DD-MM-YYYY'
+                    iconComponent={<EvilIcons name="calendar" color={Colors.white} size={25} />}
                     mode={'date'}
-                    display = 'calendar'
-                    onChange = {this.setDate}
-                    style={{height:150}}
+                    maxDate={this.getDate()}
+                    onDateChange={this.setDate}
+                    TouchableComponent={TouchableOpacity}
                 />
                 <TouchableOpacity style={styles.buttonStyle} onPress={() => { this.props.navigation.navigate('createAccountGender') }} >
                     <Text style={styles.buttonText}> Next </Text>

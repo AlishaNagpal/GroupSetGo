@@ -10,7 +10,7 @@ import RadioButton from '../../ReusableComponents/RadioButton'
 const colors = [Colors.moderateRed, Colors.moderatePink, Colors.darkModeratePink, Colors.darkViolet, Colors.darkViolet, Colors.darkViolet]
 
 export default class createAccountGender extends Component {
-    state = { maleChosen: false, femaleChosen: false }
+    state = { maleChosen: true, femaleChosen: false }
 
     clicked(check, id) {
         if (id === 1) {

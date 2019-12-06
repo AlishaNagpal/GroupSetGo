@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
 import * as Actions from '../../utils/ActionTypes'
 const initialState = {
-    date: new Date('1990-01-01T14:42:42'),
-    eventData: []
+    date: "01-01-1990",
+    // new Date('1990-01-01T14:42:42'),
 
 };
 
