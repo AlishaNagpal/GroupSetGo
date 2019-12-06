@@ -8,7 +8,7 @@ import Settlement from './Settlement/Settlement';
 import { vh, Colors, vw } from '../../../../Constants/index';
 import { createStackNavigator } from 'react-navigation-stack';
 
-let scene = false;
+let scene = true;
 
 const NavTabBar = createMaterialTopTabNavigator({
 
