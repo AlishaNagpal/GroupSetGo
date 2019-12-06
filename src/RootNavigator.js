@@ -12,7 +12,7 @@ import SplashScreen from './Screens/SplashScreen/SplashScreen'
 import OnboardingLogin from './Screens/OnboardingLogin/OnboardingLogin'
 import LoginWithEmail from './Screens/LoginScreen/LoginWithEmail'
 import createAccountName  from './Screens/SignUpScreen/createAccountName.js'
-import  createAccountEmail  from './Screens/SignUpScreen/createAccountEmail.js'
+import createAccountEmail  from './Screens/SignUpScreen/createAccountEmail.js'
 import createAccountGender from './Screens/SignUpScreen/createAccountGender.js'
 import createAccountPassword from './Screens/SignUpScreen/createAccountPassword.js'
 import createAccountBirth from './Screens/SignUpScreen/CreateAccountBirth.js'
@@ -22,7 +22,6 @@ import ExploreHomeScreen from './Screens/ExploreHome/ExploreHomeScreen/ExploreHo
 import ExploreMapScreen from './Screens/ExploreHome/ExploreHomeScreen/ExploreMapScreen'
 import HomeDetails6 from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/HomeDetails6';
 import Review from './Screens/Review/Review'
-import Settlement from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/Settlement/Settlement';
 import MyTab from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/tabNavigation'
 /**
  * custom imports
@@ -146,9 +145,9 @@ const RootStack = createStackNavigator(
         LoginWithEmail: {
             screen: LoginWithEmail,
         },
-        SkipLoginDialog: {
-            screen: SkipLoginDialog
-        },
+        // SkipLoginDialog: {
+        //     screen: SkipLoginDialog
+        // },
         createAccountName: {
             screen: createAccountName,
         },
