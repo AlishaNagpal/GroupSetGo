@@ -1,11 +1,7 @@
 import { StyleSheet } from 'react-native'
+import {vh, vw, Colors} from '../../../../../Constants' 
 
-/**
- * custom imports
- */
-import { vw, vh, Colors } from '../../../../../Constants'
-
-export const styles = StyleSheet.create({
+export default styles = StyleSheet.create({
     mainContainer: {
         flex: 1
     },

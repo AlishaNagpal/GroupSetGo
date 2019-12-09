@@ -6,7 +6,7 @@ Icon.loadFont()
 /**
  * custom imports
  */
-import { Colors, vw, vh, DesignWidth } from '../../../Constants'
+import { Colors, vw} from '../../../Constants'
 import styles from './styles'
 import strings from '../../../Constants/Strings'
 
@@ -23,7 +23,7 @@ export default class ExploreEvents extends PureComponent {
         return (
             <TouchableOpacity onPress={() => this.searchResultRowTapped(rowData.item)} style={styles.rowStyle}>
                 <View style = {styles.listRowStyle}>
-                    <Icon name="ios-pin" size={20} color={Colors.black} style = {styles.listPinStyle} />
+                    <Icon name="ios-pin" size={vw(20)} color={Colors.black} style = {styles.listPinStyle} />
                     <Text style={styles.listEventTextStyle}>{rowData.item.eventName}</Text>
                 </View>
                 <Text style={styles.listLocationTextStyle}>{rowData.item.distance}</Text>
@@ -38,11 +38,11 @@ export default class ExploreEvents extends PureComponent {
         return (
             <View style={styles.containerStyle}>
                 <View style={styles.textinputViewStyle}>
-                    <Icon name="ios-search" size={25} color={Colors.gray} />
+                    <Icon name="ios-search" size={vw(15)} color={Colors.gray} />
                     <TextInput
                         value={this.state.searchKeyword}
                         onChangeText={text => this.setState({ searchKeyword: text })}
-                        placeholder='Search by name, email id, phone number'
+                        placeholder='Search by name or email id'
                         style={styles.textinputStyle}
                     />
                 </View>

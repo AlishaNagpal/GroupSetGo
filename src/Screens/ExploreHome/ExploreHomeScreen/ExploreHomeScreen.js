@@ -14,7 +14,6 @@ export default class ExploreHomeScreen extends PureComponent {
   render() {
     return (
       <React.Fragment>
-
         <View style={styles.mainContainer} >
           <View style={styles.headerView}>
             <Image
@@ -35,7 +34,7 @@ export default class ExploreHomeScreen extends PureComponent {
             </TouchableOpacity>
           </View>
           <ScrollView bounces = {false} >
-            <HomeScreen />
+            <HomeScreen navigate = {this.props.navigation.navigate} />
           </ScrollView>
         </View>
         <LinearGradient colors={colors} style={styles.gradient} >

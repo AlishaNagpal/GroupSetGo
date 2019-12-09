@@ -26,6 +26,8 @@ class HomeDetails6 extends Component {
     }
 
     componentDidMount() {
+        console.log("dsjbcjkd")
+        console.log(this.props.navigation.getParam('data'))
         this.getData(this.props.navigation.getParam('id').id)
     }
 

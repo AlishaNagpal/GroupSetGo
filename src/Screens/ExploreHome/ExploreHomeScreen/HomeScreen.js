@@ -9,7 +9,7 @@ import { Images, vw, vh, Colors, VectorIcons } from '../../../Constants'
 class HomeScreen extends PureComponent {
 
     callScreen = (id) => {
-        this.props.navigation.navigate('HomeDetails6', {
+        this.props.navigate('HomeDetails6', {
             data: this.props.Event_Data,
             id: { id }
         })
