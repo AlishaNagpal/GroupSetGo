@@ -9,7 +9,6 @@ import {
 
 // Custom Imports
 import styles from './styles';
-import LinearGradient from 'react-native-linear-gradient'
 import { VectorIcons, vh, vw, Colors } from '../../../../Constants';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import MyTab from '../TabScreens/tabNavigation';
@@ -19,19 +18,47 @@ Icon.loadFont()
 export default class HomeDetails6 extends Component {
     state = {
         data: this.props.navigation.getParam('data'),
-        going: false
+        id: this.props.navigation.getParam('id'),
+        going: false,
+        waitlisted: false
+    }
+
+    componentDidMount() {
+        this.getData(this.props.navigation.getParam('id').id)
+    }
+
+    getData = (id) => {
+        let temp = this.state.data
+        let indexToEdit = temp.findIndex(item => item.serialNo == id)
+        let newData = temp[indexToEdit]
+        if (indexToEdit != -1) {
+            this.setState({
+                data: newData
+            })
+        }
     }
 
     goingJoin = () => {
         if (this.state.going === false) {
             return (
-                <TouchableOpacity style={styles.center} >
+                <TouchableOpacity style={styles.center} onPress={() => this.setState({ going: true })} >
+                    <VectorIcons.Ionicons
+                        name="ios-add-circle-outline"
+                        color={Colors.green}
+                        size={vh(20)}
+                    />
+                    <Text style={styles.saveText}>Join</Text>
+                </TouchableOpacity>
+            )
+        } else if (this.state.waitlisted == true) {
+            return (
+                <TouchableOpacity style={styles.center} onPress={() => this.setState({ going: true })} >
                     <VectorIcons.Ionicons
                         name="ios-add-circle-outline"
                         color={Colors.orange}
                         size={vh(20)}
                     />
-                    <Text style={styles.saveText}>Waitlist</Text>
+                    <Text style={styles.waitlisted}>Waitlist</Text>
                 </TouchableOpacity>
             )
         } else {
@@ -51,13 +78,13 @@ export default class HomeDetails6 extends Component {
     goingSave = () => {
         if (this.state.going === false) {
             return (
-                <TouchableOpacity style={styles.center} onPress={() => this.setState({ going: true })}>
+                <TouchableOpacity style={styles.center} >
                     <VectorIcons.Ionicons
-                        name="ios-add-circle-outline"
-                        color={Colors.green}
+                        name="ios-heart-empty"
+                        color={Colors.fadedRed}
                         size={vh(20)}
                     />
-                    <Text style={styles.joinText}>Join</Text>
+                    <Text style={styles.joinText}>Save</Text>
                 </TouchableOpacity>
             )
         } else {
@@ -73,14 +100,15 @@ export default class HomeDetails6 extends Component {
             )
         }
     }
+
     render() {
-        const { DATA3 } = this.state.data;
+        const { data } = this.state;
         return (
             <View style={styles.mainView}>
                 <ScrollView bounces={false}>
-                    <View style={styles.viewOne}>
+                    <View>
                         <Image
-                            source={DATA3.image}
+                            source={data.source}
                             style={styles.pic}
                         />
                         <TouchableOpacity onPress={() => this.props.navigation.navigate('HomeNavigator')} style={styles.backButton} >
@@ -97,19 +125,19 @@ export default class HomeDetails6 extends Component {
                             size={vh(19.3)}
                         />
                         <View style={styles.cheersView}>
-                            <Image source={DATA3.iconImage} style={styles.cheersIcon} />
+                            <Image source={data.icon} style={styles.cheersIcon} />
                         </View>
                     </View>
                     <View style={styles.belowImage}>
                         <View>
-                            <Text style={styles.redText}> {DATA3.time} </Text>
-                            <Text style={styles.titleText}>{DATA3.heading}</Text>
-                            <Text style={styles.tagText}> {DATA3.hashtag} </Text>
+                            <Text style={styles.redText}> {data.time} </Text>
+                            <Text style={styles.titleText}>{data.heading}</Text>
+                            <Text style={styles.tagText}> {data.hashtag} </Text>
                         </View>
                         <View style={styles.profilePicture}>
-                            <Image source={DATA3.profile} style={styles.imgView} />
+                            <Image source={data.profile} style={styles.imgView} />
                             <View style={styles.ratingView}>
-                                <Text style={styles.ratingText}> {DATA3.reviewRating} </Text>
+                                <Text style={styles.ratingText}> {data.reviewRating} </Text>
                                 <VectorIcons.Ionicons
                                     name="ios-star"
                                     color={Colors.white}
@@ -119,22 +147,21 @@ export default class HomeDetails6 extends Component {
                         </View>
                     </View>
                     <View style={styles.viewTwo2}>
-                        <Text style={styles.progressText}> {DATA3.going} Going</Text>
-                        <Progress.Bar style={styles.progressBar} progress={DATA3.going / 100} width={vw(380)} color={Colors.green} unfilledColor={Colors.lightGray} borderColor={Colors.white} animated={true} />
+                        <Text style={styles.progressText}> {data.going} Going</Text>
+                        <Progress.Bar style={styles.progressBar} progress={10 / 100} width={vw(380)} color={Colors.green} unfilledColor={Colors.lightGray} borderColor={Colors.white} animated={true} />
                         <View style={styles.progressValue}>
                             <Text style={styles.barNumber}>60</Text>
                             <Text style={styles.barNumber2}>100</Text>
                         </View>
                     </View>
-                <View style={styles.viewTwo3}>
+                    <View style={styles.viewTwo3}>
                         <View style={styles.location}>
-                            {/* <VectorIcons.SimpleLineIcons
                             <Icon
                                 name='location-pin'
                                 color={Colors.darkGray2}
                                 size={vh(17.3)}
-                            /> */}
-                            <Text style={styles.locationText}> {DATA3.location} </Text>
+                            />
+                            <Text style={styles.locationText}> {data.location} </Text>
                         </View>
                         <View style={styles.moneyView}>
                             <View style={styles.iconPlace}>
@@ -143,7 +170,7 @@ export default class HomeDetails6 extends Component {
                                     color={Colors.darkGray2}
                                     size={vh(20)}
                                 />
-                                <Text style={styles.money}>{DATA3.money} per person</Text>
+                                <Text style={styles.money}>{data.money} per person</Text>
                             </View>
                             <View style={styles.iconPlace}>
                                 <VectorIcons.MaterialCommunityIcons
@@ -151,7 +178,7 @@ export default class HomeDetails6 extends Component {
                                     color={Colors.darkGray2}
                                     size={vh(20)}
                                 />
-                                <Text style={styles.cancel}>Cancel By: {DATA3.cancelDate} </Text>
+                                <Text style={styles.cancel}>Cancel By: {data.cancelDate} </Text>
                             </View>
                         </View>
                     </View>
@@ -159,11 +186,6 @@ export default class HomeDetails6 extends Component {
                         {this.goingJoin()}
                         {this.goingSave()}
                         <TouchableOpacity style={styles.center} >
-                            {/* <VectorIcons.SimpleLineIcons
-                                name="share"
-                                color={Colors.shareBlue}
-                                size={vh(25)}
-                            /> */}
                             <Icon
                                 name="share"
                                 color={Colors.shareBlue}

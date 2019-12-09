@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
         fontFamily: 'SourceSansPro-Semibold',
         fontSize: vw(16.7),
         color: Colors.fontColor,
-        
+
     },
     loginTextStyle: {
         fontFamily: 'SourceSansPro-Semibold',

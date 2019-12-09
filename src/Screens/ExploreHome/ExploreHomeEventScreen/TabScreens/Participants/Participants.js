@@ -6,16 +6,20 @@ import {
   FlatList,
   TouchableOpacity
 } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient'
+import Reviews from './Reviews';
 
 import { Images, vh, vw, VectorIcons, Colors } from '../../../../../Constants';
 import styles from './style';
+
+const colors = [Colors.fadedRed,Colors.darkishPink]
 
 export default class Participants extends Component {
   constructor(props) {
     super(props);
     this.state = {
       count: 0,
-      // textShown: -1
+      textShown: false,
     };
   }
 
@@ -87,11 +91,18 @@ export default class Participants extends Component {
           <Image
             source={item.pic}
             style={styles.waitPic}
+            toggleText = {() => this.toggle(key)}
           />
         </View>
       );
     }
   }
+
+  toggle=(key)=>{
+    this.setState({
+        show: this.state.show === key ? -1 : key,
+    })
+}
 
   listOfParticipants = () => {
     console.warn('press');
@@ -107,6 +118,17 @@ export default class Participants extends Component {
           style={styles.waitPic}
         />
       </View>
+    );
+  }
+
+  renderReviewList = (rawData) =>{
+    const { item, id } = rawData
+    return (
+      <Reviews 
+      myData = {item}
+      myId = {id}
+      />
+      
     );
   }
 
@@ -183,40 +205,33 @@ export default class Participants extends Component {
         </View>
         <View style={styles.separator2} />
         {/* -------------- Reviews ----------------- */}
-        <View>
+        {REVIEWS.length !== 0 && <View>
           <View style={styles.reviewHead}>
             <Text style={styles.reviewText}>Reviews</Text>
           </View>
-          <View style={styles.rwView}>
-            <View style={styles.imgView}>
-              <View style={styles.imgView2}>
-                <Image
-                  source={REVIEWS[0].pic}
-                  style={styles.rwPic}
-                />
-                <View style={styles.rwNameView}>
-                  <Text style={styles.rwName}>{REVIEWS[0].name}</Text>
-                  <Text style={styles.rwDate}>{REVIEWS[0].date}</Text>
-                </View>
-              </View>
-              <View style={styles.reviewRatingView}>
-                <Text style={styles.reviewRatingText}>{REVIEWS[0].rating}</Text>
-                <VectorIcons.Ionicons
-                  name="ios-star"
-                  color='white'
-                  size={vw(12)}
-                />
-              </View>
-            </View>
-            <View style={{ paddingTop: vw(9.9) }}>
-              <Text style={styles.rwText} numberOfLines={3}>{REVIEWS[0].text}</Text>
-              <Text style={styles.readMore}>read more</Text>
-            </View>
+          <View style={styles.flatReview}>
+          <FlatList
+            data={REVIEWS}
+            keyExtractor={(item, id) => id.toString()}
+            renderItem={this.renderReviewList}
+            nestedScrollEnabled={true}
+            bounces={false}
+          />
           </View>
-          <TouchableOpacity style={styles.reviewBtn}>
-            <Text style={styles.readReviewText}>read all {REVIEWS.length} Reviews</Text>
+          <TouchableOpacity style={styles.reviewBtn} activeOpacity={1}>
+            <Text style={styles.readReviewText}>{REVIEWS.length === 0 ? 'NO REVIEWS AVAILABLE' : 'read all '+ REVIEWS.length + ' Reviews'}</Text>
           </TouchableOpacity>
-        </View>
+        </View>}
+        {/* -------------- Settle Account ----------------- */}
+        <View style={styles.settle}>
+        <LinearGradient colors={colors} start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} style={styles.gradientStyle} >
+                    <TouchableOpacity style = {styles.loginButtonStyle}
+                        // onPress={() => this.props.navigation.navigate("LoginWithEmail")}
+                        >
+                        <Text style={styles.loginButtonTitleStyle}>settle account</Text>
+                    </TouchableOpacity>
+                </LinearGradient>
+          </View>
       </View>
     );
   }

@@ -4,7 +4,6 @@ import { vh, vw, Colors } from '../../../../../Constants';
 const styles = StyleSheet.create({
     mainView: {
         flex: 1,
-        height: 100
     },
     viewOne: {
         borderBottomColor: Colors.lightGray,
@@ -174,6 +173,7 @@ const styles = StyleSheet.create({
     },
     rwView: {
         padding: vw(13.6),
+        paddingBottom: 0,
     },
     imgView: {
         flexDirection: 'row',
@@ -191,7 +191,7 @@ const styles = StyleSheet.create({
     rwNameView: {
         margin: vw(6.7),
         alignItems: 'flex-start',
-        justifyContent: 'space-evenly'
+        justifyContent: 'space-evenly',
     },
     rwName: {
         fontFamily: 'SourceSansPro-Semibold',
@@ -227,7 +227,7 @@ const styles = StyleSheet.create({
     readMore: {
         fontFamily: 'SourceSansPro-Regular',
         fontSize: vh(15.3),
-        color: Colors.fadedRed
+        color: Colors.fadedRed,
     },
     reviewBtn: {
         alignItems: 'center',
@@ -240,6 +240,29 @@ const styles = StyleSheet.create({
         textTransform: 'uppercase',
         color: Colors.fadedRed,
         padding: vw(24)
+    },
+    flatReview: {
+        paddingBottom: vw(17.7),
+    },
+    settle: {
+        alignItems: 'center',
+        padding: vw(20),
+        paddingTop: vw(26.3),
+        backgroundColor: Colors.whitishGray,
+        paddingBottom: vw(42)
+    },
+    gradientStyle: {
+        width: vw(374),
+        height: vh(53.3),
+        borderRadius: vh(26.7),
+        alignItems: 'center',
+        justifyContent: 'space-evenly'
+    },
+    loginButtonTitleStyle: {
+        color: 'white',
+        fontSize: vw(16.7),
+        fontFamily: 'SourceSansPro-Semibold',
+        textTransform: 'uppercase'
     },
 })
 

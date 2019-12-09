@@ -6,7 +6,7 @@ const Images = {
     facebookLogo: require('../Assets/Images/facebook.png'),
     crossImage: require('../Assets/Images/icCancel.png'),
     party : require('../Assets/Images/partyImg.jpg'),
-    maleImage: require('../Assets/Images/maleImage.jpg'),
+    maleImage: require('../Assets/Images/maleImage.jpeg'),
     notification: require('../Assets/Images/icNotificationsFilled.png'),
     res1: require('../Assets/Images/res1.jpg'),
     res2: require('../Assets/Images/res2.jpg'),
@@ -22,7 +22,8 @@ const Images = {
     person1: require('../Assets/Images/person1.jpeg'),
     person2: require('../Assets/Images/person2.jpeg'),
     person3: require('../Assets/Images/person3.jpeg'),
-    marker: require('../Assets/Images/marker.jpg')
+    marker: require('../Assets/Images/marker.jpg'),
+    run: require('../Assets/Images/run.png')
 }
 
 export default Images;

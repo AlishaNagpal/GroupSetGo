@@ -5,9 +5,6 @@ export default styles = StyleSheet.create({
     mainView: {
         flex: 1,
     },
-    viewOne: {
-        height: vh(270),
-    },
     pic: {
         height: vh(270),
         width: vw(414)
@@ -178,11 +175,11 @@ export default styles = StyleSheet.create({
     },
     joinText: {
         fontSize: vw(15.3),
-        color: Colors.green
+        color: Colors.fadedRed
     },
     saveText: {
         fontSize: vw(15.3),
-        color: Colors.orange
+        color: Colors.green
     },
     shareText: {
         fontSize: vw(15.3),
@@ -200,4 +197,8 @@ export default styles = StyleSheet.create({
         fontSize: vw(15.3),
         color: Colors.chatBlue
     },
+    waitlisted:{
+        fontSize: vw(15.3),
+        color: Colors.orange
+    }
 })

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Text, TextInput, TouchableOpacity, Animated } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scrollview'
@@ -10,7 +10,7 @@ import styles from './styles'
 import { VectorIcons, Colors, vh } from '../../Constants';
 const colors = [Colors.moderateRed, Colors.moderatePink, Colors.darkModeratePink, Colors.darkViolet, Colors.darkViolet, Colors.darkViolet]
 
-export default class createAccountEmail extends Component {
+export default class createAccountEmail extends PureComponent {
 
     constructor(props) {
         super(props);
@@ -20,18 +20,17 @@ export default class createAccountEmail extends Component {
     }
 
     error = () => {
-        console.log("hjcsvjhkasdcv")
         Animated.timing(this.state.animatedValue, {
-            toValue: 30,
+            toValue: 40,
             duration: 400,
-        }).start(() => {
-            setInterval(() => {
-                Animated.timing(this.state.animatedValue, {
-                    toValue: -30,
-                    duration: 400
-                }).start()
-            }, 1000)
-        });
+        }).start();
+    }
+
+    close = () => {
+        Animated.timing(this.state.animatedValue, {
+            toValue: -40,
+            duration: 400
+        }).start()
     }
 
 
@@ -67,7 +66,11 @@ export default class createAccountEmail extends Component {
                                 <ErrorMessage name="email">{(msg) => {
                                     return (
                                         <Animated.View style={[styles.errorView, { marginTop: this.state.animatedValue }]} >
+                                            <Animated.Text style={styles.infoText} >  Info </Animated.Text>
                                             <Animated.Text style={styles.errorMessage}>{msg}</Animated.Text>
+                                            <TouchableOpacity style={styles.headerButton} onPress={() => this.close()}  >
+                                                <VectorIcons.AntDesign name="close" size={vh(25)} color={Colors.fadedGray2} />
+                                            </TouchableOpacity>
                                         </Animated.View>
                                     )
                                 }}
@@ -81,7 +84,7 @@ export default class createAccountEmail extends Component {
                                         setFieldTouched('email')
                                         this.error()
                                     }}
-                                    value={values.firstName}
+                                    value={values.email}
                                     onChangeText={handleChange('email')}
                                     autoCorrect={false}
                                 />
@@ -90,7 +93,7 @@ export default class createAccountEmail extends Component {
                                     style={styles.buttonStyle}
                                     onPress={handleSubmit}
                                     disabled={!isValid}
-                                    // activeOpacity={1}
+                                // activeOpacity={1}
                                 >
                                     <Text style={styles.buttonText}> Next </Text>
                                 </TouchableOpacity>

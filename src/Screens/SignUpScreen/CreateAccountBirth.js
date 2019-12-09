@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient'
 import DatePicker from 'react-native-custom-datetimepicker'
@@ -15,7 +15,7 @@ import moment from 'moment';
 
 const colors = [Colors.moderateRed, Colors.moderatePink, Colors.darkModeratePink, Colors.darkViolet, Colors.darkViolet, Colors.darkViolet]
 
-class CreateAccountBirth extends Component {
+class CreateAccountBirth extends PureComponent {
     setDate = (event, date) => {
         date = date
         this.props.pickDate(date)
@@ -32,7 +32,7 @@ class CreateAccountBirth extends Component {
         const day = date.getDate();
         const c = new Date(year - 18, month, day)
         console.log("djsabck", c)
-        return( c )
+        return (c)
     }
     render() {
         return (

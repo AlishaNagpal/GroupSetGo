@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import {
   View,
-  Text,
   Animated,
-  Easing,
   Image
 } from 'react-native';
 
@@ -44,25 +42,25 @@ export default class SplashScreen extends Component {
     ]).start(() => this.animateSize())
   }
 
-animateSize = () => {
-  
-  Animated.parallel([
-    Animated.timing(this.animatedValue, {
-      toValue: 1,
-      duration: 3000,
-    }),
-    Animated.timing(this.animatedValue, {
-      toValue: 1,
-      duration: 3000,
-    }), 
-  ]).start(()=>{this.props.navigation.navigate('OnboardingLogin')})
-}
+  animateSize = () => {
+
+    Animated.parallel([
+      Animated.timing(this.animatedValue, {
+        toValue: 1,
+        duration: 3000,
+      }),
+      Animated.timing(this.animatedValue, {
+        toValue: 1,
+        duration: 3000,
+      }),
+    ]).start(() => { this.props.navigation.navigate('OnboardingLogin') })
+  }
 
   render() {
 
     const logoScaleX = this.animatedValue.interpolate({
       inputRange: [0, 1],
-      outputRange: [0.5,1.6]
+      outputRange: [0.5, 1.6]
     })
     const logoScaleY = this.animatedValue.interpolate({
       inputRange: [0, 1],
@@ -70,7 +68,7 @@ animateSize = () => {
     })
     const textSize = this.animatedValue.interpolate({
       inputRange: [0, 1],
-      outputRange: [15, 25]
+      outputRange: [10, 25]
     })
 
     if (this.state.back === true) {
@@ -85,7 +83,7 @@ animateSize = () => {
       return (
         <View style={{ flex: 1 }}>
           <Animated.Image
-            source={Pics.logoSmall} style={{ ...this.moveAnimationLogo.getLayout(), height: 40, width: 40, transform: [{scaleX: logoScaleX}, {scaleY: logoScaleY}] }}
+            source={Pics.logoSmall} style={{ ...this.moveAnimationLogo.getLayout(), height: 40, width: 40, transform: [{ scaleX: logoScaleX }, { scaleY: logoScaleY }] }}
           />
           <Animated.Text
             style={{ ...this.moveAnimationText.getLayout(), color: Colors.darkPink, fontSize: textSize, }}

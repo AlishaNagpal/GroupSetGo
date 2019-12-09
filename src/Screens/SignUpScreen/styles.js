@@ -95,18 +95,29 @@ export default styles = StyleSheet.create({
         alignSelf: 'center',
         marginTop: vw(20)
     },
-    errorView:{
-        position:'absolute',
-        top:-30,
-        height: vh(50),
+    errorView: {
+        position: 'absolute',
+        height: vh(70),
         width: vw(420),
-        backgroundColor: Colors.beige ,
-        alignItems:'center'
+        backgroundColor: Colors.white,
+        alignItems: 'center',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        top: -40
     },
-    errorMessage:{ 
-        fontSize: vh(18), 
+    errorMessage: {
+        fontSize: vh(18),
         color: Colors.black,
-        marginTop: vh(25) 
+        marginTop: vh(25),
+        marginLeft: vw(20)
+    },
+    headerButton: {
+        marginTop: vh(25),
+        marginRight: vw(30)
+    },
+    infoText:{
+        color: Colors.chatBlue,
+        marginTop: vh(25),
     }
 
 })

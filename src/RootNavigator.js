@@ -7,19 +7,19 @@ import {createBottomTabNavigator} from 'react-navigation-tabs';
 /**
  * custom imports
  */
-import {VectorIcons, vh, Images} from './Constants';
-import SplashScreen from './Screens/SplashScreen/SplashScreen';
-import OnboardingLogin from './Screens/OnboardingLogin/OnboardingLogin';
-import LoginWithEmail from './Screens/LoginScreen/LoginWithEmail';
-import createAccountName from './Screens/SignUpScreen/createAccountName.js';
-import createAccountEmail from './Screens/SignUpScreen/createAccountEmail.js';
-import createAccountGender from './Screens/SignUpScreen/createAccountGender.js';
-import createAccountPassword from './Screens/SignUpScreen/createAccountPassword.js';
-import createAccountBirth from './Screens/SignUpScreen/CreateAccountBirth.js';
-import ForgotPassword from './Screens/ForgotPassword/ForgotPassword';
-import SkipLoginDialog from './Screens/SkipLoginDialog/SkipLoginDialog';
-import ExploreHomeScreen from './Screens/ExploreHome/ExploreHomeScreen/ExploreHomeScreen';
-import ExploreMapScreen from './Screens/ExploreHome/ExploreHomeScreen/ExploreMapScreen';
+import { VectorIcons, vh, Images } from './Constants'
+import SplashScreen from './Screens/SplashScreen/SplashScreen'
+import OnboardingLogin from './Screens/OnboardingLogin/OnboardingLogin'
+import LoginWithEmail from './Screens/LoginScreen/LoginWithEmail'
+import createAccountName  from './Screens/SignUpScreen/createAccountName.js'
+import createAccountEmail from './Screens/SignUpScreen/createAccountEmail.js'
+import createAccountGender from './Screens/SignUpScreen/createAccountGender.js'
+import createAccountPassword from './Screens/SignUpScreen/createAccountPassword.js'
+import createAccountBirth from './Screens/SignUpScreen/CreateAccountBirth.js'
+import ForgotPassword from './Screens/ForgotPassword/ForgotPassword'
+import SkipLoginDialog from './Screens/SkipLoginDialog/SkipLoginDialog'
+import ExploreHomeScreen from './Screens/ExploreHome/ExploreHomeScreen/ExploreHomeScreen'
+import ExploreMapScreen from './Screens/ExploreHome/ExploreHomeScreen/ExploreMapScreen'
 import HomeDetails6 from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/HomeDetails6';
 import Review from './Screens/Review/Review';
 import MyTab from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/tabNavigation';
@@ -141,7 +141,7 @@ const MainStack = createStackNavigator(
     }
   },
   {
-    initialRouteName: 'ExploreNoOfParticipants',
+    initialRouteName: 'SplashScreen',
     defaultNavigationOptions: ({navigation}) => ({
       headerBackTitle: null,
       header: null,

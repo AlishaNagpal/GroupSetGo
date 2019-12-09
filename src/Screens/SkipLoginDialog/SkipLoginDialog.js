@@ -17,12 +17,12 @@ export default class SkipLoginDialog extends PureComponent {
                         <TouchableOpacity onPress = {()=>this.props.navigation.navigate("HomeNavigator")} activeOpacity = {1} style = {styles.yesContinueButtonStyle}>
                             <Text style = {styles.yesContinueTextStyle}>Yes, Continue</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress = {()=>this.props.navigation.goBack()} activeOpacity = {1} style = {styles.loginButtonStyle}>
-                            <Text style = {styles.loginTextStyle}>I'll Login</Text>
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate('OnboardingLogin')} activeOpacity={1} style={styles.loginButtonStyle}>
+                            <Text style={styles.loginTextStyle}>I'll Login</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
-                </View>
-                )
-            }
-        }
+            </View>
+        )
+    }
+}

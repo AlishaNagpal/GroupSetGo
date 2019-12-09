@@ -101,5 +101,41 @@ export const styles = StyleSheet.create({
         marginLeft: vw(377.7),
         marginTop: vh(19.7),
         backgroundColor: 'red'
+    },
+    errorView: {
+        position: 'absolute',
+        height: vh(70),
+        width: vw(420),
+        backgroundColor: Colors.white,
+        alignItems: 'center',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        top: vh(-390),
+        marginLeft: vw(-80)
+    },
+    errorView1: {
+        position: 'absolute',
+        height: vh(70),
+        width: vw(420),
+        backgroundColor: Colors.white,
+        alignItems: 'center',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        top: vh(-440),
+        marginLeft: vw(-80)
+    },
+    errorMessage: {
+        fontSize: vh(18),
+        color: Colors.black,
+        marginTop: vh(25),
+        marginLeft: vw(20)
+    },
+    headerButton: {
+        marginTop: vh(25),
+        marginRight: vw(30)
+    },
+    infoText: {
+        color: Colors.chatBlue,
+        marginTop: vh(25),
     }
 });
