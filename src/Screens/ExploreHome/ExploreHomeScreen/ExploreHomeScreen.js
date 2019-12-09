@@ -10,9 +10,10 @@ const colors = [Colors.moderateRed, Colors.moderatePink, Colors.darkModeratePink
 import { eventDATA } from '../../../Store/Action/Action'
 
 class ExploreHomeScreen extends PureComponent {
-  callScreen() {
+  callScreen(id) {
     this.props.navigation.navigate('HomeDetails6', {
-      data: { DATA }
+      data: this.props.Event_Data, 
+      id: {id}
     })
   }
 
@@ -28,7 +29,7 @@ class ExploreHomeScreen extends PureComponent {
     let { item } = rowData
     return (
       <View style={styles.flatlistView} >
-        <TouchableOpacity activeOpacity={1} onPress={() => this.callScreen()} >
+        <TouchableOpacity activeOpacity={1} onPress={() => this.callScreen(item.serialNo)} >
           <Image source={item.source} style={styles.flatlistImage} />
           <TouchableOpacity onPress={() => { this.toggle(item.serialNo, item.hearted) }} style={styles.heart} activeOpacity={1}  >
             <Image source={item.hearted ? Images.heartFilled : Images.heartEmpty} />

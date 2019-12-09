@@ -82,7 +82,8 @@ export default class About extends Component {
         <MapView
           style={styles.mapStyle}
           provider={PROVIDER_GOOGLE}
-          zoomEnabled={true}
+          scrollEnabled = {false}
+          // zoomEnabled={true}
           maxZoomLevel={13.3}
           region={{
             latitude: 36.116442,

@@ -6,7 +6,7 @@ const Images = {
     facebookLogo: require('../Assets/Images/facebook.png'),
     crossImage: require('../Assets/Images/icCancel.png'),
     party : require('../Assets/Images/partyImg.jpg'),
-    maleImage: require('../Assets/Images/maleImage.jpg'),
+    maleImage: require('../Assets/Images/maleImage.jpeg'),
     notification: require('../Assets/Images/icNotificationsFilled.png'),
     res1: require('../Assets/Images/res1.jpg'),
     res2: require('../Assets/Images/res2.jpg'),
