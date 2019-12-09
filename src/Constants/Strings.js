@@ -70,8 +70,18 @@ const strings = {
     chatIcon: 'Chat',
     going: 'Going',
     perPersonSmall: 'per person',
-    cancel: 'Cancel By: '
-
+    cancel: 'Cancel By: ',
+    details: 'Details',
+    eventId: 'Event ID',
+    verified: 'Verified Users Only',
+    ageGroup: 'Age Group',
+    genderMix: 'Gender Mix',
+    viewMore: 'View More Details',
+    reviews: 'reviews',
+    maleMix: 'Min. Male:',
+    femaleMix: 'Min. Female:',
+    budget: 'Total Budget: ',
+    venue: 'Venue Location'
 }
 
 export default strings;

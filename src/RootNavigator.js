@@ -28,6 +28,7 @@ import FlagInappropriate from './Screens/ExploreHome/ExploreHomeEventScreen/Main
 import ExploreEventsUsers from './Screens/ExploreEventsUsers/ExploreEventsUsers';
 import ExploreNoOfParticipants from './Screens/ExploreNoOfParticipants/ExploreNoOfParticipants'
 import HomeScreen from './Screens/ExploreHome/ExploreHomeScreen/HomeScreen'
+import NewScreen from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/About/newScreen'
 import { Colors, strings } from './Constants';
 
 
@@ -140,6 +141,9 @@ const MainStack = createStackNavigator(
     },
     FlagInappropriate: {
       screen: FlagInappropriate
+    },
+    NewScreen:{
+      screen: NewScreen
     }
   },
   {

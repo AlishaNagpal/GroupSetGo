@@ -17,7 +17,15 @@ export default DATA = [
         cancelDate: '06/30/2018',
         hearted: false,
         joined: false,
-        waitlisted: false
+        waitlisted: false,
+        details: 'In town for the weekend and would love to meet some new people and party to Calvin Harris beats!! Below is the budget breakdown for a table on Main Room Dance Floor...',
+        eventID: 'GSG01234561',
+        usersVerified: 'Yes',
+        ageGroup: '21 - 40 years',
+        Male: '5',
+        female: '5',
+        moneyTotal: '$9,600',
+        reviews: '222'
 
     },
     {
@@ -36,7 +44,15 @@ export default DATA = [
         cancelDate: '06/30/2018',
         hearted: false,
         joined: false,
-        waitlisted: false
+        waitlisted: false,
+        details: 'In town for the weekend and would love to meet some new people and party to Calvin Harris beats!! Below is the budget breakdown for a table on Main Room Dance Floor...',
+        eventID: 'GSG01234562',
+        usersVerified: 'Yes',
+        ageGroup: '21 - 40 years',
+        Male: '5',
+        female: '5',
+        moneyTotal: '$9,600',
+        reviews: '222'
     },
     {
         serialNo: 3,
@@ -54,7 +70,15 @@ export default DATA = [
         cancelDate: '06/30/2018',
         hearted: false,
         joined: false,
-        waitlisted: false
+        waitlisted: false,
+        details: 'In town for the weekend and would love to meet some new people and party to Calvin Harris beats!! Below is the budget breakdown for a table on Main Room Dance Floor...',
+        eventID: 'GSG01234563',
+        usersVerified: 'Yes',
+        ageGroup: '21 - 40 years',
+        Male: '5',
+        female: '5',
+        moneyTotal: '$9,600',
+        reviews: '222'
     },
     {
         serialNo: 4,
@@ -72,7 +96,15 @@ export default DATA = [
         cancelDate: '06/30/2018',
         hearted: false,
         joined: false,
-        waitlisted: false
+        waitlisted: false,
+        details: 'In town for the weekend and would love to meet some new people and party to Calvin Harris beats!! Below is the budget breakdown for a table on Main Room Dance Floor...',
+        eventID: 'GSG01234564',
+        usersVerified: 'Yes',
+        ageGroup: '21 - 40 years',
+        Male: '5',
+        female: '5',
+        moneyTotal: '$9,600',
+        reviews: '222'
     },
     {
         serialNo: 5,
@@ -90,7 +122,15 @@ export default DATA = [
         cancelDate: '06/30/2018',
         hearted: false,
         joined: false,
-        waitlisted: false
+        waitlisted: false,
+        details: 'In town for the weekend and would love to meet some new people and party to Calvin Harris beats!! Below is the budget breakdown for a table on Main Room Dance Floor...',
+        eventID: 'GSG01234565',
+        usersVerified: 'Yes',
+        ageGroup: '21 - 40 years',
+        Male: '5',
+        female: '5',
+        moneyTotal: '$9,600',
+        reviews: '222'
     },
     {
         serialNo: 6,
@@ -108,7 +148,15 @@ export default DATA = [
         cancelDate: '06/30/2018',
         hearted: false,
         joined: false,
-        waitlisted: false
+        waitlisted: false,
+        details: 'In town for the weekend and would love to meet some new people and party to Calvin Harris beats!! Below is the budget breakdown for a table on Main Room Dance Floor...',
+        eventID: 'GSG01234566',
+        usersVerified: 'Yes',
+        ageGroup: '21 - 40 years',
+        Male: '5',
+        female: '5',
+        moneyTotal: '$9,600',
+        reviews: '222'
     },
     {
         serialNo: 7,
@@ -126,7 +174,15 @@ export default DATA = [
         cancelDate: '06/30/2018',
         hearted: false,
         joined: false,
-        waitlisted: false
+        waitlisted: false,
+        details: 'In town for the weekend and would love to meet some new people and party to Calvin Harris beats!! Below is the budget breakdown for a table on Main Room Dance Floor...',
+        eventID: 'GSG01234567',
+        usersVerified: 'Yes',
+        ageGroup: '21 - 40 years',
+        Male: '5',
+        female: '5',
+        moneyTotal: '$9,600',
+        reviews: '222'
     },
     {
         serialNo: 8,
@@ -144,6 +200,14 @@ export default DATA = [
         cancelDate: '06/30/2018',
         hearted: false,
         joined: false,
-        waitlisted: false
+        waitlisted: false,
+        details: 'In town for the weekend and would love to meet some new people and party to Calvin Harris beats!! Below is the budget breakdown for a table on Main Room Dance Floor...',
+        eventID: 'GSG01234568',
+        usersVerified: 'Yes',
+        ageGroup: '21 - 40 years',
+        Male: '5',
+        female: '5',
+        moneyTotal: '$9,600',
+        reviews: '222'
     }
 ]

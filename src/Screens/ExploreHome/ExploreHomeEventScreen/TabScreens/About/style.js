@@ -4,7 +4,7 @@ import { vh, vw, Colors } from '../../../../../Constants'
 export default styles = StyleSheet.create({
     mainContainer: {
         flex: 1,
-        marginBottom: vh(20)
+        marginBottom: vh(20),
     },
     detailView: {
         flexDirection: 'column',
