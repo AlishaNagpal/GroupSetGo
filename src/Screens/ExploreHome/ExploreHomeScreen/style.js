@@ -233,5 +233,5 @@ export default styles = StyleSheet.create({
     calloutView: {
         width: 180,
         alignItems: 'center'
-    }
+    },
 })

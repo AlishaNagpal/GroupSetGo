@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
         borderTopColor: Colors.lightGray
     },
     textinputStyle: {
-        marginLeft: vw(5),
+        marginLeft: vw(15),
         color: 'black',
         fontSize: vw(15.3),
         fontFamily: 'SourceSansPro-Regular',

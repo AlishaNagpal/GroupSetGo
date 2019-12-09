@@ -82,7 +82,7 @@ export default class createAccountPassword extends Component {
                                 </ErrorMessage>
                                 <View>
                                     <TextInput
-                                        placeholder={'••••••'}
+                                        placeholder='Password'
                                         style={styles.textInputStyle}
                                         secureTextEntry={!this.state.show}
                                         placeholderTextColor={Colors.black}

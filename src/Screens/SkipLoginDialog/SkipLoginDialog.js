@@ -14,7 +14,7 @@ export default class SkipLoginDialog extends PureComponent {
                 <View style = {styles.dialogboxStyle}>
                     <Text style = {styles.alertTextStyle}>{strings.alertText}</Text>
                     <View style = {styles.buttonsViewStyle}>
-                        <TouchableOpacity activeOpacity = {1} style = {styles.yesContinueButtonStyle}>
+                        <TouchableOpacity onPress = {()=>this.props.navigation.navigate("HomeNavigator")} activeOpacity = {1} style = {styles.yesContinueButtonStyle}>
                             <Text style = {styles.yesContinueTextStyle}>Yes, Continue</Text>
                         </TouchableOpacity>
                         <TouchableOpacity onPress = {()=>this.props.navigation.goBack()} activeOpacity = {1} style = {styles.loginButtonStyle}>
