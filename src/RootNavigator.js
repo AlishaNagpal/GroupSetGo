@@ -28,7 +28,7 @@ import FlagInappropriate from './Screens/ExploreHome/ExploreHomeEventScreen/Main
 import ExploreEventsUsers from './Screens/ExploreEventsUsers/ExploreEventsUsers';
 import ExploreNoOfParticipants from './Screens/ExploreNoOfParticipants/ExploreNoOfParticipants'
 import HomeScreen from './Screens/ExploreHome/ExploreHomeScreen/HomeScreen'
-import { Colors } from './Constants';
+import { Colors, strings } from './Constants';
 
 
 const Explore = createStackNavigator({ Explore: ExploreHomeScreen, Map: ExploreMapScreen },
@@ -45,19 +45,19 @@ const TabNavigator = createAppContainer(
     {
       Explore: {
         screen: Explore,
-        navigationOptions: { title: 'EXPLORE' },
+        navigationOptions: { title: strings.explore },
       },
       Saved: {
         screen: Saved,
-        navigationOptions: { title: 'SAVED' },
+        navigationOptions: { title: strings.saved },
       },
       MyEvents: {
         screen: MyEvents,
-        navigationOptions: { title: 'MY EVENTS' },
+        navigationOptions: { title: strings.myEvents },
       },
       Chat: {
         screen: Chat,
-        navigationOptions: { title: 'CHAT' },
+        navigationOptions: { title: strings.chat },
       },
     },
     {

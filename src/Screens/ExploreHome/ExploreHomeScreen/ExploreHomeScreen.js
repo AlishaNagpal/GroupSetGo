@@ -5,7 +5,7 @@ import LinearGradient from 'react-native-linear-gradient'
 
 //Custom Imports
 import styles from './style'
-import { Images, VectorIcons, Colors, vh } from '../../../Constants'
+import { Images, VectorIcons, Colors, vh, strings } from '../../../Constants'
 const colors = [Colors.moderateRed, Colors.moderatePink, Colors.darkModeratePink, Colors.darkViolet, Colors.darkViolet, Colors.darkViolet]
 import HomeScreen from './HomeScreen'
 
@@ -22,7 +22,7 @@ export default class ExploreHomeScreen extends PureComponent {
             />
             <TouchableOpacity style={styles.textInputView} onPress={() => this.props.navigation.navigate('ExploreEventsUsers')} >
               <VectorIcons.Ionicons name="md-search" size={vh(15)} color={Colors.black} />
-              <Text style={styles.headerTextInput} > Search event, users </Text>
+              <Text style={styles.headerTextInput} > {strings.search} </Text>
             </TouchableOpacity>
 
             <TouchableOpacity onPress={() => this.props.navigation.navigate('Map')} >

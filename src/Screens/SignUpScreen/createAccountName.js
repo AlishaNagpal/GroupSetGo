@@ -7,7 +7,7 @@ import * as yup from 'yup'
 
 //Custom Imports
 import styles from './styles'
-import { Colors, vh, VectorIcons } from '../../Constants';
+import { Colors, vh, VectorIcons, strings } from '../../Constants';
 const colors = [Colors.moderateRed, Colors.moderatePink, Colors.darkModeratePink, Colors.darkViolet, Colors.darkViolet, Colors.darkViolet]
 
 export default class createAccountName extends PureComponent {
@@ -50,11 +50,11 @@ export default class createAccountName extends PureComponent {
                         <VectorIcons.Ionicons name="ios-arrow-back" size={vh(30)} color={Colors.white} style={styles.iconPos} />
                     </TouchableOpacity>
 
-                    <Text style={[styles.mainHeading, { marginTop: vh(100) }]}> Awesome!</Text>
-                    <Text style={styles.mainHeading}> Lets get your account created.</Text>
-                    <Text style={styles.stepText} > STEP 1 OF 5 </Text>
-                    <Text style={styles.belowStep} > So...Whats in the name? </Text>
-                    <Text style={styles.description}>Forget what Shakespeare said. Tell us what to call you, so there are no more formalities.</Text>
+                    <Text style={[styles.mainHeading, { marginTop: vh(100) }]}> {strings.awesome} </Text>
+                    <Text style={styles.mainHeading}> {strings.created} </Text>
+                    <Text style={styles.stepText} > {strings.step1} </Text>
+                    <Text style={styles.belowStep} > {strings.name} </Text>
+                    <Text style={styles.description}> {strings.nameDescription} </Text>
 
                     <Formik
                         initialValues={{ firstName: '', lastName: '' }}
@@ -93,7 +93,7 @@ export default class createAccountName extends PureComponent {
 
                                     <TextInput
                                         style={styles.textInputStyle}
-                                        placeholder={'Enter First Name'}
+                                        placeholder={strings.firstName}
                                         placeholderTextColor={Colors.black}
                                         returnKeyType='next'
                                         returnKeyLabel='Next'
@@ -124,7 +124,7 @@ export default class createAccountName extends PureComponent {
                                     </ErrorMessage>
                                     <TextInput
                                         style={[styles.textInputStyle, { marginTop: vh(14) }]}
-                                        placeholder={'Enter Last Name'}
+                                        placeholder={strings.lastName}
                                         placeholderTextColor={Colors.black}
                                         returnKeyType='done'
                                         returnKeyLabel='Submit'
@@ -145,7 +145,7 @@ export default class createAccountName extends PureComponent {
                                     disabled={!isValid}
                                     activeOpacity={1}
                                 >
-                                    <Text style={styles.buttonText}> Next </Text>
+                                    <Text style={styles.buttonText}> {strings.next} </Text>
                                 </TouchableOpacity>
                             </React.Fragment>
                         )}

@@ -7,7 +7,7 @@ import * as yup from 'yup'
 
 //Custom Imports
 import styles from './styles'
-import { Colors, vh, VectorIcons, vw } from '../../Constants';
+import { Colors, vh, VectorIcons, vw, strings } from '../../Constants';
 
 const colors = [Colors.moderateRed, Colors.moderatePink, Colors.darkModeratePink, Colors.darkViolet, Colors.darkViolet, Colors.darkViolet]
 
@@ -54,11 +54,11 @@ export default class createAccountPassword extends PureComponent {
                     <TouchableOpacity onPress={() => { this.props.navigation.navigate('createAccountGender') }} >
                         <VectorIcons.Ionicons name="ios-arrow-back" size={vh(30)} color={Colors.white} style={styles.iconPos} />
                     </TouchableOpacity>
-                    <Text style={[styles.mainHeading, { marginTop: vh(100) }]}> Awesome!</Text>
-                    <Text style={styles.mainHeading}> Lets get your account created.</Text>
-                    <Text style={styles.stepText} > STEP 5 OF 5 </Text>
-                    <Text style={styles.belowStep} > Create Password </Text>
-                    <Text style={styles.description}>Password must include atleast one symbol and must be more than 6 characters</Text>
+                    <Text style={[styles.mainHeading, { marginTop: vh(100) }]}> {strings.awesome} </Text>
+                    <Text style={styles.mainHeading}> {strings.created} </Text>
+                    <Text style={styles.stepText} > {strings.step5} </Text>
+                    <Text style={styles.belowStep} > {strings.pass} </Text>
+                    <Text style={styles.description}> {strings.passDescription} </Text>
 
 
                     <Formik
@@ -95,7 +95,7 @@ export default class createAccountPassword extends PureComponent {
                                     </ErrorMessage>
                                     <View>
                                         <TextInput
-                                            placeholder={'Password'}
+                                            placeholder={strings.passPlaceholder}
                                             style={styles.textInputStyle}
                                             secureTextEntry={!this.state.showFirst}
                                             placeholderTextColor={Colors.black}
@@ -128,7 +128,7 @@ export default class createAccountPassword extends PureComponent {
                                     </ErrorMessage>
                                     <View>
                                         <TextInput
-                                            placeholder={'Confirm Password'}
+                                            placeholder={strings.passConfirm}
                                             style={[styles.textInputStyle, { marginTop: vh(20) }]}
                                             secureTextEntry={!this.state.showSecond}
                                             placeholderTextColor={Colors.black}
@@ -152,7 +152,7 @@ export default class createAccountPassword extends PureComponent {
                                     disabled={!isValid}
                                     activeOpacity={1}
                                 >
-                                    <Text style={styles.buttonText}> Submit </Text>
+                                    <Text style={styles.buttonText}> {strings.submit} </Text>
                                 </TouchableOpacity>
                             </React.Fragment>
                         )}
