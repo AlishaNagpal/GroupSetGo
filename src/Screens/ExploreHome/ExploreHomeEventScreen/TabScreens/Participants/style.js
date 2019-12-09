@@ -224,10 +224,16 @@ const styles = StyleSheet.create({
         paddingLeft: vw(1.7),
         paddingRight: vw(27),
     },
+    reviewView: { 
+        paddingTop: vw(9.9)
+    },
     readMore: {
         fontFamily: 'SourceSansPro-Regular',
         fontSize: vh(15.3),
         color: Colors.fadedRed,
+        // position: 'absolute',
+        // right: 0,
+        // bottom: 0,
     },
     reviewBtn: {
         alignItems: 'center',

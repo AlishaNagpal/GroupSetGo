@@ -82,6 +82,12 @@ const strings = {
     femaleMix: 'Min. Female:',
     budget: 'Total Budget: ',
     venue: 'Venue Location'
+    organizer: 'Organizer',
+    leaveEvent: 'Leave Event',
+    participants: 'Participants',
+    waitlist: 'Waitlist',
+    reviews: 'Reviews',
+    settleAcc: 'settle account',
 }
 
 export default strings;
