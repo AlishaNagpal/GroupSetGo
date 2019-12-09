@@ -106,7 +106,7 @@ export default class HomeDetails6 extends Component {
         return (
             <View style={styles.mainView}>
                 <ScrollView bounces={false}>
-                    <View style={styles.viewOne}>
+                    <View>
                         <Image
                             source={data.source}
                             style={styles.pic}

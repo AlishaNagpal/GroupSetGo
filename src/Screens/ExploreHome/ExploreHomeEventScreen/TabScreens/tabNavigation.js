@@ -6,9 +6,8 @@ import About from './About/About';
 import Participants from './Participants/Participants';
 import Settlement from './Settlement/Settlement';
 import { vh, Colors, vw } from '../../../../Constants/index';
-import { createStackNavigator } from 'react-navigation-stack';
 
-let scene = true;
+let scene = false;
 
 const NavTabBar = createMaterialTopTabNavigator({
 
