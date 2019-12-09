@@ -3,12 +3,12 @@ import { View, Text, Image, TouchableOpacity, } from 'react-native';
 import MapView, { PROVIDER_GOOGLE, } from 'react-native-maps';
 
 //Custom Imports
-const colors = [Colors.moderateRed, Colors.moderatePink, Colors.darkModeratePink, Colors.darkViolet, Colors.darkViolet, Colors.darkViolet]
 import styles from './style'
 import { VectorIcons, Images, vh, Colors } from '../../../Constants'
-import LinearGradient from 'react-native-linear-gradient'
+import { connect } from 'react-redux'
+import { eventDATA } from '../../../Store/Action/Action'
 
-export default class ExploreMapScreen extends Component {
+class ExploreMapScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -38,45 +38,42 @@ export default class ExploreMapScreen extends Component {
           id: 3
         },
       ],
-      cardIsRendered: false
+      cardIsRendered: false,
+      data: this.props.Event_Data,
     };
   }
 
-  Press = () => {
-    this.setState({
-      cardIsRendered: true
+  Press = (id) => {
+    let temp = this.state.data
+    let indexToEdit = temp.findIndex(item => item.serialNo == id)
+    let newData = temp[indexToEdit]
+    if (indexToEdit != -1) {
+      this.setState({
+        data: newData,
+        cardIsRendered: true
+      })
+    }
+  }
+
+  callScreen = (id) => {
+    this.props.navigation.navigate('HomeDetails6', {
+      data: this.props.Event_Data,
+      id: { id }
     })
   }
 
-  callScreen() {
-    this.props.navigation.navigate('HomeDetails6', {
-      data: { DATA3 }
-    })
+  toggle = (id, value) => {
+    let index = this.props.Event_Data.findIndex((e) => e.serialNo === id)
+    if (index != -1) {
+      this.props.Event_Data[index].hearted = !value
+      this.props.eventDATA()
+    }
   }
 
   render() {
+    const { data } = this.state
     return (
       <View style={styles.mainContainer} >
-        <View style={styles.headerView}>
-          <Image
-            source={Images.maleImage}
-            style={styles.headerImage}
-          />
-          <TouchableOpacity style={styles.textInputView} onPress={() => this.props.navigation.navigate('ExploreEventsUsers')} >
-            <VectorIcons.Ionicons name="md-search" size={vh(20)} color={Colors.black} />
-            <Text style={styles.headerTextInput} > Search event, users </Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity onPress={() => this.props.navigation.navigate('HomeNavigator')}>
-            {/* <VectorIcons.SimpleLineIcons name={"calendar"} size={vh(18)} color={Colors.fadedRed} style={styles.map} /> */}
-          </TouchableOpacity>
-
-          <TouchableOpacity>
-            <Image source={Images.notification}
-              style={styles.notification} />
-          </TouchableOpacity>
-        </View>
-
         <MapView
           style={styles.mapStyle}
           provider={PROVIDER_GOOGLE}
@@ -97,7 +94,7 @@ export default class ExploreMapScreen extends Component {
               <Image
                 source={Images.marker}
                 style={styles.marker} />
-              <MapView.Callout onPress={() => this.Press()} >
+              <MapView.Callout onPress={() => this.Press(marker.id)} >
                 <View style={styles.calloutView} >
                   <Text>{marker.title}</Text>
                   <Text>{marker.description}</Text>
@@ -112,25 +109,28 @@ export default class ExploreMapScreen extends Component {
         {
           this.state.cardIsRendered && (
             <View style={styles.mainCardView}>
-              <TouchableOpacity onPress={() => this.callScreen()} >
-                <Image source={DATA.source} style={styles.flatlistImage} />
-                <Image source={Images.heartEmpty} style={styles.heart} />
+              <TouchableOpacity onPress={() => this.callScreen(data.serialNo)} >
+                <Image source={data.source} style={styles.flatlistImage} />
+                <TouchableOpacity onPress={() => { this.toggle(data.serialNo, data.hearted) }} style={styles.heart} activeOpacity={1}  >
+                  <Image source={data.hearted ? Images.heartFilled : Images.heartEmpty} />
+                </TouchableOpacity>
+                {/* <Image source={Images.heartEmpty} style={styles.heart} /> */}
                 <View style={styles.cheersView} >
                   <Image source={Images.cheers} style={styles.cheers} />
                 </View>
                 <View style={styles.belowImage} >
                   <View style={styles.goingView} >
-                    <Text style={styles.timeText} > {DATA.time} </Text>
+                    <Text style={styles.timeText} > {data.time} </Text>
                     <View style={styles.goingIcon} >
                       <VectorIcons.MaterialCommunityIcons name='run-fast' size={vh(12)} color={Colors.fadedGray} />
-                      <Text style={styles.goingText} > {DATA.going} </Text>
+                      <Text style={styles.goingText} > {data.going} </Text>
                     </View>
                   </View>
-                  <Text style={styles.headingText} > {DATA.heading} </Text>
+                  <Text style={styles.headingText} > {data.heading} </Text>
                   <View style={styles.moneyView} >
-                    <Text style={styles.place} > {DATA.place} </Text>
+                    <Text style={styles.place} > {data.place} </Text>
                     <View style={styles.elongatedView} />
-                    <Text style={styles.moneyText} > {DATA.money} </Text>
+                    <Text style={styles.moneyText} > {data.money} </Text>
                     <Text style={styles.moneyPerson} > per person </Text>
                   </View>
                 </View>
@@ -138,43 +138,26 @@ export default class ExploreMapScreen extends Component {
             </View>
           )
         }
-        {
-          !this.state.cardIsRendered && (
-            <LinearGradient colors={colors} style={styles.gradient} >
-              <TouchableOpacity>
-                <Image source={Images.calendar} style={styles.calendar} />
-              </TouchableOpacity>
-            </LinearGradient>
-          )
-        }
-
       </View>
     );
   }
 }
 
-const DATA = {
-  source: Images.res1,
-  time: 'TODAY,JUL 14 • 7 PM',
-  heading: 'Dance Floor Table @ Omnia',
-  place: 'Caesars Palace, Las Vegas',
-  money: '$600- $800',
-  going: 10
+function mapDispatchToProps(dispatch) {
+  return {
+    eventDATA: () => dispatch(eventDATA())
+  }
 }
 
-
-const DATA3 = {
-  image: Images.res1,
-  iconImage: Images.cheers,
-  profile: Images.maleImage,
-  time: 'TODAY,JUL 14 • 7 PM',
-  heading: 'Dance Floor Table @ Omnia',
-  hashtag: '#Dancefloortable',
-  reviewRating: '4.5',
-  going: '8',
-  location: '3570 S Las Vegas Blvd, Las Vegas, NV 89109',
-  money: '$600- $800',
-  cancelDate: '06/30/2018'
+function mapStateToProps(state) {
+  const { Event_Data } = state.Reducer;
+  return {
+    Event_Data
+  }
 }
 
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ExploreMapScreen);
 

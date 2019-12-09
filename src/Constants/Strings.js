@@ -25,7 +25,8 @@ const strings = {
     costBreakdown: 'Cost Breakdown',
     totalCost: 'Total Cost',
     agreeToTerms: 'I agree to the Terms and Conditions',
-    alertText: 'Please note that you cannot create or join events without logging in.'
+    alertText: 'Please note that you cannot create or join events without logging in.',
+    inappropriate: 'Are you sure you want to flag this inappropriate?'
 }
 
 export default strings;

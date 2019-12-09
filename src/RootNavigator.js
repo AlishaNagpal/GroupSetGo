@@ -23,6 +23,9 @@ import ExploreMapScreen from './Screens/ExploreHome/ExploreHomeScreen/ExploreMap
 import HomeDetails6 from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/HomeDetails6';
 import Review from './Screens/Review/Review'
 import MyTab from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/tabNavigation'
+import Flag from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/Flag/flag'
+import FlagInappropriate from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/Flag/FlagInappropriate'
+
 /**
  * custom imports
  */
@@ -115,10 +118,13 @@ const MainStack = createStackNavigator(
         },
         Review: {
             screen: Review
+        },
+        FlagInappropriate: {
+            screen: FlagInappropriate
         }
     },
     {
-        initialRouteName: 'SplashScreen',
+        initialRouteName: 'HomeNavigator',
         defaultNavigationOptions: ({ navigation }) => ({
             headerBackTitle: null,
             header: null
@@ -172,7 +178,10 @@ const RootStack = createStackNavigator(
         },
         // Review: {
         //     screen: Review
-        // }
+        // },
+        Flag: {
+            screen: Flag
+        },
     },
     {
         mode: 'modal',

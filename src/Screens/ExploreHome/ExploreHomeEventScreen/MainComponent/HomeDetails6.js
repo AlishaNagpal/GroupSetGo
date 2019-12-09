@@ -13,14 +13,16 @@ import { VectorIcons, vh, vw, Colors } from '../../../../Constants';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import MyTab from '../TabScreens/tabNavigation';
 import * as Progress from 'react-native-progress';
+import { connect } from 'react-redux'
+import { eventDATA } from '../../../../Store/Action/Action'
 Icon.loadFont()
 
-export default class HomeDetails6 extends Component {
+class HomeDetails6 extends Component {
     state = {
         data: this.props.navigation.getParam('data'),
         id: this.props.navigation.getParam('id'),
         going: false,
-        waitlisted: false
+        hearted: false
     }
 
     componentDidMount() {
@@ -38,53 +40,51 @@ export default class HomeDetails6 extends Component {
         }
     }
 
-    goingJoin = () => {
-        if (this.state.going === false) {
-            return (
-                <TouchableOpacity style={styles.center} onPress={() => this.setState({ going: true })} >
-                    <VectorIcons.Ionicons
-                        name="ios-add-circle-outline"
-                        color={Colors.green}
-                        size={vh(20)}
-                    />
-                    <Text style={styles.saveText}>Join</Text>
-                </TouchableOpacity>
-            )
-        } else if (this.state.waitlisted == true) {
-            return (
-                <TouchableOpacity style={styles.center} onPress={() => this.setState({ going: true })} >
-                    <VectorIcons.Ionicons
-                        name="ios-add-circle-outline"
-                        color={Colors.orange}
-                        size={vh(20)}
-                    />
-                    <Text style={styles.waitlisted}>Waitlist</Text>
-                </TouchableOpacity>
-            )
-        } else {
-            return (
-                <TouchableOpacity style={styles.center}>
-                    <VectorIcons.Ionicons
-                        name="ios-checkmark-circle-outline"
-                        color={Colors.green}
-                        size={vh(20)}
-                    />
-                    <Text style={styles.goingText}> Going </Text>
-                </TouchableOpacity>
-            )
+    toggle(id, value) {
+        let index = this.props.Event_Data.findIndex((e) => e.serialNo === id.id)
+        if (index != -1) {
+            this.props.Event_Data[index].hearted = value
+            this.props.eventDATA()
         }
+        this.setState({
+            hearted: value
+        })
+    }
+
+    joined(id, value) {
+        let index = this.props.Event_Data.findIndex((e) => e.serialNo === id.id)
+        if (index != -1) {
+            this.props.Event_Data[index].joined = value
+            this.props.eventDATA()
+        }
+        this.setState({
+            going: value
+        })
+    }
+
+    goingJoin = () => {
+        return (
+            <TouchableOpacity style={styles.center} onPress={() => this.joined(this.state.id, !this.state.going)} >
+                <VectorIcons.Ionicons
+                    name={this.state.going ? "ios-checkmark-circle-outline" : "ios-add-circle-outline"}
+                    color={Colors.green}
+                    size={vh(20)}
+                />
+                <Text style={styles.saveText}>{this.state.going ? "Going" : "Join"}</Text>
+            </TouchableOpacity>
+        )
     }
 
     goingSave = () => {
         if (this.state.going === false) {
             return (
-                <TouchableOpacity style={styles.center} >
+                <TouchableOpacity style={styles.center} onPress={() => { this.toggle(this.state.id, !this.state.hearted) }} >
                     <VectorIcons.Ionicons
-                        name="ios-heart-empty"
+                        name={this.state.hearted ? "ios-heart" : "ios-heart-empty"}
                         color={Colors.fadedRed}
                         size={vh(20)}
                     />
-                    <Text style={styles.joinText}>Save</Text>
+                    <Text style={styles.joinText}>{this.state.hearted ? "Saved" : "Save"}</Text>
                 </TouchableOpacity>
             )
         } else {
@@ -118,12 +118,13 @@ export default class HomeDetails6 extends Component {
                                 size={vh(24.3)}
                             />
                         </TouchableOpacity>
-                        <VectorIcons.MaterialCommunityIcons
-                            name='flag-outline'
-                            style={styles.flagBtn}
-                            color='white'
-                            size={vh(19.3)}
-                        />
+                        <TouchableOpacity onPress={()=>this.props.navigation.navigate('Flag')} style={styles.flagBtn} >
+                            <VectorIcons.MaterialCommunityIcons
+                                name='flag-outline'
+                                color= {Colors.white}
+                                size={vh(19.3)}
+                            />
+                        </TouchableOpacity>
                         <View style={styles.cheersView}>
                             <Image source={data.icon} style={styles.cheersIcon} />
                         </View>
@@ -201,3 +202,21 @@ export default class HomeDetails6 extends Component {
         );
     }
 }
+
+function mapDispatchToProps(dispatch) {
+    return {
+        eventDATA: () => dispatch(eventDATA())
+    }
+}
+
+function mapStateToProps(state) {
+    const { Event_Data } = state.Reducer;
+    return {
+        Event_Data
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(HomeDetails6);

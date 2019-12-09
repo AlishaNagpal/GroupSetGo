@@ -5,6 +5,7 @@ import Styles from './Style';
 import Images from './images'
 import Gradient from './Gradient'
 import VectorIcons from './VectorIcons'
+import strings from './Strings' 
 
 export {
     vh,
@@ -16,5 +17,6 @@ export {
     Colors,
     Images,
     Gradient,
-    VectorIcons
+    VectorIcons,
+    strings
 }

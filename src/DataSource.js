@@ -1,4 +1,4 @@
-import {Images} from './Constants'
+import { Images } from './Constants'
 
 export default DATA = [
     {
@@ -16,18 +16,9 @@ export default DATA = [
         location: '3570 S Las Vegas Blvd, Las Vegas, NV 89109',
         cancelDate: '06/30/2018',
         hearted: false,
-        
-        // image: Images.res1,
-        // iconImage: Images.cheers,
-        // profile: Images.maleImage,
-        // time: 'TODAY,JUL 14 • 7 PM',
-        // heading: 'Dance Floor Table @ Omnia',
-        // hashtag: '#Dancefloortable',
-        // reviewRating: '4.5',
-        // going: '8',
-        // location: '3570 S Las Vegas Blvd, Las Vegas, NV 89109',
-        // money: '$600- $800',
-        // cancelDate: '06/30/2018'
+        joined: false,
+        waitlisted: false
+
     },
     {
         serialNo: 2,
@@ -43,7 +34,9 @@ export default DATA = [
         reviewRating: '4.5',
         location: '3570 S Las Vegas Blvd, Las Vegas, NV 89109',
         cancelDate: '06/30/2018',
-         hearted: false,
+        hearted: false,
+        joined: false,
+        waitlisted: false
     },
     {
         serialNo: 3,
@@ -59,7 +52,9 @@ export default DATA = [
         reviewRating: '4.5',
         location: '3570 S Las Vegas Blvd, Las Vegas, NV 89109',
         cancelDate: '06/30/2018',
-         hearted: false,
+        hearted: false,
+        joined: false,
+        waitlisted: false
     },
     {
         serialNo: 4,
@@ -75,7 +70,9 @@ export default DATA = [
         reviewRating: '4.5',
         location: '3570 S Las Vegas Blvd, Las Vegas, NV 89109',
         cancelDate: '06/30/2018',
-         hearted: false,
+        hearted: false,
+        joined: false,
+        waitlisted: false
     },
     {
         serialNo: 5,
@@ -91,7 +88,9 @@ export default DATA = [
         reviewRating: '4.5',
         location: '3570 S Las Vegas Blvd, Las Vegas, NV 89109',
         cancelDate: '06/30/2018',
-         hearted: false,
+        hearted: false,
+        joined: false,
+        waitlisted: false
     },
     {
         serialNo: 6,
@@ -107,7 +106,9 @@ export default DATA = [
         reviewRating: '4.5',
         location: '3570 S Las Vegas Blvd, Las Vegas, NV 89109',
         cancelDate: '06/30/2018',
-         hearted: false,
+        hearted: false,
+        joined: false,
+        waitlisted: false
     },
     {
         serialNo: 7,
@@ -123,7 +124,9 @@ export default DATA = [
         reviewRating: '4.5',
         location: '3570 S Las Vegas Blvd, Las Vegas, NV 89109',
         cancelDate: '06/30/2018',
-         hearted: false,
+        hearted: false,
+        joined: false,
+        waitlisted: false
     },
     {
         serialNo: 8,
@@ -139,6 +142,8 @@ export default DATA = [
         reviewRating: '4.5',
         location: '3570 S Las Vegas Blvd, Las Vegas, NV 89109',
         cancelDate: '06/30/2018',
-         hearted: false,
+        hearted: false,
+        joined: false,
+        waitlisted: false
     }
 ]
