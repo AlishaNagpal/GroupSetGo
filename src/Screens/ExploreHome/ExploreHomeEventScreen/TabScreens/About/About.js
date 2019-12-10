@@ -19,20 +19,9 @@ const url = Platform.select({
   android: `${scheme}${latLng}(${label})`
 });
 class About extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      markers: [{
-        latlng: {
-          latitude: 36.116442, longitude: -115.175079
-        },
-      }],
-      data: this.props.Event_Data
-    };
-  }
-
-  componentDidMount(){
-    // this.getData(this.props.screenProps.id)
+  state = { data: this.props.Event_Data}
+  componentDidMount() {
+    this.getData(this.props.screenProps.id)
   }
 
   getData = (id) => {
@@ -50,7 +39,7 @@ class About extends Component {
     const { data } = this.state
     return (
       <View style={styles.mainContainer} >
-        {/* <View style={styles.detailView} >
+        <View style={styles.detailView} >
           <Text style={styles.detailsTextHead} > {strings.details} </Text>
           <Text style={styles.detailsText} > {data.details} </Text>
         </View>
@@ -138,7 +127,7 @@ class About extends Component {
           <TouchableOpacity>
             <VectorIcons.AntDesign name="adduser" color={Colors.white} size={vh(25)} />
           </TouchableOpacity>
-        </LinearGradient> */}
+        </LinearGradient>
       </View>
     );
   }
