@@ -143,7 +143,7 @@ const MainStack = createStackNavigator(
     }
   },
   {
-    initialRouteName: 'HomeNavigator',
+    initialRouteName: 'OnboardingLogin',
     defaultNavigationOptions: ({ navigation }) => ({
       headerBackTitle: null,
       header: null,
@@ -193,6 +193,10 @@ const RootStack = createStackNavigator(
     mode: 'modal',
     headerMode: 'none',
     transparentCard: true,
+    cardStyle: {
+      opacity: 1,
+      backgroundColor: Colors.transparentBG
+    }
   },
 );
 

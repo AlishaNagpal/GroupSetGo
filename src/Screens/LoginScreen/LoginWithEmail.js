@@ -171,7 +171,6 @@ export default class LoginWithEmail extends PureComponent {
                             <LinearGradient colors={colors} start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} style={styles.gradientStyle} >
                                 <TouchableOpacity
                                     style={styles.loginButtonStyle}
-                                    // onPress={() => this.props.navigation.navigate("HomeNavigator")}
                                     onPress={handleSubmit}
                                     disabled={!isValid}
                                 >

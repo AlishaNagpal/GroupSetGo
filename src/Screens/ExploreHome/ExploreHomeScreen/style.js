@@ -7,7 +7,7 @@ export default styles = StyleSheet.create({
     },
     headerView: {
         flexDirection: 'row',
-        marginTop: vh(40),
+        marginTop: vh(10),
         alignItems: 'center'
     },
     headerImage: {
@@ -116,7 +116,8 @@ export default styles = StyleSheet.create({
         shadowOpacity: vw(1),
         shadowColor: Colors.fadedGray,
         borderBottomLeftRadius : vh(10),
-        borderBottomRightRadius: vh(10)
+        borderBottomRightRadius: vh(10),
+        elevation: 6
     },
     belowImage2: {
         height: vh(93),
@@ -125,7 +126,8 @@ export default styles = StyleSheet.create({
         shadowOpacity: vw(1),
         shadowColor: Colors.fadedGray,
         borderBottomLeftRadius : vh(10),
-        borderBottomRightRadius: vh(10)
+        borderBottomRightRadius: vh(10),
+        elevation: 12
     },
     timeText: {
         color: Colors.fadedRed,
