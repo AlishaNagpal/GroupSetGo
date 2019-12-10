@@ -13,21 +13,12 @@ import { FlatList } from 'react-native-gesture-handler'
 import Card from './Card'
 
 export default class ExploreNoOfParticipants extends PureComponent {
-    state = {
-        showCard: false,
-        itemTapped: {}
-    }
-
-
-    toggleModalVisibility(item){
-        // this.setState({ showCard: !this.state.showCard })
-        this.setState({itemTapped: item},()=>{this.setState({showCard: true})})
-        
-    }
-
+    // state = {
+    //     itemTapped: {}
+    // }
     renderItems = (rowData) => {
         return (
-            <TouchableOpacity onPress={() => this.toggleModalVisibility(rowData.item)} style={styles.cardStyle}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate("Card", {itemTapped: rowData})} style={styles.cardStyle}>
                 <Icon name='ios-checkmark-circle' size={vw(15)} style={styles.checkmarkStyle} color={rowData.item.verified ? Colors.checkmarkGreen : Colors.lightGray} />
                 <Image
                     style={styles.userImageStyle}
@@ -42,11 +33,6 @@ export default class ExploreNoOfParticipants extends PureComponent {
     render() {
         return (
             <View style={styles.containerStyle}>
-                <Card 
-                showCard = {this.state.showCard}
-                toggleModalVisibility = {()=>this.toggleModalVisibility()}
-                itemTapped = {this.state.itemTapped}
-                />
                 <View style={styles.headerViewStyle}>
                     <TouchableOpacity onPress={() => { this.props.navigation.goBack() }}>
                         <Icon name="ios-arrow-round-back" size={vh(40)} color={Colors.white} style={styles.backButtonStyle} />

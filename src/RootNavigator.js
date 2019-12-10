@@ -32,7 +32,7 @@ import NewScreen from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/A
 import { Colors, strings } from './Constants';
 import ParticipantReview from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/Participants/ParticipantReview';
 import Settlement from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/Settlement/Settlement';
-
+import Card from './Screens/ExploreNoOfParticipants/Card'
 
 const Explore = createStackNavigator({ Explore: ExploreHomeScreen, Map: ExploreMapScreen },
   { defaultNavigationOptions: { header: null } });
@@ -155,7 +155,7 @@ const MainStack = createStackNavigator(
     },
   },
   {
-    initialRouteName: 'OnboardingLogin',
+    initialRouteName: 'SplashScreen',
     defaultNavigationOptions: ({ navigation }) => ({
       headerBackTitle: null,
       header: null,
@@ -189,6 +189,9 @@ const RootStack = createStackNavigator(
     },
     ForgotPassword: {
       screen: ForgotPassword,
+    },
+    Card: {
+      screen: Card
     },
     Review: {
       screen: Review,

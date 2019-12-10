@@ -16,7 +16,6 @@ const styles = StyleSheet.create({
     },
     backButtonStyle: {
         marginLeft: vw(13.7),
-        // marginTop: vh()
     },
     checkmarkStyle: {
         position: 'absolute',
@@ -25,7 +24,6 @@ const styles = StyleSheet.create({
         zIndex: 1
     },
     headerTitleStyle: {
-        // marginTop: vh(48),
         marginLeft: vw(13.7),
         color: Colors.white,
         fontSize: vw(20),
@@ -63,8 +61,7 @@ const styles = StyleSheet.create({
     },
     cardContainerStyle: {
         flex: 1,
-        backgroundColor: 'black',
-        opacity: 0.8,
+        backgroundColor: 'rgba(0,0,0,0.3)',
         alignItems: 'center',
         justifyContent: 'center'
     },
@@ -80,7 +77,6 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.fadedRed,
         marginTop: vh(10.9),
         flexDirection: 'row',
-        // justifyContent: 'space-between',
         alignItems: 'center'
     },
     cardTitleNameStyle: {
@@ -89,6 +85,7 @@ const styles = StyleSheet.create({
         fontFamily: 'SourceSansPro-Semibold',
         paddingHorizontal: vw(5),
         width: vw(112.3),
+        marginLeft: vw(6)
 
     }, cardTitleGenderStyle: {
         color: Colors.white,
@@ -96,8 +93,8 @@ const styles = StyleSheet.create({
         fontFamily: 'SourceSansPro-Semibold',
         paddingHorizontal: vw(5),
         width: vw(112.3),
-        width: vw(50),
-        marginLeft: vw(50.3),
+        width: vw(70),
+        marginLeft: vw(44.3),
 
     }, cardTitleAgeStyle: {
         color: Colors.white,
@@ -105,8 +102,8 @@ const styles = StyleSheet.create({
         fontFamily: 'SourceSansPro-Semibold',
         paddingHorizontal: vw(5),
         // width: vw(112.3),
-        width: vw(30),
-        marginLeft: vw(63),
+        width: vw(70),
+        marginLeft: vw(43),
 
     },
     cardRowStyle: {
