@@ -81,7 +81,7 @@ const strings = {
     maleMix: 'Min. Male:',
     femaleMix: 'Min. Female:',
     budget: 'Total Budget: ',
-    venue: 'Venue Location'
+    venue: 'Venue Location',
     organizer: 'Organizer',
     leaveEvent: 'Leave Event',
     participants: 'Participants',
