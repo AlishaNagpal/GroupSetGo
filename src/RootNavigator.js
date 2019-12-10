@@ -22,7 +22,6 @@ import ExploreHomeScreen from './Screens/ExploreHome/ExploreHomeScreen/ExploreHo
 import ExploreMapScreen from './Screens/ExploreHome/ExploreHomeScreen/ExploreMapScreen'
 import HomeDetails6 from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/HomeDetails6';
 import Review from './Screens/Review/Review'
-import MyTab from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/tabNavigation'
 import Flag from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/Flag/flag'
 import FlagInappropriate from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/Flag/FlagInappropriate'
 import ExploreEventsUsers from './Screens/ExploreEventsUsers/ExploreEventsUsers';
@@ -128,9 +127,6 @@ const MainStack = createStackNavigator(
     },
     HomeDetails6: {
       screen: HomeDetails6,
-    },
-    MyTab: {
-      screen: MyTab,
     },
     Review: {
       screen: Review,

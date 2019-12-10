@@ -12,7 +12,6 @@ import {
 import styles from './styles';
 import { VectorIcons, vh, vw, Colors, strings } from '../../../../Constants';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
-import MyTab from '../TabScreens/TabNavigation2';
 import * as Progress from 'react-native-progress';
 import { connect } from 'react-redux'
 import { eventDATA } from '../../../../Store/Action/Action'
@@ -36,7 +35,6 @@ class HomeDetails6 extends Component {
     }
 
     componentDidMount() {
-        // console.log(this.props.navigation.getParam('data'))
         this.getData(this.props.navigation.getParam('id').id)
     }
 
@@ -119,7 +117,7 @@ class HomeDetails6 extends Component {
                 <ScrollView bounces={false}>
                     <View>
                         <Image
-                            source={{uri: data.source}}
+                            source={{ uri: data.source }}
                             style={styles.pic}
                         />
                         <TouchableOpacity onPress={() => this.props.navigation.navigate('HomeNavigator')} style={styles.backButton} >
@@ -160,7 +158,7 @@ class HomeDetails6 extends Component {
                     </View>
                     <View style={styles.viewTwo2}>
                         <Text style={styles.progressText}> {data.going} {strings.going} </Text>
-                        <Progress.Bar style={styles.progressBar} progress={ 10 / 100} width={vw(380)} color={Colors.green} unfilledColor={Colors.lightGray} borderColor={Colors.white} animated={true} />
+                        <Progress.Bar style={styles.progressBar} progress={10 / 100} width={vw(380)} color={Colors.green} unfilledColor={Colors.lightGray} borderColor={Colors.white} animated={true} />
                         <View style={styles.progressValue}>
                             <Text style={styles.barNumber}>60</Text>
                             <Text style={styles.barNumber2}>100</Text>
@@ -207,12 +205,11 @@ class HomeDetails6 extends Component {
                         </TouchableOpacity>
                     </View>
                     <View style={styles.separator} />
-                    {/* <MyTab screenProps={this.props.navigation.getParam('id')} /> */}
                     <ScrollableTabView>
-        <About tabLabel="About" navigation={this.props.navigation}/>
-        <Participants tabLabel="Participants" navigation={this.props.navigation} />
-       {scene &&  <Settlement tabLabel="Settlement" navigation={this.props.navigation} />}
-      </ScrollableTabView>
+                        <About tabLabel="About" navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} />
+                        <Participants tabLabel="Participants" navigation={this.props.navigation} />
+                        {scene && <Settlement tabLabel="Settlement" navigation={this.props.navigation} />}
+                    </ScrollableTabView>
                 </ScrollView>
             </View>
         );
