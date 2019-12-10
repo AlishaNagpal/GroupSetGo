@@ -5,29 +5,38 @@ import {
     Image,
     ScrollView,
     TouchableOpacity,
+    Dimensions
 } from 'react-native';
 
 // Custom Imports
 import styles from './styles';
-import { VectorIcons, vh, vw, Colors } from '../../../../Constants';
+import { VectorIcons, vh, vw, Colors, strings } from '../../../../Constants';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
-import MyTab from '../TabScreens/tabNavigation';
+import MyTab from '../TabScreens/TabNavigation2';
 import * as Progress from 'react-native-progress';
 import { connect } from 'react-redux'
 import { eventDATA } from '../../../../Store/Action/Action'
+import About from '../TabScreens/About/About';
+import Participants from '../TabScreens/Participants/Participants';
+import Settlement from '../TabScreens/Settlement/Settlement';
 Icon.loadFont()
+var ScrollableTabView = require('react-native-scrollable-tab-view');
 
+const scene = true;
 class HomeDetails6 extends Component {
     state = {
         data: this.props.navigation.getParam('data'),
         id: this.props.navigation.getParam('id'),
         going: false,
-        hearted: false
+        hearted: false,
+        routes: [
+            { key: 'first', title: 'First' },
+            { key: 'second', title: 'Second' },
+        ],
     }
 
     componentDidMount() {
-        console.log("dsjbcjkd")
-        console.log(this.props.navigation.getParam('data'))
+        // console.log(this.props.navigation.getParam('data'))
         this.getData(this.props.navigation.getParam('id').id)
     }
 
@@ -72,7 +81,7 @@ class HomeDetails6 extends Component {
                     color={Colors.green}
                     size={vh(20)}
                 />
-                <Text style={styles.saveText}>{this.state.going ? "Going" : "Join"}</Text>
+                <Text style={styles.saveText}>{this.state.going ? strings.going : strings.join}</Text>
             </TouchableOpacity>
         )
     }
@@ -86,7 +95,7 @@ class HomeDetails6 extends Component {
                         color={Colors.fadedRed}
                         size={vh(20)}
                     />
-                    <Text style={styles.joinText}>{this.state.hearted ? "Saved" : "Save"}</Text>
+                    <Text style={styles.joinText}>{this.state.hearted ? strings.savedIcon : strings.saveIcon}</Text>
                 </TouchableOpacity>
             )
         } else {
@@ -97,7 +106,7 @@ class HomeDetails6 extends Component {
                         color={Colors.chatBlue}
                         size={vh(20)}
                     />
-                    <Text style={styles.chattingText}> Chat </Text>
+                    <Text style={styles.chattingText}> {strings.chatIcon} </Text>
                 </TouchableOpacity>
             )
         }
@@ -110,7 +119,7 @@ class HomeDetails6 extends Component {
                 <ScrollView bounces={false}>
                     <View>
                         <Image
-                            source={data.source}
+                            source={{uri: data.source}}
                             style={styles.pic}
                         />
                         <TouchableOpacity onPress={() => this.props.navigation.navigate('HomeNavigator')} style={styles.backButton} >
@@ -120,10 +129,10 @@ class HomeDetails6 extends Component {
                                 size={vh(24.3)}
                             />
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={()=>this.props.navigation.navigate('Flag')} style={styles.flagBtn} >
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate('Flag')} style={styles.flagBtn} >
                             <VectorIcons.MaterialCommunityIcons
                                 name='flag-outline'
-                                color= {Colors.white}
+                                color={Colors.white}
                                 size={vh(19.3)}
                             />
                         </TouchableOpacity>
@@ -150,8 +159,8 @@ class HomeDetails6 extends Component {
                         </View>
                     </View>
                     <View style={styles.viewTwo2}>
-                        <Text style={styles.progressText}> {data.going} Going</Text>
-                        <Progress.Bar style={styles.progressBar} progress={10 / 100} width={vw(380)} color={Colors.green} unfilledColor={Colors.lightGray} borderColor={Colors.white} animated={true} />
+                        <Text style={styles.progressText}> {data.going} {strings.going} </Text>
+                        <Progress.Bar style={styles.progressBar} progress={ 10 / 100} width={vw(380)} color={Colors.green} unfilledColor={Colors.lightGray} borderColor={Colors.white} animated={true} />
                         <View style={styles.progressValue}>
                             <Text style={styles.barNumber}>60</Text>
                             <Text style={styles.barNumber2}>100</Text>
@@ -173,7 +182,7 @@ class HomeDetails6 extends Component {
                                     color={Colors.darkGray2}
                                     size={vh(20)}
                                 />
-                                <Text style={styles.money}>{data.money} per person</Text>
+                                <Text style={styles.money}>{data.money} {strings.perPersonSmall} </Text>
                             </View>
                             <View style={styles.iconPlace}>
                                 <VectorIcons.MaterialCommunityIcons
@@ -181,7 +190,7 @@ class HomeDetails6 extends Component {
                                     color={Colors.darkGray2}
                                     size={vh(20)}
                                 />
-                                <Text style={styles.cancel}>Cancel By: {data.cancelDate} </Text>
+                                <Text style={styles.cancel}> {strings.cancel} {data.cancelDate} </Text>
                             </View>
                         </View>
                     </View>
@@ -194,11 +203,16 @@ class HomeDetails6 extends Component {
                                 color={Colors.shareBlue}
                                 size={vh(20)}
                             />
-                            <Text style={styles.shareText}>Share</Text>
+                            <Text style={styles.shareText}> {strings.share} </Text>
                         </TouchableOpacity>
                     </View>
                     <View style={styles.separator} />
-                    <MyTab />
+                    {/* <MyTab screenProps={this.props.navigation.getParam('id')} /> */}
+                    <ScrollableTabView>
+        <About tabLabel="About" navigation={this.props.navigation}/>
+        <Participants tabLabel="Participants" navigation={this.props.navigation} />
+       {scene &&  <Settlement tabLabel="Settlement" navigation={this.props.navigation} />}
+      </ScrollableTabView>
                 </ScrollView>
             </View>
         );

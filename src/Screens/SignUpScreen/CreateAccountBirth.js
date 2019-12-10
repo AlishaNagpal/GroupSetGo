@@ -9,7 +9,7 @@ EvilIcons.loadFont()
 
 //Custom Imports
 import styles from './styles'
-import { VectorIcons, Colors, vh } from '../../Constants';
+import { VectorIcons, Colors, vh, strings } from '../../Constants';
 import { pickDate } from '../../Store/Action/Action'
 import moment from 'moment';
 
@@ -40,11 +40,11 @@ class CreateAccountBirth extends PureComponent {
                 <TouchableOpacity onPress={() => { this.props.navigation.navigate('createAccountEmail') }} >
                     <VectorIcons.Ionicons name="ios-arrow-back" size={vh(30)} color={Colors.white} style={styles.iconPos} />
                 </TouchableOpacity>
-                <Text style={[styles.mainHeading, { marginTop: vh(100) }]}> Awesome!</Text>
-                <Text style={styles.mainHeading}> Lets get your account created.</Text>
-                <Text style={styles.stepText} > STEP 3 OF 5 </Text>
-                <Text style={styles.belowStep} > Your birthday? </Text>
-                <Text style={styles.description}>Some of our events have age restrictions for participants. Don’t worry, we won’t share this information on any other platform</Text>
+                <Text style={[styles.mainHeading, { marginTop: vh(100) }]}> {strings.awesome} </Text>
+                <Text style={styles.mainHeading}> {strings.created} </Text>
+                <Text style={styles.stepText} > {strings.step3} </Text>
+                <Text style={styles.belowStep} > {strings.birth} </Text>
+                <Text style={styles.description}> {strings.birthDescription} </Text>
                 <DatePicker
                     style={styles.datePicker}
                     date={this.props.date}
@@ -57,7 +57,7 @@ class CreateAccountBirth extends PureComponent {
                     TouchableComponent={TouchableOpacity}
                 />
                 <TouchableOpacity style={styles.buttonStyle} onPress={() => { this.props.navigation.navigate('createAccountGender') }} >
-                    <Text style={styles.buttonText}> Next </Text>
+                    <Text style={styles.buttonText}> {strings.next} </Text>
                 </TouchableOpacity>
             </LinearGradient>
         );

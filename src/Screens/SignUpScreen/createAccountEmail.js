@@ -7,7 +7,7 @@ import * as yup from 'yup'
 
 //Custom Imports
 import styles from './styles'
-import { VectorIcons, Colors, vh } from '../../Constants';
+import { VectorIcons, Colors, vh, strings } from '../../Constants';
 const colors = [Colors.moderateRed, Colors.moderatePink, Colors.darkModeratePink, Colors.darkViolet, Colors.darkViolet, Colors.darkViolet]
 
 export default class createAccountEmail extends PureComponent {
@@ -42,11 +42,11 @@ export default class createAccountEmail extends PureComponent {
                         <VectorIcons.Ionicons name="ios-arrow-back" size={vh(30)} color={Colors.white} style={styles.iconPos} />
                     </TouchableOpacity>
 
-                    <Text style={[styles.mainHeading, { marginTop: vh(100) }]}> Awesome!</Text>
-                    <Text style={styles.mainHeading}> Lets get your account created.</Text>
-                    <Text style={styles.stepText} > STEP 2 OF 5 </Text>
-                    <Text style={styles.belowStep} > Your email address? </Text>
-                    <Text style={styles.description}>We hate spams as much as you do. We promise not to send any unwanted emails.</Text>
+                    <Text style={[styles.mainHeading, { marginTop: vh(100) }]}> {strings.awesome}  </Text>
+                    <Text style={styles.mainHeading}> {strings.created} </Text>
+                    <Text style={styles.stepText} > {strings.step2} </Text>
+                    <Text style={styles.belowStep} > {strings.email} </Text>
+                    <Text style={styles.description}> {strings.emailDescription} </Text>
 
                     <Formik
                         initialValues={{ email: '' }}
@@ -77,7 +77,7 @@ export default class createAccountEmail extends PureComponent {
                                 </ErrorMessage>
 
                                 <TextInput
-                                    placeholder={'Enter email address'}
+                                    placeholder={strings.emailPlaceholder}
                                     style={[styles.textInputStyle, { marginTop: vh(42.7) }]}
                                     placeholderTextColor={Colors.black}
                                     onBlur={() => {
@@ -95,7 +95,7 @@ export default class createAccountEmail extends PureComponent {
                                     disabled={!isValid}
                                 // activeOpacity={1}
                                 >
-                                    <Text style={styles.buttonText}> Next </Text>
+                                    <Text style={styles.buttonText}> {strings.next} </Text>
                                 </TouchableOpacity>
                             </React.Fragment>
                         )}

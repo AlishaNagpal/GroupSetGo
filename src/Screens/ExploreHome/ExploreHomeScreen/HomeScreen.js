@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, Image, FlatList } from 'react-native';
 import styles from './style'
 import { connect } from 'react-redux'
 import { eventDATA } from '../../../Store/Action/Action'
-import { Images, vw, vh, Colors, VectorIcons } from '../../../Constants'
+import { Images, vw, vh, Colors, VectorIcons, strings } from '../../../Constants'
 
 
 class HomeScreen extends PureComponent {
@@ -28,7 +28,7 @@ class HomeScreen extends PureComponent {
         return (
             <View style={styles.flatlistView} >
                 <TouchableOpacity activeOpacity={1} onPress={() => this.callScreen(item.serialNo)} >
-                    <Image source={item.source} style={styles.flatlistImage} />
+                    <Image source={{uri: item.source }} style={styles.flatlistImage} />
                     <TouchableOpacity onPress={() => { this.toggle(item.serialNo, item.hearted) }} style={styles.heart} activeOpacity={1}  >
                         <Image source={item.hearted ? Images.heartFilled : Images.heartEmpty} />
                     </TouchableOpacity>
@@ -48,7 +48,7 @@ class HomeScreen extends PureComponent {
                             <Text style={styles.place} > {item.place} </Text>
                             <View style={styles.elongatedView} />
                             <Text style={styles.moneyText} > {item.money} </Text>
-                            <Text style={styles.moneyPerson} > per person </Text>
+                            <Text style={styles.moneyPerson} > {strings.perPerson} </Text>
                         </View>
                     </View>
                 </TouchableOpacity>
@@ -59,9 +59,9 @@ class HomeScreen extends PureComponent {
     renderData2 = (rowData) => {
         let { item } = rowData
         return (
-            <View style={[styles.flatlistView, { width: vw(186.7), height: vw(106.7), }]} >
+            <View style={[styles.flatlistView, { width: vw(186.7), height: vw(210), }]} >
                 <TouchableOpacity activeOpacity={1} onPress={() => this.callScreen(item.serialNo)} >
-                    <Image source={item.source} style={styles.flatlist2Image} />
+                    <Image source={{uri: item.source }} style={styles.flatlist2Image} />
                     <TouchableOpacity onPress={() => { this.toggle(item.serialNo, item.hearted) }} style={styles.flatlist2Heart} activeOpacity={1}  >
                         <Image source={item.hearted ? Images.heartFilled : Images.heartEmpty} />
                     </TouchableOpacity>
@@ -80,7 +80,7 @@ class HomeScreen extends PureComponent {
                         <Text style={styles.place2} > {item.place} </Text>
                         <View style={styles.perPerson} >
                             <Text style={styles.moneyText} > {item.money} </Text>
-                            <Text style={styles.moneyPerson} > per person </Text>
+                            <Text style={styles.moneyPerson} > {strings.perPerson} </Text>
                         </View>
                     </View>
                 </TouchableOpacity>
@@ -94,13 +94,13 @@ class HomeScreen extends PureComponent {
             <View style={styles.mainContainer} >
                 <View style={styles.sortFilterView} >
                     <TouchableOpacity style={styles.sortStyle} >
-                        <Text style={styles.sortText} > Sort </Text>
+                        <Text style={styles.sortText} > {strings.sort} </Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.sortStyle} >
-                        <Text style={styles.sortText} > Filter </Text>
+                        <Text style={styles.sortText} > {strings.filter} </Text>
                     </TouchableOpacity>
                 </View>
-                <Text style={styles.recommendedText} > Recommended </Text>
+                <Text style={styles.recommendedText} > {strings.recommended} </Text>
                 <View style={styles.flatlistHeight} >
                     <FlatList
                         keyExtractor={(item) => item.serialNo.toString()}
@@ -110,54 +110,14 @@ class HomeScreen extends PureComponent {
                         showsHorizontalScrollIndicator={false}
                     />
                 </View>
-                <Text style={styles.allEvents} > All Events </Text>
-                <View style={styles.flatlistHeight2} >
+                <Text style={styles.allEvents} > {strings.allEvents} </Text>
                     <FlatList
                         keyExtractor={(item) => item.serialNo.toString()}
                         data={this.props.Event_Data}
                         renderItem={this.renderData2}
-                        horizontal
                         showsHorizontalScrollIndicator={false}
+                        numColumns={2}
                     />
-                </View>
-
-                <View style={styles.flatlistHeight2} >
-                    <FlatList
-                        keyExtractor={(item) => item.serialNo.toString()}
-                        data={this.props.Event_Data}
-                        renderItem={this.renderData2}
-                        horizontal
-                        showsHorizontalScrollIndicator={false}
-                    />
-                </View>
-
-                <View style={styles.flatlistHeight2} >
-                    <FlatList
-                        keyExtractor={(item) => item.serialNo.toString()}
-                        data={this.props.Event_Data}
-                        renderItem={this.renderData2}
-                        horizontal
-                        showsHorizontalScrollIndicator={false}
-                    />
-                </View>
-                <View style={styles.flatlistHeight2} >
-                    <FlatList
-                        keyExtractor={(item) => item.serialNo.toString()}
-                        data={this.props.Event_Data}
-                        renderItem={this.renderData2}
-                        horizontal
-                        showsHorizontalScrollIndicator={false}
-                    />
-                </View>
-                <View style={styles.flatlistHeight2} >
-                    <FlatList
-                        keyExtractor={(item) => item.serialNo.toString()}
-                        data={this.props.Event_Data}
-                        renderItem={this.renderData2}
-                        horizontal
-                        showsHorizontalScrollIndicator={false}
-                    />
-                </View>
             </View>
         );
     }

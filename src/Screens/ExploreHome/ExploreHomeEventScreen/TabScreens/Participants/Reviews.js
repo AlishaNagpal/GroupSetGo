@@ -6,7 +6,7 @@ import {
     FlatList,
     TouchableOpacity
   } from 'react-native';
-  import { Images, vh, vw, VectorIcons, Colors } from '../../../../../Constants';
+  import { Images, vh, vw, VectorIcons, Colors, Strings } from '../../../../../Constants';
 import styles from './style';
 
 const numOfLine = 3;
@@ -15,13 +15,16 @@ export default class Reviews extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        textShow: false,
+        textShow: true,
         num: 0,
-        show: -1
       };
   }
 
-
+  toggle=()=>{
+    this.setState({
+      textShow: !this.state.textShow
+    })
+}
 
   render() {
       const item = this.props.myData 
@@ -48,19 +51,15 @@ export default class Reviews extends Component {
             />
           </View>
         </View>
-        <View style={{ paddingTop: vw(9.9) }}>
+        <View style={styles.reviewView}>
           <Text 
           style={styles.rwText} 
-          onTextLayout={({ nativeEvent: { lines } }) => this.setState({num: lines.length })}
-          numberOfLines={this.state.show === id ? null : numOfLine}
+          // onTextLayout={({ nativeEvent: { lines } }) => this.setState({textShow: lines.length > numOfLine })}
+          numberOfLines={this.state.textShow ? numOfLine : null}
           >{item.text}
           </Text>
-          {this.state.num >= 3 ? <Text >{this.state.textShow ? 'show less' : 'show more'}</Text> : null} 
+          <Text style={styles.readMore} onPress = {this.toggle}>{this.state.textShow ? 'show more' : 'show less'}</Text>
         </View>
-        {/* <Text  onPress = {() => this.props.toggleText(id)}>
-        {console.warn(this.state.num )}
-        {this.state.num > numOfLine ? (this.state.show === id ? 'show less' : 'show more') : null}
-        </Text> */}
       </View>
     );
   }

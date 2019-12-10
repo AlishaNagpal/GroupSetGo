@@ -9,7 +9,7 @@ import {
 import LinearGradient from 'react-native-linear-gradient'
 import Reviews from './Reviews';
 
-import { Images, vh, vw, VectorIcons, Colors } from '../../../../../Constants';
+import { Images, vh, vw, VectorIcons, Colors, Strings } from '../../../../../Constants';
 import styles from './style';
 
 const colors = [Colors.fadedRed,Colors.darkishPink]
@@ -133,13 +133,14 @@ export default class Participants extends Component {
   }
 
   render() {
+    const {navigation} = this.props;
     return (
       <View style={styles.mainView}>
         {/* -------------- Organizer ----------------- */}
         <View style={styles.viewOne}>
-          <Text style={{ ...styles.orgHeading }}>Organizer</Text>
+          <Text style={{ ...styles.orgHeading }}>{Strings.organizer}</Text>
           <View style={styles.picView}>
-            <View style={styles.leaveView}>
+            <View style={styles.leaveView}> 
               <Image
                 source={ORGANIZER.pic}
                 style={styles.orgPic}
@@ -158,14 +159,14 @@ export default class Participants extends Component {
             </View>
             <View>
               <TouchableOpacity style={styles.leave}>
-                <Text style={styles.leaveText}>Leave Event</Text>
+                <Text style={styles.leaveText}>{Strings.leaveEvent}</Text>
               </TouchableOpacity>
             </View>
           </View>
         </View>
         {/* -------------- Participants ----------------- */}
         <View style={styles.viewTwo}>
-          <Text style={{ ...styles.orgHeading }}>Participants</Text>
+          <Text style={{ ...styles.orgHeading }}>{Strings.participants}</Text>
           {/* <FlatList 
           style={styles.myFlatList}
           data = {PARTICIPANTS}
@@ -192,7 +193,7 @@ export default class Participants extends Component {
         </View>
         {/* -------------- Waitlist ----------------- */}
         <View style={styles.viewThree}>
-          <Text style={{ ...styles.orgHeading }}>Waitlist</Text>
+          <Text style={{ ...styles.orgHeading }}>{Strings.waitlist}</Text>
           <FlatList
             data={WAITLIST}
             keyExtractor={(item, id) => id.toString()}
@@ -207,7 +208,7 @@ export default class Participants extends Component {
         {/* -------------- Reviews ----------------- */}
         {REVIEWS.length !== 0 && <View>
           <View style={styles.reviewHead}>
-            <Text style={styles.reviewText}>Reviews</Text>
+            <Text style={styles.reviewText}>{Strings.reviews}</Text>
           </View>
           <View style={styles.flatReview}>
           <FlatList
@@ -218,17 +219,17 @@ export default class Participants extends Component {
             bounces={false}
           />
           </View>
-          <TouchableOpacity style={styles.reviewBtn} activeOpacity={1}>
-            <Text style={styles.readReviewText}>{REVIEWS.length === 0 ? 'NO REVIEWS AVAILABLE' : 'read all '+ REVIEWS.length + ' Reviews'}</Text>
-          </TouchableOpacity>
+          {REVIEWS.length > 3 && <TouchableOpacity style={styles.reviewBtn} onPress={() => navigation.navigate('ParticipantReview')}>
+            <Text style={styles.readReviewText}>{'read all '+ REVIEWS.length + ' Reviews'}</Text>
+          </TouchableOpacity>}
         </View>}
         {/* -------------- Settle Account ----------------- */}
         <View style={styles.settle}>
         <LinearGradient colors={colors} start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} style={styles.gradientStyle} >
                     <TouchableOpacity style = {styles.loginButtonStyle}
-                        // onPress={() => this.props.navigation.navigate("LoginWithEmail")}
+                        onPress={() => this.props.navigation.navigate("Settlement")}
                         >
-                        <Text style={styles.loginButtonTitleStyle}>settle account</Text>
+                        <Text style={styles.loginButtonTitleStyle}>{Strings.settleAcc}</Text>
                     </TouchableOpacity>
                 </LinearGradient>
           </View>
@@ -342,5 +343,12 @@ const REVIEWS = [
     date: 'February 2018',
     rating: 3,
     text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+  },
+  {
+    pic: Images.person3,
+    name: 'Nandini',
+    date: 'February 2018',
+    rating: 4.5,
+    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
   },
 ]

@@ -14,6 +14,7 @@ const NavTabBar = createMaterialTopTabNavigator({
     About: {
         screen: About
     },
+    
     Participants: {
         screen: Participants
     },
