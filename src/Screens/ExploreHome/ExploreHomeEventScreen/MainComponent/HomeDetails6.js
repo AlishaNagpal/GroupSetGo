@@ -114,7 +114,7 @@ class HomeDetails6 extends Component {
                 <ScrollView bounces={false}>
                     <View>
                         <Image
-                            source={data.source}
+                            source={{uri: data.source}}
                             style={styles.pic}
                         />
                         <TouchableOpacity onPress={() => this.props.navigation.navigate('HomeNavigator')} style={styles.backButton} >
@@ -155,7 +155,7 @@ class HomeDetails6 extends Component {
                     </View>
                     <View style={styles.viewTwo2}>
                         <Text style={styles.progressText}> {data.going} {strings.going} </Text>
-                        <Progress.Bar style={styles.progressBar} progress={10 / 100} width={vw(380)} color={Colors.green} unfilledColor={Colors.lightGray} borderColor={Colors.white} animated={true} />
+                        <Progress.Bar style={styles.progressBar} progress={ 10 / 100} width={vw(380)} color={Colors.green} unfilledColor={Colors.lightGray} borderColor={Colors.white} animated={true} />
                         <View style={styles.progressValue}>
                             <Text style={styles.barNumber}>60</Text>
                             <Text style={styles.barNumber2}>100</Text>

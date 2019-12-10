@@ -28,7 +28,7 @@ class HomeScreen extends PureComponent {
         return (
             <View style={styles.flatlistView} >
                 <TouchableOpacity activeOpacity={1} onPress={() => this.callScreen(item.serialNo)} >
-                    <Image source={item.source} style={styles.flatlistImage} />
+                    <Image source={{uri: item.source }} style={styles.flatlistImage} />
                     <TouchableOpacity onPress={() => { this.toggle(item.serialNo, item.hearted) }} style={styles.heart} activeOpacity={1}  >
                         <Image source={item.hearted ? Images.heartFilled : Images.heartEmpty} />
                     </TouchableOpacity>
@@ -59,9 +59,9 @@ class HomeScreen extends PureComponent {
     renderData2 = (rowData) => {
         let { item } = rowData
         return (
-            <View style={[styles.flatlistView, { width: vw(186.7), height: vw(106.7), }]} >
+            <View style={[styles.flatlistView, { width: vw(186.7), height: vw(210), }]} >
                 <TouchableOpacity activeOpacity={1} onPress={() => this.callScreen(item.serialNo)} >
-                    <Image source={item.source} style={styles.flatlist2Image} />
+                    <Image source={{uri: item.source }} style={styles.flatlist2Image} />
                     <TouchableOpacity onPress={() => { this.toggle(item.serialNo, item.hearted) }} style={styles.flatlist2Heart} activeOpacity={1}  >
                         <Image source={item.hearted ? Images.heartFilled : Images.heartEmpty} />
                     </TouchableOpacity>
@@ -111,53 +111,13 @@ class HomeScreen extends PureComponent {
                     />
                 </View>
                 <Text style={styles.allEvents} > {strings.allEvents} </Text>
-                <View style={styles.flatlistHeight2} >
                     <FlatList
                         keyExtractor={(item) => item.serialNo.toString()}
                         data={this.props.Event_Data}
                         renderItem={this.renderData2}
-                        horizontal
                         showsHorizontalScrollIndicator={false}
+                        numColumns={2}
                     />
-                </View>
-
-                <View style={styles.flatlistHeight2} >
-                    <FlatList
-                        keyExtractor={(item) => item.serialNo.toString()}
-                        data={this.props.Event_Data}
-                        renderItem={this.renderData2}
-                        horizontal
-                        showsHorizontalScrollIndicator={false}
-                    />
-                </View>
-
-                <View style={styles.flatlistHeight2} >
-                    <FlatList
-                        keyExtractor={(item) => item.serialNo.toString()}
-                        data={this.props.Event_Data}
-                        renderItem={this.renderData2}
-                        horizontal
-                        showsHorizontalScrollIndicator={false}
-                    />
-                </View>
-                <View style={styles.flatlistHeight2} >
-                    <FlatList
-                        keyExtractor={(item) => item.serialNo.toString()}
-                        data={this.props.Event_Data}
-                        renderItem={this.renderData2}
-                        horizontal
-                        showsHorizontalScrollIndicator={false}
-                    />
-                </View>
-                <View style={styles.flatlistHeight2} >
-                    <FlatList
-                        keyExtractor={(item) => item.serialNo.toString()}
-                        data={this.props.Event_Data}
-                        renderItem={this.renderData2}
-                        horizontal
-                        showsHorizontalScrollIndicator={false}
-                    />
-                </View>
             </View>
         );
     }

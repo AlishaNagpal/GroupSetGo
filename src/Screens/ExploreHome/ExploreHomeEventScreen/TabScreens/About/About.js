@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
-import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
+import { View, Text, TouchableOpacity, Linking, Platform } from 'react-native';
+import MapView, { Marker, PROVIDER_GOOGLE, Callout } from 'react-native-maps';
 import LinearGradient from 'react-native-linear-gradient'
 
 //custom imports
@@ -10,6 +10,14 @@ import { VectorIcons, Colors, vh, strings } from '../../../../../Constants'
 import { connect } from 'react-redux'
 import { eventDATA } from '../../../../../Store/Action/Action'
 
+
+const scheme = Platform.select({ ios: 'maps:0,0?q=', android: 'geo:0,0?q=' });
+const latLng = `${36.116442},${-115.175079}`;
+const label = 'Your Location';
+const url = Platform.select({
+  ios: `${scheme}${label}@${latLng}`,
+  android: `${scheme}${latLng}(${label})`
+});
 class About extends Component {
   constructor(props) {
     super(props);
@@ -23,7 +31,7 @@ class About extends Component {
     };
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.getData(this.props.screenProps.id)
   }
 
@@ -39,7 +47,7 @@ class About extends Component {
   }
 
   render() {
-    const {data} = this.state
+    const { data } = this.state
     return (
       <View style={styles.mainContainer} >
         <View style={styles.detailView} >
@@ -84,11 +92,11 @@ class About extends Component {
         </View>
         <View style={styles.line2} />
         <View style={styles.viewMore} >
-          
-          <TouchableOpacity onPress={()=> this.props.viewMore()} >
+
+          <TouchableOpacity onPress={() => this.props.viewMore()} >
             <Text style={styles.viewMoreText} > {strings.viewMore} </Text>
           </TouchableOpacity>
-        
+
         </View>
         <View style={styles.separator} />
 
@@ -103,22 +111,28 @@ class About extends Component {
           style={styles.mapStyle}
           provider={PROVIDER_GOOGLE}
           scrollEnabled={false}
-          // zoomEnabled={true}
           maxZoomLevel={13.3}
+          showsCompass={true}
           region={{
-            latitude: 36.116442,
-            longitude: -115.175079,
+            latitude: data.latitude,
+            longitude: data.longitude,
             latitudeDelta: 0.015,
             longitudeDelta: 0.0121,
           }}
         >
-          {this.state.markers.map(marker => (
-            <Marker
-              coordinate={marker.latlng}
-              title={data.location}
-              description={marker.description}
-            />
-          ))}
+          <Marker
+            coordinate={{
+              latitude: data.latitude,
+              longitude: data.longitude
+            }}
+          >
+            <Callout onPress={() => Linking.openURL(url)} >
+              <View style={styles.calloutView} >
+                <Text>{data.location}</Text>
+              </View>
+            </Callout>
+          </Marker>
+
         </MapView>
         <LinearGradient colors={colors} style={styles.gradient} >
           <TouchableOpacity>

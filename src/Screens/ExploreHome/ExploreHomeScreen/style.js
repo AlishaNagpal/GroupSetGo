@@ -194,9 +194,6 @@ export default styles = StyleSheet.create({
     flatlistHeight: {
         height: vh(250)
     },
-    flatlistHeight2: {
-        height: vh(230)
-    },
     flatlist2Heart: {
         position: 'absolute',
         left: vw(155),
@@ -245,12 +242,12 @@ export default styles = StyleSheet.create({
         height: vw(230),
         width: vw(340),
         borderRadius: vh(16.7),
-        marginHorizontal: vw(40),
         marginTop: vh(10),
         backgroundColor: Colors.white,
         borderWidth: vw(0.2),
         borderColor: Colors.fadedGray,
-        bottom: vh(60)
+        bottom: vh(60),
+        marginLeft: vw(28)
 
     },
     marker: {
