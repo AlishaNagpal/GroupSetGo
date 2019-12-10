@@ -28,10 +28,6 @@ class HomeDetails6 extends Component {
         id: this.props.navigation.getParam('id'),
         going: false,
         hearted: false,
-        routes: [
-            { key: 'first', title: 'First' },
-            { key: 'second', title: 'Second' },
-        ],
     }
 
     componentDidMount() {
