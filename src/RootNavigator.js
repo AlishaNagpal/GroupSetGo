@@ -3,6 +3,7 @@ import { Image } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs'
+import { Colors, strings } from './Constants';
 
 /**
  * custom imports
@@ -27,10 +28,10 @@ import FlagInappropriate from './Screens/ExploreHome/ExploreHomeEventScreen/Main
 import ExploreEventsUsers from './Screens/ExploreEventsUsers/ExploreEventsUsers';
 import ExploreNoOfParticipants from './Screens/ExploreNoOfParticipants/ExploreNoOfParticipants'
 import HomeScreen from './Screens/ExploreHome/ExploreHomeScreen/HomeScreen'
-import NewScreen from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/About/newScreen'
-import { Colors, strings } from './Constants';
+import VenueReviews from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/About/VenueReviews'
 import ParticipantReview from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/Participants/ParticipantReview';
 import Settlement from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/Settlement/Settlement';
+import Response from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/Flag/response'
 
 
 const Explore = createStackNavigator({ Explore: ExploreHomeScreen, Map: ExploreMapScreen },
@@ -140,8 +141,8 @@ const MainStack = createStackNavigator(
     FlagInappropriate: {
       screen: FlagInappropriate
     },
-    NewScreen:{
-      screen: NewScreen
+    VenueReviews:{
+      screen: VenueReviews
     },
     ParticipantReview: {
       screen: ParticipantReview
@@ -195,6 +196,9 @@ const RootStack = createStackNavigator(
     Flag: {
       screen: Flag
     },
+    Response:{
+      screen: Response
+    }
 
   },
   {

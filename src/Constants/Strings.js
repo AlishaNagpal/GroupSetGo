@@ -76,7 +76,6 @@ const strings = {
     verified: 'Verified Users Only',
     ageGroup: 'Age Group',
     genderMix: 'Gender Mix',
-    viewMore: 'View More Details',
     reviews: 'reviews',
     maleMix: 'Min. Male:',
     femaleMix: 'Min. Female:',
@@ -88,6 +87,11 @@ const strings = {
     waitlist: 'Waitlist',
     reviews: 'Reviews',
     settleAcc: 'settle account',
+    description: 'Description',
+    response: 'Your response has been submitted!',
+    enterData: 'Please enter your reason for flagging this event!',
+    min: 'min',
+    max: 'max'
 }
 
 export default strings;

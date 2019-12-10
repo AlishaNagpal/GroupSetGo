@@ -36,6 +36,7 @@ const Colors = {
     beige: '#fbfbf0',
     midGrey: 'rgb(153, 153, 153)',
     verLightGrey: 'rgb(148, 148, 148)',
+    veryVeryLightGray: 'rgb(243,243,243)'
 }
 
 export default Colors;

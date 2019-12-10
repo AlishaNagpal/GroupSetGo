@@ -28,7 +28,8 @@ export default DATA = [
         reviews: '222',
         latitude: 36.116442,
         longitude: -115.175079,
-
+        min: 4,
+        max: 40
     },
     {
         serialNo: 2,
@@ -57,6 +58,8 @@ export default DATA = [
         reviews: '222',
         latitude: 36.116442,
         longitude: -115.175079,
+        min: 4,
+        max: 40
     },
     {
         serialNo: 3,
@@ -85,6 +88,8 @@ export default DATA = [
         reviews: '222',
         latitude: 36.116442,
         longitude: -115.175079,
+        min: 4,
+        max: 40
     },
     {
         serialNo: 4,
@@ -113,6 +118,8 @@ export default DATA = [
         reviews: '222',
         latitude: 36.116442,
         longitude: -115.175079,
+        min: 4,
+        max: 40
     },
     {
         serialNo: 5,
@@ -141,6 +148,8 @@ export default DATA = [
         reviews: '222',
         latitude: 36.116442,
         longitude: -115.175079,
+        min: 4,
+        max: 40
     },
     {
         serialNo: 6,
@@ -169,6 +178,8 @@ export default DATA = [
         reviews: '222',
         latitude: 36.116442,
         longitude: -115.175079,
+        min: 4,
+        max: 40
     },
     {
         serialNo: 7,
@@ -197,6 +208,8 @@ export default DATA = [
         reviews: '222',
         latitude: 36.116442,
         longitude: -115.175079,
+        min: 4,
+        max: 40
     },
     {
         serialNo: 8,
@@ -225,5 +238,7 @@ export default DATA = [
         reviews: '222',
         latitude: 36.116442,
         longitude: -115.175079,
+        min: 4,
+        max: 40
     }
 ]

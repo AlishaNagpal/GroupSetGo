@@ -4,7 +4,6 @@ import { vh, vw, Colors } from '../../../../../Constants'
 export default styles = StyleSheet.create({
     mainContainer: {
         flex: 1,
-        marginBottom: vh(20),
     },
     detailView: {
         flexDirection: 'column',
@@ -33,7 +32,7 @@ export default styles = StyleSheet.create({
     row: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     buttonStyle: {
         height: vh(36.7),
@@ -48,25 +47,6 @@ export default styles = StyleSheet.create({
         color: Colors.white,
         fontFamily: 'SourceSansPro-Semibold',
         fontSize: vh(16)
-    },
-    line2: {
-        width: vw(450),
-        backgroundColor: Colors.lightGray,
-        height: vh(2),
-        marginBottom: vh(10),
-        marginTop: vh(18),
-    },
-    viewMore: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginTop: vh(20),
-        marginBottom: vh(19.3)
-    },
-    viewMoreText:{
-        color: Colors.fadedRed,
-        fontFamily:'SourceSansPro-Regular',
-        fontSize: vh(15.3),
-        marginRight: vw(10)
     },
     separator: {
         backgroundColor: Colors.whitishGray,
@@ -93,4 +73,8 @@ export default styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center'
     },
+    viewMoreText:{
+        color: Colors.fadedRed,
+        marginRight: vw(13.3)
+    }
 })
