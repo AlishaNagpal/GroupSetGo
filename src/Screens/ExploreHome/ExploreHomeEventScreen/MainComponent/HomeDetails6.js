@@ -154,10 +154,10 @@ class HomeDetails6 extends Component {
                     </View>
                     <View style={styles.viewTwo2}>
                         <Text style={styles.progressText}> {data.going} {strings.going} </Text>
-                        <Progress.Bar style={styles.progressBar} progress={10 / 100} width={vw(380)} color={Colors.green} unfilledColor={Colors.lightGray} borderColor={Colors.white} animated={true} />
+                        <Progress.Bar style={styles.progressBar} progress={ 10/100 } width={vw(380)} color={Colors.green} unfilledColor={Colors.lightGray} borderColor={Colors.white} animated={true} />
                         <View style={styles.progressValue}>
-                            <Text style={styles.barNumber}>60</Text>
-                            <Text style={styles.barNumber2}>100</Text>
+                            <Text style={styles.barNumber}> {data.min} ({strings.min}) </Text>
+                            <Text style={styles.barNumber2}> {data.max} ({strings.max}) </Text>
                         </View>
                     </View>
                     <View style={styles.viewTwo3}>
@@ -200,7 +200,6 @@ class HomeDetails6 extends Component {
                             <Text style={styles.shareText}> {strings.share} </Text>
                         </TouchableOpacity>
                     </View>
-                    <View style={styles.separator} />
                     <ScrollableTabView>
                         <About tabLabel="About" navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} />
                         <Participants tabLabel="Participants" navigation={this.props.navigation} />

@@ -98,7 +98,8 @@ export default class ExploreHomeScreen extends PureComponent {
             }}>
             {!this.state.rotateRight ? (
               <ScrollView
-                contentContainerStyle={{opacity: 1 - this.state.opac}}
+              showsVerticalScrollIndicator = {false}
+                contentContainerStyle={{opacity: 1 - this.state.opac, paddingBottom: vh(60)}}
                 bounces={false}>
                 <HomeScreen navigate={this.props.navigation.navigate} />
               </ScrollView>

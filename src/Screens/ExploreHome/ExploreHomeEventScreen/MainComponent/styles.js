@@ -109,7 +109,7 @@ export default styles = StyleSheet.create({
     },
     progressValue: {
         flexDirection: 'row',
-        marginLeft: vw(257.3)
+        marginLeft: vw(13)
     },
     barNumber: {
         color: Colors.fadedGray2,
@@ -118,7 +118,7 @@ export default styles = StyleSheet.create({
     barNumber2: {
         color: Colors.fadedGray2,
         fontSize: vh(12),
-        marginLeft: vw(100)
+        marginLeft: vw(280)
     },
     viewTwo3: {
         padding: vh(15.3),
@@ -184,10 +184,6 @@ export default styles = StyleSheet.create({
     shareText: {
         fontSize: vw(15.3),
         color: Colors.shareBlue
-    },
-    separator: {
-        backgroundColor: Colors.whitishGray,
-        padding: vh(6)
     },
     goingText: {
         fontSize: vw(15.3),

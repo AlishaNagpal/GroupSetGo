@@ -19,7 +19,7 @@ const url = Platform.select({
   android: `${scheme}${latLng}(${label})`
 });
 class About extends Component {
-  state = { data: this.props.Event_Data}
+  state = { data: this.props.Event_Data }
   componentDidMount() {
     this.getData(this.props.screenProps.id)
   }
@@ -73,25 +73,16 @@ class About extends Component {
         <View style={styles.detailView} >
           <Text style={styles.detailsTextHead} > {strings.priceDetails} </Text>
         </View>
-        <View style={styles.row} >
+        <View style={[styles.row, { marginBottom: vh(10) }]} >
           <Text style={styles.detailsText} > {strings.totalBudget} </Text>
           <TouchableOpacity style={styles.buttonStyle} >
             <Text style={styles.money} > {data.moneyTotal} </Text>
           </TouchableOpacity>
         </View>
-        <View style={styles.line2} />
-        <View style={styles.viewMore} >
-
-          <TouchableOpacity onPress={() => this.props.viewMore()} >
-            <Text style={styles.viewMoreText} > {strings.viewMore} </Text>
-          </TouchableOpacity>
-
-        </View>
         <View style={styles.separator} />
-
         <View style={styles.row2} >
           <Text style={styles.detailsTextHead} > {strings.venue} </Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('VenueReviews')} >
             <Text style={styles.viewMoreText} > {data.reviews} {strings.reviews} </Text>
           </TouchableOpacity>
         </View>
@@ -103,16 +94,16 @@ class About extends Component {
           maxZoomLevel={13.3}
           showsCompass={true}
           region={{
-            latitude: data.latitude,
-            longitude: data.longitude,
+            latitude: 36.116442,
+            longitude: -115.175079,
             latitudeDelta: 0.015,
             longitudeDelta: 0.0121,
           }}
         >
           <Marker
             coordinate={{
-              latitude: data.latitude,
-              longitude: data.longitude
+              latitude: 36.116442,
+              longitude: -115.175079
             }}
           >
             <Callout onPress={() => Linking.openURL(url)} >
