@@ -31,6 +31,7 @@ import HomeScreen from './Screens/ExploreHome/ExploreHomeScreen/HomeScreen'
 import VenueReviews from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/About/VenueReviews'
 import ParticipantReview from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/Participants/ParticipantReview';
 import Settlement from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/Settlement/Settlement';
+import Card from './Screens/ExploreNoOfParticipants/Card'
 import Response from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/Flag/response'
 
 
@@ -152,7 +153,7 @@ const MainStack = createStackNavigator(
     },
   },
   {
-    initialRouteName: 'HomeNavigator',
+    initialRouteName: 'SplashScreen',
     defaultNavigationOptions: ({ navigation }) => ({
       headerBackTitle: null,
       header: null,
@@ -187,6 +188,9 @@ const RootStack = createStackNavigator(
     ForgotPassword: {
       screen: ForgotPassword,
     },
+    Card: {
+      screen: Card
+    },
     Review: {
       screen: Review,
     },
@@ -205,6 +209,10 @@ const RootStack = createStackNavigator(
     mode: 'modal',
     headerMode: 'none',
     transparentCard: true,
+    cardStyle: {
+      opacity: 1,
+      backgroundColor: Colors.transparentBG
+    }
   },
 );
 

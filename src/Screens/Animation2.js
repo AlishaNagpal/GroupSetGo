@@ -13,7 +13,7 @@ export default class Animation2 extends Component {
     this.rotateValue.addListener(({value}) => this.setState({opac: value}));
   }
 
-  spinLeft = this.rotateValue.interpolate({
+  spin = this.rotateValue.interpolate({
     inputRange: [0, 1],
     outputRange: ['0deg', '180deg'],
   });
@@ -45,9 +45,7 @@ export default class Animation2 extends Component {
               transform: [
                 // {rotateX: this.spin},
                 {
-                  rotateY: !this.state.rotateRight
-                    ? this.spinLeft
-                    : this.spinRight,
+                  rotateY: this.spin
                 },
                 // {rotateZ: this.spin},
               ],
