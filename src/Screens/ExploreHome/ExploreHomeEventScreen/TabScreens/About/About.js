@@ -24,7 +24,7 @@ class About extends Component {
   }
 
   componentDidMount(){
-    this.getData(this.props.screenProps.id)
+    // this.getData(this.props.screenProps.id)
   }
 
   getData = (id) => {
@@ -42,7 +42,7 @@ class About extends Component {
     const {data} = this.state
     return (
       <View style={styles.mainContainer} >
-        <View style={styles.detailView} >
+        {/* <View style={styles.detailView} >
           <Text style={styles.detailsTextHead} > {strings.details} </Text>
           <Text style={styles.detailsText} > {data.details} </Text>
         </View>
@@ -124,7 +124,7 @@ class About extends Component {
           <TouchableOpacity>
             <VectorIcons.AntDesign name="adduser" color={Colors.white} size={vh(25)} />
           </TouchableOpacity>
-        </LinearGradient>
+        </LinearGradient> */}
       </View>
     );
   }
