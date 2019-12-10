@@ -12,12 +12,17 @@ import {
 import styles from './styles';
 import { VectorIcons, vh, vw, Colors, strings } from '../../../../Constants';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
-import MyTab from '../TabScreens/tabNavigation';
+import MyTab from '../TabScreens/TabNavigation2';
 import * as Progress from 'react-native-progress';
 import { connect } from 'react-redux'
 import { eventDATA } from '../../../../Store/Action/Action'
+import About from '../TabScreens/About/About';
+import Participants from '../TabScreens/Participants/Participants';
+import Settlement from '../TabScreens/Settlement/Settlement';
 Icon.loadFont()
+var ScrollableTabView = require('react-native-scrollable-tab-view');
 
+const scene = true;
 class HomeDetails6 extends Component {
     state = {
         data: this.props.navigation.getParam('data'),
@@ -202,7 +207,12 @@ class HomeDetails6 extends Component {
                         </TouchableOpacity>
                     </View>
                     <View style={styles.separator} />
-                    <MyTab screenProps={this.props.navigation.getParam('id')} />
+                    {/* <MyTab screenProps={this.props.navigation.getParam('id')} /> */}
+                    <ScrollableTabView>
+        <About tabLabel="About" navigation={this.props.navigation}/>
+        <Participants tabLabel="Participants" navigation={this.props.navigation} />
+       {scene &&  <Settlement tabLabel="Settlement" navigation={this.props.navigation} />}
+      </ScrollableTabView>
                 </ScrollView>
             </View>
         );

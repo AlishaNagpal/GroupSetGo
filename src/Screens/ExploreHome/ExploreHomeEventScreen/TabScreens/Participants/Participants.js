@@ -133,6 +133,7 @@ export default class Participants extends Component {
   }
 
   render() {
+    const {navigation} = this.props;
     return (
       <View style={styles.mainView}>
         {/* -------------- Organizer ----------------- */}
@@ -218,7 +219,7 @@ export default class Participants extends Component {
             bounces={false}
           />
           </View>
-          {REVIEWS.length > 3 && <TouchableOpacity style={styles.reviewBtn} onPress={() => this.props.navigation.navigate('ParticipantReview')}>
+          {REVIEWS.length > 3 && <TouchableOpacity style={styles.reviewBtn} onPress={() => navigation.navigate('ParticipantReview')}>
             <Text style={styles.readReviewText}>{'read all '+ REVIEWS.length + ' Reviews'}</Text>
           </TouchableOpacity>}
         </View>}

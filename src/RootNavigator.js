@@ -2,7 +2,7 @@ import React from 'react';
 import { Image } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import { createBottomTabNavigator, createMaterialTopTabNavigator } from 'react-navigation-tabs'
+import { createBottomTabNavigator } from 'react-navigation-tabs'
 
 /**
  * custom imports
@@ -21,7 +21,6 @@ import SkipLoginDialog from './Screens/SkipLoginDialog/SkipLoginDialog'
 import ExploreHomeScreen from './Screens/ExploreHome/ExploreHomeScreen/ExploreHomeScreen'
 import ExploreMapScreen from './Screens/ExploreHome/ExploreHomeScreen/ExploreMapScreen'
 import HomeDetails6 from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/HomeDetails6';
-import ParticipantReview from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/Participants/ParticipantReview';
 import Review from './Screens/Review/Review'
 import MyTab from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/tabNavigation'
 import Flag from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/Flag/flag'
@@ -31,6 +30,8 @@ import ExploreNoOfParticipants from './Screens/ExploreNoOfParticipants/ExploreNo
 import HomeScreen from './Screens/ExploreHome/ExploreHomeScreen/HomeScreen'
 import NewScreen from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/About/newScreen'
 import { Colors, strings } from './Constants';
+import ParticipantReview from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/Participants/ParticipantReview';
+import Settlement from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/Settlement/Settlement';
 
 
 const Explore = createStackNavigator({ Explore: ExploreHomeScreen, Map: ExploreMapScreen },
@@ -145,7 +146,13 @@ const MainStack = createStackNavigator(
     },
     NewScreen:{
       screen: NewScreen
-    }
+    },
+    ParticipantReview: {
+      screen: ParticipantReview
+    },
+    Settlement: {
+      screen: Settlement
+    },
   },
   {
     initialRouteName: 'HomeNavigator',
