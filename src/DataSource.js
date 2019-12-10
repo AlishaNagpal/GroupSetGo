@@ -29,7 +29,44 @@ export default DATA = [
         latitude: 36.116442,
         longitude: -115.175079,
         min: 4,
-        max: 40
+        max: 40,
+        reviewDATA: [
+            {
+                image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+                name: 'Eric',
+                time: 'February, 2018',
+                rating: '4.5',
+                review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
+            },
+            {
+                image: 'https://static4.fashionbeans.com/wp-content/uploads/2015/10/hairmistakes3.jpg',
+                name: 'Samael',
+                time: 'February, 2018',
+                rating: '4.4',
+                review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text.'
+            },
+            {
+                image: 'https://cdn.pixabay.com/photo/2015/11/18/12/18/woman-1049070_960_720.jpg',
+                name: 'Ananya',
+                time: 'February, 2018',
+                rating: '4.9',
+                review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
+            },
+            {
+                image: 'https://www.menshairstyletrends.com/wp-content/uploads/2018/06/tombaxter_hair-mens-short-haircuts-for-fine-hair-e1528391903501-768x768.jpg',
+                name: 'Daniel',
+                time: 'February, 2018',
+                rating: '4.3',
+                review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text.'
+            },
+            {
+                image: 'https://i1.wp.com/gentlehair.com/wp-content/uploads/2015/08/mens-haircut-diamond-shape.png?fit=498%2C800&ssl=1',
+                name: 'Ronald',
+                time: 'February, 2018',
+                rating: '4.2',
+                review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
+            },
+        ]
     },
     {
         serialNo: 2,
@@ -59,7 +96,44 @@ export default DATA = [
         latitude: 36.116442,
         longitude: -115.175079,
         min: 4,
-        max: 40
+        max: 40,
+        reviewDATA: [
+            {
+                image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+                name: 'Eric',
+                time: 'February, 2018',
+                rating: '4.5',
+                review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
+            },
+            {
+                image: 'https://static4.fashionbeans.com/wp-content/uploads/2015/10/hairmistakes3.jpg',
+                name: 'Samael',
+                time: 'February, 2018',
+                rating: '4.4',
+                review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text.'
+            },
+            {
+                image: 'https://cdn.pixabay.com/photo/2015/11/18/12/18/woman-1049070_960_720.jpg',
+                name: 'Ananya',
+                time: 'February, 2018',
+                rating: '4.9',
+                review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
+            },
+            {
+                image: 'https://www.menshairstyletrends.com/wp-content/uploads/2018/06/tombaxter_hair-mens-short-haircuts-for-fine-hair-e1528391903501-768x768.jpg',
+                name: 'Daniel',
+                time: 'February, 2018',
+                rating: '4.3',
+                review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text.'
+            },
+            {
+                image: 'https://i1.wp.com/gentlehair.com/wp-content/uploads/2015/08/mens-haircut-diamond-shape.png?fit=498%2C800&ssl=1',
+                name: 'Ronald',
+                time: 'February, 2018',
+                rating: '4.2',
+                review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
+            },
+        ]
     },
     {
         serialNo: 3,
@@ -89,7 +163,44 @@ export default DATA = [
         latitude: 36.116442,
         longitude: -115.175079,
         min: 4,
-        max: 40
+        max: 40,
+        reviewDATA: [
+            {
+                image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+                name: 'Eric',
+                time: 'February, 2018',
+                rating: '4.5',
+                review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
+            },
+            {
+                image: 'https://static4.fashionbeans.com/wp-content/uploads/2015/10/hairmistakes3.jpg',
+                name: 'Samael',
+                time: 'February, 2018',
+                rating: '4.4',
+                review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text.'
+            },
+            {
+                image: 'https://cdn.pixabay.com/photo/2015/11/18/12/18/woman-1049070_960_720.jpg',
+                name: 'Ananya',
+                time: 'February, 2018',
+                rating: '4.9',
+                review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
+            },
+            {
+                image: 'https://www.menshairstyletrends.com/wp-content/uploads/2018/06/tombaxter_hair-mens-short-haircuts-for-fine-hair-e1528391903501-768x768.jpg',
+                name: 'Daniel',
+                time: 'February, 2018',
+                rating: '4.3',
+                review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text.'
+            },
+            {
+                image: 'https://i1.wp.com/gentlehair.com/wp-content/uploads/2015/08/mens-haircut-diamond-shape.png?fit=498%2C800&ssl=1',
+                name: 'Ronald',
+                time: 'February, 2018',
+                rating: '4.2',
+                review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
+            },
+        ]
     },
     {
         serialNo: 4,
@@ -119,7 +230,44 @@ export default DATA = [
         latitude: 36.116442,
         longitude: -115.175079,
         min: 4,
-        max: 40
+        max: 40,
+        reviewDATA: [
+            {
+                image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+                name: 'Eric',
+                time: 'February, 2018',
+                rating: '4.5',
+                review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
+            },
+            {
+                image: 'https://static4.fashionbeans.com/wp-content/uploads/2015/10/hairmistakes3.jpg',
+                name: 'Samael',
+                time: 'February, 2018',
+                rating: '4.4',
+                review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text.'
+            },
+            {
+                image: 'https://cdn.pixabay.com/photo/2015/11/18/12/18/woman-1049070_960_720.jpg',
+                name: 'Ananya',
+                time: 'February, 2018',
+                rating: '4.9',
+                review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
+            },
+            {
+                image: 'https://www.menshairstyletrends.com/wp-content/uploads/2018/06/tombaxter_hair-mens-short-haircuts-for-fine-hair-e1528391903501-768x768.jpg',
+                name: 'Daniel',
+                time: 'February, 2018',
+                rating: '4.3',
+                review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text.'
+            },
+            {
+                image: 'https://i1.wp.com/gentlehair.com/wp-content/uploads/2015/08/mens-haircut-diamond-shape.png?fit=498%2C800&ssl=1',
+                name: 'Ronald',
+                time: 'February, 2018',
+                rating: '4.2',
+                review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
+            },
+        ]
     },
     {
         serialNo: 5,
@@ -149,7 +297,44 @@ export default DATA = [
         latitude: 36.116442,
         longitude: -115.175079,
         min: 4,
-        max: 40
+        max: 40,
+        reviewDATA: [
+            {
+                image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+                name: 'Eric',
+                time: 'February, 2018',
+                rating: '4.5',
+                review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
+            },
+            {
+                image: 'https://static4.fashionbeans.com/wp-content/uploads/2015/10/hairmistakes3.jpg',
+                name: 'Samael',
+                time: 'February, 2018',
+                rating: '4.4',
+                review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text.'
+            },
+            {
+                image: 'https://cdn.pixabay.com/photo/2015/11/18/12/18/woman-1049070_960_720.jpg',
+                name: 'Ananya',
+                time: 'February, 2018',
+                rating: '4.9',
+                review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
+            },
+            {
+                image: 'https://www.menshairstyletrends.com/wp-content/uploads/2018/06/tombaxter_hair-mens-short-haircuts-for-fine-hair-e1528391903501-768x768.jpg',
+                name: 'Daniel',
+                time: 'February, 2018',
+                rating: '4.3',
+                review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text.'
+            },
+            {
+                image: 'https://i1.wp.com/gentlehair.com/wp-content/uploads/2015/08/mens-haircut-diamond-shape.png?fit=498%2C800&ssl=1',
+                name: 'Ronald',
+                time: 'February, 2018',
+                rating: '4.2',
+                review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
+            },
+        ]
     },
     {
         serialNo: 6,
@@ -179,7 +364,44 @@ export default DATA = [
         latitude: 36.116442,
         longitude: -115.175079,
         min: 4,
-        max: 40
+        max: 40,
+        reviewDATA: [
+            {
+                image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+                name: 'Eric',
+                time: 'February, 2018',
+                rating: '4.5',
+                review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
+            },
+            {
+                image: 'https://static4.fashionbeans.com/wp-content/uploads/2015/10/hairmistakes3.jpg',
+                name: 'Samael',
+                time: 'February, 2018',
+                rating: '4.4',
+                review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text.'
+            },
+            {
+                image: 'https://cdn.pixabay.com/photo/2015/11/18/12/18/woman-1049070_960_720.jpg',
+                name: 'Ananya',
+                time: 'February, 2018',
+                rating: '4.9',
+                review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
+            },
+            {
+                image: 'https://www.menshairstyletrends.com/wp-content/uploads/2018/06/tombaxter_hair-mens-short-haircuts-for-fine-hair-e1528391903501-768x768.jpg',
+                name: 'Daniel',
+                time: 'February, 2018',
+                rating: '4.3',
+                review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text.'
+            },
+            {
+                image: 'https://i1.wp.com/gentlehair.com/wp-content/uploads/2015/08/mens-haircut-diamond-shape.png?fit=498%2C800&ssl=1',
+                name: 'Ronald',
+                time: 'February, 2018',
+                rating: '4.2',
+                review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
+            },
+        ]
     },
     {
         serialNo: 7,
@@ -209,7 +431,44 @@ export default DATA = [
         latitude: 36.116442,
         longitude: -115.175079,
         min: 4,
-        max: 40
+        max: 40,
+        reviewDATA: [
+            {
+                image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+                name: 'Eric',
+                time: 'February, 2018',
+                rating: '4.5',
+                review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
+            },
+            {
+                image: 'https://static4.fashionbeans.com/wp-content/uploads/2015/10/hairmistakes3.jpg',
+                name: 'Samael',
+                time: 'February, 2018',
+                rating: '4.4',
+                review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text.'
+            },
+            {
+                image: 'https://cdn.pixabay.com/photo/2015/11/18/12/18/woman-1049070_960_720.jpg',
+                name: 'Ananya',
+                time: 'February, 2018',
+                rating: '4.9',
+                review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
+            },
+            {
+                image: 'https://www.menshairstyletrends.com/wp-content/uploads/2018/06/tombaxter_hair-mens-short-haircuts-for-fine-hair-e1528391903501-768x768.jpg',
+                name: 'Daniel',
+                time: 'February, 2018',
+                rating: '4.3',
+                review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text.'
+            },
+            {
+                image: 'https://i1.wp.com/gentlehair.com/wp-content/uploads/2015/08/mens-haircut-diamond-shape.png?fit=498%2C800&ssl=1',
+                name: 'Ronald',
+                time: 'February, 2018',
+                rating: '4.2',
+                review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
+            },
+        ]
     },
     {
         serialNo: 8,
@@ -239,6 +498,43 @@ export default DATA = [
         latitude: 36.116442,
         longitude: -115.175079,
         min: 4,
-        max: 40
+        max: 40,
+        reviewDATA: [
+            {
+                image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+                name: 'Eric',
+                time: 'February, 2018',
+                rating: '4.5',
+                review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
+            },
+            {
+                image: 'https://static4.fashionbeans.com/wp-content/uploads/2015/10/hairmistakes3.jpg',
+                name: 'Samael',
+                time: 'February, 2018',
+                rating: '4.4',
+                review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text.'
+            },
+            {
+                image: 'https://cdn.pixabay.com/photo/2015/11/18/12/18/woman-1049070_960_720.jpg',
+                name: 'Ananya',
+                time: 'February, 2018',
+                rating: '4.9',
+                review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
+            },
+            {
+                image: 'https://www.menshairstyletrends.com/wp-content/uploads/2018/06/tombaxter_hair-mens-short-haircuts-for-fine-hair-e1528391903501-768x768.jpg',
+                name: 'Daniel',
+                time: 'February, 2018',
+                rating: '4.3',
+                review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text.'
+            },
+            {
+                image: 'https://i1.wp.com/gentlehair.com/wp-content/uploads/2015/08/mens-haircut-diamond-shape.png?fit=498%2C800&ssl=1',
+                name: 'Ronald',
+                time: 'February, 2018',
+                rating: '4.2',
+                review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
+            },
+        ]
     }
 ]

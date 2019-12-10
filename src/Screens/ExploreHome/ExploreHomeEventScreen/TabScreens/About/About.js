@@ -20,6 +20,7 @@ const url = Platform.select({
 });
 class About extends Component {
   state = { data: this.props.Event_Data }
+
   componentDidMount() {
     this.getData(this.props.screenProps.id)
   }
@@ -82,7 +83,7 @@ class About extends Component {
         <View style={styles.separator} />
         <View style={styles.row2} >
           <Text style={styles.detailsTextHead} > {strings.venue} </Text>
-          <TouchableOpacity onPress={() => this.props.navigation.navigate('VenueReviews')} >
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('VenueReviews', {id: this.props.screenProps.id})} >
             <Text style={styles.viewMoreText} > {data.reviews} {strings.reviews} </Text>
           </TouchableOpacity>
         </View>

@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { vh, vw, Colors } from '../../../../../Constants'
+import { vh, vw, Colors, DesignWidth } from '../../../../../Constants'
 
 export default styles = StyleSheet.create({
     mainContainer: {
@@ -52,8 +52,8 @@ export default styles = StyleSheet.create({
         backgroundColor: Colors.whitishGray,
         padding: vh(6),
     },
-    mapStyle:{
-        flex:1,
+    mapStyle: {
+        flex: 1,
         height: vh(226.7),
         width: vw(414)
     },
@@ -73,8 +73,33 @@ export default styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center'
     },
-    viewMoreText:{
+    viewMoreText: {
         color: Colors.fadedRed,
         marginRight: vw(13.3)
+    },
+    containerStyle: {
+        flex: 1,
+        alignItems: 'center',
+        backgroundColor: Colors.veryVeryLightGray
+    },
+    headerView: {
+        height: vh(90),
+        backgroundColor: Colors.fadedRed,
+        width: vw(DesignWidth),
+    },
+    backButtonStyle: {
+        marginLeft: vw(13.3),
+        alignSelf: 'flex-start',
+    },
+    headerStyle:{
+        marginTop: vh(40),
+        flexDirection:'row',
+        alignItems:'center',
+    },
+    headerReview:{
+        marginLeft:vw(10),
+        color: Colors.white,
+        fontSize: vh(20),
+        fontFamily: 'SourceSansPro-Semibold'
     }
 })
