@@ -9,6 +9,7 @@ import {
 
 // Custom Imports
 import styles from './styles';
+import ViewPager from '@react-native-community/viewpager';
 import { VectorIcons, vh, vw, Colors, strings } from '../../../../Constants';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import * as Progress from 'react-native-progress';
@@ -20,7 +21,7 @@ import Settlement from '../TabScreens/Settlement/Settlement';
 Icon.loadFont()
 var ScrollableTabView = require('react-native-scrollable-tab-view');
 
-const scene = true;
+const scene = false;
 class HomeDetails6 extends Component {
     state = {
         data: this.props.navigation.getParam('data'),
@@ -65,7 +66,7 @@ class HomeDetails6 extends Component {
                 <VectorIcons.Ionicons
                     name={this.state.data.joined ? "ios-checkmark-circle-outline" : "ios-add-circle-outline"}
                     color={Colors.green}
-                    size={vh(20)}
+                    size={vh(26)}
                 />
                 <Text style={styles.saveText}>{this.state.data.joined ? strings.going : strings.join}</Text>
             </TouchableOpacity>
@@ -79,7 +80,7 @@ class HomeDetails6 extends Component {
                     <VectorIcons.Ionicons
                         name={this.state.data.hearted ? "ios-heart" : "ios-heart-empty"}
                         color={Colors.fadedRed}
-                        size={vh(20)}
+                        size={vh(26)}
                     />
                     <Text style={styles.joinText}>{this.state.data.hearted ? strings.savedIcon : strings.saveIcon}</Text>
                 </TouchableOpacity>
@@ -90,7 +91,7 @@ class HomeDetails6 extends Component {
                     <VectorIcons.AntDesign
                         name="message1"
                         color={Colors.chatBlue}
-                        size={vh(20)}
+                        size={vh(22)}
                     />
                     <Text style={styles.chattingText}> {strings.chatIcon} </Text>
                 </TouchableOpacity>
@@ -192,11 +193,21 @@ class HomeDetails6 extends Component {
                             <Text style={styles.shareText}> {strings.share} </Text>
                         </TouchableOpacity>
                     </View>
-                    <ScrollableTabView>
-                        <About tabLabel="About" navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} />
-                        <Participants tabLabel="Participants" navigation={this.props.navigation} />
-                        {scene && <Settlement tabLabel="Settlement" navigation={this.props.navigation} />}
+                    <View style={styles.separator} />
+
+                    <ScrollableTabView
+                        style={styles.tabBarStyle}
+                        tabBarActiveTextColor={Colors.fadedRed}
+                        tabBarInactiveTextColor={Colors.tabGray}
+                        tabBarUnderlineStyle={styles.tabBarUnderline}
+                        activeTabStyle={{ backgroundColor: null }}
+                        tabBarTextStyle={styles.tabBarFont}
+                    >
+                        <About tabLabel="ABOUT" navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} />
+                        <Participants tabLabel="PARTICIPANTS" navigation={this.props.navigation} />
+                        {scene && <Settlement tabLabel="SETTLEMENT" navigation={this.props.navigation} />}
                     </ScrollableTabView>
+
                 </ScrollView>
             </View>
         );
