@@ -52,6 +52,7 @@ export default class ParticipantReview extends Component {
             nestedScrollEnabled={true}
             bounces={false}
             ItemSeparatorComponent = {this.FlatListItemSeparator}
+            showsVerticalScrollIndicator={false}
           />
       </View>
     );

@@ -7,12 +7,12 @@ import {
   TouchableOpacity
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient'
-import ParticipantsReview from './ParticipantsReview'; 
+import ParticipantsReview from './ParticipantsReview';
 
 import { Images, vh, vw, VectorIcons, Colors, Strings } from '../../../../../Constants';
 import styles from './style';
 
-const colors = [Colors.fadedRed,Colors.darkishPink]
+const colors = [Colors.fadedRed, Colors.darkishPink]
 
 export default class Participants extends Component {
   constructor(props) {
@@ -23,66 +23,6 @@ export default class Participants extends Component {
     };
   }
 
-  FlatListItemSeparator = () => {
-    return (
-      <View
-        style={styles.separator}
-      />
-    );
-  }
-
-  renderItems = (rawData) => {
-    const { item, id } = rawData
-    console.warn('rawData ', rawData)
-    return (
-      <View style={styles.flatListView}>
-        <View style={styles.leftView}>
-          <Image
-            source={item.pic}
-            style={styles.orgPic}
-          />
-          {item.online &&
-            <VectorIcons.MaterialCommunityIcons
-              name="checkbox-marked-circle"
-              color={Colors.darkGreen}
-              size={vh(12.3)}
-              style={styles.check}
-            />}
-          <View style={styles.nameView}>
-            <Text style={{ ...styles.orgName }}>{item.name}</Text>
-          </View>
-        </View>
-        <View style={styles.rightView}>
-          <View style={{ ...styles.chatView, backgroundColor: item.unseen > 0 ? Colors.darkGreen : 'white', }}>
-            {item.unseen > 0 && <Text style={styles.num}>+{item.unseen}</Text>}
-          </View>
-          <View style={styles.msgView}>
-            <VectorIcons.MaterialCommunityIcons
-              name="message-text-outline"
-              color={Colors.lightGrey}
-              size={vh(20.5)}
-            />
-            <VectorIcons.MaterialCommunityIcons
-              name="dots-vertical"
-              color={Colors.lightGrey}
-              size={vh(20.5)}
-              onPress={() => this.delete(id)}
-            />
-          </View>
-        </View>
-      </View>
-    );
-  }
-
-  delete = (key) => {
-    console.warn('hii')
-    return (
-      <View style={styles.deleteChat}>
-        <Text>okkk</Text>
-      </View>
-    );
-  }
-
   renderParticipantslist = (rawData) => {
     const { item, index } = rawData
     if (index < 5) {
@@ -91,22 +31,17 @@ export default class Participants extends Component {
           <Image
             source={item.pic}
             style={styles.waitPic}
-            toggleText = {() => this.toggle(key)}
+            toggleText={() => this.toggle(key)}
           />
         </View>
       );
     }
   }
 
-  toggle=(key)=>{
+  toggle = (key) => {
     this.setState({
-        show: this.state.show === key ? -1 : key,
+      show: this.state.show === key ? -1 : key,
     })
-}
-
-  listOfParticipants = () => {
-    console.warn('press');
-    () => { this.props.navigation.navigate('ExploreNoOfParticipants') }
   }
 
   renderWaitlist = (rawData) => {
@@ -121,26 +56,27 @@ export default class Participants extends Component {
     );
   }
 
-  renderReviewList = (rawData) =>{
-    const { item, id } = rawData
-    return (
-      <ParticipantsReview 
-      myData = {item}
-      myId = {id}
-      />
-      
-    );
-  }
+  renderReviewList = (rawData) => {
+    const { item, index } = rawData
+    if (index < 3) {
+      return (
+        <ParticipantsReview
+          myData={item}
+          myId={index}
+        />
 
+      );
+    }
+  }
   render() {
-    const {navigation} = this.props;
+    const { navigation } = this.props;
     return (
       <View style={styles.mainView}>
         {/* -------------- Organizer ----------------- */}
         <View style={styles.viewOne}>
           <Text style={{ ...styles.orgHeading }}>{Strings.organizer}</Text>
           <View style={styles.picView}>
-            <View style={styles.leaveView}> 
+            <View style={styles.leaveView}>
               <Image
                 source={ORGANIZER.pic}
                 style={styles.orgPic}
@@ -167,15 +103,6 @@ export default class Participants extends Component {
         {/* -------------- Participants ----------------- */}
         <View style={styles.viewTwo}>
           <Text style={{ ...styles.orgHeading }}>{Strings.participants}</Text>
-          {/* <FlatList 
-          style={styles.myFlatList}
-          data = {PARTICIPANTS}
-          keyExtractor = {(item, id) => id.toString()}
-          renderItem = {this.renderItems}
-          ItemSeparatorComponent = {this.FlatListItemSeparator}
-          showsVerticalScrollIndicator={false}
-          nestedScrollEnabled= {true}
-          /> */}
           <View style={styles.plus}>
             <FlatList
               data={PARTICIPANTS2}
@@ -184,7 +111,7 @@ export default class Participants extends Component {
               horizontal={true}
               scrollEnabled={false}
             />
-            {PARTICIPANTS2.length > 5 && <TouchableOpacity onPress={this.listOfParticipants}>
+            {PARTICIPANTS2.length > 5 && <TouchableOpacity onPress={() => navigation.navigate('ExploreNoOfParticipants')}>
               <View style={styles.plusView}>
                 <Text style={styles.plusText}>+{PARTICIPANTS2.length - 5}</Text>
               </View>
@@ -211,28 +138,28 @@ export default class Participants extends Component {
             <Text style={styles.reviewText}>{Strings.reviews}</Text>
           </View>
           <View style={styles.flatReview}>
-          <FlatList
-            data={REVIEWS}
-            keyExtractor={(item, id) => id.toString()}
-            renderItem={this.renderReviewList}
-            nestedScrollEnabled={true}
-            bounces={false}
-          />
+            <FlatList
+              data={REVIEWS}
+              keyExtractor={(item, id) => id.toString()}
+              renderItem={this.renderReviewList}
+              nestedScrollEnabled={true}
+              bounces={false}
+            />
           </View>
-          {REVIEWS.length > 3 && <TouchableOpacity style={styles.reviewBtn} onPress={() => navigation.navigate('Reviews', {'allReviews': REVIEWS})}>
-            <Text style={styles.readReviewText}>{'read all '+ REVIEWS.length + ' Reviews'}</Text>
+          {REVIEWS.length > 3 && <TouchableOpacity style={styles.reviewBtn} onPress={() => navigation.navigate('Reviews', { 'allReviews': REVIEWS })}>
+            <Text style={styles.readReviewText}>{'read all ' + REVIEWS.length + ' Reviews'}</Text>
           </TouchableOpacity>}
         </View>}
         {/* -------------- Settle Account ----------------- */}
         <View style={styles.settle}>
-        <LinearGradient colors={colors} start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} style={styles.gradientStyle} >
-                    <TouchableOpacity style = {styles.loginButtonStyle}
-                        onPress={() => this.props.navigation.navigate("Settlement")}
-                        >
-                        <Text style={styles.loginButtonTitleStyle}>{Strings.settleAcc}</Text>
-                    </TouchableOpacity>
-                </LinearGradient>
-          </View>
+          <LinearGradient colors={colors} start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} style={styles.gradientStyle} >
+            <TouchableOpacity style={styles.loginButtonStyle}
+              onPress={() => this.props.navigation.navigate("Settlement")}
+            >
+              <Text style={styles.loginButtonTitleStyle}>{Strings.settleAcc}</Text>
+            </TouchableOpacity>
+          </LinearGradient>
+        </View>
       </View>
     );
   }

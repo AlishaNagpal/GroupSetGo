@@ -29,6 +29,7 @@ class HomeDetails6 extends Component {
         id: this.props.navigation.getParam('id'),
         going: false,
         hearted: false,
+        screenHeight: 0
     }
 
     componentDidMount() {
@@ -111,7 +112,7 @@ class HomeDetails6 extends Component {
         const { data } = this.state;
         return (
             <View style={styles.mainView}>
-                <ScrollView bounces={false}>
+                <ScrollView bounces={false} showsVerticalScrollIndicator={false}>
                     <View>
                         <Image
                             source={{ uri: data.source }}
@@ -204,7 +205,7 @@ class HomeDetails6 extends Component {
                     <View style={styles.separator2} />
 
                     <ScrollableTabView
-                        style={styles.tabBarStyle}
+                        style={{...styles.tabBarStyle}}
                         tabBarActiveTextColor={Colors.fadedRed}
                         tabBarInactiveTextColor={Colors.tabGray}
                         tabBarUnderlineStyle={styles.tabBarUnderline}
