@@ -3,12 +3,14 @@ import { vh, vw, Colors } from '../../../Constants'
 
 export default styles = StyleSheet.create({
     mainContainer: {
-        flex: 1
+        flex: 1,
+        marginTop:vh(30)
     },
     headerView: {
         flexDirection: 'row',
         marginTop: vh(10),
-        alignItems: 'center'
+        alignItems: 'center',
+        marginBottom: vh(5)
     },
     headerImage: {
         height: vh(40),

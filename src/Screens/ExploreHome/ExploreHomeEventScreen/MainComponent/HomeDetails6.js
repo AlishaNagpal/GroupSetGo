@@ -5,7 +5,6 @@ import {
     Image,
     ScrollView,
     TouchableOpacity,
-    Dimensions
 } from 'react-native';
 
 // Custom Imports
@@ -26,8 +25,6 @@ class HomeDetails6 extends Component {
     state = {
         data: this.props.navigation.getParam('data'),
         id: this.props.navigation.getParam('id'),
-        going: false,
-        hearted: false,
     }
 
     componentDidMount() {
@@ -51,9 +48,6 @@ class HomeDetails6 extends Component {
             this.props.Event_Data[index].hearted = value
             this.props.eventDATA()
         }
-        this.setState({
-            hearted: value
-        })
     }
 
     joined(id, value) {
@@ -62,20 +56,18 @@ class HomeDetails6 extends Component {
             this.props.Event_Data[index].joined = value
             this.props.eventDATA()
         }
-        this.setState({
-            going: value
-        })
     }
 
     goingJoin = () => {
+        console.log("Alisha", this.state.data.joined)
         return (
-            <TouchableOpacity style={styles.center} onPress={() => this.joined(this.state.id, !this.state.going)} >
+            <TouchableOpacity style={styles.center} onPress={() => this.joined(this.state.id, !this.state.data.joined)} >
                 <VectorIcons.Ionicons
-                    name={this.state.going ? "ios-checkmark-circle-outline" : "ios-add-circle-outline"}
+                    name={this.state.data.joined ? "ios-checkmark-circle-outline" : "ios-add-circle-outline"}
                     color={Colors.green}
                     size={vh(20)}
                 />
-                <Text style={styles.saveText}>{this.state.going ? strings.going : strings.join}</Text>
+                <Text style={styles.saveText}>{this.state.data.joined ? strings.going : strings.join}</Text>
             </TouchableOpacity>
         )
     }
@@ -83,13 +75,13 @@ class HomeDetails6 extends Component {
     goingSave = () => {
         if (this.state.going === false) {
             return (
-                <TouchableOpacity style={styles.center} onPress={() => { this.toggle(this.state.id, !this.state.hearted) }} >
+                <TouchableOpacity style={styles.center} onPress={() => { this.toggle(this.state.id, !this.state.data.hearted) }} >
                     <VectorIcons.Ionicons
-                        name={this.state.hearted ? "ios-heart" : "ios-heart-empty"}
+                        name={this.state.data.hearted ? "ios-heart" : "ios-heart-empty"}
                         color={Colors.fadedRed}
                         size={vh(20)}
                     />
-                    <Text style={styles.joinText}>{this.state.hearted ? strings.savedIcon : strings.saveIcon}</Text>
+                    <Text style={styles.joinText}>{this.state.data.hearted ? strings.savedIcon : strings.saveIcon}</Text>
                 </TouchableOpacity>
             )
         } else {
@@ -154,7 +146,7 @@ class HomeDetails6 extends Component {
                     </View>
                     <View style={styles.viewTwo2}>
                         <Text style={styles.progressText}> {data.going} {strings.going} </Text>
-                        <Progress.Bar style={styles.progressBar} progress={ 10/100 } width={vw(380)} color={Colors.green} unfilledColor={Colors.lightGray} borderColor={Colors.white} animated={true} />
+                        <Progress.Bar style={styles.progressBar} progress={10 / 100} width={vw(380)} color={Colors.green} unfilledColor={Colors.lightGray} borderColor={Colors.white} animated={true} />
                         <View style={styles.progressValue}>
                             <Text style={styles.barNumber}> {data.min} ({strings.min}) </Text>
                             <Text style={styles.barNumber2}> {data.max} ({strings.max}) </Text>

@@ -17,7 +17,7 @@ export default class ExploreNoOfParticipants extends PureComponent {
     // }
     renderItems = (rowData) => {
         return (
-            <TouchableOpacity onPress={() => this.props.navigation.navigate("Card", {itemTapped: rowData})} style={styles.cardStyle}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate("Card", { itemTapped: rowData })} style={styles.cardStyle}>
                 <Icon name='ios-checkmark-circle' size={vw(15)} style={styles.checkmarkStyle} color={rowData.item.verified ? Colors.checkmarkGreen : Colors.lightGray} />
                 <Image
                     style={styles.userImageStyle}
@@ -33,10 +33,10 @@ export default class ExploreNoOfParticipants extends PureComponent {
         return (
             <View style={styles.containerStyle}>
                 <View style={styles.headerViewStyle}>
-                    <TouchableOpacity onPress={() => { this.props.navigation.goBack() }}>
-                        <Icon name="ios-arrow-round-back" size={vh(40)} color={Colors.white} style={styles.backButtonStyle} />
+                    <TouchableOpacity onPress={() => { this.props.navigation.goBack() }} style={styles.backButtonStyle}  >
+                        <Icon name="ios-arrow-round-back" size={vh(40)} color={Colors.white} />
+                        <Text style={styles.headerTitleStyle}>{strings.participantList}</Text>
                     </TouchableOpacity>
-                    <Text style={styles.headerTitleStyle}>{strings.participantList}</Text>
                 </View>
                 <FlatList
                     bounces={false}

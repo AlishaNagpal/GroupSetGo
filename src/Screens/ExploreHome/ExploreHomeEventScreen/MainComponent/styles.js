@@ -4,6 +4,7 @@ import { vh, vw, Colors } from '../../../../Constants'
 export default styles = StyleSheet.create({
     mainView: {
         flex: 1,
+        marginTop: vh(30)
     },
     pic: {
         height: vh(270),
