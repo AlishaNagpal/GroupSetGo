@@ -3,7 +3,7 @@ import { vh, vw, Colors } from '../../../../../Constants';
 
 const styles = StyleSheet.create({
     mainView: {
-        // flex: 1,
+        flex: 1,
     },
     viewOne: {
         borderBottomColor: Colors.lightGray,

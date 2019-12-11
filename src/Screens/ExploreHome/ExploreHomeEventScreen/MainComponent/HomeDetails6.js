@@ -25,6 +25,10 @@ class HomeDetails6 extends Component {
     state = {
         data: this.props.navigation.getParam('data'),
         id: this.props.navigation.getParam('id'),
+        tabViewStyle: {
+            backgroundColor: 'transparent'
+        },
+        firstTabSwitch: true
     }
 
     componentDidMount() {
@@ -94,6 +98,23 @@ class HomeDetails6 extends Component {
                     <Text style={styles.chattingText}> {strings.chatIcon} </Text>
                 </TouchableOpacity>
             )
+        }
+    }
+
+    goToPage(pageId) {
+        this.tabView.goToPage(pageId);
+    }
+
+    _handleTabHeight = (obj)=>{
+        console.log(this.refs[obj.ref.props.tabLabel]);
+        //this.refs[obj.ref.props.tabLabel].measure(this._setTabHeight.bind(this))
+    }
+
+    _setTabHeight(ox, oy, width, height, px, py) {
+        if (!this.state.firstTabSwitch) {
+            this.setState({ tabViewStyle: { height: height } })
+        } else {
+            this.setState({ firstTabSwitch: false })
         }
     }
 
@@ -200,7 +221,9 @@ class HomeDetails6 extends Component {
                     <View style={styles.separator2} />
 
                     <ScrollableTabView
-                        style={{ ...styles.tabBarStyle }}
+                        onChangeTab={(obj) => this._handleTabHeight(obj)}
+                        style={styles.tabBarStyle, this.state.tabViewStyle}
+                        prerenderingSiblingsNumber={0}
                         tabBarActiveTextColor={Colors.fadedRed}
                         tabBarInactiveTextColor={Colors.tabGray}
                         tabBarUnderlineStyle={styles.tabBarUnderline}
@@ -208,9 +231,9 @@ class HomeDetails6 extends Component {
                         tabBarTextStyle={styles.tabBarFont}
                         initialPage={0}
                     >
-                        <About tabLabel="ABOUT" navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} />
-                        <Participants tabLabel="PARTICIPANTS" navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} />
-                        {data.settlement && <Settlement tabLabel="SETTLEMENT" navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} />}
+                        <About ref='ABOUT' tabLabel="ABOUT" tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} />
+                        <Participants ref='PARTICIPANTS' tabLabel="PARTICIPANTS" tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} goToPage={() => this.goToPage(2)} />
+                        {data.settlement && <Settlement tabLabel="SETTLEMENT" tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} />}
                     </ScrollableTabView>
 
                 </ScrollView>

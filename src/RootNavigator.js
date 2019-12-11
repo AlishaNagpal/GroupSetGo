@@ -31,9 +31,11 @@ import HomeScreen from './Screens/ExploreHome/ExploreHomeScreen/HomeScreen'
 import VenueReviews from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/About/VenueReviews'
 import Reviews from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/Participants/Reviews';
 import Settlement from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/Settlement/Settlement';
+import ReviewFlatList from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/Participants/ReviewFlatList';
 import Card from './Screens/ExploreNoOfParticipants/Card'
 import Response from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/Flag/response'
 import LeaveEvent from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/Participants/LeaveEvent.js'
+import transitionConfiguration from './transitionConfiguration';
 
 
 const Explore = createStackNavigator({ Explore: ExploreHomeScreen, Map: ExploreMapScreen },
@@ -152,6 +154,9 @@ const MainStack = createStackNavigator(
     Settlement: {
       screen: Settlement
     },
+    ReviewFlatList: {
+      screen: ReviewFlatList
+    },
   },
   {
     initialRouteName: 'SplashScreen',
@@ -159,6 +164,7 @@ const MainStack = createStackNavigator(
       headerBackTitle: null,
       header: null,
     }),
+    transitionConfig: transitionConfiguration,
   },
 );
 

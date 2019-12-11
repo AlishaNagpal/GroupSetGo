@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {
   View,
   Animated,
-  Image
+  Image,
+  Dimensions
 } from 'react-native';
 
 // Custom Imports
@@ -11,11 +12,13 @@ import styles from './styles';
 import Pics from '../../Constants/images';
 import { vh, vw, Colors } from '../../Constants/index';
 
+const {width,height} = Dimensions.get("window");
+
 export default class SplashScreen extends Component {
   constructor(props) {
     super(props);
-    this.moveAnimationLogo = new Animated.ValueXY({ x: 0, y: vh(285) })
-    this.moveAnimationText = new Animated.ValueXY({ x: vw(300), y: vh(305) })
+    this.moveAnimationLogo = new Animated.ValueXY({ x: 0, y: height/3 })
+    this.moveAnimationText = new Animated.ValueXY({ x: width, y: height/2 })
     this.animatedValue = new Animated.Value(0)
     this.state = {
       back: true
@@ -28,47 +31,36 @@ export default class SplashScreen extends Component {
         back: false
       })
       this.animateMove()
-    }, 2000)
+    }, 1000)
   }
 
   animateMove = () => {
+    Animated.sequence([
     Animated.parallel([
       Animated.timing(this.moveAnimationLogo, {
-        toValue: { x: vw(200), y: vh(285) },
+        toValue: { x: width/2, y: height/3},
       }),
       Animated.timing(this.moveAnimationText, {
-        toValue: { x: vw(150), y: vh(305) },
+        toValue: { x: width/2, y: height/2 },
       })
-    ]).start(() => this.animateSize())
-  }
-
-  animateSize = () => {
-
-    Animated.parallel([
-      Animated.timing(this.animatedValue, {
-        toValue: 1,
-        duration: 3000,
-      }),
-      Animated.timing(this.animatedValue, {
-        toValue: 1,
-        duration: 3000,
-      }),
-    ]).start(() => { this.props.navigation.navigate('OnboardingLogin') })
+    ]),
+    Animated.timing(this.animatedValue, {
+      toValue: 1,
+      duration: 3000,
+      // useNativeDriver: true,
+    })]
+    ).start(() => { this.props.navigation.navigate('OnboardingLogin') } )
   }
 
   render() {
 
-    const logoScaleX = this.animatedValue.interpolate({
-      inputRange: [0, 1],
-      outputRange: [0.5, 1.6]
-    })
-    const logoScaleY = this.animatedValue.interpolate({
+    const logoScale = this.animatedValue.interpolate({
       inputRange: [0, 1],
       outputRange: [0.5, 1.6]
     })
     const textSize = this.animatedValue.interpolate({
       inputRange: [0, 1],
-      outputRange: [10, 25]
+      outputRange: [0.1, 1]
     })
 
     if (this.state.back === true) {
@@ -83,10 +75,10 @@ export default class SplashScreen extends Component {
       return (
         <View style={{ flex: 1 }}>
           <Animated.Image
-            source={Pics.logoSmall} style={{ ...this.moveAnimationLogo.getLayout(), height: 40, width: 40, transform: [{ scaleX: logoScaleX }, { scaleY: logoScaleY }] }}
+            source={Pics.logoSmall} style={{ ...this.moveAnimationLogo.getLayout(), height: 40, width: 40, transform: [{ scale: logoScale }] }}
           />
           <Animated.Text
-            style={{ ...this.moveAnimationText.getLayout(), color: Colors.darkPink, fontSize: textSize, }}
+            style={{ ...this.moveAnimationText.getLayout(), color: Colors.darkPink, transform:[{scale:textSize}], fontSize: vh(30),}}
           >
             Group Set Go
         </Animated.Text>
