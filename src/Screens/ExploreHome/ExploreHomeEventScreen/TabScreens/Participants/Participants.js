@@ -105,8 +105,7 @@ export default class Participants extends Component {
 }
 
   listOfParticipants = () => {
-    console.warn('press');
-    () => { this.props.navigation.navigate('ExploreNoOfParticipants') }
+    this.props.navigation.navigate('ExploreNoOfParticipants')
   }
 
   renderWaitlist = (rawData) => {

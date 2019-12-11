@@ -8,7 +8,6 @@ export default class createAccountBirthMain extends Component {
   render() {
     return (
         <Provider store={store}>
-            {/* <NavigationFile /> */}
             <RootNavigator/>
         </Provider>
     );

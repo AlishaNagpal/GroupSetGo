@@ -3,10 +3,8 @@ import {
     View,
     Text,
     Image,
-    FlatList,
-    TouchableOpacity
   } from 'react-native';
-  import { Images, vh, vw, VectorIcons, Colors, Strings } from '../../../../../Constants';
+  import { vw, VectorIcons } from '../../../../../Constants';
 import styles from './style';
 
 const numOfLine = 3;

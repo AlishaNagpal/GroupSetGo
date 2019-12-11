@@ -67,7 +67,7 @@ export default styles = StyleSheet.create({
         height: vh(50),
         width: vh(50),
         position: 'absolute',
-        top: vh(750),
+        top: vh(650),
         left: vw(350),
         borderRadius: vh(25),
         alignItems: 'center',
