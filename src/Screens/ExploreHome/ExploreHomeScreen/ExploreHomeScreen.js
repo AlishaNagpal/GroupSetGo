@@ -54,7 +54,7 @@ export default class ExploreHomeScreen extends PureComponent {
   render() {
     return (
       <React.Fragment>
-        <View style={styles.mainContainer}>
+        <View style={[styles.mainContainer, { marginTop:vh(30)}]}>
           <View style={styles.headerView}>
             <Image source={Images.maleImage} style={styles.headerImage} />
             <TouchableOpacity

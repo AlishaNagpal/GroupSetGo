@@ -3,8 +3,7 @@ import { vh, vw, Colors } from '../../../Constants'
 
 export default styles = StyleSheet.create({
     mainContainer: {
-        flex: 1,
-        marginTop:vh(30)
+        flex: 1
     },
     headerView: {
         flexDirection: 'row',
@@ -43,7 +42,7 @@ export default styles = StyleSheet.create({
     sortFilterView: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginTop: vh(13.7),
+        marginTop: vh(8),
         marginLeft: vw(69.7)
     },
     sortStyle: {

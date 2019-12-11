@@ -21,7 +21,7 @@ import Settlement from '../TabScreens/Settlement/Settlement';
 Icon.loadFont()
 var ScrollableTabView = require('react-native-scrollable-tab-view');
 
-const scene = false;
+
 class HomeDetails6 extends Component {
     state = {
         data: this.props.navigation.getParam('data'),
@@ -60,7 +60,6 @@ class HomeDetails6 extends Component {
     }
 
     goingJoin = () => {
-        console.log("Alisha", this.state.data.joined)
         return (
             <TouchableOpacity style={styles.center} onPress={() => this.joined(this.state.id, !this.state.data.joined)} >
                 <VectorIcons.Ionicons
@@ -74,7 +73,7 @@ class HomeDetails6 extends Component {
     }
 
     goingSave = () => {
-        if (this.state.going === false) {
+        if (this.state.data.joined === false) {
             return (
                 <TouchableOpacity style={styles.center} onPress={() => { this.toggle(this.state.id, !this.state.data.hearted) }} >
                     <VectorIcons.Ionicons
@@ -97,6 +96,10 @@ class HomeDetails6 extends Component {
                 </TouchableOpacity>
             )
         }
+    }
+
+    goToPage(pageId) {
+        this.tabView.goToPage(pageId);
     }
 
     render() {
@@ -202,10 +205,12 @@ class HomeDetails6 extends Component {
                         tabBarUnderlineStyle={styles.tabBarUnderline}
                         activeTabStyle={{ backgroundColor: null }}
                         tabBarTextStyle={styles.tabBarFont}
+                        ref={(tabView) => { this.tabView = tabView }}
+                        initialPage={0}
                     >
-                        <About tabLabel="ABOUT" navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} />
-                        <Participants tabLabel="PARTICIPANTS" navigation={this.props.navigation} />
-                        {scene && <Settlement tabLabel="SETTLEMENT" navigation={this.props.navigation} />}
+                        <About tabLabel="ABOUT" tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} />
+                        <Participants tabLabel="PARTICIPANTS" tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} goToPage={ () => this.goToPage(2) } />
+                        {data.settlement && <Settlement tabLabel="SETTLEMENT" tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} />}
                     </ScrollableTabView>
 
                 </ScrollView>

@@ -3,10 +3,8 @@ import {
     View,
     Text,
     Image,
-    FlatList,
-    TouchableOpacity
   } from 'react-native';
-  import { Images, vh, vw, VectorIcons, Colors, Strings } from '../../../../../Constants';
+  import {vw, VectorIcons, } from '../../../../../Constants';
 import styles from './style';
 
 const numOfLine = 3;
@@ -28,18 +26,17 @@ export default class Reviews extends Component {
 
   render() {
       const item = this.props.myData 
-      const id = this.props.myId 
     return (
         <View style={styles.rwView}>
         <View style={styles.imgView}>
           <View style={styles.imgView2}>
             <Image
-              source={item.pic}
+              source={{uri: item.image}}
               style={styles.rwPic}
             />
             <View style={styles.rwNameView}>
               <Text style={styles.rwName}>{item.name}</Text>
-              <Text style={styles.rwDate}>{item.date}</Text>
+              <Text style={styles.rwDate}>{item.time}</Text>
             </View>
           </View>
           <View style={styles.reviewRatingView}>
@@ -56,7 +53,7 @@ export default class Reviews extends Component {
           style={styles.rwText} 
           // onTextLayout={({ nativeEvent: { lines } }) => this.setState({textShow: lines.length > numOfLine })}
           numberOfLines={this.state.textShow ? numOfLine : null}
-          >{item.text}
+          >{item.review}
           </Text>
           <Text style={styles.readMore} onPress = {this.toggle}>{this.state.textShow ? 'show more' : 'show less'}</Text>
         </View>

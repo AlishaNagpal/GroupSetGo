@@ -30,6 +30,7 @@ export default DATA = [
         longitude: -115.175079,
         min: 4,
         max: 40,
+        settlement: false,
         reviewDATA: [
             {
                 image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
@@ -66,7 +67,39 @@ export default DATA = [
                 rating: '4.2',
                 review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
             },
-        ]
+        ],
+        ORGANIZER: {
+            pic: Images.person1,
+            organizer: 'John Doe',
+            rating: 4.5,
+        },
+
+        PARTICIPANTS: [
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+        ],
+
+        WAITLIST: [
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+        ],
     },
     {
         serialNo: 2,
@@ -97,6 +130,7 @@ export default DATA = [
         longitude: -115.175079,
         min: 4,
         max: 40,
+        settlement: false,
         reviewDATA: [
             {
                 image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
@@ -133,7 +167,39 @@ export default DATA = [
                 rating: '4.2',
                 review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
             },
-        ]
+        ],
+        ORGANIZER: {
+            pic: Images.person1,
+            organizer: 'John Doe',
+            rating: 4.5,
+        },
+
+        PARTICIPANTS: [
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+        ],
+
+        WAITLIST: [
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+        ],
     },
     {
         serialNo: 3,
@@ -164,6 +230,7 @@ export default DATA = [
         longitude: -115.175079,
         min: 4,
         max: 40,
+        settlement: false,
         reviewDATA: [
             {
                 image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
@@ -200,7 +267,39 @@ export default DATA = [
                 rating: '4.2',
                 review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
             },
-        ]
+        ],
+        ORGANIZER: {
+            pic: Images.person1,
+            organizer: 'John Doe',
+            rating: 4.5,
+        },
+
+        PARTICIPANTS: [
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+        ],
+
+        WAITLIST: [
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+        ],
     },
     {
         serialNo: 4,
@@ -231,6 +330,7 @@ export default DATA = [
         longitude: -115.175079,
         min: 4,
         max: 40,
+        settlement: false,
         reviewDATA: [
             {
                 image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
@@ -267,7 +367,39 @@ export default DATA = [
                 rating: '4.2',
                 review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
             },
-        ]
+        ],
+        ORGANIZER: {
+            pic: Images.person1,
+            organizer: 'John Doe',
+            rating: 4.5,
+        },
+
+        PARTICIPANTS: [
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+        ],
+
+        WAITLIST: [
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+        ],
     },
     {
         serialNo: 5,
@@ -298,6 +430,7 @@ export default DATA = [
         longitude: -115.175079,
         min: 4,
         max: 40,
+        settlement: false,
         reviewDATA: [
             {
                 image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
@@ -334,7 +467,39 @@ export default DATA = [
                 rating: '4.2',
                 review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
             },
-        ]
+        ],
+        ORGANIZER: {
+            pic: Images.person1,
+            organizer: 'John Doe',
+            rating: 4.5,
+        },
+
+        PARTICIPANTS: [
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+        ],
+
+        WAITLIST: [
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+        ],
     },
     {
         serialNo: 6,
@@ -365,6 +530,7 @@ export default DATA = [
         longitude: -115.175079,
         min: 4,
         max: 40,
+        settlement: false,
         reviewDATA: [
             {
                 image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
@@ -401,7 +567,39 @@ export default DATA = [
                 rating: '4.2',
                 review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
             },
-        ]
+        ],
+        ORGANIZER: {
+            pic: Images.person1,
+            organizer: 'John Doe',
+            rating: 4.5,
+        },
+
+        PARTICIPANTS: [
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+        ],
+
+        WAITLIST: [
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+        ],
     },
     {
         serialNo: 7,
@@ -432,6 +630,7 @@ export default DATA = [
         longitude: -115.175079,
         min: 4,
         max: 40,
+        settlement: false,
         reviewDATA: [
             {
                 image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
@@ -468,7 +667,39 @@ export default DATA = [
                 rating: '4.2',
                 review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
             },
-        ]
+        ],
+        ORGANIZER: {
+            pic: Images.person1,
+            organizer: 'John Doe',
+            rating: 4.5,
+        },
+
+        PARTICIPANTS: [
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+        ],
+
+        WAITLIST: [
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+        ],
     },
     {
         serialNo: 8,
@@ -499,6 +730,7 @@ export default DATA = [
         longitude: -115.175079,
         min: 4,
         max: 40,
+        settlement: false,
         reviewDATA: [
             {
                 image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
@@ -535,6 +767,38 @@ export default DATA = [
                 rating: '4.2',
                 review: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
             },
-        ]
+        ],
+        ORGANIZER: {
+            pic: Images.person1,
+            organizer: 'John Doe',
+            rating: 4.5,
+        },
+
+        PARTICIPANTS: [
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+        ],
+
+        WAITLIST: [
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+            { pic: Images.person1 },
+            { pic: Images.person2 },
+            { pic: Images.person3 },
+        ],
     }
 ]
