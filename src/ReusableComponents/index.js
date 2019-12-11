@@ -1,11 +1,9 @@
-import axiosMethods from './axiosMethods'
-import apiPoints from './apiPoints'
 import CheckBox from './CheckBox'
 import RadioButton from './RadioButton'
+import Toast from './Toast/Toast' 
 
 export{
-    axiosMethods,
-    apiPoints,
     CheckBox,
     RadioButton,
+    Toast
 }

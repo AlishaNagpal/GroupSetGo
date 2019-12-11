@@ -1,9 +1,8 @@
 import React, { PureComponent } from 'react';
-import { Text, TextInput, TouchableOpacity, Animated } from 'react-native';
+import { Text, TextInput, TouchableOpacity } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scrollview'
-import { Formik, ErrorMessage } from 'formik'
-import * as yup from 'yup'
+import { Toast } from '../../ReusableComponents'
 
 //Custom Imports
 import styles from './styles'
@@ -12,33 +11,24 @@ const colors = [Colors.moderateRed, Colors.moderatePink, Colors.darkModeratePink
 
 export default class createAccountName extends PureComponent {
 
-    constructor(props) {
-        super(props);
-        this.state = ({
-            animatedValue: new Animated.Value(-30)
+    state = { firstName: '', lastName: '', call: false }
+
+    nameValidation = (firstName, lastName) => {
+        if (!(/^[a-zA-Z ]+$/.test(firstName)) || !(/^[a-zA-Z ]+$/.test(lastName)) || this.state.firstName === '' || this.state.lastName === '') {
+            this.resetCall(true)
+        }else{
+            this.props.navigation.navigate('createAccountEmail')
+        }
+    }
+
+    resetCall = (value) => {
+        this.setState({
+            call: value
         })
     }
 
-    error = () => {
-        Animated.timing(this.state.animatedValue, {
-            toValue: 40,
-            duration: 400,
-        }).start();
-    }
-
-    close = () => {
-        Animated.timing(this.state.animatedValue, {
-            toValue: -40,
-            duration: 400
-        }).start()
-    }
-
-    focus = () => {
-        if (this.input1 === '') {
-            this.input1.focus()
-        } else {
-            this.input2.focus()
-        }
+    componentDidMount(){
+        this.input1.focus()
     }
 
 
@@ -56,101 +46,44 @@ export default class createAccountName extends PureComponent {
                     <Text style={styles.belowStep} > {strings.name} </Text>
                     <Text style={styles.description}> {strings.nameDescription} </Text>
 
-                    <Formik
-                        initialValues={{ firstName: '', lastName: '' }}
-                        onSubmit={() => {
-                            this.props.navigation.navigate('createAccountEmail')
-                        }}
-                        validationSchema={yup.object().shape({
-                            firstName: yup
-                                .string().matches(/^[a-zA-Z ]+$/, "invalid Name")
-                                .min(3, "Please enter valid name!")
-                                .trim()
-                                .required("Please Enter First Name!"),
-                            lastName: yup
-                                .string().matches(/^[a-zA-Z ]+$/, "invalid Name")
-                                .trim()
-                                .min(2, "Please enter valid name!")
-                                .required("Please Enter Last Name!"),
-                        })}
+                    <TextInput
+                        style={styles.textInputStyle}
+                        placeholder={strings.firstName}
+                        placeholderTextColor={Colors.black}
+                        returnKeyType='next'
+                        returnKeyLabel='Next'
+                        autoCorrect={false}
+                        value={this.state.firstName}
+                        onChangeText={(text) => this.setState({ firstName: text })}
+                        ref={(ref) => { this.input1 = ref }}
+                        onSubmitEditing={() => this.input2.focus()}
+
+                    />
+                    <TextInput
+                        style={[styles.textInputStyle, { marginTop: vh(14) }]}
+                        placeholder={strings.lastName}
+                        placeholderTextColor={Colors.black}
+                        returnKeyType='done'
+                        returnKeyLabel='Submit'
+                        autoCorrect={false}
+                        value={this.state.lastName}
+                        onChangeText={(text) => this.setState({ lastName: text })}
+                        ref={(ref) => { this.input2 = ref }}
+                        onSubmitEditing={() => this.nameValidation(this.state.firstName, this.state.lastName)}
+                    />
+
+                    <TouchableOpacity
+                        style={styles.buttonStyle}
+                        onPress={()=> this.nameValidation(this.state.firstName, this.state.lastName) }
+                        activeOpacity={1}
                     >
-                        {({ values, handleChange, setFieldTouched, isValid, handleSubmit }) => (
-                            <React.Fragment>
-                                <React.Fragment>
-
-                                    <ErrorMessage name="firstName">{(msg) => {
-                                        return (
-                                            <Animated.View style={[styles.errorView, { marginTop: this.state.animatedValue }]} >
-                                                <Animated.Text style={styles.infoText} >  Info </Animated.Text>
-                                                <Animated.Text style={styles.errorMessage}>{msg}</Animated.Text>
-                                                <TouchableOpacity style={styles.headerButton} onPress={() => this.close()}  >
-                                                    <VectorIcons.AntDesign name="close" size={vh(25)} color={Colors.fadedGray2} />
-                                                </TouchableOpacity>
-                                            </Animated.View>
-                                        )
-                                    }}
-                                    </ErrorMessage>
-
-                                    <TextInput
-                                        style={styles.textInputStyle}
-                                        placeholder={strings.firstName}
-                                        placeholderTextColor={Colors.black}
-                                        returnKeyType='next'
-                                        returnKeyLabel='Next'
-                                        autoCorrect={false}
-                                        value={values.firstName}
-                                        onChangeText={handleChange('firstName')}
-                                        ref={(ref) => { this.input1 = ref }}
-                                        onBlur={() => {
-                                            setFieldTouched('firstName')
-                                            this.error()
-                                        }}
-                                        onSubmitEditing={this.focus}
-
-                                    />
-                                </React.Fragment>
-                                <React.Fragment>
-                                    <ErrorMessage name="lastName">{(msg) => {
-                                        return (
-                                            <Animated.View style={[styles.errorView, { marginTop: this.state.animatedValue }]} >
-                                                <Animated.Text style={styles.infoText} >  Info </Animated.Text>
-                                                <Animated.Text style={styles.errorMessage}>{msg}</Animated.Text>
-                                                <TouchableOpacity style={styles.headerButton} onPress={() => this.close()}  >
-                                                    <VectorIcons.AntDesign name="close" size={vh(25)} color={Colors.fadedGray2} />
-                                                </TouchableOpacity>
-                                            </Animated.View>
-                                        )
-                                    }}
-                                    </ErrorMessage>
-                                    <TextInput
-                                        style={[styles.textInputStyle, { marginTop: vh(14) }]}
-                                        placeholder={strings.lastName}
-                                        placeholderTextColor={Colors.black}
-                                        returnKeyType='done'
-                                        returnKeyLabel='Submit'
-                                        autoCorrect={false}
-                                        value={values.lastName}
-                                        onChangeText={handleChange('lastName')}
-                                        ref={(ref) => { this.input2 = ref }}
-                                        onBlur={() => {
-                                            setFieldTouched('lastName')
-                                            this.error()
-                                        }}
-                                    />
-
-                                </React.Fragment>
-                                <TouchableOpacity
-                                    style={styles.buttonStyle}
-                                    onPress={handleSubmit}
-                                    disabled={!isValid}
-                                    activeOpacity={1}
-                                >
-                                    <Text style={styles.buttonText}> {strings.next} </Text>
-                                </TouchableOpacity>
-                            </React.Fragment>
-                        )}
-                    </Formik>
+                        <Text style={styles.buttonText}> {strings.next} </Text>
+                    </TouchableOpacity>
                 </KeyboardAwareScrollView>
+
+                {this.state.call === true &&
+                    <Toast top={-40} from={30} to={-40} message={strings.Name} call={(value) => this.resetCall(value)} />
+                }
             </LinearGradient>
         );
     }

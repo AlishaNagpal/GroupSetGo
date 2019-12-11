@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, Linking, Platform } from 'react-native';
 import MapView, { Marker, PROVIDER_GOOGLE, Callout } from 'react-native-maps';
-import LinearGradient from 'react-native-linear-gradient'
 
 //custom imports
 import styles from './style'
-const colors = [Colors.moderateRed, Colors.moderatePink, Colors.darkModeratePink, Colors.darkViolet, Colors.darkViolet, Colors.darkViolet]
-import { VectorIcons, Colors, vh, strings } from '../../../../../Constants'
+import { Colors, vh, strings } from '../../../../../Constants'
 import { connect } from 'react-redux'
 import { eventDATA } from '../../../../../Store/Action/Action'
 
@@ -115,11 +113,6 @@ class About extends Component {
           </Marker>
 
         </MapView>
-        <LinearGradient colors={colors} style={styles.gradient} >
-          <TouchableOpacity>
-            <VectorIcons.AntDesign name="adduser" color={Colors.white} size={vh(25)} />
-          </TouchableOpacity>
-        </LinearGradient>
       </View>
     );
   }

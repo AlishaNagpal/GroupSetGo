@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, FlatList } from 'react-native';
+import { View, Text, TouchableOpacity, FlatList, Image } from 'react-native';
 import styles from './style'
-import { VectorIcons, vh, Colors } from '../../../../../Constants'
+import { VectorIcons, vh, Colors, vw } from '../../../../../Constants'
 import { connect } from 'react-redux'
 import { eventDATA } from '../../../../../Store/Action/Action'
 
@@ -27,7 +27,32 @@ class VenueReviews extends Component {
     const { item } = rowData
     return (
       <View>
-
+        <View style={styles.reviewFLMainView}>
+          <View style={styles.imageHeaderView}>
+            <View style={styles.imgView2}>
+              <Image
+                source={{ uri: item.image }}
+                style={styles.rwPic}
+              />
+              <View style={styles.rwNameView}>
+                <Text style={styles.rwName}>{item.name}</Text>
+                <Text style={styles.rwDate}>{item.time}</Text>
+              </View>
+            </View>
+            <View style={styles.reviewRatingView}>
+              <Text style={styles.reviewRatingText}>{item.rating}</Text>
+              <VectorIcons.Ionicons
+                name="ios-star"
+                color='white'
+                size={vw(12)}
+              />
+            </View>
+          </View>
+          <View style={styles.reviewView}>
+            <Text style={styles.rwText}>{item.review} </Text>
+          </View>
+        </View>
+        <View style={styles.seperator} />
       </View>
     )
   }
@@ -42,9 +67,12 @@ class VenueReviews extends Component {
           </TouchableOpacity>
         </View>
         <FlatList
-          data={this.state.data}
-          keyExtractor={(item,index)=> index.toString() }
+          data={this.state.data.reviewDATA}
+          keyExtractor={(item, index) => index.toString()}
           renderItem={this.renderData}
+          showsVerticalScrollIndicator = {false}
+          showsHorizontalScrollIndicator = {false}
+          alwaysBounceHorizontal = {false}
         />
       </View>
     );

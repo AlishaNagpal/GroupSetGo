@@ -11,16 +11,35 @@ Icon1.loadFont()
  * custom imports
  */
 import { styles } from './styles'
-import Images from '../../Constants/images'
 import strings from '../../Constants/Strings'
 import { vw, vh, DesignWidth } from '../../Constants/Dimension'
 import Colors from '../../Constants/Colors'
+import { Toast } from '../../ReusableComponents'
 
 const colors = [Colors.fadedRed,Colors.darkishPink]
 
 export default class ForgotPassword extends PureComponent {
     state = {
-        email: ''
+        email: '', call: false, submit:  false
+    }
+    componentDidMount(){
+        this.input1.focus()
+    }
+
+    emailValidation = (email) => {
+        if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) || this.state.email === '') {
+            this.resetCall(true)
+        } else {
+            this.setState({
+                submit: true
+            })
+        }
+    }
+
+    resetCall = (value) => {
+        this.setState({
+            call: value
+        })
     }
 
     render() {
@@ -38,16 +57,29 @@ export default class ForgotPassword extends PureComponent {
                         color={this.state.email.length == 0 ? 'rgb(0,0,0)' : 'rgb(226,90,113)'}
                     />
                     <TextInput
+                        placeholder={strings.emailPlaceholder}
                         style={[styles.emailTextInputStyle]}
-                        placeholder="Enter Email"
-                        returnKeyType='next'
-                        onChangeText={text => { this.setState({ email: text }) }} />
+                        placeholderTextColor={Colors.black}
+                        returnKeyType='done'
+                        returnKeyLabel='Submit'
+                        value={this.state.email}
+                        autoCorrect={false}
+                        onChangeText={(text) => this.setState({ email: text })}
+                        onSubmitEditing={() => this.emailValidation(this.state.email)}
+                        ref={(ref) => { this.input1 = ref }}
+                    />
                 </View>
                 <LinearGradient colors={colors} start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} style={styles.gradientStyle}>
-                    <TouchableOpacity style = {styles.submitButtonStyle}>
+                    <TouchableOpacity style = {styles.submitButtonStyle} onPress = {()=> this.emailValidation(this.state.email) } >
                         <Text style={styles.loginButtonTitleStyle}>Submit</Text>
                     </TouchableOpacity>
                 </LinearGradient>
+                {this.state.call === true &&
+                    <Toast top={-40} from={30} to={-40} message={strings.Email} call={(value) => this.resetCall(value)} />
+                }
+                {this.state.submit === true &&
+                    <Toast top={-40} from={30} to={-40} message={strings.responseEmail} call={(value) => this.resetCall(value)} />
+                }
             </View>
         )
     }

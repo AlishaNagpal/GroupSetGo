@@ -68,7 +68,7 @@ const strings = {
     savedIcon: 'Saved',
     share: 'Share',
     chatIcon: 'Chat',
-    going: 'Going',
+    going: 'Leave',
     perPersonSmall: 'per person',
     cancel: 'Cancel By: ',
     details: 'Details',
@@ -89,9 +89,15 @@ const strings = {
     settleAcc: 'settle account',
     description: 'Description',
     response: 'Your response has been submitted!',
-    enterData: 'Please enter your reason for flagging this event!',
+    enterData: 'Please enter your reason!',
     min: 'min',
-    max: 'max'
+    max: 'max',
+    LeaveEvent: 'Are you sure you want to leave this event?',
+    Name: "Please enter a valid name!",
+    Email: 'Please enter valid email!',
+    passwordMatch: "Please enter valid matching passwords!",
+    Email_Password: 'Please enter a valid response!',
+    responseEmail: 'Please check your email to reset password!'
 }
 
 export default strings;

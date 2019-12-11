@@ -8,17 +8,17 @@ import {
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient'
 import ParticipantsReview from './ParticipantsReview';
-
-import { Images, vh, vw, VectorIcons, Colors, Strings } from '../../../../../Constants';
+import { vw, VectorIcons, Colors, Strings } from '../../../../../Constants';
 import styles from './style';
-
-const colors = [Colors.fadedRed, Colors.darkishPink]
 import { connect } from 'react-redux'
 import { eventDATA } from '../../../../../Store/Action/Action'
+const colors = [Colors.fadedRed, Colors.darkishPink]
+
 class Participants extends Component {
   state = { data: '', count: 0, textShown: false, }
 
   componentDidMount() {
+    console.log("sdjbckqdwbc",this.props.screenProps.id)
     this.getData(this.props.screenProps.id)
   }
 
@@ -85,16 +85,12 @@ class Participants extends Component {
       this.props.Event_Data[index].settlement = value
       this.props.eventDATA()
     }
-    console.log(this.props.goToPage)
-    this.props.goToPage && this.props.goToPage()
   }
 
 
   render() {
     const { navigation } = this.props;
     const { data } = this.state
-    console.log("data.ORGANIZER", data.ORGANIZER)
-    console.log("PARTICIPANTS", data.PARTICIPANTS)
     return (
       <View style={styles.mainView}>
         {/* -------------- Organizer ----------------- */}
@@ -121,7 +117,7 @@ class Participants extends Component {
               </View>
               <View>
                 {this.state.data.joined &&
-                  <TouchableOpacity style={styles.leave}>
+                  <TouchableOpacity style={styles.leave} onPress={()=> this.props.navigation.navigate('LeaveEvent', {id: this.props.screenProps.id}) } >
                     <Text style={styles.leaveText}>{Strings.leaveEvent}</Text>
                   </TouchableOpacity>
                 }

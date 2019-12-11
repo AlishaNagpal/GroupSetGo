@@ -9,7 +9,6 @@ import {
 
 // Custom Imports
 import styles from './styles';
-import ViewPager from '@react-native-community/viewpager';
 import { VectorIcons, vh, vw, Colors, strings } from '../../../../Constants';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import * as Progress from 'react-native-progress';
@@ -61,9 +60,9 @@ class HomeDetails6 extends Component {
 
     goingJoin = () => {
         return (
-            <TouchableOpacity style={styles.center} onPress={() => this.joined(this.state.id, !this.state.data.joined)} >
+            <TouchableOpacity style={styles.center} onPress={() => this.joined(this.state.id, !this.state.data.joined)} activeOpacity= {1} >
                 <VectorIcons.Ionicons
-                    name={this.state.data.joined ? "ios-checkmark-circle-outline" : "ios-add-circle-outline"}
+                    name={this.state.data.joined ? "ios-remove-circle-outline" : "ios-add-circle-outline"}
                     color={Colors.green}
                     size={vh(26)}
                 />
@@ -75,7 +74,7 @@ class HomeDetails6 extends Component {
     goingSave = () => {
         if (this.state.data.joined === false) {
             return (
-                <TouchableOpacity style={styles.center} onPress={() => { this.toggle(this.state.id, !this.state.data.hearted) }} >
+                <TouchableOpacity activeOpacity= {1} style={styles.center} onPress={() => { this.toggle(this.state.id, !this.state.data.hearted) }} >
                     <VectorIcons.Ionicons
                         name={this.state.data.hearted ? "ios-heart" : "ios-heart-empty"}
                         color={Colors.fadedRed}
@@ -86,7 +85,7 @@ class HomeDetails6 extends Component {
             )
         } else {
             return (
-                <TouchableOpacity style={styles.center}>
+                <TouchableOpacity style={styles.center} activeOpacity= {1} >
                     <VectorIcons.AntDesign
                         name="message1"
                         color={Colors.chatBlue}
@@ -96,10 +95,6 @@ class HomeDetails6 extends Component {
                 </TouchableOpacity>
             )
         }
-    }
-
-    goToPage(pageId) {
-        this.tabView.goToPage(pageId);
     }
 
     render() {
@@ -185,32 +180,37 @@ class HomeDetails6 extends Component {
                         </View>
                     </View>
                     <View style={styles.viewTwo4}>
-                        {this.goingJoin()}
-                        {this.goingSave()}
-                        <TouchableOpacity style={styles.center} >
-                            <Icon
-                                name="share"
-                                color={Colors.shareBlue}
-                                size={vh(20)}
-                            />
-                            <Text style={styles.shareText}> {strings.share} </Text>
-                        </TouchableOpacity>
+                        <View style={styles.divide} >
+                            {this.goingJoin()}
+                        </View>
+                        <View style={styles.divide} >
+                            {this.goingSave()}
+                        </View>
+                        <View style={styles.divide} >
+                            <TouchableOpacity style={styles.center} activeOpacity= {1} >
+                                <Icon
+                                    name="share"
+                                    color={Colors.shareBlue}
+                                    size={vh(20)}
+                                />
+                                <Text style={styles.shareText}> {strings.share} </Text>
+                            </TouchableOpacity>
+                        </View>
                     </View>
                     <View style={styles.separator2} />
 
                     <ScrollableTabView
-                        style={{...styles.tabBarStyle}}
+                        style={{ ...styles.tabBarStyle }}
                         tabBarActiveTextColor={Colors.fadedRed}
                         tabBarInactiveTextColor={Colors.tabGray}
                         tabBarUnderlineStyle={styles.tabBarUnderline}
                         activeTabStyle={{ backgroundColor: null }}
                         tabBarTextStyle={styles.tabBarFont}
-                        ref={(tabView) => { this.tabView = tabView }}
                         initialPage={0}
                     >
-                        <About tabLabel="ABOUT" tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} />
-                        <Participants tabLabel="PARTICIPANTS" tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} goToPage={ () => this.goToPage(2) } />
-                        {data.settlement && <Settlement tabLabel="SETTLEMENT" tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} />}
+                        <About tabLabel="ABOUT" navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} />
+                        <Participants tabLabel="PARTICIPANTS" navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} />
+                        {data.settlement && <Settlement tabLabel="SETTLEMENT" navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} />}
                     </ScrollableTabView>
 
                 </ScrollView>

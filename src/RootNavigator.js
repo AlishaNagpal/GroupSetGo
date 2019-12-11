@@ -33,6 +33,7 @@ import Reviews from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/Par
 import Settlement from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/Settlement/Settlement';
 import Card from './Screens/ExploreNoOfParticipants/Card'
 import Response from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/Flag/response'
+import LeaveEvent from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/Participants/LeaveEvent.js'
 
 
 const Explore = createStackNavigator({ Explore: ExploreHomeScreen, Map: ExploreMapScreen },
@@ -153,7 +154,7 @@ const MainStack = createStackNavigator(
     },
   },
   {
-    initialRouteName: 'HomeNavigator',
+    initialRouteName: 'SplashScreen',
     defaultNavigationOptions: ({ navigation }) => ({
       headerBackTitle: null,
       header: null,
@@ -202,6 +203,9 @@ const RootStack = createStackNavigator(
     },
     Response:{
       screen: Response
+    },
+    LeaveEvent:{
+      screen: LeaveEvent
     }
 
   },
