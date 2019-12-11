@@ -16,6 +16,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  for (NSString* family in [UIFont familyNames])
+  {
+    NSLog(@"%@", family);
+    
+    for (NSString* name in [UIFont fontNamesForFamilyName: family])
+    {
+      NSLog(@"  %@", name);
+    }
+  }
+  
   [GMSServices provideAPIKey:@"AIzaSyDDPHmACFFj8yVsSSQ_552XCooZb5gkbIQ"];
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
@@ -33,6 +43,7 @@
 }
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
+
 {
 #if DEBUG
   return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];

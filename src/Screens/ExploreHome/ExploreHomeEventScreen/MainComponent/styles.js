@@ -126,11 +126,14 @@ export default styles = StyleSheet.create({
         borderBottomColor: 'rgba(184, 184, 184, 0.3)',
      },
      viewTwo4: {
-         padding: vh(20.7),
-         flexDirection: 'row', 
-         alignItems: 'center',
-         justifyContent: 'space-around'
-     },
+        padding: vw(19),
+        paddingBottom: vw(15.3),
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-evenly',
+        paddingLeft: 0,
+        paddingRight: 0
+    },
     viewThree: {
 
     },
@@ -163,13 +166,6 @@ export default styles = StyleSheet.create({
         fontFamily: 'SourceSansPro-Semibold',
         color: Colors.black
     },
-    viewTwo4: {
-        padding: vw(19),
-        paddingBottom: vw(15.3),
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-around',
-    },
     center: {
         alignItems: 'center'
     },
@@ -196,5 +192,16 @@ export default styles = StyleSheet.create({
     waitlisted:{
         fontSize: vw(15.3),
         color: Colors.orange
+    },
+    tabBarStyle: {
+        alignItems: 'center',
+    },
+    tabBarFont: {
+        fontFamily: 'SourceSansPro-Semibold',
+        fontSize: vw(18),
+    },
+    tabBarUnderline: {
+        backgroundColor: Colors.fadedRed,
+        height: vh(3),
     }
 })
