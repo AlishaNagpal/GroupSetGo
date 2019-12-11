@@ -13,8 +13,8 @@ import { Images, vh, vw, VectorIcons, Colors, Strings } from '../../../../../Con
 import styles from './style';
 
 const colors = [Colors.fadedRed,Colors.darkishPink]
-import { connect } from 'react-redux'
-import { eventDATA } from '../../../../Store/Action/Action'
+// import { connect } from 'react-redux'
+// import { eventDATA } from '../../../../Store/Action/Action'
 
 export default class Participants extends Component {
   constructor(props) {
