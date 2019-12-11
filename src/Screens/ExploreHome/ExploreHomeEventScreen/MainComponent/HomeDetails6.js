@@ -106,7 +106,7 @@ class HomeDetails6 extends Component {
         const { data } = this.state;
         return (
             <View style={styles.mainView}>
-                <ScrollView bounces={false}>
+                <ScrollView bounces={false} showsVerticalScrollIndicator={false}>
                     <View>
                         <Image
                             source={{ uri: data.source }}
@@ -196,10 +196,10 @@ class HomeDetails6 extends Component {
                             <Text style={styles.shareText}> {strings.share} </Text>
                         </TouchableOpacity>
                     </View>
-                    <View style={styles.separator} />
+                    <View style={styles.separator2} />
 
                     <ScrollableTabView
-                        style={styles.tabBarStyle}
+                        style={{...styles.tabBarStyle}}
                         tabBarActiveTextColor={Colors.fadedRed}
                         tabBarInactiveTextColor={Colors.tabGray}
                         tabBarUnderlineStyle={styles.tabBarUnderline}

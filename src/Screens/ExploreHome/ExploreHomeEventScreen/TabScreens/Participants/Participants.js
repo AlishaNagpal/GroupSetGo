@@ -33,66 +33,6 @@ class Participants extends Component {
     }
   }
 
-  FlatListItemSeparator = () => {
-    return (
-      <View
-        style={styles.separator}
-      />
-    );
-  }
-
-  renderItems = (rawData) => {
-    const { item, id } = rawData
-    console.warn('rawData ', rawData)
-    return (
-      <View style={styles.flatListView}>
-        <View style={styles.leftView}>
-          <Image
-            source={item.pic}
-            style={styles.orgPic}
-          />
-          {item.online &&
-            <VectorIcons.MaterialCommunityIcons
-              name="checkbox-marked-circle"
-              color={Colors.darkGreen}
-              size={vh(12.3)}
-              style={styles.check}
-            />}
-          <View style={styles.nameView}>
-            <Text style={{ ...styles.orgName }}>{item.name}</Text>
-          </View>
-        </View>
-        <View style={styles.rightView}>
-          <View style={{ ...styles.chatView, backgroundColor: item.unseen > 0 ? Colors.darkGreen : 'white', }}>
-            {item.unseen > 0 && <Text style={styles.num}>+{item.unseen}</Text>}
-          </View>
-          <View style={styles.msgView}>
-            <VectorIcons.MaterialCommunityIcons
-              name="message-text-outline"
-              color={Colors.lightGrey}
-              size={vh(20.5)}
-            />
-            <VectorIcons.MaterialCommunityIcons
-              name="dots-vertical"
-              color={Colors.lightGrey}
-              size={vh(20.5)}
-              onPress={() => this.delete(id)}
-            />
-          </View>
-        </View>
-      </View>
-    );
-  }
-
-  delete = (key) => {
-    console.warn('hii')
-    return (
-      <View style={styles.deleteChat}>
-        <Text>okkk</Text>
-      </View>
-    );
-  }
-
   renderParticipantslist = (rawData) => {
     const { item, index } = rawData
     if (index < 5) {
@@ -114,11 +54,6 @@ class Participants extends Component {
     })
   }
 
-  listOfParticipants = () => {
-    console.warn('press');
-    () => { this.props.navigation.navigate('ExploreNoOfParticipants') }
-  }
-
   renderWaitlist = (rawData) => {
     const { item, id } = rawData
     return (
@@ -132,14 +67,16 @@ class Participants extends Component {
   }
 
   renderReviewList = (rawData) => {
-    const { item, id } = rawData
-    return (
-      <ParticipantsReview
-        myData={item}
-        myId={id}
-      />
+    const { item, index } = rawData
+      if (index < 3) {
+      return (
+        <ParticipantsReview
+          myData={item}
+          myId={index}
+        />
 
-    );
+      );
+    }
   }
 
   toggleSettlement(id, value) {
@@ -239,7 +176,7 @@ class Participants extends Component {
               bounces={false}
             />
           </View>
-          {this.state.data !== '' && data.reviewDATA.length > 3 && <TouchableOpacity style={styles.reviewBtn} onPress={() => navigation.navigate('Reviews', { 'allReviews': REVIEWS })}>
+          {this.state.data !== '' && data.reviewDATA.length > 3 && <TouchableOpacity style={styles.reviewBtn} onPress={() => navigation.navigate('Reviews', { 'allReviews': this.state.data.reviewDATA })}>
             <Text style={styles.readReviewText}>{'read all ' + data.reviewDATA.length + ' Reviews'}</Text>
           </TouchableOpacity>}
         </View>}
@@ -276,34 +213,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Participants);
-
-const REVIEWS = [
-  {
-    pic: Images.person3,
-    name: 'Nandini',
-    date: 'February 2018',
-    rating: 4.5,
-    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-  },
-  {
-    pic: Images.person2,
-    name: 'Emily',
-    date: 'February 2018',
-    rating: 4.5,
-    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.",
-  },
-  {
-    pic: Images.person1,
-    name: 'Anna',
-    date: 'February 2018',
-    rating: 3,
-    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-  },
-  {
-    pic: Images.person3,
-    name: 'Nandini',
-    date: 'February 2018',
-    rating: 4.5,
-    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-  },
-]

@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { vh, vw, Colors } from '../../../../Constants'
+import { vh, vw, Colors, DesignHeight } from '../../../../Constants'
 
 export default styles = StyleSheet.create({
     mainView: {
@@ -125,8 +125,8 @@ export default styles = StyleSheet.create({
         padding: vh(15.3),
         borderBottomWidth: vh(0.7),
         borderBottomColor: 'rgba(184, 184, 184, 0.3)',
-     },
-     viewTwo4: {
+    },
+    viewTwo4: {
         padding: vw(19),
         paddingBottom: vw(15.3),
         flexDirection: 'row',
@@ -190,7 +190,7 @@ export default styles = StyleSheet.create({
         fontSize: vw(15.3),
         color: Colors.chatBlue
     },
-    waitlisted:{
+    waitlisted: {
         fontSize: vw(15.3),
         color: Colors.orange
     },
@@ -200,8 +200,14 @@ export default styles = StyleSheet.create({
         height: vw(0.7),
         backgroundColor: Colors.lightGray,
     },
+    separator2: {
+        backgroundColor: Colors.whitishGray,
+        padding: vh(6)
+    },
     tabBarStyle: {
         alignItems: 'center',
+        // backgroundColor: "red",
+        flex:1
     },
     tabBarFont: {
         fontFamily: 'SourceSansPro-Semibold',
