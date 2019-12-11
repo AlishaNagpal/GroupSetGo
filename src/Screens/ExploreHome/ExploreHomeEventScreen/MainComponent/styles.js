@@ -193,6 +193,12 @@ export default styles = StyleSheet.create({
         fontSize: vw(15.3),
         color: Colors.orange
     },
+    separator: {
+        flex: 1,
+        justifyContent: 'center',
+        height: vw(0.7),
+        backgroundColor: Colors.lightGray,
+    },
     tabBarStyle: {
         alignItems: 'center',
     },

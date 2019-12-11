@@ -7,7 +7,7 @@ import {
   TouchableOpacity
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient'
-import Reviews from './Reviews';
+import ParticipantsReview from './ParticipantsReview'; 
 
 import { Images, vh, vw, VectorIcons, Colors, Strings } from '../../../../../Constants';
 import styles from './style';
@@ -105,7 +105,8 @@ export default class Participants extends Component {
 }
 
   listOfParticipants = () => {
-    this.props.navigation.navigate('ExploreNoOfParticipants')
+    console.warn('press');
+    () => { this.props.navigation.navigate('ExploreNoOfParticipants') }
   }
 
   renderWaitlist = (rawData) => {
@@ -123,7 +124,7 @@ export default class Participants extends Component {
   renderReviewList = (rawData) =>{
     const { item, id } = rawData
     return (
-      <Reviews 
+      <ParticipantsReview 
       myData = {item}
       myId = {id}
       />
@@ -183,7 +184,7 @@ export default class Participants extends Component {
               horizontal={true}
               scrollEnabled={false}
             />
-            {PARTICIPANTS2.length > 5 && <TouchableOpacity onPress={()=>this.props.navigation.navigate('ExploreNoOfParticipants')}>
+            {PARTICIPANTS2.length > 5 && <TouchableOpacity onPress={this.listOfParticipants}>
               <View style={styles.plusView}>
                 <Text style={styles.plusText}>+{PARTICIPANTS2.length - 5}</Text>
               </View>
@@ -218,7 +219,7 @@ export default class Participants extends Component {
             bounces={false}
           />
           </View>
-          {REVIEWS.length > 3 && <TouchableOpacity style={styles.reviewBtn} onPress={() => navigation.navigate('ParticipantReview')}>
+          {REVIEWS.length > 3 && <TouchableOpacity style={styles.reviewBtn} onPress={() => navigation.navigate('Reviews', {'allReviews': REVIEWS})}>
             <Text style={styles.readReviewText}>{'read all '+ REVIEWS.length + ' Reviews'}</Text>
           </TouchableOpacity>}
         </View>}
