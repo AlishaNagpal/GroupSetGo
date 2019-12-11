@@ -76,7 +76,7 @@ class About extends Component {
         </View>
         <View style={[styles.row, { marginBottom: vh(10) }]} >
           <Text style={styles.detailsText} > {strings.totalBudget} </Text>
-          <TouchableOpacity style={styles.buttonStyle} >
+          <TouchableOpacity activeOpacity = {1} style={styles.buttonStyle} >
             <Text style={styles.money} > {data.moneyTotal} </Text>
           </TouchableOpacity>
         </View>

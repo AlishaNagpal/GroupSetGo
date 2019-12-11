@@ -36,10 +36,10 @@ export default class Review extends PureComponent {
     render() {
         return (
             <View style={styles.containerStyle}>
-                <View style={styles.headerView}>
-                    <Icon onPress={() => console.warn("back button tapped")} name="ios-arrow-back" size={vh(30)} color={Colors.white} style={styles.backButtonStyle} />
+                <TouchableOpacity onPress={() => this.props.navigation.goBack()} style={styles.headerView}>
+                    <Icon  name="ios-arrow-back" size={vh(30)} color={Colors.white} style={styles.backButtonStyle} />
                     <Text style={styles.reviewHeadingStyle}>Review</Text>
-                </View>
+                </TouchableOpacity>
 
                 <View style={styles.containerStyle1}>
                     <Text style={styles.eventNameHeadingStyle}>Unlimited Carnival</Text>

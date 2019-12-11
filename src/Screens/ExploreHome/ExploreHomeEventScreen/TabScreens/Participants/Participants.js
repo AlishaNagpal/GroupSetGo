@@ -183,7 +183,7 @@ export default class Participants extends Component {
               horizontal={true}
               scrollEnabled={false}
             />
-            {PARTICIPANTS2.length > 5 && <TouchableOpacity onPress={this.listOfParticipants}>
+            {PARTICIPANTS2.length > 5 && <TouchableOpacity onPress={()=>this.props.navigation.navigate('ExploreNoOfParticipants')}>
               <View style={styles.plusView}>
                 <Text style={styles.plusText}>+{PARTICIPANTS2.length - 5}</Text>
               </View>
