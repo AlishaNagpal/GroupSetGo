@@ -201,7 +201,7 @@ class HomeDetails6 extends Component {
                             <Text style={styles.shareText}> {strings.share} </Text>
                         </TouchableOpacity>
                     </View>
-                    <View style={styles.separator} />
+                    <View style={styles.separator2} />
 
                     <ScrollableTabView
                         style={styles.tabBarStyle}

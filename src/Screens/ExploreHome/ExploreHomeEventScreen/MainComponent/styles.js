@@ -199,6 +199,10 @@ export default styles = StyleSheet.create({
         height: vw(0.7),
         backgroundColor: Colors.lightGray,
     },
+    separator2: {
+        backgroundColor: Colors.whitishGray,
+        padding: vh(6)
+    },
     tabBarStyle: {
         alignItems: 'center',
     },
