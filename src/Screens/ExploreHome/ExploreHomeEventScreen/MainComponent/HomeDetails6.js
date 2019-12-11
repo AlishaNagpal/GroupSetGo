@@ -9,7 +9,6 @@ import {
 
 // Custom Imports
 import styles from './styles';
-import ViewPager from '@react-native-community/viewpager';
 import { VectorIcons, vh, vw, Colors, strings } from '../../../../Constants';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import * as Progress from 'react-native-progress';
