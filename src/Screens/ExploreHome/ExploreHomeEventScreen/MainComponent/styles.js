@@ -206,7 +206,6 @@ export default styles = StyleSheet.create({
     },
     tabBarStyle: {
         alignItems: 'center',
-        // backgroundColor: "red",
         flex:1
     },
     tabBarFont: {

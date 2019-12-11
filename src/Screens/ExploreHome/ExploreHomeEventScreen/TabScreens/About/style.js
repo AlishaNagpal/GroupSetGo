@@ -3,7 +3,7 @@ import { vh, vw, Colors, DesignWidth } from '../../../../../Constants'
 
 export default styles = StyleSheet.create({
     mainContainer: {
-        // flex: 1,
+         flexGrow: 1,
     },
     detailView: {
         flexDirection: 'column',

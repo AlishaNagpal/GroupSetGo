@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, FlatList } from 'react-native';
 import { Images, vh, vw, VectorIcons, Colors, Strings } from '../../../../../Constants';
-import ParticipantsReview from './ParticipantsReview';
+import ReviewFlatList from './ReviewFlatList';
 import styles from './ReviewStyle';
 
 export default class ParticipantReview extends Component {
@@ -14,7 +14,7 @@ export default class ParticipantReview extends Component {
   renderReviewList = (rawData) =>{
     const { item, id } = rawData
     return (
-      <ParticipantsReview 
+      <ReviewFlatList 
       myData = {item}
       myId = {id}
       />
