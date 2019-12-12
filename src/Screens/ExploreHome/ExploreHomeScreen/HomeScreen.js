@@ -4,7 +4,7 @@ import styles from './style';
 import { connect } from 'react-redux';
 import { eventDATA } from '../../../Store/Action/Action';
 import { Images, vw, vh, Colors, VectorIcons, strings } from '../../../Constants';
-import { ProgressiveImage } from '../../../ReusableComponents'
+import { ProgressiveImage, Toast } from '../../../ReusableComponents'
 
 class HomeScreen extends PureComponent {
   callScreen = id => {
@@ -30,7 +30,7 @@ class HomeScreen extends PureComponent {
           activeOpacity={1}
           onPress={() => this.callScreen(item.serialNo)}>
           <ProgressiveImage
-            thumbnailSource={{ uri: item.thumbnail}}
+            thumbnailSource={{ uri: item.thumbnail }}
             source={{ uri: item.source }}
             style={styles.flatlistImage}
           />
@@ -78,7 +78,7 @@ class HomeScreen extends PureComponent {
           activeOpacity={1}
           onPress={() => this.callScreen(item.serialNo)}>
           <ProgressiveImage
-            thumbnailSource={{ uri: item.thumbnail}}
+            thumbnailSource={{ uri: item.thumbnail }}
             resizeMode="cover"
             source={{ uri: item.source }}
             style={styles.flatlist2Image}

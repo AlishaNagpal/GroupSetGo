@@ -34,7 +34,7 @@ import Settlement from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/
 import ReviewFlatList from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/Participants/ReviewFlatList';
 import Card from './Screens/ExploreNoOfParticipants/Card'
 import Response from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/Flag/response'
-import LeaveEvent from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/Participants/LeaveEvent.js'
+import LeaveEvent from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/LeaveEvent'
 import transitionConfiguration from './transitionConfiguration';
 import RaiseIncident from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/Settlement/RaiseIncident/RaiseIncident'
 import RaiseReport from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/Settlement/RaiseIncident/RaiseReport'
