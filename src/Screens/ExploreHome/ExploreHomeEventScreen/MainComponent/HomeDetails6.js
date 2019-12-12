@@ -73,7 +73,7 @@ class HomeDetails6 extends Component {
         return (
             <TouchableOpacity style={styles.center}
             // onpress of join tap
-            onPress = {()=>this.props.navigation.navigate({ routeName: "AddGuests", key: "2" })}
+            onPress = {()=>this.props.navigation.push('AddGuests')}
               activeOpacity= {1} >
                 <VectorIcons.Ionicons
                     name={this.state.data.joined ? "ios-remove-circle-outline" : "ios-add-circle-outline"}

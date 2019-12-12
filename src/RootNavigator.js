@@ -154,8 +154,10 @@ const MainStack = createStackNavigator(
     },
     Settlement: {
       screen: Settlement
-
     },
+    // AddGuests: {
+    //   screen: AddGuests
+    // },
     ReviewFlatList: {
       screen: ReviewFlatList
     },
@@ -164,7 +166,7 @@ const MainStack = createStackNavigator(
     }
   },
   {
-    initialRouteName: 'HomeNavigator',
+    initialRouteName: 'SplashScreen',
     defaultNavigationOptions: ({ navigation }) => ({
       headerBackTitle: null,
       header: null,
