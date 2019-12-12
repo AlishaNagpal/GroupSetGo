@@ -30,10 +30,16 @@ class HomeDetails6 extends Component {
             backgroundColor: 'transparent'
         },
         firstTabSwitch: true,
+        render: false
     }
 
     componentDidMount() {
         this.getData(this.props.navigation.getParam('id').id)
+        setTimeout(() => {
+            this.setState({
+                render: true
+            })
+        }, 500)
     }
 
     getData = (id) => {
@@ -123,124 +129,104 @@ class HomeDetails6 extends Component {
         const { data } = this.state;
         return (
             <View style={styles.mainView}>
-                {this.state.data !== '' && 
-                    <ScrollView bounces={false} showsVerticalScrollIndicator={false}>
-                        <View>
-                            <ProgressiveImage
-                                thumbnailSource={{ uri: data.thumbnail }}
-                                resizeMode="cover"
-                                source={{ uri: data.source }}
-                                style={styles.pic}
+                <ScrollView bounces={false} showsVerticalScrollIndicator={false}>
+                    <View>
+                        <ProgressiveImage
+                            thumbnailSource={{ uri: data.thumbnail }}
+                            resizeMode="cover"
+                            source={{ uri: data.source }}
+                            style={styles.pic}
+                        />
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate('HomeNavigator')} style={styles.backButton} >
+                            <VectorIcons.MaterialCommunityIcons
+                                name='keyboard-backspace'
+                                color={Colors.white}
+                                size={vh(24.3)}
                             />
-                            <TouchableOpacity onPress={() => this.props.navigation.navigate('HomeNavigator')} style={styles.backButton} >
-                                <VectorIcons.MaterialCommunityIcons
-                                    name='keyboard-backspace'
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate('Flag')} style={styles.flagBtn} >
+                            <VectorIcons.MaterialCommunityIcons
+                                name='flag-outline'
+                                color={Colors.white}
+                                size={vh(19.3)}
+                            />
+                        </TouchableOpacity>
+                        <View style={styles.cheersView}>
+                            <Image source={data.icon} style={styles.cheersIcon} />
+                        </View>
+                    </View>
+                    <View style={styles.belowImage}>
+                        <View>
+                            <Text style={styles.redText}> {data.time} </Text>
+                            <Text style={styles.titleText}>{data.heading}</Text>
+                            <Text style={styles.tagText}> {data.hashtag} </Text>
+                        </View>
+                        <View style={styles.profilePicture}>
+                            <Image source={data.profile} style={styles.imgView} />
+                            <View style={styles.ratingView}>
+                                <Text style={styles.ratingText}> {data.reviewRating} </Text>
+                                <VectorIcons.Ionicons
+                                    name="ios-star"
                                     color={Colors.white}
-                                    size={vh(24.3)}
+                                    size={vw(11)}
                                 />
-                            </TouchableOpacity>
-                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Flag')} style={styles.flagBtn} >
+                            </View>
+                        </View>
+                    </View>
+                    <View style={styles.viewTwo2}>
+                        <Text style={styles.progressText}> {data.going} {strings.going} </Text>
+                        <Progress.Bar style={styles.progressBar} progress={10 / 100} width={vw(380)} color={Colors.green} unfilledColor={Colors.lightGray} borderColor={Colors.white} animated={true} />
+                        <View style={styles.progressValue}>
+                            <Text style={styles.barNumber}> {data.min} ({strings.min}) </Text>
+                            <Text style={styles.barNumber2}> {data.max} ({strings.max}) </Text>
+                        </View>
+                    </View>
+                    <View style={styles.viewTwo3}>
+                        <View style={styles.location}>
+                            <Icon
+                                name='location-pin'
+                                color={Colors.darkGray2}
+                                size={vh(17.3)}
+                            />
+                            <Text style={styles.locationText}> {data.location} </Text>
+                        </View>
+                        <View style={styles.moneyView}>
+                            <View style={styles.iconPlace}>
                                 <VectorIcons.MaterialCommunityIcons
-                                    name='flag-outline'
-                                    color={Colors.white}
-                                    size={vh(19.3)}
-                                />
-                            </TouchableOpacity>
-                            <View style={styles.cheersView}>
-                                <Image source={data.icon} style={styles.cheersIcon} />
-                            </View>
-                        </View>
-                        <View style={styles.belowImage}>
-                            <View>
-                                <Text style={styles.redText}> {data.time} </Text>
-                                <Text style={styles.titleText}>{data.heading}</Text>
-                                <Text style={styles.tagText}> {data.hashtag} </Text>
-                            </View>
-                            <View style={styles.profilePicture}>
-                                <Image source={data.profile} style={styles.imgView} />
-                                <View style={styles.ratingView}>
-                                    <Text style={styles.ratingText}> {data.reviewRating} </Text>
-                                    <VectorIcons.Ionicons
-                                        name="ios-star"
-                                        color={Colors.white}
-                                        size={vw(11)}
-                                    />
-                                </View>
-                            </View>
-                        </View>
-                        <View style={styles.viewTwo2}>
-                            <Text style={styles.progressText}> {data.going} {strings.going} </Text>
-                            <Progress.Bar style={styles.progressBar} progress={10 / 100} width={vw(380)} color={Colors.green} unfilledColor={Colors.lightGray} borderColor={Colors.white} animated={true} />
-                            <View style={styles.progressValue}>
-                                <Text style={styles.barNumber}> {data.min} ({strings.min}) </Text>
-                                <Text style={styles.barNumber2}> {data.max} ({strings.max}) </Text>
-                            </View>
-                        </View>
-                        <View style={styles.viewTwo3}>
-                            <View style={styles.location}>
-                                <Icon
-                                    name='location-pin'
+                                    name='coin'
                                     color={Colors.darkGray2}
-                                    size={vh(17.3)}
+                                    size={vh(20)}
                                 />
-                                <Text style={styles.locationText}> {data.location} </Text>
+                                <Text style={styles.money}>{data.money} {strings.perPersonSmall} </Text>
                             </View>
-                            <View style={styles.moneyView}>
-                                <View style={styles.iconPlace}>
-                                    <VectorIcons.MaterialCommunityIcons
-                                        name='coin'
-                                        color={Colors.darkGray2}
-                                        size={vh(20)}
-                                    />
-                                    <Text style={styles.money}>{data.money} {strings.perPersonSmall} </Text>
-                                </View>
-                                <View style={styles.iconPlace}>
-                                    <VectorIcons.MaterialCommunityIcons
-                                        name='calendar-month-outline'
-                                        color={Colors.darkGray2}
-                                        size={vh(20)}
-                                    />
-                                    <Text style={styles.cancel}> {strings.cancel} {data.cancelDate} </Text>
-                                </View>
+                            <View style={styles.iconPlace}>
+                                <VectorIcons.MaterialCommunityIcons
+                                    name='calendar-month-outline'
+                                    color={Colors.darkGray2}
+                                    size={vh(20)}
+                                />
+                                <Text style={styles.cancel}> {strings.cancel} {data.cancelDate} </Text>
                             </View>
                         </View>
-                        <View style={styles.viewTwo4}>
-                            <View style={styles.divide} >
-                                {this.goingJoin()}
-                            </View>
-                            <View style={styles.divide} >
-                                {this.goingSave()}
-                            </View>
-                            <View style={styles.divide} >
-                                <TouchableOpacity style={styles.center} activeOpacity={1} >
-                                    <Icon
-                                        name="share"
-                                        color={Colors.shareBlue}
-                                        size={vh(20)}
-                                    />
-                                    <Text style={styles.shareText}> {strings.share} </Text>
-                                </TouchableOpacity>
-                            </View>
-                        </View>
-                        <View style={styles.separator2} />
+                    </View>
+                    <View style={styles.separator2} />
 
-                        <ScrollableTabView
-                            onChangeTab={(obj) => this._handleTabHeight(obj)}
-                            style={styles.tabBarStyle, this.state.tabViewStyle}
-                            prerenderingSiblingsNumber={0}
-                            tabBarActiveTextColor={Colors.fadedRed}
-                            tabBarInactiveTextColor={Colors.tabGray}
-                            tabBarUnderlineStyle={styles.tabBarUnderline}
-                            activeTabStyle={{ backgroundColor: null }}
-                            tabBarTextStyle={styles.tabBarFont}
-                            initialPage={0}
-                        >
-                            <About ref='ABOUT' tabLabel="ABOUT" tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} />
-                            <Participants ref='PARTICIPANTS' tabLabel="PARTICIPANTS" tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} goToPage={() => this.goToPage(2)} />
-                            {data.settlement && <Settlement tabLabel="SETTLEMENT" tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} />}
-                        </ScrollableTabView>
-                    </ScrollView>
-                }
+                    {this.state.render && <ScrollableTabView
+                        onChangeTab={(obj) => this._handleTabHeight(obj)}
+                        style={styles.tabBarStyle, this.state.tabViewStyle}
+                        prerenderingSiblingsNumber={0}
+                        tabBarActiveTextColor={Colors.fadedRed}
+                        tabBarInactiveTextColor={Colors.tabGray}
+                        tabBarUnderlineStyle={styles.tabBarUnderline}
+                        activeTabStyle={{ backgroundColor: null }}
+                        tabBarTextStyle={styles.tabBarFont}
+                        initialPage={0}
+                    >
+                        <About ref='ABOUT' tabLabel="ABOUT" tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} />
+                        <Participants ref='PARTICIPANTS' tabLabel="PARTICIPANTS" tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} goToPage={() => this.goToPage(2)} />
+                        {data.settlement && <Settlement tabLabel="SETTLEMENT" tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} />}
+                    </ScrollableTabView>}
+                </ScrollView>
             </View>
         );
     }
