@@ -28,11 +28,17 @@ class HomeDetails6 extends Component {
         tabViewStyle: {
             backgroundColor: 'transparent'
         },
-        firstTabSwitch: true
+        firstTabSwitch: true,
+        render: false
     }
 
     componentDidMount() {
         this.getData(this.props.navigation.getParam('id').id)
+        setTimeout(() => {
+        this.setState({
+            render: true
+        })
+    }, 500)
     }
 
     getData = (id) => {
@@ -132,14 +138,14 @@ class HomeDetails6 extends Component {
                             <VectorIcons.MaterialCommunityIcons
                                 name='keyboard-backspace'
                                 color={Colors.white}
-                                size={vh(24.3)}
+                                size={vh(25)}
                             />
                         </TouchableOpacity>
                         <TouchableOpacity onPress={() => this.props.navigation.navigate('Flag')} style={styles.flagBtn} >
                             <VectorIcons.MaterialCommunityIcons
                                 name='flag-outline'
                                 color={Colors.white}
-                                size={vh(19.3)}
+                                size={vh(25)}
                             />
                         </TouchableOpacity>
                         <View style={styles.cheersView}>
@@ -220,7 +226,7 @@ class HomeDetails6 extends Component {
                     </View>
                     <View style={styles.separator2} />
 
-                    <ScrollableTabView
+                    {this.state.render && <ScrollableTabView
                         onChangeTab={(obj) => this._handleTabHeight(obj)}
                         style={styles.tabBarStyle, this.state.tabViewStyle}
                         prerenderingSiblingsNumber={0}
@@ -234,7 +240,7 @@ class HomeDetails6 extends Component {
                         <About ref='ABOUT' tabLabel="ABOUT" tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} />
                         <Participants ref='PARTICIPANTS' tabLabel="PARTICIPANTS" tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} goToPage={() => this.goToPage(2)} />
                         {data.settlement && <Settlement tabLabel="SETTLEMENT" tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} />}
-                    </ScrollableTabView>
+                    </ScrollableTabView>}
 
                 </ScrollView>
             </View>
