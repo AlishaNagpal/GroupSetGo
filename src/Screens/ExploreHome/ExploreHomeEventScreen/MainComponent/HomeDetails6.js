@@ -57,23 +57,43 @@ class HomeDetails6 extends Component {
 
     joined(id, value) {
         let index = this.props.Event_Data.findIndex((e) => e.serialNo === id.id)
-        if (index != -1) {
+        if (value === false && index != -1) {
+            this.props.navigation.navigate('LeaveEvent', { id: this.props.navigation.getParam('id').id })
+            setTimeout(() => {
+                this.props.Event_Data[index].joined = value
+                this.props.eventDATA()
+            }, 50000)
+        } else if (value === true && index != -1) {
             this.props.Event_Data[index].joined = value
             this.props.eventDATA()
         }
     }
 
     goingJoin = () => {
-        return (
-            <TouchableOpacity style={styles.center} onPress={() => this.joined(this.state.id, !this.state.data.joined)} activeOpacity={1} >
-                <VectorIcons.Ionicons
-                    name={this.state.data.joined ? "md-remove-circle-outline" : "ios-add-circle-outline"}
-                    color={this.state.data.joined ? Colors.fadedRed : Colors.green}
-                    size={vh(26)}
-                />
-                <Text style={[styles.saveText, { color: this.state.data.joined ? Colors.fadedRed : Colors.green }]}>{this.state.data.joined ? strings.going : strings.join}</Text>
-            </TouchableOpacity>
-        )
+        if (this.state.data.joined === false) {
+            return (
+                <TouchableOpacity style={styles.center} onPress={() => this.joined(this.state.id, !this.state.data.joined)} activeOpacity={1} >
+                    <VectorIcons.Ionicons
+                        name={"ios-add-circle-outline"}
+                        color={Colors.green}
+                        size={vh(26)}
+                    />
+                    <Text style={[styles.saveText, { color: Colors.green }]}>{strings.join}</Text>
+                </TouchableOpacity>
+            )
+        } else {
+            return (
+                <TouchableOpacity style={styles.center} onPress={() => this.joined(this.state.id, !this.state.data.joined)} activeOpacity={1} >
+                    <VectorIcons.Ionicons
+                        name={"md-remove-circle-outline"}
+                        color={Colors.fadedRed}
+                        size={vh(26)}
+                    />
+                    <Text style={[styles.saveText, { color: Colors.fadedRed }]}>{strings.going}</Text>
+                </TouchableOpacity>
+            )
+        }
+
     }
 
     goingSave = () => {
