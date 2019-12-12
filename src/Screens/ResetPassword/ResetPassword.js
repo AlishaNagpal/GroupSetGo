@@ -1,12 +1,5 @@
 import React, { PureComponent } from 'react'
 import { Text, View, TextInput, TouchableOpacity } from 'react-native'
-import Icon1 from 'react-native-vector-icons/AntDesign'
-import Icon2 from 'react-native-vector-icons/MaterialCommunityIcons'
-import Icon3 from 'react-native-vector-icons/Ionicons'
-Icon1.loadFont()
-Icon2.loadFont()
-Icon3.loadFont()
-
 
 /**
  * custom imports
@@ -15,6 +8,7 @@ import { styles } from './styles'
 import strings from '../../Constants/Strings'
 import Colors from '../../Constants/Colors'
 import { vw, vh, DesignWidth } from '../../Constants/Dimension'
+import { VectorIcons } from '../../Constants'
 
 export default class ResetPassword extends PureComponent {
     state = {
@@ -34,13 +28,13 @@ export default class ResetPassword extends PureComponent {
             <View style={styles.containerStyle}>
                 <View style={{ width: vw(DesignWidth) }}>
                     <TouchableOpacity onPress={this.props.toggleModalVisibility}>
-                        <Icon3 name="ios-arrow-back" size={vh(30)} color={Colors.rosa} style={styles.backButtonStyle} />
+                        <VectorIcons.Ionicons name="ios-arrow-back" size={vh(30)} color={Colors.rosa} style={styles.backButtonStyle} />
                     </TouchableOpacity>
                 </View>
                 <Text style={styles.resetPasswordTextStyle}>{strings.resetPassword}</Text>
                 <Text style={styles.keepItStrongTextStyle}>{strings.keepItStrong}</Text>
                 <View style={[styles.newPasswordInputViewStyle, { borderBottomColor: this.state.newPassword.length == 0 ? 'rgb(0,0,0)' : 'rgb(226,90,113)' }]}>
-                    <Icon1
+                    <VectorIcons.AntDesign
                         style={styles.searchIcon}
                         name="lock"
                         size={vw(16.4)}
@@ -53,7 +47,7 @@ export default class ResetPassword extends PureComponent {
                         secureTextEntry={this.state.passwordVisible ? true : false}
                         onChangeText={text => { this.setState({ newPassword: text }) }} />
                     {this.state.newPassword.length != 0 &&
-                        <Icon2
+                        <VectorIcons.MaterialCommunityIcons
                             name={this.state.passwordVisible ? "eye-off-outline" : "eye-outline"}
                             size={vw(16.4)}
                             onPress={this.togglePasswordVisibility}
@@ -61,7 +55,7 @@ export default class ResetPassword extends PureComponent {
                     }
                 </View>
                 <View style={[styles.confirmPasswordInputViewStyle, { borderBottomColor: this.state.confirmPassword.length == 0 ? 'rgb(0,0,0)' : 'rgb(226,90,113)' }]}>
-                    <Icon1
+                    <VectorIcons.AntDesign
                         style={styles.searchIcon}
                         name="lock"
                         size={vw(16.4)}
@@ -74,7 +68,7 @@ export default class ResetPassword extends PureComponent {
                         secureTextEntry={this.state.passwordVisible ? true : false}
                         onChangeText={text => { this.setState({ confirmPassword: text }) }} />
                     {this.state.confirmPassword.length != 0 &&
-                        <Icon2
+                        <VectorIcons.MaterialCommunityIcons
                             name={this.state.passwordVisible ? "eye-off-outline" : "eye-outline"}
                             size={vw(16.4)}
                             onPress={this.togglePasswordVisibility}
