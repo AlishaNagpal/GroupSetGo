@@ -73,11 +73,11 @@ class HomeDetails6 extends Component {
         return (
             <TouchableOpacity style={styles.center} onPress={() => this.joined(this.state.id, !this.state.data.joined)} activeOpacity={1} >
                 <VectorIcons.Ionicons
-                    name={this.state.data.joined ? "ios-checkmark-circle-outline" : "ios-add-circle-outline"}
-                    color={Colors.green}
+                    name={this.state.data.joined ? "md-remove-circle-outline" : "ios-add-circle-outline"}
+                    color={this.state.data.joined ? Colors.fadedRed : Colors.green}
                     size={vh(26)}
                 />
-                <Text style={styles.saveText}>{this.state.data.joined ? strings.going : strings.join}</Text>
+                <Text style={[styles.saveText, { color: this.state.data.joined ? Colors.fadedRed : Colors.green }]}>{this.state.data.joined ? strings.going : strings.join}</Text>
             </TouchableOpacity>
         )
     }
@@ -133,7 +133,7 @@ class HomeDetails6 extends Component {
                     <View>
                         <ProgressiveImage
                             thumbnailSource={{ uri: data.thumbnail }}
-                            resizeMode="cover"
+                            // resizeMode="cover"
                             source={{ uri: data.source }}
                             style={styles.pic}
                         />
@@ -209,8 +209,21 @@ class HomeDetails6 extends Component {
                             </View>
                         </View>
                     </View>
+                    <View style={styles.viewTwo4}>
+                        <View style={styles.divide} >
+                            {this.goingJoin()}
+                        </View>
+                        <View style={styles.divide} >
+                            {this.goingSave()}
+                        </View>
+                        <View style={styles.divide} >
+                            <TouchableOpacity style={styles.center} activeOpacity={1} >
+                                <VectorIcons.SimpleLineIcons name="share" color={Colors.shareBlue} size={vh(20)} />
+                                <Text style={styles.shareText}> {strings.share} </Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
                     <View style={styles.separator2} />
-
                     {this.state.render && <ScrollableTabView
                         onChangeTab={(obj) => this._handleTabHeight(obj)}
                         style={styles.tabBarStyle, this.state.tabViewStyle}

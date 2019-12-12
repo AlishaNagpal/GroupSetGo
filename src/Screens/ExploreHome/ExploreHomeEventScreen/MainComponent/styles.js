@@ -173,7 +173,6 @@ export default styles = StyleSheet.create({
     },
     saveText: {
         fontSize: vw(15.3),
-        color: Colors.green
     },
     shareText: {
         fontSize: vw(15.3),

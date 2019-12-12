@@ -18,7 +18,8 @@ const Images = {
     person2: require('../Assets/Images/person2.jpeg'),
     person3: require('../Assets/Images/person3.jpeg'),
     marker: require('../Assets/Images/marker.jpg'),
-    run: require('../Assets/Images/run.png')
+    run: require('../Assets/Images/run.png'),
+    thumbnail: require('../Assets/Images/thumbnail.png')
 }
 
 export default Images;

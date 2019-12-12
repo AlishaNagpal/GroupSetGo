@@ -68,7 +68,7 @@ const strings = {
     savedIcon: 'Saved',
     share: 'Share',
     chatIcon: 'Chat',
-    going: 'Going',
+    going: 'Leave',
     perPersonSmall: 'per person',
     cancel: 'Cancel By: ',
     details: 'Details',

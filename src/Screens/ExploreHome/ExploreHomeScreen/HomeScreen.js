@@ -31,7 +31,6 @@ class HomeScreen extends PureComponent {
           onPress={() => this.callScreen(item.serialNo)}>
           <ProgressiveImage
             thumbnailSource={{ uri: item.thumbnail}}
-            resizeMode="cover"
             source={{ uri: item.source }}
             style={styles.flatlistImage}
           />
