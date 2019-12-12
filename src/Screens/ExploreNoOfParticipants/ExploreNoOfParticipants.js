@@ -1,14 +1,12 @@
 import React, { PureComponent } from 'react'
 import { Text, View, TouchableOpacity, Image } from 'react-native'
-import Icon from 'react-native-vector-icons/Ionicons'
-Icon.loadFont()
 
 /**
  * custom imports
  */
 import strings from '../../Constants/Strings'
 import styles from './styles'
-import { vh, Colors, vw } from '../../Constants'
+import { vh, Colors, vw, VectorIcons } from '../../Constants'
 import { FlatList } from 'react-native-gesture-handler'
 
 export default class ExploreNoOfParticipants extends PureComponent {
@@ -18,13 +16,13 @@ export default class ExploreNoOfParticipants extends PureComponent {
     renderItems = (rowData) => {
         return (
             <TouchableOpacity onPress={() => this.props.navigation.navigate("Card", { itemTapped: rowData })} style={styles.cardStyle}>
-                <Icon name='ios-checkmark-circle' size={vw(15)} style={styles.checkmarkStyle} color={rowData.item.verified ? Colors.checkmarkGreen : Colors.lightGray} />
+                <VectorIcons.Ionicons name='ios-checkmark-circle' size={vw(15)} style={styles.checkmarkStyle} color={rowData.item.verified ? Colors.checkmarkGreen : Colors.lightGray} />
                 <Image
                     style={styles.userImageStyle}
                     source={rowData.item.userImage}
                 />
                 <Text style={styles.userNameStyle}>{rowData.item.userName}</Text>
-                <Icon name="ios-chatbubbles" size={vw(20.7)} color={Colors.lightGray} />
+                <VectorIcons.Ionicons name="ios-chatbubbles" size={vw(20.7)} color={Colors.lightGray} />
             </TouchableOpacity>
         );
     }
@@ -34,7 +32,7 @@ export default class ExploreNoOfParticipants extends PureComponent {
             <View style={styles.containerStyle}>
                 <View style={styles.headerViewStyle}>
                     <TouchableOpacity onPress={() => { this.props.navigation.goBack() }} style={styles.backButtonStyle}  >
-                        <Icon name="ios-arrow-round-back" size={vh(40)} color={Colors.white} />
+                        <VectorIcons.Ionicons name="ios-arrow-round-back" size={vh(40)} color={Colors.white} />
                         <Text style={styles.headerTitleStyle}>{strings.participantList}</Text>
                     </TouchableOpacity>
                 </View>

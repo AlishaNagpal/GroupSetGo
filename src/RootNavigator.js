@@ -36,8 +36,12 @@ import Card from './Screens/ExploreNoOfParticipants/Card'
 import Response from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/Flag/response'
 import AddGuests from './Screens/AddGuests/AddGuests'
 import LeaveEvent from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/Participants/LeaveEvent.js'
+import LeaveEvent from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/LeaveEvent'
 import transitionConfiguration from './transitionConfiguration';
+import RaiseIncident from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/Settlement/RaiseIncident/RaiseIncident'
+import RaiseReport from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/Settlement/RaiseIncident/RaiseReport'
 
+console.disableYellowBox = true
 
 const Explore = createStackNavigator({ Explore: ExploreHomeScreen, Map: ExploreMapScreen },
   { defaultNavigationOptions: { header: null } });
@@ -156,9 +160,12 @@ const MainStack = createStackNavigator(
     ReviewFlatList: {
       screen: ReviewFlatList
     },
+    RaiseReport:{
+      screen:RaiseReport
+    }
   },
   {
-    initialRouteName: 'SplashScreen',
+    initialRouteName: 'HomeNavigator',
     defaultNavigationOptions: ({ navigation }) => ({
       headerBackTitle: null,
       header: null,
@@ -214,6 +221,9 @@ const RootStack = createStackNavigator(
     },
     LeaveEvent: {
       screen: LeaveEvent
+    },
+    RaiseIncident:{
+      screen: RaiseIncident
     }
 
   },

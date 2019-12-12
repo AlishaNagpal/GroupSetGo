@@ -102,7 +102,9 @@ const strings = {
     Email: 'Please enter valid email!',
     passwordMatch: "Please enter valid matching passwords!",
     Email_Password: 'Please enter a valid response!',
-    responseEmail: 'Please check your email to reset password!'
+    responseEmail: 'Please check your email to reset password!',
+    RaiseIncedent: 'Are you sure you want to raise a report regading this event?',
+    UnderWork: "This is under construction at the moment!",
 }
 
 export default strings;

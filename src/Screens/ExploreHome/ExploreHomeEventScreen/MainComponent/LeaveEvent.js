@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react'
 import { Text, View, TouchableOpacity } from 'react-native'
-import styles from '../../../../SkipLoginDialog/styles'
-import { strings, Colors } from '../../../../../Constants'
+import styles from '../../../SkipLoginDialog/styles'
+import { strings, Colors } from '../../../../Constants'
 import { connect } from 'react-redux'
-import { eventDATA } from '../../../../../Store/Action/Action'
+import { eventDATA } from '../../../../Store/Action/Action'
 
 class LeaveEvent extends PureComponent {
     toggleJoining(id, value) {

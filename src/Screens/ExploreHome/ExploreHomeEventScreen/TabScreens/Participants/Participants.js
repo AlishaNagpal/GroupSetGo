@@ -18,7 +18,6 @@ class Participants extends Component {
   state = { data: '', count: 0, textShown: false, }
 
   componentDidMount() {
-    console.log("sdjbckqdwbc",this.props.screenProps.id)
     this.getData(this.props.screenProps.id)
   }
 
@@ -114,14 +113,6 @@ class Participants extends Component {
                     />
                   </View>
                 </View>
-              </View>
-              <View>
-                {this.state.data.joined &&
-                  <TouchableOpacity style={styles.leave} onPress={()=> this.props.navigation.navigate('LeaveEvent', {id: this.props.screenProps.id}) } >
-                    <Text style={styles.leaveText}>{Strings.leaveEvent}</Text>
-                  </TouchableOpacity>
-                }
-
               </View>
             </View>
           </View>

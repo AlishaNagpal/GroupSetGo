@@ -10,33 +10,34 @@ import {
 // Custom Imports
 import styles from './styles';
 import { VectorIcons, vh, vw, Colors, strings } from '../../../../Constants';
-import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import * as Progress from 'react-native-progress';
 import { connect } from 'react-redux'
 import { eventDATA } from '../../../../Store/Action/Action'
 import About from '../TabScreens/About/About';
 import Participants from '../TabScreens/Participants/Participants';
 import Settlement from '../TabScreens/Settlement/Settlement';
-Icon.loadFont()
 var ScrollableTabView = require('react-native-scrollable-tab-view');
+import { ProgressiveImage } from '../../../../ReusableComponents'
 
 
 class HomeDetails6 extends Component {
     state = {
-        data: this.props.navigation.getParam('data'),
+        data: '',
         id: this.props.navigation.getParam('id'),
-        tabViewStyle: {
-            backgroundColor: 'transparent'
-        },
-        firstTabSwitch: true
+        render: false
     }
 
     componentDidMount() {
         this.getData(this.props.navigation.getParam('id').id)
+        setTimeout(() => {
+            this.setState({
+                render: true
+            })
+        }, 500)
     }
 
     getData = (id) => {
-        let temp = this.state.data
+        let temp = this.props.navigation.getParam('data')
         let indexToEdit = temp.findIndex(item => item.serialNo == id)
         let newData = temp[indexToEdit]
         if (indexToEdit != -1) {
@@ -56,7 +57,13 @@ class HomeDetails6 extends Component {
 
     joined(id, value) {
         let index = this.props.Event_Data.findIndex((e) => e.serialNo === id.id)
-        if (index != -1) {
+        if (value === false && index != -1) {
+            this.props.navigation.navigate('LeaveEvent', { id: this.props.navigation.getParam('id').id })
+            setTimeout(() => {
+                this.props.Event_Data[index].joined = value
+                this.props.eventDATA()
+            }, 50000)
+        } else if (value === true && index != -1) {
             this.props.Event_Data[index].joined = value
             this.props.eventDATA()
         }
@@ -65,9 +72,8 @@ class HomeDetails6 extends Component {
     goingJoin = () => {
         return (
             <TouchableOpacity style={styles.center}
-            // onPress = {()=>this.props.navigation.navigate("AddGuests","ANKIT")}
+            // onpress of join tap
             onPress = {()=>this.props.navigation.navigate({ routeName: "AddGuests", key: "2" })}
-            //  onPress={() => this.joined(this.state.id, !this.state.data.joined)}
               activeOpacity= {1} >
                 <VectorIcons.Ionicons
                     name={this.state.data.joined ? "ios-remove-circle-outline" : "ios-add-circle-outline"}
@@ -82,7 +88,7 @@ class HomeDetails6 extends Component {
     goingSave = () => {
         if (this.state.data.joined === false) {
             return (
-                <TouchableOpacity activeOpacity= {1} style={styles.center} onPress={() => { this.toggle(this.state.id, !this.state.data.hearted) }} >
+                <TouchableOpacity activeOpacity={1} style={styles.center} onPress={() => { this.toggle(this.state.id, !this.state.data.hearted) }} >
                     <VectorIcons.Ionicons
                         name={this.state.data.hearted ? "ios-heart" : "ios-heart-empty"}
                         color={Colors.fadedRed}
@@ -93,7 +99,7 @@ class HomeDetails6 extends Component {
             )
         } else {
             return (
-                <TouchableOpacity style={styles.center} activeOpacity= {1} >
+                <TouchableOpacity style={styles.center} activeOpacity={1} >
                     <VectorIcons.AntDesign
                         name="message1"
                         color={Colors.chatBlue}
@@ -109,26 +115,15 @@ class HomeDetails6 extends Component {
         this.tabView.goToPage(pageId);
     }
 
-    _handleTabHeight = (obj)=>{
-        console.log(this.refs[obj.ref.props.tabLabel]);
-        //this.refs[obj.ref.props.tabLabel].measure(this._setTabHeight.bind(this))
-    }
-
-    _setTabHeight(ox, oy, width, height, px, py) {
-        if (!this.state.firstTabSwitch) {
-            this.setState({ tabViewStyle: { height: height } })
-        } else {
-            this.setState({ firstTabSwitch: false })
-        }
-    }
-
     render() {
         const { data } = this.state;
         return (
             <View style={styles.mainView}>
                 <ScrollView bounces={false} showsVerticalScrollIndicator={false}>
                     <View>
-                        <Image
+                        <ProgressiveImage
+                            thumbnailSource={{ uri: data.thumbnail }}
+                            // resizeMode="cover"
                             source={{ uri: data.source }}
                             style={styles.pic}
                         />
@@ -178,7 +173,7 @@ class HomeDetails6 extends Component {
                     </View>
                     <View style={styles.viewTwo3}>
                         <View style={styles.location}>
-                            <Icon
+                            <VectorIcons.SimpleLineIcons
                                 name='location-pin'
                                 color={Colors.darkGray2}
                                 size={vh(17.3)}
@@ -212,22 +207,15 @@ class HomeDetails6 extends Component {
                             {this.goingSave()}
                         </View>
                         <View style={styles.divide} >
-                            <TouchableOpacity style={styles.center} activeOpacity= {1} >
-                                <Icon
-                                    name="share"
-                                    color={Colors.shareBlue}
-                                    size={vh(20)}
-                                />
+                            <TouchableOpacity style={styles.center} activeOpacity={1} >
+                                <VectorIcons.SimpleLineIcons name="share" color={Colors.shareBlue} size={vh(20)} />
                                 <Text style={styles.shareText}> {strings.share} </Text>
                             </TouchableOpacity>
                         </View>
                     </View>
                     <View style={styles.separator2} />
-
-                    <ScrollableTabView
-                        onChangeTab={(obj) => this._handleTabHeight(obj)}
-                        style={styles.tabBarStyle, this.state.tabViewStyle}
-                        prerenderingSiblingsNumber={0}
+                    {this.state.render && <ScrollableTabView
+                        style={styles.tabBarStyle}
                         tabBarActiveTextColor={Colors.fadedRed}
                         tabBarInactiveTextColor={Colors.tabGray}
                         tabBarUnderlineStyle={styles.tabBarUnderline}
@@ -235,11 +223,10 @@ class HomeDetails6 extends Component {
                         tabBarTextStyle={styles.tabBarFont}
                         initialPage={0}
                     >
-                        <About ref='ABOUT' tabLabel="ABOUT" tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} />
-                        <Participants ref='PARTICIPANTS' tabLabel="PARTICIPANTS" tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} goToPage={() => this.goToPage(2)} />
+                        <About tabLabel="ABOUT" tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} />
+                        <Participants tabLabel="PARTICIPANTS" tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} goToPage={() => this.goToPage(2)} />
                         {data.settlement && <Settlement tabLabel="SETTLEMENT" tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} />}
-                    </ScrollableTabView>
-
+                    </ScrollableTabView>}
                 </ScrollView>
             </View>
         );

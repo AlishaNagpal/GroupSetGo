@@ -4,13 +4,13 @@ import styles from './style';
 import { connect } from 'react-redux';
 import { eventDATA } from '../../../Store/Action/Action';
 import { Images, vw, vh, Colors, VectorIcons, strings } from '../../../Constants';
+import { ProgressiveImage, Toast } from '../../../ReusableComponents'
 
 class HomeScreen extends PureComponent {
   callScreen = id => {
-    this.props.navigate({
-      routeName: "HomeDetails6",
-      key: "1",
-      params: { data: this.props.Event_Data, id: { id } }
+    this.props.navigate('HomeDetails6', {
+      data: this.props.Event_Data,
+      id: { id },
     });
   };
 
@@ -29,7 +29,12 @@ class HomeScreen extends PureComponent {
         <TouchableOpacity
           activeOpacity={1}
           onPress={() => this.callScreen(item.serialNo)}>
-          <Image source={{ uri: item.source }} style={styles.flatlistImage} />
+          <ProgressiveImage
+            thumbnailSource={{ uri: item.thumbnail }}
+            source={{ uri: item.source }}
+            style={styles.flatlistImage}
+          />
+
           <TouchableOpacity
             onPress={() => {
               this.toggle(item.serialNo, item.hearted);
@@ -40,6 +45,7 @@ class HomeScreen extends PureComponent {
               source={item.hearted ? Images.heartFilled : Images.heartEmpty}
             />
           </TouchableOpacity>
+
           <View style={styles.cheersView}>
             <Image source={Images.cheers} style={styles.cheers} />
           </View>
@@ -71,7 +77,12 @@ class HomeScreen extends PureComponent {
         <TouchableOpacity
           activeOpacity={1}
           onPress={() => this.callScreen(item.serialNo)}>
-          <Image source={{ uri: item.source }} style={styles.flatlist2Image} />
+          <ProgressiveImage
+            thumbnailSource={{ uri: item.thumbnail }}
+            resizeMode="cover"
+            source={{ uri: item.source }}
+            style={styles.flatlist2Image}
+          />
           <TouchableOpacity
             onPress={() => {
               this.toggle(item.serialNo, item.hearted);

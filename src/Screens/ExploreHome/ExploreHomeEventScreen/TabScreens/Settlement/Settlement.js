@@ -98,7 +98,9 @@ export default class Settlement extends Component {
         <View
           style={{flexDirection: 'row', height: vh(60), marginBottom: vh(25)}}>
           <TouchableOpacity
-            style={{width: vw(DesignWidth / 2), alignItems: 'center'}}>
+            style={{width: vw(DesignWidth / 2), alignItems: 'center'}}
+            onPress={()=> this.props.navigation.navigate('RaiseIncident')}
+            >
             <Text
               style={{
                 marginVertical: vh(22),
