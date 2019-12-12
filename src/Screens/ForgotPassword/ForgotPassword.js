@@ -46,7 +46,7 @@ export default class ForgotPassword extends PureComponent {
         return (
             <View style={styles.containerStyle}>
                 <View style={{ width: vw(DesignWidth) }}>
-                    <Icon1 onPress={()=>this.props.navigation.goBack()} name="ios-arrow-back" size={vh(30)} color={Colors.rosa} style={styles.backButtonStyle} />
+                    <VectorIcons.Ionicons onPress={()=>this.props.navigation.goBack()} name="ios-arrow-back" size={vh(30)} color={Colors.rosa} style={styles.backButtonStyle} />
                 </View>
                 <Text style={styles.forgotPasswordTextStyle}>{strings.forgotyourPassword}</Text>
                 <Text style={styles.dontWorryTextStyle}>{strings.dontWorry}</Text>

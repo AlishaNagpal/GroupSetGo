@@ -1,12 +1,10 @@
 import React, { PureComponent } from 'react'
 import { Text, View, TextInput, FlatList, TouchableOpacity } from 'react-native'
-import Icon from 'react-native-vector-icons/Ionicons'
-Icon.loadFont()
 
 /**
  * custom imports
  */
-import { Colors, vw} from '../../../Constants'
+import { Colors, vw, VectorIcons} from '../../../Constants'
 import styles from './styles'
 import strings from '../../../Constants/Strings'
 
@@ -23,7 +21,7 @@ export default class ExploreEvents extends PureComponent {
         return (
             <TouchableOpacity onPress={() => this.searchResultRowTapped(rowData.item)} style={styles.rowStyle}>
                 <View style = {styles.listRowStyle}>
-                    <Icon name="ios-pin" size={vw(20)} color={Colors.black} style = {styles.listPinStyle} />
+                    <VectorIcons.Ionicons name="ios-pin" size={vw(20)} color={Colors.black} style = {styles.listPinStyle} />
                     <Text style={styles.listEventTextStyle}>{rowData.item.eventName}</Text>
                 </View>
                 <Text style={styles.listLocationTextStyle}>{rowData.item.distance}</Text>
