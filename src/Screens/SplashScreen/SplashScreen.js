@@ -49,7 +49,6 @@ export default class SplashScreen extends Component {
     Animated.timing(this.animatedValue, {
       toValue: 1,
       duration: 1500,
-      // useNativeDriver: true,
     })]
     ).start(() => { this.props.navigation.navigate('OnboardingLogin') } )
   }

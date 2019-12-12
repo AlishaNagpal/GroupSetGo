@@ -10,14 +10,12 @@ import {
 // Custom Imports
 import styles from './styles';
 import { VectorIcons, vh, vw, Colors, strings } from '../../../../Constants';
-import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import * as Progress from 'react-native-progress';
 import { connect } from 'react-redux'
 import { eventDATA } from '../../../../Store/Action/Action'
 import About from '../TabScreens/About/About';
 import Participants from '../TabScreens/Participants/Participants';
 import Settlement from '../TabScreens/Settlement/Settlement';
-Icon.loadFont()
 var ScrollableTabView = require('react-native-scrollable-tab-view');
 import { ProgressiveImage } from '../../../../ReusableComponents'
 
@@ -26,10 +24,6 @@ class HomeDetails6 extends Component {
     state = {
         data: '',
         id: this.props.navigation.getParam('id'),
-        tabViewStyle: {
-            backgroundColor: 'transparent'
-        },
-        firstTabSwitch: true,
         render: false
     }
 
@@ -112,19 +106,6 @@ class HomeDetails6 extends Component {
         this.tabView.goToPage(pageId);
     }
 
-    _handleTabHeight = (obj) => {
-        console.log(this.refs[obj.ref.props.tabLabel]);
-        //this.refs[obj.ref.props.tabLabel].measure(this._setTabHeight.bind(this))
-    }
-
-    _setTabHeight(ox, oy, width, height, px, py) {
-        if (!this.state.firstTabSwitch) {
-            this.setState({ tabViewStyle: { height: height } })
-        } else {
-            this.setState({ firstTabSwitch: false })
-        }
-    }
-
     render() {
         const { data } = this.state;
         return (
@@ -183,7 +164,7 @@ class HomeDetails6 extends Component {
                     </View>
                     <View style={styles.viewTwo3}>
                         <View style={styles.location}>
-                            <Icon
+                            <VectorIcons.SimpleLineIcons
                                 name='location-pin'
                                 color={Colors.darkGray2}
                                 size={vh(17.3)}
@@ -225,9 +206,7 @@ class HomeDetails6 extends Component {
                     </View>
                     <View style={styles.separator2} />
                     {this.state.render && <ScrollableTabView
-                        onChangeTab={(obj) => this._handleTabHeight(obj)}
-                        style={styles.tabBarStyle, this.state.tabViewStyle}
-                        prerenderingSiblingsNumber={0}
+                        style={styles.tabBarStyle}
                         tabBarActiveTextColor={Colors.fadedRed}
                         tabBarInactiveTextColor={Colors.tabGray}
                         tabBarUnderlineStyle={styles.tabBarUnderline}
@@ -235,8 +214,8 @@ class HomeDetails6 extends Component {
                         tabBarTextStyle={styles.tabBarFont}
                         initialPage={0}
                     >
-                        <About ref='ABOUT' tabLabel="ABOUT" tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} />
-                        <Participants ref='PARTICIPANTS' tabLabel="PARTICIPANTS" tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} goToPage={() => this.goToPage(2)} />
+                        <About tabLabel="ABOUT" tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} />
+                        <Participants tabLabel="PARTICIPANTS" tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} goToPage={() => this.goToPage(2)} />
                         {data.settlement && <Settlement tabLabel="SETTLEMENT" tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} />}
                     </ScrollableTabView>}
                 </ScrollView>

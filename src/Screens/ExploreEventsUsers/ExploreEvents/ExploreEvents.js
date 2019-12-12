@@ -1,12 +1,10 @@
 import React, { PureComponent } from 'react'
 import { Text, View, TextInput, FlatList, TouchableOpacity } from 'react-native'
-import Icon from 'react-native-vector-icons/Ionicons'
-Icon.loadFont()
 
 /**
  * custom imports
  */
-import { Colors, vw} from '../../../Constants'
+import { Colors, vw, VectorIcons} from '../../../Constants'
 import styles from './styles'
 import strings from '../../../Constants/Strings'
 
@@ -32,7 +30,7 @@ export default class ExploreEvents extends PureComponent {
         return (
             <View style={styles.containerStyle}>
                 <View style={styles.textinputViewStyle}>
-                    <Icon name="ios-search" size={vw(15)} color={Colors.gray} />
+                    <VectorIcons.Ionicons name="ios-search" size={vw(15)} color={Colors.gray} />
                     <TextInput
                         value={this.state.searchKeyword}
                         onChangeText={text => this.setState({ searchKeyword: text })}
