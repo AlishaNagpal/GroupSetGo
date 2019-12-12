@@ -42,18 +42,18 @@ export default class createAccountGender extends PureComponent {
 
                 <View style={styles.radioButtonView} >
                     <TouchableOpacity onPress={() => { this.clicked(true, 1) }}  style={styles.radioButton} >
-                        <RadioButton outColor={Colors.white} inColor={Colors.white} isCheck={this.state.maleChosen} />
+                        <RadioButton buttonSize = {25} outColor={Colors.white} inColor={Colors.white} isCheck={this.state.maleChosen} />
                     </TouchableOpacity>
                     <Text style={styles.radioText} > {strings.male} </Text>
                 </View>
 
                 <View style={[styles.radioButtonView,{marginTop: vh(30)}]} >
                 <TouchableOpacity onPress={() => { this.clicked(true, 2) }} style={styles.radioButton} >
-                    <RadioButton outColor={Colors.white} inColor={Colors.white} isCheck={this.state.femaleChosen} />
+                    <RadioButton buttonSize = {25} outColor={Colors.white} inColor={Colors.white} isCheck={this.state.femaleChosen} />
                 </TouchableOpacity>
                 <Text style={styles.radioText} > {strings.female} </Text>
                 </View>
-                
+                  
 
                 <TouchableOpacity style={styles.buttonStyle} onPress={() => { this.props.navigation.navigate('createAccountPassword') }} >
                     <Text style={styles.buttonText}> {strings.next} </Text>

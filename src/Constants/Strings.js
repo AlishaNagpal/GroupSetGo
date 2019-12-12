@@ -91,7 +91,12 @@ const strings = {
     response: 'Your response has been submitted!',
     enterData: 'Please enter your reason for flagging this event!',
     min: 'min',
-    max: 'max'
+    max: 'max',
+    letsStartWithEvent: "Let's start with the event.",
+    justAMinute:'Just take a minute! Why join alone when you can bring your special ones with you!',
+    doYouWantAccompany: 'Do you want to accompany with someone?',
+    howManyGuests :'How many guests you are inviting?',
+    youCanBring: 'You can bring upto 4 guests.'
 }
 
 export default strings;

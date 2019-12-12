@@ -33,7 +33,7 @@ import Reviews from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/Par
 import Settlement from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/Settlement/Settlement';
 import Card from './Screens/ExploreNoOfParticipants/Card'
 import Response from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/Flag/response'
-
+import AddGuests from './Screens/AddGuests/AddGuests'
 
 const Explore = createStackNavigator({ Explore: ExploreHomeScreen, Map: ExploreMapScreen },
   { defaultNavigationOptions: { header: null } });
@@ -133,6 +133,9 @@ const MainStack = createStackNavigator(
     Review: {
       screen: Review,
     },
+    AddGuests: {
+      screen: AddGuests
+    },
     ExploreNoOfParticipants: {
       screen: ExploreNoOfParticipants
     },
@@ -150,10 +153,11 @@ const MainStack = createStackNavigator(
     },
     Settlement: {
       screen: Settlement
+      
     },
   },
   {
-    initialRouteName: 'SplashScreen',
+    initialRouteName: 'AddGuests',
     defaultNavigationOptions: ({ navigation }) => ({
       headerBackTitle: null,
       header: null,
