@@ -42,7 +42,7 @@ export default class SplashScreen extends Component {
         duration: 800,
       }),
       Animated.timing(this.moveAnimationText, {
-        toValue: { x: width/3, y: height/2 },
+        toValue: { x: width/3.25, y: height/2 },
         duration: 800,
       })
     ]),
