@@ -1,15 +1,16 @@
-import React, {PureComponent} from 'react';
-import {View, Text, TouchableOpacity, Image, FlatList} from 'react-native';
+import React, { PureComponent } from 'react';
+import { View, Text, TouchableOpacity, Image, FlatList } from 'react-native';
 import styles from './style';
-import {connect} from 'react-redux';
-import {eventDATA} from '../../../Store/Action/Action';
-import {Images, vw, vh, Colors, VectorIcons, strings} from '../../../Constants';
+import { connect } from 'react-redux';
+import { eventDATA } from '../../../Store/Action/Action';
+import { Images, vw, vh, Colors, VectorIcons, strings } from '../../../Constants';
 
 class HomeScreen extends PureComponent {
   callScreen = id => {
-    this.props.navigate('HomeDetails6', {
-      data: this.props.Event_Data,
-      id: {id},
+    this.props.navigate({
+      routeName: "HomeDetails6",
+      key: "1",
+      params: { data: this.props.Event_Data, id: { id } }
     });
   };
 
@@ -22,13 +23,13 @@ class HomeScreen extends PureComponent {
   };
 
   renderData = rowData => {
-    let {item} = rowData;
+    let { item } = rowData;
     return (
       <View style={styles.flatlistView}>
         <TouchableOpacity
           activeOpacity={1}
           onPress={() => this.callScreen(item.serialNo)}>
-          <Image source={{uri: item.source}} style={styles.flatlistImage} />
+          <Image source={{ uri: item.source }} style={styles.flatlistImage} />
           <TouchableOpacity
             onPress={() => {
               this.toggle(item.serialNo, item.hearted);
@@ -64,13 +65,13 @@ class HomeScreen extends PureComponent {
   };
 
   renderData2 = rowData => {
-    let {item} = rowData;
+    let { item } = rowData;
     return (
-      <View style={[styles.flatlistView, {width: vw(186.7), height: vw(210)}]}>
+      <View style={[styles.flatlistView, { width: vw(186.7), height: vw(210) }]}>
         <TouchableOpacity
           activeOpacity={1}
           onPress={() => this.callScreen(item.serialNo)}>
-          <Image source={{uri: item.source}} style={styles.flatlist2Image} />
+          <Image source={{ uri: item.source }} style={styles.flatlist2Image} />
           <TouchableOpacity
             onPress={() => {
               this.toggle(item.serialNo, item.hearted);
@@ -153,7 +154,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-  const {Event_Data} = state.Reducer;
+  const { Event_Data } = state.Reducer;
   return {
     Event_Data,
   };

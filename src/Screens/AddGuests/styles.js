@@ -11,9 +11,18 @@ const styles = StyleSheet.create({
         height: vh(244),
         elevation: 2
     },
+    guestDeleteViewStyle: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginTop: vh(26)
+    },
     crossBtnImageStyle: {
         width: vw(18.3),
         height: vw(18.3),
+    },
+    cardContainerStyle: {
+        paddingBottom: vh(25)
     },
     crossBtnStyle: {
         justifyContent: 'center',
@@ -60,32 +69,31 @@ const styles = StyleSheet.create({
         height: vw(26),
         borderRadius: vw(13),
         backgroundColor: 'white',
-      },
-      howManyGuestsStyle: {
-          marginTop: vh(19),
-          fontSize: vw(16.7),
-          fontFamily: 'SourceSansPro-Semibold'
-      },
-      youCanBringStyle: {
-          marginTop:vh(6.7),
-          fontFamily: 'SourceSansPro-Regular',
-          fontSize: vw(14.7),
-          color: Colors.darkGray
-      },
-      guestStyle: {
-          color: Colors.fadedRed,
-          fontFamily:'SourceSansPro-Semibold',
-          fontSize: vw(14.7),
-          marginTop: vh(26)
-      },
-      nameTextInputStyle:{
-          borderBottomColor: Colors.lightGray,
-          borderBottomWidth: vw(2),
-          paddingHorizontal: vw(2),
-          paddingVertical: vh(15),
-          marginTop: vh(11)
-      },
-      ageTextInputStyle:{
+    },
+    howManyGuestsStyle: {
+        marginTop: vh(19),
+        fontSize: vw(16.7),
+        fontFamily: 'SourceSansPro-Semibold'
+    },
+    youCanBringStyle: {
+        marginTop: vh(6.7),
+        fontFamily: 'SourceSansPro-Regular',
+        fontSize: vw(14.7),
+        color: Colors.darkGray
+    },
+    guestStyle: {
+        color: Colors.fadedRed,
+        fontFamily: 'SourceSansPro-Semibold',
+        fontSize: vw(14.7),
+    },
+    nameTextInputStyle: {
+        borderBottomColor: Colors.lightGray,
+        borderBottomWidth: vw(2),
+        paddingHorizontal: vw(2),
+        paddingVertical: vh(15),
+        marginTop: vh(11)
+    },
+    ageTextInputStyle: {
         borderBottomColor: Colors.lightGray,
         borderBottomWidth: vw(2),
         paddingHorizontal: vw(2),
@@ -127,12 +135,20 @@ const styles = StyleSheet.create({
         alignItems: 'center'
         // position: 'absolute',
     },
-    gradientStyle: {
+    gradientStyleAddUser: {
         width: vw(66),
         height: vw(66),
         borderRadius: vw(33),
         position: 'absolute',
         bottom: vh(154.7),
+        right: vw(13.3),
+    },
+    gradientStyleNextArrow: {
+        width: vw(66),
+        height: vw(66),
+        borderRadius: vw(33),
+        position: 'absolute',
+        bottom: vh(50),
         right: vw(13.3),
     }
 });

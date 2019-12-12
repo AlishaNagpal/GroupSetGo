@@ -134,12 +134,6 @@ const MainStack = createStackNavigator(
     HomeDetails6: {
       screen: HomeDetails6,
     },
-    Review: {
-      screen: Review,
-    },
-    AddGuests: {
-      screen: AddGuests
-    },
     ExploreNoOfParticipants: {
       screen: ExploreNoOfParticipants
     },
@@ -149,7 +143,7 @@ const MainStack = createStackNavigator(
     FlagInappropriate: {
       screen: FlagInappropriate
     },
-    VenueReviews:{
+    VenueReviews: {
       screen: VenueReviews
     },
     Reviews: {
@@ -157,14 +151,14 @@ const MainStack = createStackNavigator(
     },
     Settlement: {
       screen: Settlement
-      
+
     },
     ReviewFlatList: {
       screen: ReviewFlatList
     },
   },
   {
-    initialRouteName: 'AddGuests',
+    initialRouteName: 'SplashScreen',
     defaultNavigationOptions: ({ navigation }) => ({
       headerBackTitle: null,
       header: null,
@@ -194,6 +188,9 @@ const RootStack = createStackNavigator(
     createAccountPassword: {
       screen: createAccountPassword,
     },
+    AddGuests: {
+      screen: AddGuests
+    },
     createAccountBirth: {
       screen: createAccountBirth,
     },
@@ -212,10 +209,10 @@ const RootStack = createStackNavigator(
     Flag: {
       screen: Flag
     },
-    Response:{
+    Response: {
       screen: Response
     },
-    LeaveEvent:{
+    LeaveEvent: {
       screen: LeaveEvent
     }
 
