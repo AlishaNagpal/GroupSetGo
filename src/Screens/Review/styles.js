@@ -59,15 +59,19 @@ const styles = StyleSheet.create({
         color: Colors.fadedGray2,
         fontFamily: 'SourceSansPro-Regular'
     },
-    loginButtonStyle: {
-        justifyContent: 'center',
-        alignItems: 'center',
+    loginButtonGradientStyle: {
         width: vw(374),
-        height: vh(53.4),
+        height: vw(53.4),
         marginTop: vh(23.6),
         backgroundColor: 'rgb(127,36,97)',
         borderRadius: vw(26.7),
         marginHorizontal: vw(20)
+    },
+    loginButtonStyle:{
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: vw(374),
+        height: vw(53.4),
     },
     loginButtonTitleStyle: {
         color: 'white',

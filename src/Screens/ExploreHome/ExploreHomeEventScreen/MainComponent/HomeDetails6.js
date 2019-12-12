@@ -70,30 +70,19 @@ class HomeDetails6 extends Component {
     }
 
     goingJoin = () => {
-        if (this.state.data.joined === false) {
-            return (
-                <TouchableOpacity style={styles.center} onPress={() => this.joined(this.state.id, !this.state.data.joined)} activeOpacity={1} >
-                    <VectorIcons.Ionicons
-                        name={"ios-add-circle-outline"}
-                        color={Colors.green}
-                        size={vh(26)}
-                    />
-                    <Text style={[styles.saveText, { color: Colors.green }]}>{strings.join}</Text>
-                </TouchableOpacity>
-            )
-        } else {
-            return (
-                <TouchableOpacity style={styles.center} onPress={() => this.joined(this.state.id, !this.state.data.joined)} activeOpacity={1} >
-                    <VectorIcons.Ionicons
-                        name={"md-remove-circle-outline"}
-                        color={Colors.fadedRed}
-                        size={vh(26)}
-                    />
-                    <Text style={[styles.saveText, { color: Colors.fadedRed }]}>{strings.going}</Text>
-                </TouchableOpacity>
-            )
-        }
-
+        return (
+            <TouchableOpacity style={styles.center}
+            // onpress of join tap
+            onPress = {()=>this.props.navigation.navigate({ routeName: "AddGuests", key: "2" })}
+              activeOpacity= {1} >
+                <VectorIcons.Ionicons
+                    name={this.state.data.joined ? "ios-remove-circle-outline" : "ios-add-circle-outline"}
+                    color={Colors.green}
+                    size={vh(26)}
+                />
+                <Text style={styles.saveText}>{this.state.data.joined ? strings.going : strings.join}</Text>
+            </TouchableOpacity>
+        )
     }
 
     goingSave = () => {

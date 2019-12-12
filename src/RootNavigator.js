@@ -34,6 +34,7 @@ import Settlement from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/
 import ReviewFlatList from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/Participants/ReviewFlatList';
 import Card from './Screens/ExploreNoOfParticipants/Card'
 import Response from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/Flag/response'
+import AddGuests from './Screens/AddGuests/AddGuests'
 import LeaveEvent from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/LeaveEvent'
 import transitionConfiguration from './transitionConfiguration';
 import RaiseIncident from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/Settlement/RaiseIncident/RaiseIncident'
@@ -136,9 +137,6 @@ const MainStack = createStackNavigator(
     HomeDetails6: {
       screen: HomeDetails6,
     },
-    Review: {
-      screen: Review,
-    },
     ExploreNoOfParticipants: {
       screen: ExploreNoOfParticipants
     },
@@ -148,7 +146,7 @@ const MainStack = createStackNavigator(
     FlagInappropriate: {
       screen: FlagInappropriate
     },
-    VenueReviews:{
+    VenueReviews: {
       screen: VenueReviews
     },
     Reviews: {
@@ -156,6 +154,7 @@ const MainStack = createStackNavigator(
     },
     Settlement: {
       screen: Settlement
+
     },
     ReviewFlatList: {
       screen: ReviewFlatList
@@ -195,6 +194,9 @@ const RootStack = createStackNavigator(
     createAccountPassword: {
       screen: createAccountPassword,
     },
+    AddGuests: {
+      screen: AddGuests
+    },
     createAccountBirth: {
       screen: createAccountBirth,
     },
@@ -213,10 +215,10 @@ const RootStack = createStackNavigator(
     Flag: {
       screen: Flag
     },
-    Response:{
+    Response: {
       screen: Response
     },
-    LeaveEvent:{
+    LeaveEvent: {
       screen: LeaveEvent
     },
     RaiseIncident:{

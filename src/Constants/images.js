@@ -19,7 +19,8 @@ const Images = {
     person3: require('../Assets/Images/person3.jpeg'),
     marker: require('../Assets/Images/marker.jpg'),
     run: require('../Assets/Images/run.png'),
-    thumbnail: require('../Assets/Images/thumbnail.png')
+    cancelImage: require('../Assets/Images/icCross.png'),
+    thumbnail: require('../Assets/Images/thumbnail.png'),
 }
 
 export default Images;
