@@ -1,16 +1,12 @@
 import React, { PureComponent } from 'react'
 import { Text, View, TouchableOpacity } from 'react-native'
-import Icon from 'react-native-vector-icons/Ionicons'
-import Icon1 from 'react-native-vector-icons/MaterialCommunityIcons'
 import LinearGradient from 'react-native-linear-gradient'
-Icon.loadFont()
-Icon1.loadFont()
 
 /**
  * custom imports
  */
 import styles from './styles'
-import { vh, Colors, vw } from '../../Constants'
+import { vh, Colors, vw, VectorIcons } from '../../Constants'
 import strings from '../../Constants/Strings'
 
 const colors = [Colors.fadedRed, Colors.darkishPink]
@@ -37,7 +33,7 @@ export default class Review extends PureComponent {
         return (
             <View style={styles.containerStyle}>
                 <TouchableOpacity onPress={() => this.props.navigation.goBack()} style={styles.headerView}>
-                    <Icon  name="ios-arrow-back" size={vh(30)} color={Colors.white} style={styles.backButtonStyle} />
+                    <VectorIcons.Ionicons  name="ios-arrow-back" size={vh(30)} color={Colors.white} style={styles.backButtonStyle} />
                     <Text style={styles.reviewHeadingStyle}>Review</Text>
                 </TouchableOpacity>
 
@@ -62,9 +58,9 @@ export default class Review extends PureComponent {
                         <Text style={styles.eventDetailsCommonStyle}>{strings.totalCost}</Text>
                         <Text style={styles.eventDetailsCommonStyle}>$46</Text>
                     </View>
-                    <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: vh(34.7), height: vh(18) }}>
-                        <Icon1 name={this.state.acceptedTerms ? 'checkbox-marked-outline' : 'checkbox-blank-outline'} color={this.state.acceptedTerms ? Colors.fadedRed : Colors.fadedGray2} size={vw(20)} onPress={() => { this.setState({ acceptedTerms: !this.state.acceptedTerms }) }} />
-                        <Text style={{ marginTop: vh(-3), fontSize: vh(13.3), color: Colors.fadedGray2, marginLeft: vw(6.7), fontFamily: 'SourceSansPro-Regular' }}>{strings.agreeToTerms}</Text>
+                    <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: vh(34.7) }}>
+                        <VectorIcons.MaterialCommunityIcons name={this.state.acceptedTerms ? 'checkbox-marked-outline' : 'checkbox-blank-outline'} color={Colors.fadedGray2} size={vw(13.3)} onPress={() => { this.setState({ acceptedTerms: !this.state.acceptedTerms }) }} />
+                        <Text style={{ fontSize: vh(13.3), color: Colors.fadedGray2, marginLeft: vw(6.7), fontFamily: 'SourceSansPro-Regular' }}>{strings.agreeToTerms}</Text>
                     </View>
                 </View>
                 <LinearGradient colors={colors} start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} style={styles.loginButtonGradientStyle} >

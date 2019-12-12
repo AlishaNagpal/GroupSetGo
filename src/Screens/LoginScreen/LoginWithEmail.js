@@ -1,19 +1,12 @@
 import React, { PureComponent } from 'react'
 import { Text, View, Image, TextInput, TouchableOpacity} from 'react-native'
-import Icon from 'react-native-vector-icons/FontAwesome'
-import Icon1 from 'react-native-vector-icons/AntDesign'
-import Icon2 from 'react-native-vector-icons/MaterialCommunityIcons'
 import LinearGradient from 'react-native-linear-gradient'
 // import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scrollview'
 import { Toast } from '../../ReusableComponents'
 
-Icon.loadFont()
-Icon1.loadFont()
-Icon2.loadFont()
-
 import { styles } from './styles'
 import strings from '../../Constants/Strings'
-import { Colors } from '../../Constants'
+import { Colors, VectorIcons } from '../../Constants'
 import { vw, } from '../../Constants'
 import images from '../../Constants/images'
 
@@ -67,7 +60,7 @@ export default class LoginWithEmail extends PureComponent {
                 <Text style={styles.welcomeBackStyle}>{strings.welcomeBack}</Text>
                 <Text style={styles.signInToContinueStyle}>{strings.signInToContinue}</Text>
                 <View style={[styles.emailInputViewStyle, { borderBottomColor: this.state.email.length == 0 ? 'rgb(0,0,0)' : 'rgb(226,90,113)' }]}>
-                    <Icon
+                    <VectorIcons.FontAwesome
                         style={styles.searchIcon}
                         name="envelope-o" size={vw(13.4)}
                         color={this.state.email.length == 0 ? 'rgb(0,0,0)' : 'rgb(226,90,113)'} />
@@ -85,7 +78,7 @@ export default class LoginWithEmail extends PureComponent {
                 </View>
 
                 <View style={[styles.passwordInputViewStyle, { borderBottomColor: this.state.password.length == 0 ? 'rgb(0,0,0)' : 'rgb(226,90,113)' }]}>
-                    <Icon1
+                    <VectorIcons.AntDesign
                         style={styles.searchIcon}
                         name="lock"
                         size={vw(16.4)}
@@ -103,7 +96,7 @@ export default class LoginWithEmail extends PureComponent {
                         onSubmitEditing={() => this.validation(this.state.email, this.state.password)}
                     />
                     {this.state.password.length != 0 &&
-                        <Icon2
+                        <VectorIcons.MaterialCommunityIcons
                             name={this.state.passwordVisible ? "eye-off-outline" : "eye-outline"}
                             size={vw(16.4)}
                             onPress={this.togglePasswordVisibility} />
