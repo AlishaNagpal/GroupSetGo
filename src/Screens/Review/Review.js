@@ -68,7 +68,7 @@ export default class Review extends PureComponent {
                     </View>
                 </View>
                 <LinearGradient colors={colors} start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} style={styles.loginButtonGradientStyle} >
-                <TouchableOpacity style = {styles.loginButtonStyle}  onPress={()=>this.props.navigation.goBack("1HomeDetails")} >
+                <TouchableOpacity style = {styles.loginButtonStyle}  onPress={()=>this.props.navigation.pop(2)} >
                     <Text style={styles.loginButtonTitleStyle}>CONFIRM</Text>
                 </TouchableOpacity>
                 </LinearGradient>

@@ -84,6 +84,7 @@ export default styles = StyleSheet.create({
         // borderWidth: vw(0.2),
         // borderColor: Colors.fadedGray,
         borderRadius: vh(10),
+        marginBottom: vh(25)
     },
     flatlistImage: {
         height: vh(166.7),
@@ -145,11 +146,13 @@ export default styles = StyleSheet.create({
         width: vw(186.7), 
         height: vh(19) ,
         fontFamily: 'SourceSansPro-Semibold',
+        top: vh(3),
+        left: vh(3)
     },
     moneyView: {
         flexDirection: 'row',
         alignItems: 'center',
-        // marginTop:vh(5)
+        marginTop:vh(5)
     },
     place: {
         fontFamily: 'SourceSansPro-Regular',
@@ -161,7 +164,7 @@ export default styles = StyleSheet.create({
         fontFamily: 'SourceSansPro-Regular',
         fontSize: vh(14),
         color: Colors.fadedGray,
-        top: vw(10)
+        top: vw(8)
     },
     elongatedView: {
         height: vh(12),

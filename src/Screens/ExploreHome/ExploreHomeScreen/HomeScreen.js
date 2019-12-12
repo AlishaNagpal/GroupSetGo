@@ -47,7 +47,7 @@ class HomeScreen extends PureComponent {
           </TouchableOpacity>
 
           <View style={styles.cheersView}>
-            <Image source={Images.cheers} style={styles.cheers} />
+            <Image source={item.icon} style={styles.cheers} />
           </View>
           <View style={styles.belowImage}>
             <View style={styles.goingView}>
@@ -136,13 +136,13 @@ class HomeScreen extends PureComponent {
           />
         </View>
         <Text style={styles.allEvents}> {strings.allEvents} </Text>
-          <FlatList
-            keyExtractor={item => item.serialNo.toString()}
-            data={this.props.Event_Data}
-            renderItem={this.renderData2}
-            showsHorizontalScrollIndicator={false}
-            numColumns={2}
-          />
+        <FlatList
+          keyExtractor={item => item.serialNo.toString()}
+          data={this.props.Event_Data}
+          renderItem={this.renderData2}
+          showsHorizontalScrollIndicator={false}
+          numColumns={2}
+        />
       </View>
     );
   }

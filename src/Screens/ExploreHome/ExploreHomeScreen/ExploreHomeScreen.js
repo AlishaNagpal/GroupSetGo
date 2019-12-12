@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   Text,
   ScrollView,
+  RefreshControl
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
@@ -22,17 +23,26 @@ const colors = [
 ];
 import HomeScreen from './HomeScreen';
 import ExploreMapScreen from './ExploreMapScreen';
-
 export default class ExploreHomeScreen extends PureComponent {
   state = {
     opacityChanged: false,
     opac: 0,
     rotateRight: false,
+    refresh: false
   };
   rotateValue = new Animated.Value(0);
   constructor() {
     super();
     this.rotateValue.addListener(({ value }) => this.setState({ opac: value }));
+  }
+
+  onRefresh = () => {
+    this.setState({
+      refresh: true
+    })
+    setTimeout(()=>{
+      this.setState({refresh: false})
+    },2000)
   }
 
   rotateView = () => {
@@ -108,7 +118,11 @@ export default class ExploreHomeScreen extends PureComponent {
               <ScrollView
                 showsVerticalScrollIndicator={false}
                 contentContainerStyle={{ opacity: 1 - this.state.opac, paddingBottom: vh(60) }}
-                bounces={false}>
+                // bounces={false}
+                refreshControl={
+                  <RefreshControl refreshing={this.state.refresh} onRefresh={this.onRefresh} />
+                }
+              >
                 <HomeScreen navigate={this.props.navigation.navigate} />
               </ScrollView>
             ) : (

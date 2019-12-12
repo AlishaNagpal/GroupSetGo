@@ -62,19 +62,21 @@ class HomeDetails6 extends Component {
             setTimeout(() => {
                 this.props.Event_Data[index].joined = value
                 this.props.eventDATA()
-            }, 50000)
+            }, 30000)
         } else if (value === true && index != -1) {
-            this.props.Event_Data[index].joined = value
-            this.props.eventDATA()
+            this.props.navigation.navigate({ routeName: "AddGuests", key: "2" })
+            setTimeout(() => {
+                this.props.Event_Data[index].joined = value
+                this.props.eventDATA()
+            }, 400)
         }
     }
 
     goingJoin = () => {
         return (
             <TouchableOpacity style={styles.center}
-            // onpress of join tap
-            onPress = {()=>this.props.navigation.navigate({ routeName: "AddGuests", key: "2" })}
-              activeOpacity= {1} >
+                onPress={() => { this.joined(this.state.id, !this.state.data.joined) }}
+                activeOpacity={1} >
                 <VectorIcons.Ionicons
                     name={this.state.data.joined ? "ios-remove-circle-outline" : "ios-add-circle-outline"}
                     color={Colors.green}
