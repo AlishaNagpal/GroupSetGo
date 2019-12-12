@@ -2,26 +2,35 @@ import React, { PureComponent } from 'react';
 import { Text, TextInput, TouchableOpacity, View, Animated } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scrollview'
-import { Formik, ErrorMessage } from 'formik'
-import * as yup from 'yup'
+import { Toast } from '../../ReusableComponents'
 
 //Custom Imports
 import styles from './styles'
-import { Colors, vh, VectorIcons, vw, strings } from '../../Constants';
+import { Colors, vh, VectorIcons, strings } from '../../Constants';
 
 const colors = [Colors.moderateRed, Colors.moderatePink, Colors.darkModeratePink, Colors.darkViolet, Colors.darkViolet, Colors.darkViolet]
 
 export default class createAccountPassword extends PureComponent {
 
-    constructor(props) {
-        super(props);
-        this.state = ({
-            animatedValue: new Animated.Value(-30),
-            showFirst: false,
-            showSecond: false
-        })
+    state = { password: '', confirmPassword: '', call: false, showFirst: false, showSecond: false }
+
+    componentDidMount() {
+        this.input1.focus()
     }
 
+    passwordValidation = (password, confirmPassword) => {
+        if (!(/^(?=.{6,})(?=.*[@#$%^&+=]).*$/.test(password)) || !(/^(?=.{6,})(?=.*[@#$%^&+=]).*$/.test(confirmPassword)) || this.state.password === '' || this.state.confirmPassword === '' || this.state.password !== this.state.confirmPassword) {
+            this.resetCall(true)
+        } else {
+            this.props.navigation.navigate('HomeNavigator')
+        }
+    }
+
+    resetCall = (value) => {
+        this.setState({
+            call: value
+        })
+    }
     changeFirst(show) {
         this.setState({
             showFirst: !show
@@ -31,20 +40,6 @@ export default class createAccountPassword extends PureComponent {
         this.setState({
             showSecond: !show
         })
-    }
-
-    error = () => {
-        Animated.timing(this.state.animatedValue, {
-            toValue: 40,
-            duration: 400,
-        }).start();
-    }
-
-    close = () => {
-        Animated.timing(this.state.animatedValue, {
-            toValue: -40,
-            duration: 400
-        }).start()
     }
 
     render() {
@@ -60,104 +55,55 @@ export default class createAccountPassword extends PureComponent {
                     <Text style={styles.belowStep} > {strings.pass} </Text>
                     <Text style={styles.description}> {strings.passDescription} </Text>
 
+                    <View>
+                        <TextInput
+                            placeholder={strings.passPlaceholder}
+                            style={styles.textInputStyle}
+                            secureTextEntry={!this.state.showFirst}
+                            placeholderTextColor={Colors.black}
+                            returnKeyType='next'
+                            returnKeyLabel='Next'
+                            autoCorrect={false}
+                            value={this.state.password}
+                            onChangeText={(text) => this.setState({ password: text })}
+                            ref={(ref) => { this.input1 = ref }}
+                            onSubmitEditing={() => this.input2.focus()}
+                        />
 
-                    <Formik
-                        initialValues={{ password: '', confirmPassword: '' }}
-                        onSubmit={() => {
-                            this.props.navigation.navigate('HomeNavigator')
-                        }}
-                        validationSchema={yup.object().shape({
-                            password: yup
-                                .string()
-                                .matches(/^(?=.{6,})(?=.*[@#$%^&+=]).*$/, "Password must contain a special symbol!")
-                                .min(6, "Password must be atleast 6 characters long!")
-                                .required("Please enter your password!"),
-                            confirmPassword: yup
-                                .string()
-                                .oneOf([yup.ref('password'), null], 'Passwords must match')
-                                .required('Password confirmation is required!'),
-                        })}
+                        <TouchableOpacity onPress={() => { this.changeFirst(this.state.showFirst) }} >
+                            <VectorIcons.Ionicons name={this.state.showFirst ? "md-eye" : "md-eye-off"} color={Colors.black} size={25} style={styles.eyeIcon} />
+                        </TouchableOpacity>
+                    </View>
+                    <View>
+                        <TextInput
+                            placeholder={strings.passConfirm}
+                            style={[styles.textInputStyle, { marginTop: vh(20) }]}
+                            secureTextEntry={!this.state.showSecond}
+                            placeholderTextColor={Colors.black}
+                            returnKeyType='done'
+                            returnKeyLabel='Submit'
+                            autoCorrect={false}
+                            value={this.state.lastName}
+                            onChangeText={(text) => this.setState({ confirmPassword: text })}
+                            ref={(ref) => { this.input2 = ref }}
+                            onSubmitEditing={() => this.passwordValidation(this.state.password, this.state.confirmPassword)}
+                        />
+
+                        <TouchableOpacity onPress={() => { this.changeSecond(this.state.showSecond) }} >
+                            <VectorIcons.Ionicons name={this.state.showSecond ? "md-eye" : "md-eye-off"} color={Colors.black} size={25} style={styles.eyeIcon} />
+                        </TouchableOpacity>
+                    </View>
+                    <TouchableOpacity
+                        style={styles.buttonStyle}
+                        activeOpacity={1}
+                        onPress={() => this.passwordValidation(this.state.password, this.state.confirmPassword)}
                     >
-                        {({ values, handleChange, setFieldTouched, isValid, handleSubmit }) => (
-                            <React.Fragment>
-                                <React.Fragment>
-                                    <ErrorMessage name="password">{(msg) => {
-                                        return (
-                                            <Animated.View style={[styles.errorView, { marginTop: this.state.animatedValue }]} >
-                                                <Animated.Text style={styles.infoText} >  Info </Animated.Text>
-                                                <Animated.Text style={styles.errorMessage}>{msg}</Animated.Text>
-                                                <TouchableOpacity style={styles.headerButton} onPress={() => this.close()}  >
-                                                    <VectorIcons.AntDesign name="close" size={vh(25)} color={Colors.fadedGray2} />
-                                                </TouchableOpacity>
-                                            </Animated.View>
-                                        )
-                                    }}
-                                    </ErrorMessage>
-                                    <View>
-                                        <TextInput
-                                            placeholder={strings.passPlaceholder}
-                                            style={styles.textInputStyle}
-                                            secureTextEntry={!this.state.showFirst}
-                                            placeholderTextColor={Colors.black}
-                                            onBlur={() => {
-                                                setFieldTouched('password')
-                                                this.error()
-                                            }}
-                                            value={values.password}
-                                            onChangeText={handleChange('password')}
-                                            autoCorrect={false}
-                                        />
-
-                                        <TouchableOpacity onPress={() => { this.changeFirst(this.state.showFirst) }} >
-                                            <VectorIcons.Ionicons name={this.state.showFirst ? "md-eye" : "md-eye-off"} color={Colors.black} size={25} style={styles.eyeIcon} />
-                                        </TouchableOpacity>
-                                    </View>
-                                </React.Fragment>
-                                <React.Fragment>
-                                    <ErrorMessage name="confirmPassword">{(msg) => {
-                                        return (
-                                            <Animated.View style={[styles.errorView, { marginTop: this.state.animatedValue }]} >
-                                                <Animated.Text style={styles.infoText} >  Info </Animated.Text>
-                                                <Animated.Text style={styles.errorMessage}>{msg}</Animated.Text>
-                                                <TouchableOpacity style={styles.headerButton} onPress={() => this.close()}  >
-                                                    <VectorIcons.AntDesign name="close" size={vh(25)} color={Colors.fadedGray2} />
-                                                </TouchableOpacity>
-                                            </Animated.View>
-                                        )
-                                    }}
-                                    </ErrorMessage>
-                                    <View>
-                                        <TextInput
-                                            placeholder={strings.passConfirm}
-                                            style={[styles.textInputStyle, { marginTop: vh(20) }]}
-                                            secureTextEntry={!this.state.showSecond}
-                                            placeholderTextColor={Colors.black}
-                                            onBlur={() => {
-                                                setFieldTouched('confirmPassword')
-                                                this.error()
-                                            }}
-                                            value={values.confirmPassword}
-                                            onChangeText={handleChange('confirmPassword')}
-                                            autoCorrect={false}
-                                        />
-
-                                        <TouchableOpacity onPress={() => { this.changeSecond(this.state.showSecond) }} >
-                                            <VectorIcons.Ionicons name={this.state.showSecond ? "md-eye" : "md-eye-off"} color={Colors.black} size={25} style={styles.eyeIcon} />
-                                        </TouchableOpacity>
-                                    </View>
-                                </React.Fragment>
-                                <TouchableOpacity
-                                    style={styles.buttonStyle}
-                                    onPress={handleSubmit}
-                                    disabled={!isValid}
-                                    activeOpacity={1}
-                                >
-                                    <Text style={styles.buttonText}> {strings.submit} </Text>
-                                </TouchableOpacity>
-                            </React.Fragment>
-                        )}
-                    </Formik>
+                        <Text style={styles.buttonText}> {strings.submit} </Text>
+                    </TouchableOpacity>
                 </KeyboardAwareScrollView>
+                {this.state.call === true &&
+                    <Toast top={-40} from={30} to={-40} message={strings.passwordMatch} call={(value) => this.resetCall(value)} />
+                }
             </LinearGradient >
         );
     }

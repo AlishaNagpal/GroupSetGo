@@ -1,28 +1,15 @@
 import React, { PureComponent } from 'react';
-import { View, TouchableOpacity, TextInput, Text, Animated } from 'react-native';
+import { View, TouchableOpacity, TextInput, Text } from 'react-native';
 import { Colors, VectorIcons, vh, strings } from '../../../../../Constants';
 import styles from './styles'
 import LinearGradient from 'react-native-linear-gradient'
 const colors = [Colors.fadedRed, Colors.darkishPink]
+import {Toast} from '../../../../../ReusableComponents'
 export default class FlagInappropriate extends PureComponent {
-  state = { value: '', animatedValue: new Animated.Value(-60), call: false }
-
-  error = () => {
-    Animated.timing(this.state.animatedValue, {
-      toValue: -30,
-      duration: 400,
-    }).start();
-  }
-  close = () => {
-    Animated.timing(this.state.animatedValue, {
-      toValue: -100,
-      duration: 400
-    }).start()
-  }
+  state = { value: '', call: false }
 
   callAlert = (value) => {
     if (this.state.value === '') {
-      this.error()
       this.setState({
         call: value
       })
@@ -54,15 +41,7 @@ export default class FlagInappropriate extends PureComponent {
           </LinearGradient>
 
           {this.state.call === true &&
-            <Animated.View style={[styles.errorView, { marginTop: this.state.animatedValue }]} >
-              <Animated.View style={styles.topView} >
-                <Animated.Text style={styles.infoText} > Info </Animated.Text>
-                <Animated.Text style={styles.errorMessage}>{strings.enterData}</Animated.Text>
-                <TouchableOpacity style={styles.headerButton} onPress={() => this.close()}  >
-                  <VectorIcons.AntDesign name="close" size={vh(25)} color={Colors.fadedGray2} />
-                </TouchableOpacity>
-              </Animated.View>
-            </Animated.View>
+          <Toast top = {-60} from = {-30} to ={-100} message = {strings.enterData} />
           }
 
         </View>

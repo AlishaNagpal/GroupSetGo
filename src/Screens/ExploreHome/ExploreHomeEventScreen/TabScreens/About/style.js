@@ -3,7 +3,7 @@ import { vh, vw, Colors, DesignWidth } from '../../../../../Constants'
 
 export default styles = StyleSheet.create({
     mainContainer: {
-        flex: 1,
+         flexGrow: 1,
     },
     detailView: {
         flexDirection: 'column',
@@ -80,7 +80,6 @@ export default styles = StyleSheet.create({
     containerStyle: {
         flex: 1,
         alignItems: 'center',
-        backgroundColor: Colors.veryVeryLightGray
     },
     headerView: {
         height: vh(90),
@@ -101,5 +100,68 @@ export default styles = StyleSheet.create({
         color: Colors.white,
         fontSize: vh(20),
         fontFamily: 'SourceSansPro-Semibold'
+    },
+    reviewFLMainView:{
+        marginTop: vh(13.8),
+        backgroundColor:Colors.white,
+        marginBottom: vh(17),
+        marginLeft: vw(10)
+    },
+    imageHeaderView: {
+        flexDirection: 'row',
+    },
+    imgView2: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
+    rwPic: {
+        height: vw(52),
+        width: vw(52),
+        borderRadius: vw(26)
+    },
+    rwNameView: {
+        margin: vw(6.7),
+        alignItems: 'flex-start',
+        justifyContent: 'space-evenly',
+    },
+    rwName: {
+        fontFamily: 'SourceSansPro-Semibold',
+        fontSize: vh(15.3),
+    },
+    rwDate: {
+        fontFamily: 'SourceSansPro-Semibold',
+        fontSize: vh(13.3),
+        color: Colors.midGrey
+    },
+    reviewRatingView: {
+        height: vw(21),
+        width: vw(45.7),
+        backgroundColor: Colors.darkGreen,
+        marginTop: vw(7.4),
+        borderRadius: vw(1.9),
+        alignItems: 'center',
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+        marginLeft: vw(200)
+    },
+    reviewRatingText: {
+        fontSize: vw(15),
+        fontFamily: 'SourceSansPro-Semibold',
+        color: 'white'
+    },
+    rwText: {
+        fontFamily: 'SourceSansPro-Regular',
+        fontSize: vh(15.3),
+        color: Colors.verLightGrey,
+        paddingLeft: vw(1.7),
+        paddingRight: vw(27),
+    },
+    reviewView: { 
+        paddingTop: vw(9.9)
+    },
+    seperator:{
+        width: vw(DesignWidth),
+        height: vh(1),
+        backgroundColor: Colors.lightGray
     }
 })

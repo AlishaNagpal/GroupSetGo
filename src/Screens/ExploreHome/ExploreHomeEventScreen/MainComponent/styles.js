@@ -1,9 +1,10 @@
 import { StyleSheet } from 'react-native';
-import { vh, vw, Colors } from '../../../../Constants'
+import { vh, vw, Colors, DesignHeight, DesignWidth } from '../../../../Constants'
 
 export default styles = StyleSheet.create({
     mainView: {
         flex: 1,
+        marginTop: vh(30)
     },
     pic: {
         height: vh(270),
@@ -17,7 +18,9 @@ export default styles = StyleSheet.create({
     flagBtn: {
         position: 'absolute',
         top: vh(40),
-        right: vw(13.3)
+        right: vw(13.3),
+        height:vw(50),
+        // width:vw(50)
     },
     cheersView: {
         backgroundColor: 'black',
@@ -124,18 +127,13 @@ export default styles = StyleSheet.create({
         padding: vh(15.3),
         borderBottomWidth: vh(0.7),
         borderBottomColor: 'rgba(184, 184, 184, 0.3)',
-     },
-     viewTwo4: {
+    },
+    viewTwo4: {
         padding: vw(19),
         paddingBottom: vw(15.3),
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-evenly',
-        paddingLeft: 0,
-        paddingRight: 0
-    },
-    viewThree: {
-
     },
     location: {
         flexDirection: 'row',
@@ -179,7 +177,8 @@ export default styles = StyleSheet.create({
     },
     shareText: {
         fontSize: vw(15.3),
-        color: Colors.shareBlue
+        color: Colors.shareBlue,
+        marginTop: vh(4)
     },
     goingText: {
         fontSize: vw(15.3),
@@ -189,7 +188,7 @@ export default styles = StyleSheet.create({
         fontSize: vw(15.3),
         color: Colors.chatBlue
     },
-    waitlisted:{
+    waitlisted: {
         fontSize: vw(15.3),
         color: Colors.orange
     },
@@ -205,6 +204,7 @@ export default styles = StyleSheet.create({
     },
     tabBarStyle: {
         alignItems: 'center',
+        flex:1
     },
     tabBarFont: {
         fontFamily: 'SourceSansPro-Semibold',
@@ -213,5 +213,8 @@ export default styles = StyleSheet.create({
     tabBarUnderline: {
         backgroundColor: Colors.fadedRed,
         height: vh(3),
-    }
+    },
+    divide:{ 
+        width: DesignWidth/3
+     }
 })

@@ -8,7 +8,8 @@ export default styles = StyleSheet.create({
     headerView: {
         flexDirection: 'row',
         marginTop: vh(10),
-        alignItems: 'center'
+        alignItems: 'center',
+        marginBottom: vh(5)
     },
     headerImage: {
         height: vh(40),
@@ -41,7 +42,7 @@ export default styles = StyleSheet.create({
     sortFilterView: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginTop: vh(13.7),
+        marginTop: vh(8),
         marginLeft: vw(69.7)
     },
     sortStyle: {

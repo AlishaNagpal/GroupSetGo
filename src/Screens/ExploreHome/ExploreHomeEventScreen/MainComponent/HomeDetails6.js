@@ -5,12 +5,10 @@ import {
     Image,
     ScrollView,
     TouchableOpacity,
-    Dimensions
 } from 'react-native';
 
 // Custom Imports
 import styles from './styles';
-import ViewPager from '@react-native-community/viewpager';
 import { VectorIcons, vh, vw, Colors, strings } from '../../../../Constants';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import * as Progress from 'react-native-progress';
@@ -22,13 +20,15 @@ import Settlement from '../TabScreens/Settlement/Settlement';
 Icon.loadFont()
 var ScrollableTabView = require('react-native-scrollable-tab-view');
 
-const scene = false;
+
 class HomeDetails6 extends Component {
     state = {
         data: this.props.navigation.getParam('data'),
         id: this.props.navigation.getParam('id'),
-        going: false,
-        hearted: false,
+        tabViewStyle: {
+            backgroundColor: 'transparent'
+        },
+        firstTabSwitch: true
     }
 
     componentDidMount() {
@@ -52,9 +52,6 @@ class HomeDetails6 extends Component {
             this.props.Event_Data[index].hearted = value
             this.props.eventDATA()
         }
-        this.setState({
-            hearted: value
-        })
     }
 
     joined(id, value) {
@@ -63,39 +60,36 @@ class HomeDetails6 extends Component {
             this.props.Event_Data[index].joined = value
             this.props.eventDATA()
         }
-        this.setState({
-            going: value
-        })
     }
 
     goingJoin = () => {
         return (
-            <TouchableOpacity style={styles.center} onPress={() => this.joined(this.state.id, !this.state.going)} >
+            <TouchableOpacity style={styles.center} onPress={() => this.joined(this.state.id, !this.state.data.joined)} activeOpacity= {1} >
                 <VectorIcons.Ionicons
-                    name={this.state.going ? "ios-checkmark-circle-outline" : "ios-add-circle-outline"}
+                    name={this.state.data.joined ? "ios-remove-circle-outline" : "ios-add-circle-outline"}
                     color={Colors.green}
                     size={vh(26)}
                 />
-                <Text style={styles.saveText}>{this.state.going ? strings.going : strings.join}</Text>
+                <Text style={styles.saveText}>{this.state.data.joined ? strings.going : strings.join}</Text>
             </TouchableOpacity>
         )
     }
 
     goingSave = () => {
-        if (this.state.going === false) {
+        if (this.state.data.joined === false) {
             return (
-                <TouchableOpacity style={styles.center} onPress={() => { this.toggle(this.state.id, !this.state.hearted) }} >
+                <TouchableOpacity activeOpacity= {1} style={styles.center} onPress={() => { this.toggle(this.state.id, !this.state.data.hearted) }} >
                     <VectorIcons.Ionicons
-                        name={this.state.hearted ? "ios-heart" : "ios-heart-empty"}
+                        name={this.state.data.hearted ? "ios-heart" : "ios-heart-empty"}
                         color={Colors.fadedRed}
                         size={vh(26)}
                     />
-                    <Text style={styles.joinText}>{this.state.hearted ? strings.savedIcon : strings.saveIcon}</Text>
+                    <Text style={styles.joinText}>{this.state.data.hearted ? strings.savedIcon : strings.saveIcon}</Text>
                 </TouchableOpacity>
             )
         } else {
             return (
-                <TouchableOpacity style={styles.center}>
+                <TouchableOpacity style={styles.center} activeOpacity= {1} >
                     <VectorIcons.AntDesign
                         name="message1"
                         color={Colors.chatBlue}
@@ -107,11 +101,28 @@ class HomeDetails6 extends Component {
         }
     }
 
+    goToPage(pageId) {
+        this.tabView.goToPage(pageId);
+    }
+
+    _handleTabHeight = (obj)=>{
+        console.log(this.refs[obj.ref.props.tabLabel]);
+        //this.refs[obj.ref.props.tabLabel].measure(this._setTabHeight.bind(this))
+    }
+
+    _setTabHeight(ox, oy, width, height, px, py) {
+        if (!this.state.firstTabSwitch) {
+            this.setState({ tabViewStyle: { height: height } })
+        } else {
+            this.setState({ firstTabSwitch: false })
+        }
+    }
+
     render() {
         const { data } = this.state;
         return (
             <View style={styles.mainView}>
-                <ScrollView bounces={false}>
+                <ScrollView bounces={false} showsVerticalScrollIndicator={false}>
                     <View>
                         <Image
                             source={{ uri: data.source }}
@@ -190,30 +201,39 @@ class HomeDetails6 extends Component {
                         </View>
                     </View>
                     <View style={styles.viewTwo4}>
-                        {this.goingJoin()}
-                        {this.goingSave()}
-                        <TouchableOpacity style={styles.center} >
-                            <Icon
-                                name="share"
-                                color={Colors.shareBlue}
-                                size={vh(20)}
-                            />
-                            <Text style={styles.shareText}> {strings.share} </Text>
-                        </TouchableOpacity>
+                        <View style={styles.divide} >
+                            {this.goingJoin()}
+                        </View>
+                        <View style={styles.divide} >
+                            {this.goingSave()}
+                        </View>
+                        <View style={styles.divide} >
+                            <TouchableOpacity style={styles.center} activeOpacity= {1} >
+                                <Icon
+                                    name="share"
+                                    color={Colors.shareBlue}
+                                    size={vh(20)}
+                                />
+                                <Text style={styles.shareText}> {strings.share} </Text>
+                            </TouchableOpacity>
+                        </View>
                     </View>
                     <View style={styles.separator2} />
 
                     <ScrollableTabView
-                        style={styles.tabBarStyle}
+                        onChangeTab={(obj) => this._handleTabHeight(obj)}
+                        style={styles.tabBarStyle, this.state.tabViewStyle}
+                        prerenderingSiblingsNumber={0}
                         tabBarActiveTextColor={Colors.fadedRed}
                         tabBarInactiveTextColor={Colors.tabGray}
                         tabBarUnderlineStyle={styles.tabBarUnderline}
                         activeTabStyle={{ backgroundColor: null }}
                         tabBarTextStyle={styles.tabBarFont}
+                        initialPage={0}
                     >
-                        <About tabLabel="ABOUT" navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} />
-                        <Participants tabLabel="PARTICIPANTS" navigation={this.props.navigation} />
-                        {scene && <Settlement tabLabel="SETTLEMENT" navigation={this.props.navigation} />}
+                        <About ref='ABOUT' tabLabel="ABOUT" tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} />
+                        <Participants ref='PARTICIPANTS' tabLabel="PARTICIPANTS" tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} goToPage={() => this.goToPage(2)} />
+                        {data.settlement && <Settlement tabLabel="SETTLEMENT" tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} />}
                     </ScrollableTabView>
 
                 </ScrollView>

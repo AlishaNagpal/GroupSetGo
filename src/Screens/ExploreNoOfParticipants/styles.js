@@ -5,17 +5,20 @@ import Colors from '../../Constants/Colors'
 const styles = StyleSheet.create({
     containerStyle: {
         flex: 1,
-        alignItems: 'center'
+        alignItems: 'center',
     },
     headerViewStyle: {
         flexDirection: 'row',
-        height: vh(42.7),
+        height: vh(60),
         backgroundColor: Colors.fadedRed,
         width: vw(DesignWidth),
         alignItems:'center'
     },
     backButtonStyle: {
         marginLeft: vw(13.7),
+        flexDirection:'row',
+        alignItems:'center',
+        marginTop:vh(20),
     },
     checkmarkStyle: {
         position: 'absolute',

@@ -16,7 +16,12 @@ export default class RadioButton extends Component {
         alignItems: 'center',
         justifyContent: 'center',
       }}>
-        <Icon name="md-checkmark-circle" size = {this.props.buttonSize} color = {this.props.isCheck ? this.props.inColor : Colors.noColor} style={{marginBottom: vw(-4), marginLeft: vw(1)}}  />
+        <View style={{
+            height: vh(16),
+            width: vh(16),
+            borderRadius: vh(8),
+            backgroundColor: this.props.isCheck ? this.props.inColor : Colors.noColor,
+          }} />
       </View>
     )
   }

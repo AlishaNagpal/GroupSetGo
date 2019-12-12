@@ -1,31 +1,17 @@
 import React, { Component } from 'react';
-import {
-    View,
-    Text,
-    Image,
-  } from 'react-native';
-  import {vw, VectorIcons, } from '../../../../../Constants';
+import { View, Text, Image } from 'react-native';
+import {vw, VectorIcons, } from '../../../../../Constants';
 import styles from './style';
 
-const numOfLine = 3;
-
-export default class Reviews extends Component {
+export default class ReviewFlatList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        textShow: true,
-        num: 0,
-      };
+    };
   }
 
-  toggle=()=>{
-    this.setState({
-      textShow: !this.state.textShow
-    })
-}
-
   render() {
-      const item = this.props.myData 
+    const item = this.props.myData 
     return (
         <View style={styles.rwView}>
         <View style={styles.imgView}>
@@ -50,12 +36,9 @@ export default class Reviews extends Component {
         </View>
         <View style={styles.reviewView}>
           <Text 
-          style={styles.rwText} 
-          // onTextLayout={({ nativeEvent: { lines } }) => this.setState({textShow: lines.length > numOfLine })}
-          numberOfLines={this.state.textShow ? numOfLine : null}
+          style={styles.rwText}
           >{item.review}
           </Text>
-          <Text style={styles.readMore} onPress = {this.toggle}>{this.state.textShow ? 'show more' : 'show less'}</Text>
         </View>
       </View>
     );
