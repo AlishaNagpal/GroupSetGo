@@ -4,26 +4,31 @@ import { Colors, VectorIcons, vh, strings } from '../../../../../Constants';
 import styles from './styles'
 import LinearGradient from 'react-native-linear-gradient'
 const colors = [Colors.fadedRed, Colors.darkishPink]
-import {Toast} from '../../../../../ReusableComponents'
+import { Toast } from '../../../../../ReusableComponents'
 export default class FlagInappropriate extends PureComponent {
-  state = { value: '', call: false }
+  state = { call: false, value: '' }
 
-  callAlert = (value) => {
+  callAlert = () => {
     if (this.state.value === '') {
-      this.setState({
-        call: value
-      })
+      this.resetCall(true)
     } else {
       this.props.navigation.navigate('Response')
     }
+  }
+
+  resetCall = (value) => {
+    this.setState({
+      call: value
+    })
   }
 
   render() {
     return (
       <View style={styles.containerStyle}>
         <View style={styles.headerView}>
-          <TouchableOpacity onPress={() => this.props.navigation.navigate('HomeDetails6')} >
-            <VectorIcons.Ionicons name="ios-arrow-back" size={vh(30)} color={Colors.white} style={styles.backButtonStyle} />
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('HomeDetails6')} style={styles.backButtonStyle} >
+            <VectorIcons.Ionicons name="ios-arrow-back" size={vh(30)} color={Colors.white} />
+            <Text style={styles.headerText} > Flag Event </Text>
           </TouchableOpacity>
         </View>
         <View style={styles.textInputBox} >
@@ -41,7 +46,7 @@ export default class FlagInappropriate extends PureComponent {
           </LinearGradient>
 
           {this.state.call === true &&
-          <Toast top = {-60} from = {-30} to ={-100} message = {strings.enterData} />
+            <Toast top={-60} from={-30} to={-100} message={strings.enterData} call={(value) => this.resetCall(value)} />
           }
 
         </View>

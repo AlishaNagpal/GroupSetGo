@@ -31,6 +31,7 @@ export default DATA = [
         min: 4,
         max: 40,
         settlement: false,
+        thumbnail: `http://www.tourniagara.com/wp-content/uploads/2014/10/default-img.gif`,
         reviewDATA: [
             {
                 image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
@@ -131,6 +132,7 @@ export default DATA = [
         min: 4,
         max: 40,
         settlement: false,
+        thumbnail: `http://www.tourniagara.com/wp-content/uploads/2014/10/default-img.gif`,
         reviewDATA: [
             {
                 image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
@@ -231,6 +233,7 @@ export default DATA = [
         min: 4,
         max: 40,
         settlement: false,
+        thumbnail: `http://www.tourniagara.com/wp-content/uploads/2014/10/default-img.gif`,
         reviewDATA: [
             {
                 image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
@@ -331,6 +334,7 @@ export default DATA = [
         min: 4,
         max: 40,
         settlement: false,
+        thumbnail: `http://www.tourniagara.com/wp-content/uploads/2014/10/default-img.gif`,
         reviewDATA: [
             {
                 image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
@@ -431,6 +435,7 @@ export default DATA = [
         min: 4,
         max: 40,
         settlement: false,
+        thumbnail: `http://www.tourniagara.com/wp-content/uploads/2014/10/default-img.gif`,
         reviewDATA: [
             {
                 image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
@@ -531,6 +536,7 @@ export default DATA = [
         min: 4,
         max: 40,
         settlement: false,
+        thumbnail: `http://www.tourniagara.com/wp-content/uploads/2014/10/default-img.gif`,
         reviewDATA: [
             {
                 image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
@@ -631,6 +637,7 @@ export default DATA = [
         min: 4,
         max: 40,
         settlement: false,
+        thumbnail: `http://www.tourniagara.com/wp-content/uploads/2014/10/default-img.gif`,
         reviewDATA: [
             {
                 image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
@@ -731,6 +738,7 @@ export default DATA = [
         min: 4,
         max: 40,
         settlement: false,
+        thumbnail: `http://www.tourniagara.com/wp-content/uploads/2014/10/default-img.gif`,
         reviewDATA: [
             {
                 image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
