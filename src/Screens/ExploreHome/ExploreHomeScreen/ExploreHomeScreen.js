@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react';
+import React, { PureComponent } from 'react';
 import {
   View,
   Image,
@@ -6,12 +6,13 @@ import {
   TouchableOpacity,
   Text,
   ScrollView,
+  RefreshControl
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 //Custom Imports
 import styles from './style';
-import {Images, VectorIcons, Colors, vh} from '../../../Constants';
+import { Images, VectorIcons, Colors, vh, strings } from '../../../Constants';
 const colors = [
   Colors.moderateRed,
   Colors.moderatePink,
@@ -22,17 +23,26 @@ const colors = [
 ];
 import HomeScreen from './HomeScreen';
 import ExploreMapScreen from './ExploreMapScreen';
-
 export default class ExploreHomeScreen extends PureComponent {
   state = {
     opacityChanged: false,
     opac: 0,
     rotateRight: false,
+    refresh: false
   };
   rotateValue = new Animated.Value(0);
   constructor() {
     super();
-    this.rotateValue.addListener(({value}) => this.setState({opac: value}));
+    this.rotateValue.addListener(({ value }) => this.setState({ opac: value }));
+  }
+
+  onRefresh = () => {
+    this.setState({
+      refresh: true
+    })
+    setTimeout(()=>{
+      this.setState({refresh: false})
+    },2000)
   }
 
   rotateView = () => {
@@ -54,7 +64,7 @@ export default class ExploreHomeScreen extends PureComponent {
   render() {
     return (
       <React.Fragment>
-        <View style={[styles.mainContainer, { marginTop:vh(30)}]}>
+        <View style={[styles.mainContainer, { marginTop: vh(28) }]}>
           <View style={styles.headerView}>
             <Image source={Images.maleImage} style={styles.headerImage} />
             <TouchableOpacity
@@ -88,6 +98,14 @@ export default class ExploreHomeScreen extends PureComponent {
               />
             </TouchableOpacity>
           </View>
+          <View style={styles.sortFilterView}>
+            <TouchableOpacity style={styles.sortStyle}>
+              <Text style={styles.sortText}> {strings.sort} </Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.sortStyle}>
+              <Text style={styles.sortText}> {strings.filter} </Text>
+            </TouchableOpacity>
+          </View>
           <Animated.View
             style={{
               transform: [
@@ -98,21 +116,25 @@ export default class ExploreHomeScreen extends PureComponent {
             }}>
             {!this.state.rotateRight ? (
               <ScrollView
-              showsVerticalScrollIndicator = {false}
-                contentContainerStyle={{opacity: 1 - this.state.opac, paddingBottom: vh(60)}}
-                bounces={false}>
+                showsVerticalScrollIndicator={false}
+                contentContainerStyle={{ opacity: 1 - this.state.opac, paddingBottom: vh(60) }}
+                // bounces={false}
+                refreshControl={
+                  <RefreshControl refreshing={this.state.refresh} onRefresh={this.onRefresh} />
+                }
+              >
                 <HomeScreen navigate={this.props.navigation.navigate} />
               </ScrollView>
             ) : (
-              <View
-                style={{
-                  opacity: this.state.opac,
-                  position: 'absolute',
-                  flexDirection: 'column'
-                }}>
-                <ExploreMapScreen />
-              </View>
-            )}
+                <View
+                  style={{
+                    opacity: this.state.opac,
+                    position: 'absolute',
+                    flexDirection: 'column'
+                  }}>
+                  <ExploreMapScreen />
+                </View>
+              )}
           </Animated.View>
         </View>
         <LinearGradient colors={colors} style={styles.gradient}>

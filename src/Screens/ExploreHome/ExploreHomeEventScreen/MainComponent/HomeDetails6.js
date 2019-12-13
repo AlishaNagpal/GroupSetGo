@@ -62,10 +62,13 @@ class HomeDetails6 extends Component {
             setTimeout(() => {
                 this.props.Event_Data[index].joined = value
                 this.props.eventDATA()
-            }, 50000)
+            }, 30000)
         } else if (value === true && index != -1) {
-            this.props.Event_Data[index].joined = value
-            this.props.eventDATA()
+            this.props.navigation.navigate({ routeName: "AddGuests", key: "2" })
+            setTimeout(() => {
+                this.props.Event_Data[index].joined = value
+                this.props.eventDATA()
+            }, 400)
         }
     }
 

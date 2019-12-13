@@ -39,6 +39,7 @@ import LeaveEvent from './Screens/ExploreHome/ExploreHomeEventScreen/MainCompone
 import transitionConfiguration from './transitionConfiguration';
 import RaiseIncident from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/Settlement/RaiseIncident/RaiseIncident'
 import RaiseReport from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/Settlement/RaiseIncident/RaiseReport'
+import Check from './Screens/Check';
 
 console.disableYellowBox = true
 
@@ -163,7 +164,8 @@ const MainStack = createStackNavigator(
     },
     RaiseReport:{
       screen:RaiseReport
-    }
+    },
+    Check: Check,
   },
   {
     initialRouteName: 'SplashScreen',

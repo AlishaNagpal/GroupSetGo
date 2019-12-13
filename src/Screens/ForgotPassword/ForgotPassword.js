@@ -1,11 +1,6 @@
 import React, { PureComponent } from 'react'
 import { Text, View, TouchableOpacity, TextInput } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
-import Icon from 'react-native-vector-icons/FontAwesome'
-import Icon1 from 'react-native-vector-icons/Ionicons'
-Icon.loadFont()
-Icon1.loadFont()
-
 
 /**
  * custom imports
@@ -51,7 +46,7 @@ export default class ForgotPassword extends PureComponent {
                 <Text style={styles.forgotPasswordTextStyle}>{strings.forgotyourPassword}</Text>
                 <Text style={styles.dontWorryTextStyle}>{strings.dontWorry}</Text>
                 <View style={[styles.emailInputViewStyle, { borderBottomColor: this.state.email.length == 0 ? 'rgb(0,0,0)' : 'rgb(226,90,113)' }]}>
-                    <Icon
+                    <VectorIcons.FontAwesome
                         style={styles.searchIcon}
                         name="envelope-o" size={vw(13.4)}
                         color={this.state.email.length == 0 ? 'rgb(0,0,0)' : 'rgb(226,90,113)'}

@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react'
 import { Text, View, TouchableOpacity } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 
-
 /**
  * custom imports
  */

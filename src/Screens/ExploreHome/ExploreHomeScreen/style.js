@@ -43,7 +43,8 @@ export default styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         marginTop: vh(8),
-        marginLeft: vw(69.7)
+        marginLeft: vw(69.7),
+        marginBottom: vw(5)
     },
     sortStyle: {
         borderRadius: vh(5),
@@ -59,7 +60,7 @@ export default styles = StyleSheet.create({
         color: Colors.black,
         fontWeight: '600',
         alignSelf: 'center',
-        fontSize: vw(14.7),
+        fontSize: vh(14.7),
         fontFamily: 'SourceSansPro-Semibold'
     },
     recommendedText: {
@@ -78,14 +79,15 @@ export default styles = StyleSheet.create({
         marginLeft: vw(13.7),
         marginTop: vh(11),
         backgroundColor: Colors.white,
-        height: vw(166.7),
+        height: vw(180),
         width: vw(360),
-        borderWidth: vw(0.2),
-        borderColor: Colors.fadedGray,
+        // borderWidth: vw(0.2),
+        // borderColor: Colors.fadedGray,
         borderRadius: vh(10),
+        marginBottom: vh(25)
     },
     flatlistImage: {
-        height: vw(166.7),
+        height: vh(166.7),
         width: vw(360),
         borderTopRightRadius: vh(10),
         borderTopLeftRadius: vh(10)
@@ -106,12 +108,12 @@ export default styles = StyleSheet.create({
         width: vh(40.3),
         borderRadius: vh(25),
         alignItems: 'center',
-        top: vw(125),
+        top: vh(120),
         left: vw(10),
         justifyContent:'center'
     },
     belowImage: {
-        height: vh(70),
+        height: vh(85),
         width: vw(360),
         backgroundColor: Colors.white,
         shadowOpacity: vw(1),
@@ -121,7 +123,7 @@ export default styles = StyleSheet.create({
         elevation: 6
     },
     belowImage2: {
-        height: vh(93),
+        height: vh(100),
         width: vw(186.7),
         backgroundColor: Colors.white,
         shadowOpacity: vw(1),
@@ -137,31 +139,32 @@ export default styles = StyleSheet.create({
     },
     headingText: {
         fontFamily: 'SourceSansPro-Semibold',
-        fontSize: vw(18.7),
-        marginTop: vh(-3)
+        fontSize: vh(18.7),
     },
     headingText2:{ 
         fontSize: vw(16.7), 
         width: vw(186.7), 
         height: vh(19) ,
         fontFamily: 'SourceSansPro-Semibold',
+        top: vh(3),
+        left: vh(3)
     },
     moneyView: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginTop:vh(-7)
+        marginTop:vh(5)
     },
     place: {
         fontFamily: 'SourceSansPro-Regular',
-        fontSize: vw(14),
+        fontSize: vh(14),
         color: Colors.fadedGray,
         top: vw(5)
     },
     place2: {
         fontFamily: 'SourceSansPro-Regular',
-        fontSize: vw(14),
+        fontSize: vh(14),
         color: Colors.fadedGray,
-        top: vw(3)
+        top: vw(8)
     },
     elongatedView: {
         height: vh(12),
@@ -171,12 +174,12 @@ export default styles = StyleSheet.create({
     },
     moneyText: {
         fontFamily: 'SourceSansPro-Semibold',
-        fontSize: vw(13.7),
+        fontSize: vh(13.7),
         top: vw(5)
     },
     moneyPerson: {
         fontFamily: 'SourceSansPro-Regular',
-        fontSize: vw(13.7),
+        fontSize: vh(13.7),
         top: vw(5)
     },
     goingView: {
@@ -186,7 +189,7 @@ export default styles = StyleSheet.create({
     },
     goingText: {
         fontFamily: 'SourceSansPro-Regular',
-        fontSize: vw(12),
+        fontSize: vh(12),
         color: Colors.fadedGray
     },
     goingIcon: {
@@ -195,7 +198,7 @@ export default styles = StyleSheet.create({
         justifyContent:'center'
     },
     flatlistHeight: {
-        height: vh(250)
+        height: vh(270)
     },
     flatlist2Heart: {
         position: 'absolute',
@@ -203,7 +206,7 @@ export default styles = StyleSheet.create({
         marginTop: vh(10)
     },
     flatlist2Image: {
-        height: vw(106.7),
+        height: vh(112),
         width: vw(186.7),
         borderTopRightRadius: vh(10),
         borderTopLeftRadius: vh(10)
@@ -225,7 +228,7 @@ export default styles = StyleSheet.create({
     },
     perPerson: {
         flexDirection: 'row',
-        top: vh(-2)
+        top: vh(6)
     },
     calendar: {
         height: vh(25),

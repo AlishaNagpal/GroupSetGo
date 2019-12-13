@@ -3,9 +3,6 @@ import { Text, TouchableOpacity } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient'
 import DatePicker from 'react-native-custom-datetimepicker'
 import { connect } from 'react-redux'
-import EvilIcons from 'react-native-vector-icons/EvilIcons'
-EvilIcons.loadFont()
-
 
 //Custom Imports
 import styles from './styles'
@@ -50,7 +47,7 @@ class CreateAccountBirth extends PureComponent {
                     date={this.props.date}
                     placeholder="select date"
                     format='DD-MM-YYYY'
-                    iconComponent={<EvilIcons name="calendar" color={Colors.white} size={25} />}
+                    iconComponent={<VectorIcons.EvilIcons name="calendar" color={Colors.white} size={25} />}
                     mode={'date'}
                     maxDate={this.getDate()}
                     onDateChange={this.setDate}
