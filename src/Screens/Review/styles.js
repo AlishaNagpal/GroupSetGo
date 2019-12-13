@@ -167,13 +167,15 @@ const styles = StyleSheet.create({
     terms: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginTop: vh(34.7)
+        marginTop: vh(34.7),
+        height: vh(18)
     },
     termsText: {
         fontSize: vh(13.3),
         color: Colors.fadedGray2,
         marginLeft: vw(6.7),
-        fontFamily: 'SourceSansPro-Regular'
+        fontFamily: 'SourceSansPro-Regular',
+        marginTop: vh(-3)
     }
 
 });
