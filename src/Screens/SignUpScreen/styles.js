@@ -39,8 +39,8 @@ export default styles = StyleSheet.create({
     textInputStyle: {
         backgroundColor: Colors.white,
         width: vw(267),
-        height: vh(47),
-        borderRadius: vh(20),
+        height: vw(47),
+        borderRadius: vw(25),
         color: Colors.black,
         marginLeft: vw(74),
         marginRight: vw(74),

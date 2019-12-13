@@ -134,6 +134,7 @@ export default class AddGuests extends PureComponent {
         <ScrollView
           scrollEnabled={this.state.guestsData.length > 1}
           showsVerticalScrollIndicator={false}
+          bounces = {false}
           contentContainerStyle={{ height: this.state.scrollViewHeight, backgroundColor: Colors.whitishGray }}
         >
           <View style={styles.containerStyle}>

@@ -139,7 +139,7 @@ class Participants extends Component {
               horizontal={true}
               scrollEnabled={false}
             />
-            {this.state.data !== '' && data.PARTICIPANTS.length > 5 && <TouchableOpacity onPress={this.listOfParticipants}>
+            {this.state.data !== '' && data.PARTICIPANTS.length > 5 && <TouchableOpacity onPress={()=>this.props.navigation.navigate("ExploreNoOfParticipants")}>
               <View style={styles.plusView}>
                 <Text style={styles.plusText}>+{data.PARTICIPANTS.length - 5}</Text>
               </View>
