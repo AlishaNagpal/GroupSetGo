@@ -5,7 +5,7 @@ import {
   Image,
   FlatList,
   TouchableOpacity,
-  findNodeHandle
+  ScrollView
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient'
 import ParticipantsReview from './ParticipantsReview';
@@ -20,9 +20,6 @@ class Participants extends Component {
 
   componentDidMount() {
     this.getData(this.props.screenProps.id)
-    setTimeout(() => {
-      this.calculateDimensions()
-    }, 1000)
   }
 
   getData = (id) => {
@@ -71,7 +68,7 @@ class Participants extends Component {
 
   renderReviewList = (rawData) => {
     const { item, index } = rawData
-      if (index < 3) {
+    if (index < 3) {
       return (
         <ParticipantsReview
           myData={item}
@@ -100,8 +97,8 @@ class Participants extends Component {
     const { navigation } = this.props;
     const { data } = this.state
     return (
-      <View ref="containerView" style={styles.mainView}>
-        <View ref="innerView" style={{ height: this.state.height }}>
+      <View style={styles.mainView}>
+        {/* <ScrollView> */}
         {/* -------------- Organizer ----------------- */}
         {this.state.data !== '' &&
           <View style={styles.viewOne}>
@@ -188,7 +185,7 @@ class Participants extends Component {
               </TouchableOpacity>
             </LinearGradient>
           </View>}
-          </View>
+          {/* </ScrollView> */}
       </View>
     );
   }
