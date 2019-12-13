@@ -92,7 +92,6 @@ class Participants extends Component {
 
   calculateDimensions = () => {
     this.refs.innerView.measureLayout(findNodeHandle(this.refs.containerView), (xPos, yPos, Width, Height) => {
-      console.warn('height ', Height)
       this.setState({ height: Height });
     });
   }

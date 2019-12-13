@@ -208,7 +208,7 @@ export default class AddGuests extends PureComponent {
           <TouchableOpacity
             onPress={() => {
               // this.props.navigation.navigate("Review","K")
-              this.props.navigation.navigate({ routeName: "Review", key: "3" })
+              this.props.navigation.navigate('Review', {id: this.props.navigation.getParam('id') })
             }}
             style={styles.addMoreGuestsBtnStyle}>
             <VectorIcons.FontAwesome

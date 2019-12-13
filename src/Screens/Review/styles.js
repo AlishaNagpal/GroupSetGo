@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
         borderRadius: vw(26.7),
         marginHorizontal: vw(20)
     },
-    loginButtonStyle:{
+    loginButtonStyle: {
         justifyContent: 'center',
         alignItems: 'center',
         width: vw(374),
@@ -139,6 +139,42 @@ const styles = StyleSheet.create({
         color: Colors.black,
         marginRight: vw(88)
     },
+    eventDate: {
+        fontFamily: 'SourceSansPro-Regular',
+        fontSize: vw(13.3),
+        color: Colors.fadedGray2
+    },
+    lastDate: {
+        fontFamily: 'SourceSansPro-Regular',
+        fontSize: vw(13.3),
+        color: Colors.fadedGray2,
+        marginRight: vw(38.4)
+    },
+    flatlist: {
+        borderColor: Colors.fadedGray2,
+        borderBottomWidth: vw(0.5),
+        borderTopWidth: vw(0.5),
+        marginTop: vh(13.3),
+        paddingBottom: vh(2),
+        paddingTop: vh(13)
+    },
+    totalCostView: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        marginTop: vh(10)
+    },
+    terms: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginTop: vh(34.7)
+    },
+    termsText: {
+        fontSize: vh(13.3),
+        color: Colors.fadedGray2,
+        marginLeft: vw(6.7),
+        fontFamily: 'SourceSansPro-Regular'
+    }
 
 });
 

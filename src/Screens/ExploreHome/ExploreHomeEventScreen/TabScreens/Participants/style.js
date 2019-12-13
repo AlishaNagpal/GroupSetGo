@@ -4,6 +4,7 @@ import { vh, vw, Colors } from '../../../../../Constants';
 const styles = StyleSheet.create({
     mainView: {
         flex: 1,
+        // height: 500
     },
     viewOne: {
         borderBottomColor: Colors.lightGray,

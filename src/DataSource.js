@@ -29,9 +29,16 @@ export default DATA = [
         reviews: '5',
         latitude: 36.116442,
         longitude: -115.175079,
+        personalBudget: '$1000',
+        finalBudget: '$800',
+        refund: '$200',
         min: 4,
         max: 40,
         settlement: false,
+        hashtagEvent: 'Dance Floor Table',
+        eventDate: 'August 10, 2018',
+        leaveEventBy: 'July 30, 2018',
+        totalCost: '$46',
         thumbnail: 'https://x.kinja-static.com/assets/images/logos/placeholders/default.png',
         reviewDATA: [
             {
@@ -102,9 +109,41 @@ export default DATA = [
             { pic: Images.person2 },
             { pic: Images.person3 },
         ],
+        priceDetailsData: [
+            {
+                serialNumber: 1,
+                iconUri: require('./Assets/Images/icTable.png'),
+                title: 'Table',
+                amount: '$100',
+            },
+            {
+                serialNumber: 2,
+                iconUri: require('./Assets/Images/icFood.png'),
+                title: 'Food',
+                amount: '$550',
+            },
+            {
+                serialNumber: 3,
+                iconUri: require('./Assets/Images/icDrinks.png'),
+                title: 'Drinks',
+                amount: '$100',
+            },
+            {
+                serialNumber: 4,
+                iconUri: require('./Assets/Images/icMiscellaneous.png'),
+                title: 'Miscellaneous',
+                amount: '$50',
+            },
+        ],
+        costBreakdownData: [
+            { serialNo: 1, typeOfCost: 'Per Person Cost', amount: '$20', personCount: 'x2', totalAmount: '$40' },
+            { serialNo: 2, typeOfCost: 'Payment Gateway Fee', amount: '$2', personCount: 'x2', totalAmount: '$4' },
+            { serialNo: 3, typeOfCost: 'GroupSetGo Fee', amount: '$1', personCount: 'x2', totalAmount: '$2' },
+        ]
     },
     {
         serialNo: 2,
+        hashtagEvent: 'Dance Floor Table',
         source: 'https://st3.depositphotos.com/2673929/19100/i/1600/depositphotos_191009434-stock-photo-white-loft-restaurant-interior-poster.jpg',
         time: 'SAT,JUL 19 • 3 PM',
         heading: 'Tea Time Party @ Resolutions',
@@ -131,9 +170,15 @@ export default DATA = [
         reviews: '5',
         latitude: 36.116442,
         longitude: -115.175079,
+        personalBudget: '$1000',
+        finalBudget: '$800',
+        refund: '$200',
         min: 4,
         max: 40,
         settlement: false,
+        eventDate: 'August 10, 2018',
+        leaveEventBy: 'July 30, 2018',
+        totalCost: '$46',
         thumbnail: 'https://x.kinja-static.com/assets/images/logos/placeholders/default.png',
         reviewDATA: [
             {
@@ -204,9 +249,41 @@ export default DATA = [
             { pic: Images.person2 },
             { pic: Images.person3 },
         ],
+        priceDetailsData: [
+            {
+                serialNumber: 1,
+                iconUri: require('./Assets/Images/icTable.png'),
+                title: 'Table',
+                amount: '$100',
+            },
+            {
+                serialNumber: 2,
+                iconUri: require('./Assets/Images/icFood.png'),
+                title: 'Food',
+                amount: '$550',
+            },
+            {
+                serialNumber: 3,
+                iconUri: require('./Assets/Images/icDrinks.png'),
+                title: 'Drinks',
+                amount: '$100',
+            },
+            {
+                serialNumber: 4,
+                iconUri: require('./Assets/Images/icMiscellaneous.png'),
+                title: 'Miscellaneous',
+                amount: '$50',
+            },
+        ],
+        costBreakdownData: [
+            { serialNo: 1, typeOfCost: 'Per Person Cost', amount: '$20', personCount: 'x2', totalAmount: '$40' },
+            { serialNo: 2, typeOfCost: 'Payment Gateway Fee', amount: '$2', personCount: 'x2', totalAmount: '$4' },
+            { serialNo: 3, typeOfCost: 'GroupSetGo Fee', amount: '$1', personCount: 'x2', totalAmount: '$2' },
+        ]
     },
     {
         serialNo: 3,
+        hashtagEvent: 'Dance Floor Table',
         source: 'https://previews.123rf.com/images/ismagilov/ismagilov1610/ismagilov161002758/64776284-side-view-of-bar-interior-with-windows-stools-and-square-tables-vertical-poster-on-white-brick-wall-.jpg',
         time: 'TODAY,JUL 14 • 7 PM',
         heading: 'Dance Floor Table @ Omnia',
@@ -233,9 +310,15 @@ export default DATA = [
         reviews: '5',
         latitude: 36.116442,
         longitude: -115.175079,
+        personalBudget: '$1000',
+        finalBudget: '$800',
+        refund: '$200',
         min: 4,
         max: 40,
         settlement: false,
+        eventDate: 'August 10, 2018',
+        leaveEventBy: 'July 30, 2018',
+        totalCost: '$46',
         thumbnail: 'https://x.kinja-static.com/assets/images/logos/placeholders/default.png',
         reviewDATA: [
             {
@@ -306,9 +389,41 @@ export default DATA = [
             { pic: Images.person2 },
             { pic: Images.person3 },
         ],
+        priceDetailsData: [
+            {
+                serialNumber: 1,
+                iconUri: require('./Assets/Images/icTable.png'),
+                title: 'Table',
+                amount: '$100',
+            },
+            {
+                serialNumber: 2,
+                iconUri: require('./Assets/Images/icFood.png'),
+                title: 'Food',
+                amount: '$550',
+            },
+            {
+                serialNumber: 3,
+                iconUri: require('./Assets/Images/icDrinks.png'),
+                title: 'Drinks',
+                amount: '$100',
+            },
+            {
+                serialNumber: 4,
+                iconUri: require('./Assets/Images/icMiscellaneous.png'),
+                title: 'Miscellaneous',
+                amount: '$50',
+            },
+        ],
+        costBreakdownData: [
+            { serialNo: 1, typeOfCost: 'Per Person Cost', amount: '$20', personCount: 'x2', totalAmount: '$40' },
+            { serialNo: 2, typeOfCost: 'Payment Gateway Fee', amount: '$2', personCount: 'x2', totalAmount: '$4' },
+            { serialNo: 3, typeOfCost: 'GroupSetGo Fee', amount: '$1', personCount: 'x2', totalAmount: '$2' },
+        ]
     },
     {
         serialNo: 4,
+        hashtagEvent: 'Dance Floor Table',
         source: 'http://www.marvelbuilding.com/wp-content/uploads/2011/12/Modern-Restaurant-with-White-and-Soft-Organic-Interior-600x399.jpg',
         time: 'SAT,JUL 19 • 3 PM',
         heading: 'Tea Time Party @ Resolutions',
@@ -335,9 +450,15 @@ export default DATA = [
         reviews: '5',
         latitude: 36.116442,
         longitude: -115.175079,
+        personalBudget: '$1000',
+        finalBudget: '$800',
+        refund: '$200',
         min: 4,
         max: 40,
         settlement: false,
+        eventDate: 'August 10, 2018',
+        leaveEventBy: 'July 30, 2018',
+        totalCost: '$46',
         thumbnail: 'https://x.kinja-static.com/assets/images/logos/placeholders/default.png',
         reviewDATA: [
             {
@@ -408,9 +529,41 @@ export default DATA = [
             { pic: Images.person2 },
             { pic: Images.person3 },
         ],
+        priceDetailsData: [
+            {
+                serialNumber: 1,
+                iconUri: require('./Assets/Images/icTable.png'),
+                title: 'Table',
+                amount: '$100',
+            },
+            {
+                serialNumber: 2,
+                iconUri: require('./Assets/Images/icFood.png'),
+                title: 'Food',
+                amount: '$550',
+            },
+            {
+                serialNumber: 3,
+                iconUri: require('./Assets/Images/icDrinks.png'),
+                title: 'Drinks',
+                amount: '$100',
+            },
+            {
+                serialNumber: 4,
+                iconUri: require('./Assets/Images/icMiscellaneous.png'),
+                title: 'Miscellaneous',
+                amount: '$50',
+            },
+        ],
+        costBreakdownData: [
+            { serialNo: 1, typeOfCost: 'Per Person Cost', amount: '$20', personCount: 'x2', totalAmount: '$40' },
+            { serialNo: 2, typeOfCost: 'Payment Gateway Fee', amount: '$2', personCount: 'x2', totalAmount: '$4' },
+            { serialNo: 3, typeOfCost: 'GroupSetGo Fee', amount: '$1', personCount: 'x2', totalAmount: '$2' },
+        ]
     },
     {
         serialNo: 5,
+        hashtagEvent: 'Dance Floor Table',
         source: 'https://previews.123rf.com/images/deniskrivoy/deniskrivoy1801/deniskrivoy180100166/94442883-cartoon-mountains-landscape-with-travel-car.jpg',
         time: 'MON,JUL 16 • 7 AM',
         heading: 'Backpacking & Hiking at the Mountains',
@@ -437,9 +590,15 @@ export default DATA = [
         reviews: '5',
         latitude: 36.116442,
         longitude: -115.175079,
+        personalBudget: '$1000',
+        finalBudget: '$800',
+        refund: '$200',
         min: 4,
         max: 40,
         settlement: false,
+        eventDate: 'August 10, 2018',
+        leaveEventBy: 'July 30, 2018',
+        totalCost: '$46',
         thumbnail: 'https://x.kinja-static.com/assets/images/logos/placeholders/default.png',
         reviewDATA: [
             {
@@ -510,9 +669,41 @@ export default DATA = [
             { pic: Images.person2 },
             { pic: Images.person3 },
         ],
+        priceDetailsData: [
+            {
+                serialNumber: 1,
+                iconUri: require('./Assets/Images/icTable.png'),
+                title: 'Table',
+                amount: '$100',
+            },
+            {
+                serialNumber: 2,
+                iconUri: require('./Assets/Images/icFood.png'),
+                title: 'Food',
+                amount: '$550',
+            },
+            {
+                serialNumber: 3,
+                iconUri: require('./Assets/Images/icDrinks.png'),
+                title: 'Drinks',
+                amount: '$100',
+            },
+            {
+                serialNumber: 4,
+                iconUri: require('./Assets/Images/icMiscellaneous.png'),
+                title: 'Miscellaneous',
+                amount: '$50',
+            },
+        ],
+        costBreakdownData: [
+            { serialNo: 1, typeOfCost: 'Per Person Cost', amount: '$20', personCount: 'x2', totalAmount: '$40' },
+            { serialNo: 2, typeOfCost: 'Payment Gateway Fee', amount: '$2', personCount: 'x2', totalAmount: '$4' },
+            { serialNo: 3, typeOfCost: 'GroupSetGo Fee', amount: '$1', personCount: 'x2', totalAmount: '$2' },
+        ]
     },
     {
         serialNo: 6,
+        hashtagEvent: 'Dance Floor Table',
         source: 'https://static.nsw.gov.au/Uploads/images/_resampled/ScaleWidthWyIxMDI0Il0/1540359228/music-festival.jpg',
         time: 'WED, Jul 18 • 7 pm ',
         heading: 'Chicago Music Festival',
@@ -539,9 +730,15 @@ export default DATA = [
         reviews: '5',
         latitude: 36.116442,
         longitude: -115.175079,
+        personalBudget: '$1000',
+        finalBudget: '$800',
+        refund: '$200',
         min: 4,
         max: 40,
         settlement: false,
+        eventDate: 'August 10, 2018',
+        leaveEventBy: 'July 30, 2018',
+        totalCost: '$46',
         thumbnail: 'https://x.kinja-static.com/assets/images/logos/placeholders/default.png',
         reviewDATA: [
             {
@@ -612,9 +809,41 @@ export default DATA = [
             { pic: Images.person2 },
             { pic: Images.person3 },
         ],
+        priceDetailsData: [
+            {
+                serialNumber: 1,
+                iconUri: require('./Assets/Images/icTable.png'),
+                title: 'Table',
+                amount: '$100',
+            },
+            {
+                serialNumber: 2,
+                iconUri: require('./Assets/Images/icFood.png'),
+                title: 'Food',
+                amount: '$550',
+            },
+            {
+                serialNumber: 3,
+                iconUri: require('./Assets/Images/icDrinks.png'),
+                title: 'Drinks',
+                amount: '$100',
+            },
+            {
+                serialNumber: 4,
+                iconUri: require('./Assets/Images/icMiscellaneous.png'),
+                title: 'Miscellaneous',
+                amount: '$50',
+            },
+        ],
+        costBreakdownData: [
+            { serialNo: 1, typeOfCost: 'Per Person Cost', amount: '$20', personCount: 'x2', totalAmount: '$40' },
+            { serialNo: 2, typeOfCost: 'Payment Gateway Fee', amount: '$2', personCount: 'x2', totalAmount: '$4' },
+            { serialNo: 3, typeOfCost: 'GroupSetGo Fee', amount: '$1', personCount: 'x2', totalAmount: '$2' },
+        ]
     },
     {
         serialNo: 7,
+        hashtagEvent: 'Dance Floor Table',
         source: 'https://cdn1.vectorstock.com/i/1000x1000/72/30/travel-mountains-vector-23297230.jpg',
         time: 'MON,JUL 16 • 7 AM',
         heading: 'Backpacking & Hiking at the Mountains',
@@ -641,9 +870,15 @@ export default DATA = [
         reviews: '5',
         latitude: 36.116442,
         longitude: -115.175079,
+        personalBudget: '$1000',
+        finalBudget: '$800',
+        refund: '$200',
         min: 4,
         max: 40,
         settlement: false,
+        eventDate: 'August 10, 2018',
+        leaveEventBy: 'July 30, 2018',
+        totalCost: '$46',
         thumbnail: 'https://x.kinja-static.com/assets/images/logos/placeholders/default.png',
         reviewDATA: [
             {
@@ -714,9 +949,44 @@ export default DATA = [
             { pic: Images.person2 },
             { pic: Images.person3 },
         ],
+        priceDetailsData: [
+            {
+                serialNumber: 1,
+                iconUri: require('./Assets/Images/icTable.png'),
+                title: 'Table',
+                amount: '$100',
+            },
+            {
+                serialNumber: 2,
+                iconUri: require('./Assets/Images/icFood.png'),
+                title: 'Food',
+                amount: '$550',
+            },
+            {
+                serialNumber: 3,
+                iconUri: require('./Assets/Images/icDrinks.png'),
+                title: 'Drinks',
+                amount: '$100',
+            },
+            {
+                serialNumber: 4,
+                iconUri: require('./Assets/Images/icMiscellaneous.png'),
+                title: 'Miscellaneous',
+                amount: '$50',
+            },
+        ],
+        costBreakdownData: [
+            { serialNo: 1, typeOfCost: 'Per Person Cost', amount: '$20', personCount: 'x2', totalAmount: '$40' },
+            { serialNo: 2, typeOfCost: 'Payment Gateway Fee', amount: '$2', personCount: 'x2', totalAmount: '$4' },
+            { serialNo: 3, typeOfCost: 'GroupSetGo Fee', amount: '$1', personCount: 'x2', totalAmount: '$2' },
+        ]
     },
     {
         serialNo: 8,
+        hashtagEvent: 'Dance Floor Table',
+        eventDate: 'August 10, 2018',
+        leaveEventBy: 'July 30, 2018',
+        totalCost: '$46',
         source: 'https://image.jimcdn.com/app/cms/image/transf/dimension=1190x10000:format=jpg/path/sa6549607c78f5c11/image/i82f8384a1348ab84/version/1554202007/tomorrowland-best-summer-music-festivals-europe.jpg',
         time: 'WED, Jul 18 • 7 pm ',
         heading: 'Chicago Music Festival',
@@ -743,6 +1013,9 @@ export default DATA = [
         reviews: '5',
         latitude: 36.116442,
         longitude: -115.175079,
+        personalBudget: '$1000',
+        finalBudget: '$800',
+        refund: '$200',
         min: 4,
         max: 40,
         settlement: false,
@@ -816,5 +1089,36 @@ export default DATA = [
             { pic: Images.person2 },
             { pic: Images.person3 },
         ],
+        priceDetailsData: [
+            {
+                serialNumber: 1,
+                iconUri: require('./Assets/Images/icTable.png'),
+                title: 'Table',
+                amount: '$100',
+            },
+            {
+                serialNumber: 2,
+                iconUri: require('./Assets/Images/icFood.png'),
+                title: 'Food',
+                amount: '$550',
+            },
+            {
+                serialNumber: 3,
+                iconUri: require('./Assets/Images/icDrinks.png'),
+                title: 'Drinks',
+                amount: '$100',
+            },
+            {
+                serialNumber: 4,
+                iconUri: require('./Assets/Images/icMiscellaneous.png'),
+                title: 'Miscellaneous',
+                amount: '$50',
+            },
+        ],
+        costBreakdownData: [
+            { serialNo: 1, typeOfCost: 'Per Person Cost', amount: '$20', personCount: 'x2', totalAmount: '$40' },
+            { serialNo: 2, typeOfCost: 'Payment Gateway Fee', amount: '$2', personCount: 'x2', totalAmount: '$4' },
+            { serialNo: 3, typeOfCost: 'GroupSetGo Fee', amount: '$1', personCount: 'x2', totalAmount: '$2' },
+        ]
     }
 ]

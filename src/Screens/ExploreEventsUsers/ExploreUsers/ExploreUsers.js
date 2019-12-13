@@ -36,7 +36,7 @@ export default class ExploreEvents extends PureComponent {
         return (
             <View style={styles.containerStyle}>
                 <View style={styles.textinputViewStyle}>
-                    <Icon name="ios-search" size={vw(15)} color={Colors.gray} />
+                    <VectorIcons.Ionicons name="ios-search" size={vw(15)} color={Colors.gray} />
                     <TextInput
                         value={this.state.searchKeyword}
                         onChangeText={text => this.setState({ searchKeyword: text })}
@@ -45,7 +45,7 @@ export default class ExploreEvents extends PureComponent {
                     />
                 </View>
                 <TouchableOpacity onPress={this.locationPinTapped} style={styles.searchLocationViewStyle}>
-                    <Icon name="ios-pin" size={17} color={Colors.black} />
+                    <VectorIcons.Ionicons name="ios-pin" size={17} color={Colors.black} />
                     <Text style={styles.locationTextStyle}>Anywhere</Text>
                 </TouchableOpacity>
                 <Text style={styles.recentHeadingStyle}>{strings.recentSearches}</Text>

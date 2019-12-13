@@ -18,7 +18,7 @@ const strings = {
     totalBudget: 'Total Budget',
     finalBudget: 'Final Budget',
     amountRefunded: 'Amount Refunded',
-    raiseIncedent: 'RAISE INCEDENT',
+    raiseIncedent: 'RAISE INCIDENT',
     rateReview: 'RATE & REVIEW',
     eventDate: 'Event Date',
     lastDateToLeave: 'Last Date to Leave Event',
@@ -97,7 +97,7 @@ const strings = {
     doYouWantAccompany: 'Do you want to accompany with someone?',
     howManyGuests :'How many guests you are inviting?',
     youCanBring: 'You can bring upto 4 guests.',
-    LeaveEvent: 'Are you sure you want to leave this event?',
+    LeaveEvent: 'Are you sure you want to LEAVE the event? May not receive any Refund of Payments made',
     Name: "Please enter a valid name!",
     Email: 'Please enter valid email!',
     passwordMatch: "Please enter valid matching passwords!",
@@ -105,6 +105,8 @@ const strings = {
     responseEmail: 'Please check your email to reset password!',
     RaiseIncedent: 'Are you sure you want to raise a report regading this event?',
     UnderWork: "This is under construction at the moment!",
+    review: 'Review',
+    confirm: 'CONFIRM',
 }
 
 export default strings;

@@ -41,7 +41,7 @@ import RaiseIncident from './Screens/ExploreHome/ExploreHomeEventScreen/TabScree
 import RaiseReport from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/Settlement/RaiseIncident/RaiseReport'
 import Check from './Screens/Check';
 
-console.disableYellowBox = true
+// console.disableYellowBox = true
 
 const Explore = createStackNavigator({ Explore: ExploreHomeScreen, Map: ExploreMapScreen },
   { defaultNavigationOptions: { header: null } });
@@ -166,7 +166,7 @@ const MainStack = createStackNavigator(
     Check: Check,
   },
   {
-    initialRouteName: 'SplashScreen',
+    initialRouteName: 'HomeNavigator',
     defaultNavigationOptions: ({ navigation }) => ({
       headerBackTitle: null,
       header: null,

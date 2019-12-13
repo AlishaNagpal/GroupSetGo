@@ -64,7 +64,7 @@ class HomeDetails6 extends Component {
                 this.props.eventDATA()
             }, 30000)
         } else if (value === true && index != -1) {
-            this.props.navigation.navigate({ routeName: "AddGuests", key: "2" })
+            this.props.navigation.navigate('AddGuests',{id:this.props.navigation.getParam('id').id } )
             setTimeout(() => {
                 this.props.Event_Data[index].joined = value
                 this.props.eventDATA()
@@ -79,10 +79,10 @@ class HomeDetails6 extends Component {
                 activeOpacity={1} >
                 <VectorIcons.Ionicons
                     name={this.state.data.joined ? "ios-remove-circle-outline" : "ios-add-circle-outline"}
-                    color={Colors.green}
+                    color={this.state.data.joined? Colors.fadedRed : Colors.green}
                     size={vh(26)}
                 />
-                <Text style={styles.saveText}>{this.state.data.joined ? strings.going : strings.join}</Text>
+                <Text style={[styles.saveText, {color: this.state.data.joined? Colors.fadedRed : Colors.green} ]}>{this.state.data.joined ? strings.going : strings.join}</Text>
             </TouchableOpacity>
         )
     }
@@ -125,7 +125,6 @@ class HomeDetails6 extends Component {
                     <View>
                         <ProgressiveImage
                             thumbnailSource={{ uri: data.thumbnail }}
-                            // resizeMode="cover"
                             source={{ uri: data.source }}
                             style={styles.pic}
                         />

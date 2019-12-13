@@ -1,28 +1,50 @@
-import React, {Component} from 'react';
-import {Text, View, Image} from 'react-native';
-
-/**
- * custom imports
- */
+import React, { Component } from 'react';
+import { Text, View, Image, FlatList } from 'react-native';
 import styles from './styles';
 import strings from '../../../../../Constants/Strings';
-import {vh, vw, DesignWidth, Colors} from '../../../../../Constants';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { connect } from 'react-redux'
+import { eventDATA } from '../../../../../Store/Action/Action'
+import LinearGradient from 'react-native-linear-gradient'
+import { Colors} from '../../../../../Constants'
 
-export default class Settlement extends Component {
-  renderPriceDetailsList() {
-    return priceDetailsData.map(data => {
-      return (
-        <View style={styles.listRowStyle}>
-          <Image source={data.iconUri} style={styles.listIconStyle} />
-          <Text style={styles.titleStyle}>{data.title}</Text>
-          <Text style={styles.amountStyle}>{data.amount}</Text>
-        </View>
-      );
-    });
+const colors = [Colors.fadedRed, Colors.darkishPink]
+
+class Settlement extends Component {
+
+  state = {
+    data: ''
+  }
+
+  componentDidMount() {
+    this.getData(this.props.screenProps.id);
+  }
+
+  getData = (id) => {
+    let temp = this.props.Event_Data
+    let indexToEdit = temp.findIndex(item => item.serialNo == id)
+    let newData = temp[indexToEdit]
+    if (indexToEdit != -1) {
+      this.setState({
+        data: newData
+      })
+    }
+  }
+
+
+  renderPriceDetailsList = (rowData) => {
+    const { item } = rowData
+    return (
+      <View style={styles.listRowStyle}>
+        <Image source={item.iconUri} style={styles.listIconStyle} />
+        <Text style={styles.titleStyle}>{item.title}</Text>
+        <Text style={styles.amountStyle}>{item.amount}</Text>
+      </View>
+    );
   }
 
   render() {
+    const { data } = this.state
     return (
       <View style={styles.containerStyle}>
         <Text style={styles.priceDetailsHeadingStyle}>
@@ -32,133 +54,64 @@ export default class Settlement extends Component {
           <Text style={styles.totalBudgetHeadingStyle}>
             {strings.totalBudget}
           </Text>
-          <TouchableOpacity activeOpacity = {0.5}>
-            <Text style={styles.amountTextStyle}>$1000</Text>
+          <TouchableOpacity activeOpacity={0.5}>
+            <Text style={styles.amountTextStyle}> {data.personalBudget} </Text>
           </TouchableOpacity>
         </View>
         <View style={styles.priceDetailsViewStyle}>
-          {this.renderPriceDetailsList()}
-          <View
-            style={{
-              paddingTop: vh(19.3),
-              paddingHorizontal: vw(13.3),
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              width: vw(DesignWidth),
-            }}>
-            <Text
-              style={{
-                fontSize: vw(15.3),
-                fontFamily: 'SourceSansPro-Semibold',
-                color: Colors.darkGray,
-                textAlign: 'left',
-              }}>
+          <FlatList
+            data={data.priceDetailsData}
+            keyExtractor={(item, index) => index.toString()}
+            renderItem={this.renderPriceDetailsList}
+            scrollEnabled={false}
+          />
+          <View style={styles.finalBudgetView}>
+            <Text style={styles.finalBudgetText}>
               {strings.finalBudget}
             </Text>
-            <Text
-              style={{
-                fontSize: vw(15.3),
-                fontFamily: 'SourceSansPro-Semibold',
-                color: Colors.darkGray,
-                textAlign: 'right',
-              }}>
-              $800
-            </Text>
+            <Text style={styles.finalBudgetValue}> {data.finalBudget} </Text>
           </View>
-          <View
-            style={{
-              paddingTop: vh(19.3),
-              paddingHorizontal: vw(13.3),
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              width: vw(DesignWidth),
-            }}>
-            <Text
-              style={{
-                fontSize: vw(15.3),
-                fontFamily: 'SourceSansPro-Semibold',
-                color: Colors.darkGray,
-                textAlign: 'left',
-              }}>
+          <View style={styles.amountView}>
+            <Text style={styles.amountText}>
               {strings.amountRefunded}
             </Text>
-            <Text
-              style={{
-                fontSize: vw(15.3),
-                fontFamily: 'SourceSansPro-Semibold',
-                color: Colors.darkGray,
-                textAlign: 'right',
-              }}>
-              $200
-            </Text>
+            <Text style={styles.refundStyle}>{data.refund} </Text>
           </View>
         </View>
-        <View
-          style={{flexDirection: 'row', height: vh(60), marginBottom: vh(25)}}>
+        <View style={styles.raiseIncident}>
           <TouchableOpacity
-            style={{width: vw(DesignWidth / 2), alignItems: 'center'}}
-            onPress={()=> this.props.navigation.navigate('RaiseIncident')}
-            >
-            <Text
-              style={{
-                marginVertical: vh(22),
-                color: Colors.fadedRed,
-                fontFamily: 'SourceSansPro-Semibold',
-                fontSize: vw(16.7),
-              }}>
-              {strings.raiseIncedent}
-            </Text>
+            style={styles.raiseIncidentButton}
+            onPress={() => this.props.navigation.navigate('RaiseIncident')}
+          >
+            <Text style={styles.raiseIncidentText}> {strings.raiseIncedent} </Text>
           </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => {
-              this.props.navigation.navigate('Review');
-            }}
-            style={{
-              width: vw(DesignWidth / 2),
-              alignItems: 'center',
-              backgroundColor: Colors.fadedRed,
-            }}>
-            <Text
-              style={{
-                marginVertical: vh(22),
-                color: Colors.white,
-                fontFamily: 'SourceSansPro-Semibold',
-                fontSize: vw(16.7),
-              }}>
-              {strings.rateReview}
-            </Text>
-          </TouchableOpacity>
+          <LinearGradient colors={colors} start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }}  >
+            <TouchableOpacity
+              onPress={() => { this.props.navigation.navigate('Review')}}
+              style={styles.rateReviewButton}>
+              <Text style={styles.rateReviewText}> {strings.rateReview} </Text>
+            </TouchableOpacity>
+          </LinearGradient>
         </View>
       </View>
     );
   }
 }
 
-const priceDetailsData = [
-  {
-    serialNumber: 1,
-    iconUri: require('../../../../../Assets/Images/icTable.png'),
-    title: 'Table',
-    amount: '$100',
-  },
-  {
-    serialNumber: 2,
-    iconUri: require('../../../../../Assets/Images/icFood.png'),
-    title: 'Food',
-    amount: '$550',
-  },
-  {
-    serialNumber: 3,
-    iconUri: require('../../../../../Assets/Images/icDrinks.png'),
-    title: 'Drinks',
-    amount: '$100',
-  },
-  {
-    serialNumber: 4,
-    iconUri: require('../../../../../Assets/Images/icMiscellaneous.png'),
-    title: 'Miscellaneous',
-    amount: '$50',
-  },
-];
+function mapDispatchToProps(dispatch) {
+  return {
+    eventDATA: () => dispatch(eventDATA())
+  }
+}
+
+function mapStateToProps(state) {
+  const { Event_Data } = state.Reducer;
+  return {
+    Event_Data
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Settlement);

@@ -18,7 +18,7 @@ const url = Platform.select({
 });
 class About extends Component {
   state = {
-    data: this.props.Event_Data,
+    data: '',
     height: this.props.aboutHeight
   }
 
@@ -30,7 +30,7 @@ class About extends Component {
   }
 
   getData = (id) => {
-    let temp = this.state.data
+    let temp = this.props.Event_Data
     let indexToEdit = temp.findIndex(item => item.serialNo == id)
     let newData = temp[indexToEdit]
     if (indexToEdit != -1) {
@@ -42,7 +42,6 @@ class About extends Component {
 
   calculateDimensions = () => {
     this.refs.innerView.measureLayout(findNodeHandle(this.refs.containerView), (xPos, yPos, Width, Height) => {
-      console.warn('height ', Height)
       this.setState({ height: Height });
       this.props.aboutHeightCalculate(Height)
     });
@@ -143,7 +142,6 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
   const { Event_Data, aboutHeight } = state.Reducer;
-  console.log("Alisha",aboutHeight)
   return {
     Event_Data,
     aboutHeight

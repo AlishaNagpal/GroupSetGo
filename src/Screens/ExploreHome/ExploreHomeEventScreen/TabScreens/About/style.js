@@ -3,7 +3,8 @@ import { vh, vw, Colors, DesignWidth } from '../../../../../Constants'
 
 export default styles = StyleSheet.create({
     mainContainer: {
-         flex: 1,
+        flex: 1,
+        // height: 300
     },
     detailView: {
         flexDirection: 'column',
@@ -90,20 +91,20 @@ export default styles = StyleSheet.create({
         marginLeft: vw(13.3),
         alignSelf: 'flex-start',
     },
-    headerStyle:{
+    headerStyle: {
         marginTop: vh(40),
-        flexDirection:'row',
-        alignItems:'center',
+        flexDirection: 'row',
+        alignItems: 'center',
     },
-    headerReview:{
-        marginLeft:vw(10),
+    headerReview: {
+        marginLeft: vw(10),
         color: Colors.white,
         fontSize: vh(20),
         fontFamily: 'SourceSansPro-Semibold'
     },
-    reviewFLMainView:{
+    reviewFLMainView: {
         marginTop: vh(13.8),
-        backgroundColor:Colors.white,
+        backgroundColor: Colors.white,
         marginBottom: vh(17),
         marginLeft: vw(10)
     },
@@ -156,10 +157,10 @@ export default styles = StyleSheet.create({
         paddingLeft: vw(1.7),
         paddingRight: vw(27),
     },
-    reviewView: { 
+    reviewView: {
         paddingTop: vw(9.9)
     },
-    seperator:{
+    seperator: {
         width: vw(DesignWidth),
         height: vh(1),
         backgroundColor: Colors.lightGray

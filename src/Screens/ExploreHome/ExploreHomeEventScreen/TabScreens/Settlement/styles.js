@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native'
+import { StyleSheet } from 'react-native'
 import { vh, vw, Colors, DesignWidth } from '../../../../../Constants';
 
 
@@ -15,8 +15,8 @@ const styles = StyleSheet.create({
     },
     budgetViewStyle: {
         flexDirection: 'row',
-        justifyContent:'space-between',
-        alignItems:'center',
+        justifyContent: 'space-between',
+        alignItems: 'center',
         marginBottom: vh(23.7),
         marginHorizontal: vw(13.3)
     },
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     },
     amountStyle: {
         marginLeft: vw(208.3),
-        fontFamily:'SourceSansPro-Semibold',
+        fontFamily: 'SourceSansPro-Semibold',
         fontSize: vw(15.3),
         width: vw(35.7),
         color: Colors.darkGray,
@@ -68,9 +68,76 @@ const styles = StyleSheet.create({
         height: vh(280),
         width: vw(DesignWidth),
         borderTopWidth: (0.25),
-        borderBottomWidth: (0.25),
-        borderColor: Colors.shadowColor
-
+        borderColor: Colors.shadowColor,
+    },
+    finalBudgetView: {
+        paddingTop: vh(19.3),
+        paddingHorizontal: vw(13.3),
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        width: vw(DesignWidth),
+    },
+    finalBudgetText: {
+        fontSize: vw(15.3),
+        fontFamily: 'SourceSansPro-Semibold',
+        color: Colors.darkGray,
+        textAlign: 'left',
+    },
+    finalBudgetValue: {
+        fontSize: vw(15.3),
+        fontFamily: 'SourceSansPro-Semibold',
+        color: Colors.darkGray,
+        textAlign: 'right',
+    },
+    amountView: {
+        paddingTop: vh(19.3),
+        paddingHorizontal: vw(13.3),
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        width: vw(DesignWidth),
+    },
+    amountText: {
+        fontSize: vw(15.3),
+        fontFamily: 'SourceSansPro-Semibold',
+        color: Colors.darkGray,
+        textAlign: 'left',
+    },
+    refundStyle: {
+        fontSize: vw(15.3),
+        fontFamily: 'SourceSansPro-Semibold',
+        color: Colors.darkGray,
+        textAlign: 'right',
+    },
+    raiseIncident: {
+        flexDirection: 'row',
+        height: vh(60),
+        marginBottom: vh(25),
+        marginTop: vh(10)
+    },
+    raiseIncidentButton: {
+        width: vw(DesignWidth / 2),
+        alignItems: 'center',
+        borderWidth: vw(0.3),
+        borderColor: Colors.verLightGrey
+    },
+    raiseIncidentText: {
+        marginVertical: vh(20),
+        color: Colors.fadedRed,
+        fontFamily: 'SourceSansPro-Semibold',
+        fontSize: vw(16.7),
+    },
+    rateReviewButton: {
+        width: vw(DesignWidth / 2),
+        alignItems: 'center',
+        // backgroundColor: Colors.fadedRed,
+    },
+    rateReviewText: {
+        marginVertical: vh(20),
+        color: Colors.white,
+        fontFamily: 'SourceSansPro-Semibold',
+        fontSize: vw(16.7),
     }
 });
 
