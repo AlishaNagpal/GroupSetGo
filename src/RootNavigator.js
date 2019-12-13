@@ -155,8 +155,10 @@ const MainStack = createStackNavigator(
     },
     Settlement: {
       screen: Settlement
-
     },
+    // AddGuests: {
+    //   screen: AddGuests
+    // },
     ReviewFlatList: {
       screen: ReviewFlatList
     },

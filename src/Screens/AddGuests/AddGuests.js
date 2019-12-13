@@ -18,6 +18,7 @@ import { TextInput, ScrollView } from 'react-native-gesture-handler';
 import RadioButton from '../../ReusableComponents/RadioButton';
 import CustomSwitch from '../../ReusableComponents/CustomSwitch/CustomSwitch';
 
+import TextField from '../../ReusableComponents/customInput/TextField'
 const colors = [Colors.fadedRed, Colors.darkishPink];
 
 export default class AddGuests extends PureComponent {
@@ -29,6 +30,11 @@ export default class AddGuests extends PureComponent {
     switchPosition: new Animated.ValueXY({ x: vw(0), y: vh(0) }),
     scrollViewHeight: vh(DesignHeight)
   };
+
+  componentDidMount(){
+    console.log(this.props.navigation.getParam('id'));
+    
+  }
 
   clicked(check, id) {
     if (id === 1) {
@@ -55,7 +61,7 @@ export default class AddGuests extends PureComponent {
       this.state.guestsData.splice(index, 1);
     this.setState({
       guestsData: [...this.state.guestsData]
-    }, () => { this.setState({ scrollViewHeight: this.state.scrollViewHeight - vh(230) }) })
+    }, () => { this.setState({ scrollViewHeight: this.state.scrollViewHeight - vh(300) }) })
   }
 
   // reAssignScrollViewHeight = () => {
@@ -133,6 +139,7 @@ export default class AddGuests extends PureComponent {
         <ScrollView
           scrollEnabled={this.state.guestsData.length > 1}
           showsVerticalScrollIndicator={false}
+          bounces = {false}
           contentContainerStyle={{ height: this.state.scrollViewHeight, backgroundColor: Colors.whitishGray }}
         >
           <View style={styles.containerStyle}>
@@ -187,7 +194,7 @@ export default class AddGuests extends PureComponent {
                       ...this.state.guestsData,
                       { no: this.state.guestsData.length + 1 },
                     ],
-                  }, () => { this.setState({ scrollViewHeight: this.state.scrollViewHeight + vh(230) }) })
+                  }, () => { this.setState({ scrollViewHeight: this.state.scrollViewHeight + vh(300) }) })
                   : console.warn('guests limit reached');
               }
             }}

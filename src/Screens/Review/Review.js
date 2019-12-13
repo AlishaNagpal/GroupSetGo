@@ -76,12 +76,16 @@ class Review extends PureComponent {
                         <Text style={styles.eventDetailsCommonStyle}>{this.state.data.totalCost}</Text>
                     </View>
                     <View style={styles.terms}>
-                        <VectorIcons.MaterialCommunityIcons name={this.state.acceptedTerms ? 'checkbox-marked-outline' : 'checkbox-blank-outline'} color={Colors.fadedGray2} size={vw(13.3)} onPress={() => { this.setState({ acceptedTerms: !this.state.acceptedTerms }) }} />
+                        <VectorIcons.MaterialCommunityIcons
+                            name={this.state.acceptedTerms ? 'checkbox-marked-outline' : 'checkbox-blank-outline'}
+                            color={this.state.acceptedTerms ? Colors.fadedRed : Colors.fadedGray2}
+                            size={vw(20)}
+                            onPress={() => { this.setState({ acceptedTerms: !this.state.acceptedTerms }) }} />
                         <Text style={styles.termsText}>{strings.agreeToTerms}</Text>
                     </View>
                 </View>
                 <LinearGradient colors={colors} start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} style={styles.loginButtonGradientStyle} >
-                    <TouchableOpacity style={styles.loginButtonStyle} onPress={() => { this.props.navigation.pop(2) }} >
+                    <TouchableOpacity style={styles.loginButtonStyle} onPress={() => { this.props.navigation.popToTop() }} >
                         <Text style={styles.loginButtonTitleStyle}> {strings.confirm} </Text>
                     </TouchableOpacity>
                 </LinearGradient>

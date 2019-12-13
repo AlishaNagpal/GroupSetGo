@@ -75,8 +75,9 @@ class HomeDetails6 extends Component {
     goingJoin = () => {
         return (
             <TouchableOpacity style={styles.center}
-                onPress={() => { this.joined(this.state.id, !this.state.data.joined) }}
-                activeOpacity={1} >
+            // onpress of join tap
+            onPress = {()=>this.props.navigation.push('AddGuests')}
+              activeOpacity= {1} >
                 <VectorIcons.Ionicons
                     name={this.state.data.joined ? "ios-remove-circle-outline" : "ios-add-circle-outline"}
                     color={this.state.data.joined? Colors.fadedRed : Colors.green}
