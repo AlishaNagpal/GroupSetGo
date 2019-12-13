@@ -4,9 +4,9 @@ import MapView, { Marker, PROVIDER_GOOGLE, Callout } from 'react-native-maps';
 
 //custom imports
 import styles from './style'
-import { Colors, vh, strings } from '../../../../../Constants'
+import {vh, strings } from '../../../../../Constants'
 import { connect } from 'react-redux'
-import { eventDATA } from '../../../../../Store/Action/Action'
+import { eventDATA, aboutHeightCalculate } from '../../../../../Store/Action/Action'
 
 
 const scheme = Platform.select({ ios: 'maps:0,0?q=', android: 'geo:0,0?q=' });
@@ -19,7 +19,7 @@ const url = Platform.select({
 class About extends Component {
   state = {
     data: this.props.Event_Data,
-    height: null
+    height: this.props.aboutHeight
   }
 
   componentDidMount() {
@@ -44,6 +44,7 @@ class About extends Component {
     this.refs.innerView.measureLayout(findNodeHandle(this.refs.containerView), (xPos, yPos, Width, Height) => {
       console.warn('height ', Height)
       this.setState({ height: Height });
+      this.props.aboutHeightCalculate(Height)
     });
   }
 
@@ -135,14 +136,17 @@ class About extends Component {
 
 function mapDispatchToProps(dispatch) {
   return {
-    eventDATA: () => dispatch(eventDATA())
+    eventDATA: () => dispatch(eventDATA()),
+    aboutHeightCalculate: (aboutHeight) => dispatch(aboutHeightCalculate(aboutHeight))
   }
 }
 
 function mapStateToProps(state) {
-  const { Event_Data } = state.Reducer;
+  const { Event_Data, aboutHeight } = state.Reducer;
+  console.log("Alisha",aboutHeight)
   return {
-    Event_Data
+    Event_Data,
+    aboutHeight
   }
 }
 

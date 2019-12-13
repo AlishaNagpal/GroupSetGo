@@ -14,3 +14,22 @@ export const eventDATA = () => {
         dispatch({ type: Actions.EVENT_DATA, payload: { data: emptyArray } });
     }
 }
+
+
+export const aboutHeightCalculate = (aboutHeight) => {
+    return (dispatch) => {
+        dispatch({ type: Actions.ABOUT_HEIGHT, payload: { aboutHeight: aboutHeight } })
+    }
+}
+
+export const participantsHeightCalculate = (participantsHeight) => {
+    return (dispatch) => {
+        dispatch({ type: Actions.PARTICIPANTS_HEIGHT, payload: { participantsHeight: participantsHeight } })
+    }
+}
+
+export const settlementHeightCalculate = (settlementHeight) => {
+    return (dispatch) => {
+        dispatch({ type: Actions.SETTLEMENT_HEIGHT, payload: { settlementHeight: settlementHeight } })
+    }
+}
