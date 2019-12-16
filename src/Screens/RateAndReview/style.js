@@ -58,5 +58,82 @@ export default styles = StyleSheet.create({
         marginTop: vh(30.3),
         fontFamily:'Poppins-Medium',
         fontSize: vh(16.7)
-    }
+    },
+    maleImage:{
+        height: vw(90),
+        width: vw(90),
+        borderRadius: vw(55),
+        marginTop: vh(13),
+    },
+    starView:{
+        marginTop: vh(18),
+        flexDirection:'row',
+        alignSelf:'center',
+    },
+    experienceView:{
+        marginTop: vh(24)
+    },
+    experienceText:{
+        fontFamily: 'SourceSansPro-Semibold',
+        fontSize: vh(16.7)
+    },
+    textInput:{
+        height: vh(130),
+        width: vw(380),
+        marginLeft: vw(13.7),
+        backgroundColor: Colors.veryVeryLightGray,
+        marginRight: vw(13.7),
+        marginTop: vh(13.7),
+        paddingLeft: vw(10),
+        paddingTop: vh(10),
+        paddingRight: vw(10)
+    },
+    buttonStyle:{
+        height: vw(66.7),
+        width: vw(66.7),
+        borderRadius: vw(34),
+        alignItems:'center',
+        justifyContent:'center',
+        marginTop: vh(100),
+        marginLeft: vw(320)
+    },
+    icon:{
+        marginTop: vh(5)
+    },
+    containerStyleModal: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'rgba(0,0,0,0.4)'
+    },
+    dialogboxStyle: {
+        width: vw(300),
+        height: vh(200),
+        backgroundColor: Colors.white,
+        borderRadius: vh(20),
+    },
+    alertTextStyle: {
+        color: Colors.black,
+        fontFamily: 'SourceSansPro-Regular',
+        fontSize: vw(16.7),
+        marginHorizontal: vw(40),
+        marginTop: vh(55.3),
+        textAlign: 'center'
+    },
+    buttonsViewStyle: {
+        marginTop: vh(42),
+        borderTopColor: Colors.veryVeryLightGray,
+        borderTopWidth: vw(1)
+    },
+    yesContinueButtonStyle: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRightColor: Colors.fadedGray2,
+        marginTop: vh(20)
+    },
+    yesContinueTextStyle: {
+        fontFamily: 'SourceSansPro-Semibold',
+        fontSize: vw(16.7),
+        color: Colors.fadedRed,
+    },
 });

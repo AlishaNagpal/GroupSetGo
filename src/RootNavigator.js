@@ -178,7 +178,7 @@ const MainStack = createStackNavigator(
     },
   },
   {
-    initialRouteName: 'RateAndReviewStep1',
+    initialRouteName: 'HomeNavigator',
     defaultNavigationOptions: ({ navigation }) => ({
       headerBackTitle: null,
       header: null,

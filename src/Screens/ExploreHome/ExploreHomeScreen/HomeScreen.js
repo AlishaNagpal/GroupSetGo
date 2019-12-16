@@ -142,6 +142,7 @@ class HomeScreen extends PureComponent {
           renderItem={this.renderData2}
           showsHorizontalScrollIndicator={false}
           numColumns={2}
+          style={styles.flatlisted}
         />
       </View>
     );

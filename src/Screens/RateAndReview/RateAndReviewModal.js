@@ -1,18 +1,25 @@
-import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import React, { PureComponent } from 'react'
+import { Text, View, TouchableOpacity } from 'react-native'
 
-export default class RateAndReviewModal extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
-  }
+/**
+ * custom imports
+ */
+import styles from './style'
+import strings from '../../Constants/Strings'
 
-  render() {
-    return (
-      <View>
-        <Text> RateAndReviewModal </Text>
-      </View>
-    );
-  }
+export default class RateAndReviewModal extends PureComponent {
+    render() {
+        return (
+            <TouchableOpacity activeOpacity = {1} onPress = {()=>this.props.navigation.goBack()} style={styles.containerStyleModal}>
+                <TouchableOpacity activeOpacity = {1} style = {styles.dialogboxStyle}>
+                    <Text style = {styles.alertTextStyle}>{strings.rate_review}</Text>
+                    <View style = {styles.buttonsViewStyle}>
+                        <TouchableOpacity onPress = {()=>this.props.navigation.navigate("HomeDetails6",{id: this.props.navigation.getParam('id')})} activeOpacity = {1} style = {styles.yesContinueButtonStyle}>
+                            <Text style = {styles.yesContinueTextStyle}> OK </Text>
+                        </TouchableOpacity>
+                    </View>
+                </TouchableOpacity>
+            </TouchableOpacity>
+        )
+    }
 }

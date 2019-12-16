@@ -115,7 +115,12 @@ const strings = {
     rateStep1: 'STEP 1/3',
     rateStep2: 'STEP 2/3',
     rateStep3: 'STEP 3/3',
-    rateHost: 'Do you want to rate your host?'
+    rateHost: 'Do you want to rate your host?',
+    tellUs: 'Tell us about your experience.',
+    pleaseTellUs: 'Please tell us about your experience',
+    joinAgain: 'Would you like to attend this event again?',
+    rateVenue: 'Do you want to rate the Venue?',
+    rate_review: 'Your rating & review has been posted successfully.',
 }
 
 export default strings;

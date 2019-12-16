@@ -87,7 +87,7 @@ class Settlement extends Component {
           </TouchableOpacity>
           <LinearGradient colors={colors} start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }}  >
             <TouchableOpacity
-              onPress={() => { this.props.navigation.navigate('RateAndReviewStep1')}}
+              onPress={() => { this.props.navigation.navigate('RateAndReviewStep1', {id: this.props.screenProps.id})}}
               style={styles.rateReviewButton}>
               <Text style={styles.rateReviewText}> {strings.rateReview} </Text>
             </TouchableOpacity>

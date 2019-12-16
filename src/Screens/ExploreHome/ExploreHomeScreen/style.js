@@ -81,10 +81,7 @@ export default styles = StyleSheet.create({
         backgroundColor: Colors.white,
         height: vw(180),
         width: vw(360),
-        // borderWidth: vw(0.2),
-        // borderColor: Colors.fadedGray,
         borderRadius: vh(10),
-        marginBottom: vh(25)
     },
     flatlistImage: {
         height: vh(166.7),
@@ -116,11 +113,11 @@ export default styles = StyleSheet.create({
         height: vh(85),
         width: vw(360),
         backgroundColor: Colors.white,
-        shadowOpacity: vw(1),
+        shadowOpacity: vw(0.5),
         shadowColor: Colors.fadedGray,
         borderBottomLeftRadius : vh(10),
         borderBottomRightRadius: vh(10),
-        elevation: 6
+        elevation: 6,
     },
     belowImage2: {
         height: vh(100),
@@ -277,5 +274,8 @@ export default styles = StyleSheet.create({
     runIcon:{
         height: vh(11.7),
         width: vw(12.3)
+    },
+    flatlisted:{
+        marginBottom: vh(35)
     }
 })
