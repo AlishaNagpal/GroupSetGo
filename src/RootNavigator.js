@@ -44,6 +44,9 @@ import RateAndReviewStep1 from './Screens/RateAndReview/RateAndReviewStep1'
 import RateAndReviewStep2 from './Screens/RateAndReview/RateAndReviewStep2'
 import RateAndReviewStep3 from './Screens/RateAndReview/RateAndReviewStep3'
 import RateAndReviewModal from './Screens/RateAndReview/RateAndReviewModal'
+import SortDialog from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/SortDialog/SortDialog';
+import Filter from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/filterPage/Filter';
+import InfoDialog from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/filterPage/InfoDialog';
 
 // console.disableYellowBox = true
 
@@ -240,8 +243,16 @@ const RootStack = createStackNavigator(
     },
     RateAndReviewModal: {
       screen: RateAndReviewModal
-    }
-
+    },
+    SortDialog: {
+      screen: SortDialog
+    },
+    Filter: {
+      screen: Filter
+    },
+    InfoDialog: {
+      screen: InfoDialog
+    },
   },
   {
     mode: 'modal',

@@ -5,7 +5,7 @@ import { Text, View, TouchableOpacity } from 'react-native'
  * custom imports
  */
 import styles from './styles'
-import strings from '../../Constants/Strings'
+import strings from '../../Constants/Strings' 
 
 export default class SkipLoginDialog extends PureComponent {
     render() {

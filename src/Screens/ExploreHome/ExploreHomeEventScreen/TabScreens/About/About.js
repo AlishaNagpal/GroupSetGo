@@ -4,7 +4,7 @@ import MapView, { Marker, PROVIDER_GOOGLE, Callout } from 'react-native-maps';
 
 //custom imports
 import styles from './style'
-import {vh, strings } from '../../../../../Constants'
+import { vh, strings } from '../../../../../Constants'
 import { connect } from 'react-redux'
 import { eventDATA, aboutHeightCalculate } from '../../../../../Store/Action/Action'
 

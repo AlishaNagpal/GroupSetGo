@@ -21,7 +21,7 @@ class HomeDetails6 extends Component {
         heightTab: null,
         tabNumber: 0,
         aboutTab: null,
-        participamntsTab: null, 
+        participamntsTab: null,
         toggle: false
     }
 
@@ -62,7 +62,7 @@ class HomeDetails6 extends Component {
                 this.props.eventDATA()
             }, 30000)
         } else if (value === true && index != -1) {
-            this.props.navigation.navigate('AddGuests',{id:this.props.navigation.getParam('id').id } )
+            this.props.navigation.navigate('AddGuests', { id: this.props.navigation.getParam('id').id })
             setTimeout(() => {
                 this.props.Event_Data[index].joined = value
                 this.props.eventDATA()
@@ -78,10 +78,10 @@ class HomeDetails6 extends Component {
                 activeOpacity={1} >
                 <VectorIcons.Ionicons
                     name={this.state.data.joined ? "ios-remove-circle-outline" : "ios-add-circle-outline"}
-                    color={this.state.data.joined? Colors.fadedRed : Colors.green}
+                    color={this.state.data.joined ? Colors.fadedRed : Colors.green}
                     size={vh(26)}
                 />
-                <Text style={[styles.saveText, {color: this.state.data.joined? Colors.fadedRed : Colors.green} ]}>{this.state.data.joined ? strings.going : strings.join}</Text>
+                <Text style={[styles.saveText, { color: this.state.data.joined ? Colors.fadedRed : Colors.green }]}>{this.state.data.joined ? strings.going : strings.join}</Text>
             </TouchableOpacity>
         )
     }
@@ -117,16 +117,16 @@ class HomeDetails6 extends Component {
     }
 
     calculateDimensions = () => {
-        setTimeout(() => {
-            this.refs.innerView.measureLayout(findNodeHandle(this.refs.containerView), (xPos, yPos, Width, Height) => {
-                this.setState({ heightTab: Height, tabNumber: 0, aboutTab: Height, toggle: false });
-                alert(this.state.aboutTab)
-            });
-        }, 600)
+        // setTimeout(() => {
+        //     this.refs.innerView.measureLayout(findNodeHandle(this.refs.containerView), (xPos, yPos, Width, Height) => {
+        //         this.setState({ heightTab: Height, tabNumber: 0, aboutTab: Height, toggle: false });
+        //         alert(this.state.aboutTab)
+        //     });
+        // }, 600)
 
         setTimeout(() => {
             this.refs.PARTICIPANTS.measureLayout(findNodeHandle(this.refs.containerView), (xPos, yPos, Width, Height) => {
-                this.setState({ heightTab: Height, tabNumber: 1, participamntsTab: Height , toggle: true});
+                this.setState({ heightTab: Height, tabNumber: 1, participamntsTab: Height, toggle: true });
                 alert(this.state.participamntsTab)
             });
         }, 600)
@@ -247,7 +247,7 @@ class HomeDetails6 extends Component {
                     <View style={styles.separator2} />
                     <View>
                         {this.state.render && <View ref="innerView"><ScrollableTabView
-                            style={{ ...styles.tabBarStyle, height: this.state.toggle ? this.state.participamntsTab : this.state.aboutTab }}
+                            style={{ ...styles.tabBarStyle, }}
                             tabBarActiveTextColor={Colors.fadedRed}
                             tabBarInactiveTextColor={Colors.tabGray}
                             tabBarUnderlineStyle={styles.tabBarUnderline}
@@ -255,14 +255,15 @@ class HomeDetails6 extends Component {
                             tabBarTextStyle={styles.tabBarFont}
                             initialPage={0}
                             onChangeTab={() => this.calculateDimensions()}
+                            ref={(tabView) => { this.tabView = tabView }}
                         >
                             <View ref="ABOUT" tabLabel="ABOUT">
-                                <About navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} />
+                                <About tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} />
                             </View>
                             <View ref="PARTICIPANTS" style={{ flex: 1 }} tabLabel="PARTICIPANTS">
-                                <Participants navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} goToPage={() => this.goToPage(2)} />
+                                <Participants tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} goToPage={() => this.goToPage(2)} />
                             </View>
-                            {data.settlement && <View ref="SETTLEMENT" tabLabel="SETTLEMENT"><Settlement navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} /></View>}
+                            {data.settlement && <View ref="SETTLEMENT" tabLabel="SETTLEMENT"><Settlement tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} /></View>}
                         </ScrollableTabView></View>}
                     </View>
                 </ScrollView>

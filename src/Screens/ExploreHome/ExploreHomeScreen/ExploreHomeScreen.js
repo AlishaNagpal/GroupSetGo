@@ -99,10 +99,10 @@ export default class ExploreHomeScreen extends PureComponent {
             </TouchableOpacity>
           </View>
           <View style={styles.sortFilterView}>
-            <TouchableOpacity style={styles.sortStyle}>
+            <TouchableOpacity style={styles.sortStyle} onPress = {() => this.props.navigation.navigate('SortDialog')}>
               <Text style={styles.sortText}> {strings.sort} </Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.sortStyle}>
+            <TouchableOpacity style={styles.sortStyle}  onPress = {() => this.props.navigation.navigate('Filter')}>
               <Text style={styles.sortText}> {strings.filter} </Text>
             </TouchableOpacity>
           </View>
