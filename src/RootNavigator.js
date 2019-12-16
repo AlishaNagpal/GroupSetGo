@@ -40,6 +40,10 @@ import transitionConfiguration from './transitionConfiguration';
 import RaiseIncident from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/Settlement/RaiseIncident/RaiseIncident'
 import RaiseReport from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/Settlement/RaiseIncident/RaiseReport'
 import Check from './Screens/Check';
+import RateAndReviewStep1 from './Screens/RateAndReview/RateAndReviewStep1'
+import RateAndReviewStep2 from './Screens/RateAndReview/RateAndReviewStep2'
+import RateAndReviewStep3 from './Screens/RateAndReview/RateAndReviewStep3'
+import RateAndReviewModal from './Screens/RateAndReview/RateAndReviewModal'
 
 // console.disableYellowBox = true
 
@@ -156,9 +160,6 @@ const MainStack = createStackNavigator(
     Settlement: {
       screen: Settlement
     },
-    // AddGuests: {
-    //   screen: AddGuests
-    // },
     ReviewFlatList: {
       screen: ReviewFlatList
     },
@@ -166,9 +167,18 @@ const MainStack = createStackNavigator(
       screen:RaiseReport
     },
     Check: Check,
+    RateAndReviewStep1:{
+      screen:RateAndReviewStep1
+    },
+    RateAndReviewStep2:{
+      screen:RateAndReviewStep2
+    },
+    RateAndReviewStep3:{
+      screen:RateAndReviewStep3
+    },
   },
   {
-    initialRouteName: 'HomeNavigator',
+    initialRouteName: 'RateAndReviewStep1',
     defaultNavigationOptions: ({ navigation }) => ({
       headerBackTitle: null,
       header: null,
@@ -227,6 +237,9 @@ const RootStack = createStackNavigator(
     },
     RaiseIncident:{
       screen: RaiseIncident
+    },
+    RateAndReviewModal: {
+      screen: RateAndReviewModal
     }
 
   },

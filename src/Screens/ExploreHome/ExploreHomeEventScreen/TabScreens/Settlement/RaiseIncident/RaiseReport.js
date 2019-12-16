@@ -31,7 +31,7 @@ export default class FlagInappropriate extends PureComponent {
                 <View style={styles.headerView}>
                     <TouchableOpacity onPress={() => this.props.navigation.navigate('HomeDetails6')} style={styles.backButtonStyle}>
                         <VectorIcons.Ionicons name="ios-arrow-back" size={vh(30)} color={Colors.white} />
-                        <Text style={styles.headerText} > Raise Incident </Text>
+                        <Text style={styles.headerText} > {strings.raiseIncidentHeading} </Text>
                     </TouchableOpacity>
                 </View>
                 <View style={styles.textInputBox} >

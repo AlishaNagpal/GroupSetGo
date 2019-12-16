@@ -12,10 +12,10 @@ export default class RaiseIncident extends PureComponent {
                     <Text style={styles.alertTextStyle}>{strings.RaiseIncedent}</Text>
                     <View style={styles.buttonsViewStyle}>
                         <TouchableOpacity activeOpacity={1} style={styles.yesContinueButtonStyle} onPress={() => this.props.navigation.navigate('HomeDetails6')} >
-                            <Text style={[styles.yesContinueTextStyle, { color: Colors.fadedRed }]}>Cancel</Text>
+                            <Text style={[styles.yesContinueTextStyle, { color: Colors.fadedRed }]}> {strings.cancelIt} </Text>
                         </TouchableOpacity>
                         <TouchableOpacity onPress={() => this.props.navigation.navigate('RaiseReport')} activeOpacity={1} style={styles.loginButtonStyle}>
-                            <Text style={[styles.loginTextStyle, { color: Colors.black }]}>Yes</Text>
+                            <Text style={[styles.loginTextStyle, { color: Colors.black }]}> {strings.Yes} </Text>
                         </TouchableOpacity>
                     </View>
                 </View>

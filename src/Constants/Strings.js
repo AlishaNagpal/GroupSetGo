@@ -107,6 +107,15 @@ const strings = {
     UnderWork: "This is under construction at the moment!",
     review: 'Review',
     confirm: 'CONFIRM',
+    raiseIncidentHeading: 'Raise Incident',
+    cancelIt: 'Cancel',
+    Yes: 'Yes',
+    RateReview: 'Rate & Review',
+    SKIP: 'SKIP',
+    rateStep1: 'STEP 1/3',
+    rateStep2: 'STEP 2/3',
+    rateStep3: 'STEP 3/3',
+    rateHost: 'Do you want to rate your host?'
 }
 
 export default strings;
