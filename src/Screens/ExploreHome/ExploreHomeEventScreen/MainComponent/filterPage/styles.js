@@ -35,7 +35,47 @@ const styles = StyleSheet.create({
         paddingLeft: vw(13),
         paddingRight: vw(13)
     },
-    
+    dateHead: {
+        backgroundColor: Colors.lightGray,
+        padding: vw(13.3),
+        paddingTop: vw(19.7)
+    },
+    dateText: {
+        textTransform: 'uppercase',
+        fontSize: vw(17.7),
+        fontFamily: 'SourceSansPro-Semibold'
+    },
+    dateView: {
+        marginHorizontal: vw(13.3),
+        marginVertical: vw(20.7),
+    },
+    dateInnerView: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between'
+    },
+    dateNewText: {
+        fontFamily: 'SourceSansPro-Regular',
+        fontSize: vw(17.7),
+        color: Colors.verLightGrey
+    },
+    datePicker: {
+        width: '45%'
+    },
+    personCheckView: {
+        flexDirection: 'row',
+    },
+    checkText: {
+        fontFamily: 'SourceSansPro-Regular',
+        fontSize: vw(17.7),
+        color: Colors.darkGray2,
+        textTransform: 'capitalize',
+        marginLeft: vw(10),
+        marginRight: vw(20)
+    },
+    sliderView: {
+        marginHorizontal: vw(13.3)
+    },
 })
 
 export default styles;

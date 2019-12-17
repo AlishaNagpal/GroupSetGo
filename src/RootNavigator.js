@@ -181,7 +181,7 @@ const MainStack = createStackNavigator(
     },
   },
   {
-    initialRouteName: 'SplashScreen',
+    initialRouteName: 'HomeNavigator',
     defaultNavigationOptions: ({ navigation }) => ({
       headerBackTitle: null,
       header: null,

@@ -9,48 +9,28 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(0,0,0,0.4)'
     },
     dialogboxStyle: {
-        width: vw(300),
-        height: vh(200),
+        width: vw(366.7),
         backgroundColor: Colors.white,
         borderRadius: vh(20),
     },
     alertTextStyle: {
         color: Colors.black,
         fontFamily: 'SourceSansPro-Regular',
-        fontSize: vw(16.7),
-        marginHorizontal: vw(40),
-        marginTop: vh(55.3),
+        fontSize: vw(15.3),
+        marginHorizontal: vw(20),
+        marginTop: vw(63.3),
         textAlign: 'center'
     },
-    buttonsViewStyle: {
-        flexDirection: 'row',
-        flex: 1,
-        marginTop: vh(42),
-        borderTopColor: Colors.darkGray,
-        borderTopWidth: vw(1)
+    infoIconView: {
+        backgroundColor: Colors.lightPink,
+        height: vh(76.3),
+        width: vh(76.3),
+        borderRadius: vh(38.2),
+        position: 'absolute',
+        top: vh(106.3),   
     },
-    yesContinueButtonStyle: {
-        width: vw(149),
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRightColor: Colors.fadedGray2,
-        borderRightWidth: 1
+    infoIcon: {
+        left: vw(35)
     },
-    yesContinueTextStyle: {
-        fontFamily: 'SourceSansPro-Semibold',
-        fontSize: vw(16.7),
-        color: Colors.fontColor,
-
-    },
-    loginTextStyle: {
-        fontFamily: 'SourceSansPro-Semibold',
-        fontSize: vw(16.7),
-        color: Colors.darkPink
-    },
-    loginButtonStyle: {
-        width: vw(149),
-        justifyContent: 'center',
-        alignItems: 'center',
-    }
 })
 export default styles;

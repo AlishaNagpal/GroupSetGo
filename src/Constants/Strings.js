@@ -128,6 +128,15 @@ const strings = {
     openSlots: 'open slots',
     filters: 'filters',
     reset: 'reset',
+    info1: "Date Range: Selecting a date range would only display the events that have the event date in the range selected.",
+    info2: "Per Person Cost: Provides the ability to see Only Free Events, Only Paid Events or Both. You can even select the per person cost range according to your budget",  
+    info3: "Min Available Slots: If you are bringing company, using this option, you can filter the events to only those that can accommodate your group.",   
+    info4: "% Fill: Gives an indication of how close the event is to meeting the MINIMUM participant count.",    
+    info5: 'Family Friendly Only: If you have underage kids in the group, you can filter to "Family Friendly Only" events that will not have age restrictions.',
+    dateRange: 'date range',
+    perPersonCost: 'per person cost',
+    freeEvent: 'free events',
+    paidEvent: 'paid events',
 }
 
 export default strings;

@@ -13,6 +13,7 @@
     "installPod": " cd ios && pod install"
   },
   "dependencies": {
+    "@ptomasroos/react-native-multi-slider": "^1.0.0",
     "react": "16.9.0",
     "react-native": "0.61.5",
     "react-native-custom-datetimepicker": "^3.0.0",
