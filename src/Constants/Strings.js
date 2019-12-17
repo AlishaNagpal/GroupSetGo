@@ -148,6 +148,9 @@ const strings = {
     perPersonCost: 'per person cost',
     freeEvent: 'free events',
     paidEvent: 'paid events',
+    availableSlot: 'available slots',
+    percent: 'percent filled',
+    eventCategory: 'event category',
 }
 
 export default strings;

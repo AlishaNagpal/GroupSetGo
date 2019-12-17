@@ -95,7 +95,7 @@ export default class Filter extends Component {
               />
             </View>
           </View>
-          <View style={styles.dateHead}>
+          <View style={styles.percent}>
             <Text style={styles.dateText}>{Strings.perPersonCost}</Text>
           </View>
           <View style={styles.dateView}>
@@ -113,18 +113,42 @@ export default class Filter extends Component {
               />
               <Text style={styles.checkText}>{Strings.paidEvent}</Text>
             </View>
+            <View style={styles.slider}>
             <MultiSlider
-            style={{padding: 40}}
-            enabledOne={true}
-            enabledTwo={true}
-            allowOverlap={false}
-              sliderLength={100}
+              enabledOne={true}
+              enabledTwo={true}
+              allowOverlap={false}
+              sliderLength={300}
               min={0}
               max={10000}
               onValuesChangeStart={this.disableScroll}
               onValuesChangeFinish={this.enableScroll}
             />
+            </View>
           </View>
+          <View style={styles.availableOuterView} />
+          <View style={styles.availableView}>
+            <Text style={styles.dateText}>{Strings.availableSlot}</Text>
+          </View>
+          <View style={styles.percent}>
+          <Text style={styles.dateText}>{Strings.percent}</Text>
+            </View>
+            <View style={styles.slider}>
+            <MultiSlider
+              enabledOne={true}
+              enabledTwo={true}
+              allowOverlap={false}
+              sliderLength={300}
+              min={0}
+              max={10000}
+              onValuesChangeStart={this.disableScroll}
+              onValuesChangeFinish={this.enableScroll}
+            />
+              </View>
+              <View style={styles.availableOuterView} />
+              <View style={styles.category}>
+              <Text style={styles.dateText}>{Strings.eventCategory}</Text>
+                </View>
         </ScrollView>
       </View>
     );

@@ -76,6 +76,28 @@ const styles = StyleSheet.create({
     sliderView: {
         marginHorizontal: vw(13.3)
     },
+    slider: {
+        alignItems: 'center',
+    },
+    availableOuterView: {
+        backgroundColor: Colors.lightGray,
+        height: vh(16.7)
+    },
+    availableView: {
+        backgroundColor: Colors.white,
+        paddingVertical: vw(32),
+        paddingHorizontal: vw(13.3)
+    },
+    percent: {
+        backgroundColor: Colors.lightGray,
+        padding: vw(13.3),
+        paddingTop: vw(27.3)
+    },
+    category: {
+        backgroundColor: Colors.toolightGrey,
+        padding: vw(13.3),
+        paddingTop: vw(27.3)
+    },
 })
 
 export default styles;
