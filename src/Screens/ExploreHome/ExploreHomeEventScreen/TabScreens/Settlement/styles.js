@@ -4,7 +4,7 @@ import { vh, vw, Colors, DesignWidth } from '../../../../../Constants';
 
 const styles = StyleSheet.create({
     containerStyle: {
-        flex: 1,
+        
         paddingTop: vh(12.7),
     },
     priceDetailsHeadingStyle: {

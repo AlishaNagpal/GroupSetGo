@@ -42,6 +42,9 @@ const Colors = {
     stars: 'rgb(201,201,201)',
     starSelected: '#ffdf00',
     darkerButLightGray: 'rgb(249,249,249)',
+    newGrey: 'rgb(125, 125, 125)',
+    lightPink: 'rgb(231, 87, 114)',
+    newGray: 'rgb(122, 122, 122)'
 }
 
 export default Colors;

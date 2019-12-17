@@ -1,11 +1,5 @@
 import React, { Component } from 'react';
-import {
-    View,
-    Text,
-    Image,
-    ScrollView,
-    TouchableOpacity,
-} from 'react-native';
+import { View, Text, Image, ScrollView, TouchableOpacity, findNodeHandle } from 'react-native';
 
 // Custom Imports
 import styles from './styles';
@@ -19,12 +13,16 @@ import Settlement from '../TabScreens/Settlement/Settlement';
 var ScrollableTabView = require('react-native-scrollable-tab-view');
 import { ProgressiveImage } from '../../../../ReusableComponents'
 
-
 class HomeDetails6 extends Component {
     state = {
         data: '',
         id: this.props.navigation.getParam('id'),
-        render: false
+        render: false,
+        heightTab: null,
+        tabNumber: 0,
+        aboutTab: null,
+        participamntsTab: null,
+        toggle: false
     }
 
     componentDidMount() {
@@ -32,7 +30,7 @@ class HomeDetails6 extends Component {
         setTimeout(() => {
             this.setState({
                 render: true
-            })
+            });
         }, 500)
     }
 
@@ -64,7 +62,7 @@ class HomeDetails6 extends Component {
                 this.props.eventDATA()
             }, 30000)
         } else if (value === true && index != -1) {
-            this.props.navigation.navigate('AddGuests',{id:this.props.navigation.getParam('id').id } )
+            this.props.navigation.navigate('AddGuests', { id: this.props.navigation.getParam('id').id })
             setTimeout(() => {
                 this.props.Event_Data[index].joined = value
                 this.props.eventDATA()
@@ -75,15 +73,15 @@ class HomeDetails6 extends Component {
     goingJoin = () => {
         return (
             <TouchableOpacity style={styles.center}
-            // onpress of join tap
-            onPress = {()=>this.joined(this.state.id, !this.state.data.joined)}
-              activeOpacity= {1} >
+                // onpress of join tap
+                onPress={() => this.props.navigation.navigate({ routeName: "AddGuests", key: "2" })}
+                activeOpacity={1} >
                 <VectorIcons.Ionicons
                     name={this.state.data.joined ? "ios-remove-circle-outline" : "ios-add-circle-outline"}
-                    color={this.state.data.joined? Colors.fadedRed : Colors.green}
+                    color={this.state.data.joined ? Colors.fadedRed : Colors.green}
                     size={vh(26)}
                 />
-                <Text style={[styles.saveText, {color: this.state.data.joined? Colors.fadedRed : Colors.green} ]}>{this.state.data.joined ? strings.going : strings.join}</Text>
+                <Text style={[styles.saveText, { color: this.state.data.joined ? Colors.fadedRed : Colors.green }]}>{this.state.data.joined ? strings.going : strings.join}</Text>
             </TouchableOpacity>
         )
     }
@@ -118,10 +116,41 @@ class HomeDetails6 extends Component {
         this.tabView.goToPage(pageId);
     }
 
+    calculateDimensions = () => {
+        // setTimeout(() => {
+        //     this.refs.innerView.measureLayout(findNodeHandle(this.refs.containerView), (xPos, yPos, Width, Height) => {
+        //         this.setState({ heightTab: Height, tabNumber: 0, aboutTab: Height, toggle: false });
+        //         alert(this.state.aboutTab)
+        //     });
+        // }, 600)
+
+        setTimeout(() => {
+            this.refs.PARTICIPANTS.measureLayout(findNodeHandle(this.refs.containerView), (xPos, yPos, Width, Height) => {
+                this.setState({ heightTab: Height, tabNumber: 1, participamntsTab: Height, toggle: true });
+                alert(this.state.participamntsTab)
+            });
+        }, 600)
+
+        // if (this.state.tabNumber === 0) {
+        //     setTimeout(() => {
+        //         this.refs.PARTICIPANTS.measureLayout(findNodeHandle(this.refs.containerView), (xPos, yPos, Width, Height) => {
+        //             this.setState({ heightTab: Height, tabNumber: 1 });
+        //             alert(Height)
+        //         });
+        //     }, 600)
+        // } else {
+
+        //     this.refs.innerView.measureLayout(findNodeHandle(this.refs.containerView), (xPos, yPos, Width, Height) => {
+        //         this.setState({ heightTab: Height, tabNumber: 0 });
+        //         alert(Height)
+        //     });
+        // }
+    }
+
     render() {
         const { data } = this.state;
         return (
-            <View style={styles.mainView}>
+            <View style={styles.mainView} ref="containerView">
                 <ScrollView bounces={false} showsVerticalScrollIndicator={false}>
                     <View>
                         <ProgressiveImage
@@ -216,19 +245,27 @@ class HomeDetails6 extends Component {
                         </View>
                     </View>
                     <View style={styles.separator2} />
-                    {this.state.render && <ScrollableTabView
-                        style={styles.tabBarStyle}
-                        tabBarActiveTextColor={Colors.fadedRed}
-                        tabBarInactiveTextColor={Colors.tabGray}
-                        tabBarUnderlineStyle={styles.tabBarUnderline}
-                        activeTabStyle={{ backgroundColor: null }}
-                        tabBarTextStyle={styles.tabBarFont}
-                        initialPage={0}
-                    >
-                        <About tabLabel="ABOUT" tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} />
-                        <Participants tabLabel="PARTICIPANTS" tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} goToPage={() => this.goToPage(2)} />
-                        {data.settlement && <Settlement tabLabel="SETTLEMENT" tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} />}
-                    </ScrollableTabView>}
+                    <View>
+                        {this.state.render && <View ref="innerView"><ScrollableTabView
+                            style={{ ...styles.tabBarStyle, }}
+                            tabBarActiveTextColor={Colors.fadedRed}
+                            tabBarInactiveTextColor={Colors.tabGray}
+                            tabBarUnderlineStyle={styles.tabBarUnderline}
+                            activeTabStyle={{ backgroundColor: null }}
+                            tabBarTextStyle={styles.tabBarFont}
+                            initialPage={0}
+                            onChangeTab={() => this.calculateDimensions()}
+                            ref={(tabView) => { this.tabView = tabView }}
+                        >
+                            <View ref="ABOUT" tabLabel="ABOUT">
+                                <About tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} />
+                            </View>
+                            <View ref="PARTICIPANTS" style={{ flex: 1 }} tabLabel="PARTICIPANTS">
+                                <Participants tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} goToPage={() => this.goToPage(2)} />
+                            </View>
+                            {data.settlement && <View ref="SETTLEMENT" tabLabel="SETTLEMENT"><Settlement tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} /></View>}
+                        </ScrollableTabView></View>}
+                    </View>
                 </ScrollView>
             </View>
         );

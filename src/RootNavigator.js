@@ -5,9 +5,6 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs'
 import { Colors, strings } from './Constants';
 
-/**
- * custom imports
- */
 import { VectorIcons, vh, Images } from './Constants'
 import SplashScreen from './Screens/SplashScreen/SplashScreen'
 import OnboardingLogin from './Screens/OnboardingLogin/OnboardingLogin'
@@ -50,6 +47,9 @@ import CreateEventStep3 from './Screens/CreateEvent/CreateEventStep3'
 import CreateEventStep4 from './Screens/CreateEvent/CreateEventStep4'
 import SaveModal from './Screens/CreateEvent/SaveModal'
 import CategorySelectModal from './Screens/CreateEvent/CategorySelectModal'
+import SortDialog from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/SortDialog/SortDialog';
+import Filter from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/filterPage/Filter';
+import InfoDialog from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/filterPage/InfoDialog';
 
 // console.disableYellowBox = true
 
@@ -264,8 +264,16 @@ const RootStack = createStackNavigator(
     },
     CategorySelectModal:{
       screen:CategorySelectModal
-    }
-
+    },
+    SortDialog: {
+      screen: SortDialog
+    },
+    Filter: {
+      screen: Filter
+    },
+    InfoDialog: {
+      screen: InfoDialog
+    },
   },
   {
     mode: 'modal',

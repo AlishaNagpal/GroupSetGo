@@ -23,7 +23,9 @@ const Images = {
     maleDefault: require('../Assets/Images/maleImageDefault.jpg'),
     recommend: require('../Assets/Images/recommend.jpg'),
     venue: require('../Assets/Images/venue.jpg'),
-    maleImage: require('../Assets/Images/maleImage.jpeg')
+    maleImage: require('../Assets/Images/maleImage.jpeg'),
+    cancel: require('../Assets/Images/icCancel.png'),
+    info: require('../Assets/Images/icInfo.png'),
 }
 
 export default Images;

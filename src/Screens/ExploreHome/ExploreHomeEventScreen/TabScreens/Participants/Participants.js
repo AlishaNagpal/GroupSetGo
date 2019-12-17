@@ -5,7 +5,7 @@ import {
   Image,
   FlatList,
   TouchableOpacity,
-  findNodeHandle
+  ScrollView
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient'
 import ParticipantsReview from './ParticipantsReview';
@@ -20,9 +20,6 @@ class Participants extends Component {
 
   componentDidMount() {
     this.getData(this.props.screenProps.id)
-    setTimeout(() => {
-      this.calculateDimensions()
-    }, 1000)
   }
 
   getData = (id) => {
@@ -71,7 +68,7 @@ class Participants extends Component {
 
   renderReviewList = (rawData) => {
     const { item, index } = rawData
-      if (index < 3) {
+    if (index < 3) {
       return (
         <ParticipantsReview
           myData={item}
@@ -88,6 +85,13 @@ class Participants extends Component {
       this.props.Event_Data[index].settlement = value
       this.props.eventDATA()
     }
+    setTimeout(() => {
+      this.callTab()
+    }, 200)
+  }
+
+  callTab() {
+    this.props.goToPage()
   }
 
   calculateDimensions = () => {
@@ -97,11 +101,10 @@ class Participants extends Component {
   }
 
   render() {
-    const { navigation } = this.props;
+    const { navigation, goToPage } = this.props;
     const { data } = this.state
     return (
-      <View ref="containerView" style={styles.mainView}>
-        <View ref="innerView" style={{ height: this.state.height }}>
+      <View style={styles.mainView}>
         {/* -------------- Organizer ----------------- */}
         {this.state.data !== '' &&
           <View style={styles.viewOne}>
@@ -138,7 +141,7 @@ class Participants extends Component {
               horizontal={true}
               scrollEnabled={false}
             />
-            {this.state.data !== '' && data.PARTICIPANTS.length > 5 && <TouchableOpacity onPress={()=>this.props.navigation.navigate("ExploreNoOfParticipants")}>
+            {this.state.data !== '' && data.PARTICIPANTS.length > 5 && <TouchableOpacity onPress={() => this.props.navigation.navigate("ExploreNoOfParticipants")}>
               <View style={styles.plusView}>
                 <Text style={styles.plusText}>+{data.PARTICIPANTS.length - 5}</Text>
               </View>
@@ -188,7 +191,6 @@ class Participants extends Component {
               </TouchableOpacity>
             </LinearGradient>
           </View>}
-          </View>
       </View>
     );
   }
