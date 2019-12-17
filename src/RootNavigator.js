@@ -44,6 +44,12 @@ import RateAndReviewStep1 from './Screens/RateAndReview/RateAndReviewStep1'
 import RateAndReviewStep2 from './Screens/RateAndReview/RateAndReviewStep2'
 import RateAndReviewStep3 from './Screens/RateAndReview/RateAndReviewStep3'
 import RateAndReviewModal from './Screens/RateAndReview/RateAndReviewModal'
+import CreateEventStep1 from './Screens/CreateEvent/CreateEventStep1'
+import CreateEventStep2 from './Screens/CreateEvent/CreateEventStep2'
+import CreateEventStep3 from './Screens/CreateEvent/CreateEventStep3'
+import CreateEventStep4 from './Screens/CreateEvent/CreateEventStep4'
+import SaveModal from './Screens/CreateEvent/SaveModal'
+import CategorySelectModal from './Screens/CreateEvent/CategorySelectModal'
 
 // console.disableYellowBox = true
 
@@ -176,9 +182,21 @@ const MainStack = createStackNavigator(
     RateAndReviewStep3:{
       screen:RateAndReviewStep3
     },
+    CreateEventStep1:{
+      screen: CreateEventStep1
+    },
+    CreateEventStep2:{
+      screen: CreateEventStep2
+    },
+    CreateEventStep3:{
+      screen: CreateEventStep3
+    },
+    CreateEventStep4:{
+      screen: CreateEventStep4
+    },
   },
   {
-    initialRouteName: 'HomeNavigator',
+    initialRouteName: 'CreateEventStep2',
     defaultNavigationOptions: ({ navigation }) => ({
       headerBackTitle: null,
       header: null,
@@ -240,6 +258,12 @@ const RootStack = createStackNavigator(
     },
     RateAndReviewModal: {
       screen: RateAndReviewModal
+    },
+    SaveModal:{
+      screen: SaveModal
+    },
+    CategorySelectModal:{
+      screen:CategorySelectModal
     }
 
   },

@@ -56,7 +56,7 @@ class ExploreMapScreen extends Component {
   }
 
   callScreen = (id) => {
-    this.props.navigation.navigate('HomeDetails6', {
+    this.props.navigate('HomeDetails6', {
       data: this.props.Event_Data,
       id: { id }
     })
@@ -110,7 +110,7 @@ class ExploreMapScreen extends Component {
           this.state.cardIsRendered && (
             <View style={styles.mainCardView}>
               <TouchableOpacity onPress={() => this.callScreen(data.serialNo)} >
-                <Image source={data.source} style={styles.flatlistImage} />
+                <Image source={{uri: data.source}} style={styles.flatlistImage} />
                 <TouchableOpacity onPress={() => { this.toggle(data.serialNo, data.hearted) }} style={styles.heart} activeOpacity={1}  >
                   <Image source={data.hearted ? Images.heartFilled : Images.heartEmpty} />
                 </TouchableOpacity>

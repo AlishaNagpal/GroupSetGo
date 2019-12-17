@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import {vh, vw, Colors } from '../Constants';
+import {vw, Colors } from '../Constants';
 import Icon from 'react-native-vector-icons/Ionicons'
 Icon.loadFont()
 

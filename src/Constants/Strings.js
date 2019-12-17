@@ -121,6 +121,17 @@ const strings = {
     joinAgain: 'Would you like to attend this event again?',
     rateVenue: 'Do you want to rate the Venue?',
     rate_review: 'Your rating & review has been posted successfully.',
+    goingPeople: 'Going',
+    createEvent: 'Create Event',
+    save: 'SAVE',
+    saveModal:'Your data has been saved!',
+    createEventStep1: 'STEP 1/4: EVENT DETAILS',
+    fillAll:"Please enter all of the details!",
+    createEventStep2: 'STEP 2/4: ADDITIONAL DETAILS',
+    addPhoto: 'ADD PHOTO',
+    addPhotoTextString:"Photos help more engagement from the participants.",
+    category: 'CATEGORY',
+    select: 'Select'
 }
 
 export default strings;

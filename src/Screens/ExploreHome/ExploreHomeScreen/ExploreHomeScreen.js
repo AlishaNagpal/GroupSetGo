@@ -40,9 +40,9 @@ export default class ExploreHomeScreen extends PureComponent {
     this.setState({
       refresh: true
     })
-    setTimeout(()=>{
-      this.setState({refresh: false})
-    },2000)
+    setTimeout(() => {
+      this.setState({ refresh: false })
+    }, 2000)
   }
 
   rotateView = () => {
@@ -132,13 +132,13 @@ export default class ExploreHomeScreen extends PureComponent {
                     position: 'absolute',
                     flexDirection: 'column'
                   }}>
-                  <ExploreMapScreen />
+                  <ExploreMapScreen navigate={this.props.navigation.navigate} />
                 </View>
               )}
           </Animated.View>
         </View>
         <LinearGradient colors={colors} style={styles.gradient}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>this.props.navigation.navigate('CreateEventStep1')} >
             <Image source={Images.calendar} style={styles.calendar} />
           </TouchableOpacity>
         </LinearGradient>

@@ -45,7 +45,7 @@ export default class createAccountPassword extends PureComponent {
     render() {
         return (
             < LinearGradient start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} colors={colors} style={styles.gradient} >
-                <KeyboardAwareScrollView>
+                <KeyboardAwareScrollView keyboardShouldPersistTaps = {'always'} >
                     <TouchableOpacity onPress={() => { this.props.navigation.navigate('createAccountGender') }} >
                         <VectorIcons.Ionicons name="ios-arrow-back" size={vh(30)} color={Colors.white} style={styles.iconPos} />
                     </TouchableOpacity>

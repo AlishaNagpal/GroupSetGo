@@ -40,7 +40,8 @@ const Colors = {
     veryVeryLightGray: 'rgb(243,243,243)',
     progressBarColor: '#DFDFDF',
     stars: 'rgb(201,201,201)',
-    starSelected: '#ffdf00'
+    starSelected: '#ffdf00',
+    darkerButLightGray: 'rgb(249,249,249)',
 }
 
 export default Colors;

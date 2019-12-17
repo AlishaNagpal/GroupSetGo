@@ -166,8 +166,8 @@ class HomeDetails6 extends Component {
                         </View>
                     </View>
                     <View style={styles.viewTwo2}>
-                        <Text style={styles.progressText}> {data.going} {strings.going} </Text>
-                        <Progress.Bar style={styles.progressBar} progress={10 / 100} width={vw(380)} color={Colors.green} unfilledColor={Colors.lightGray} borderColor={Colors.white} animated={true} />
+                        <Text style={styles.progressText}> {data.going} {strings.goingPeople} </Text>
+                        <Progress.Bar style={styles.progressBar} progress={ 10 / 100} width={vw(380)} color={Colors.green} unfilledColor={Colors.lightGray} borderColor={Colors.white} animated={true} />
                         <View style={styles.progressValue}>
                             <Text style={styles.barNumber}> {data.min} ({strings.min}) </Text>
                             <Text style={styles.barNumber2}> {data.max} ({strings.max}) </Text>
