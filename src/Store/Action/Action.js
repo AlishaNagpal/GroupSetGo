@@ -15,21 +15,26 @@ export const eventDATA = () => {
     }
 }
 
-
-export const aboutHeightCalculate = (aboutHeight) => {
-    return (dispatch) => {
-        dispatch({ type: Actions.ABOUT_HEIGHT, payload: { aboutHeight: aboutHeight } })
+export const categoryModalData = () => {
+    return (dispatch, getState) => {
+        const { categoryData } = getState().Reducer;
+        dispatch({ type: Actions.CATEGORY_MODAL, payload: { data: categoryData } });
     }
 }
 
-export const participantsHeightCalculate = (participantsHeight) => {
-    return (dispatch) => {
-        dispatch({ type: Actions.PARTICIPANTS_HEIGHT, payload: { participantsHeight: participantsHeight } })
+export const saveCategoryData = (value) =>{
+    return (dispatch, getState) => {
+        const { savedCategories } = getState().Reducer;
+        let emptyArray = savedCategories;
+        emptyArray = emptyArray.slice();
+        emptyArray.push(value)
+        dispatch({ type: Actions.SAVED_CATEGORIES, payload: { data: emptyArray } });
     }
 }
 
-export const settlementHeightCalculate = (settlementHeight) => {
+
+export const SELECTED = (value) => {
     return (dispatch) => {
-        dispatch({ type: Actions.SETTLEMENT_HEIGHT, payload: { settlementHeight: settlementHeight } })
+        dispatch({ type: Actions.SELECTED, payload: { data: value } });
     }
 }

@@ -42,14 +42,14 @@ export default class createAccountGender extends PureComponent {
 
                 <View style={styles.radioButtonView} >
                     <TouchableOpacity onPress={() => { this.clicked(true, 1) }}  style={styles.radioButton} >
-                        <RadioButton buttonSize = {25} outColor={Colors.white} inColor={Colors.white} isCheck={this.state.maleChosen} />
+                        <RadioButton innerCircleDimension = {16} outerCircleDimension = {30} buttonSize = {25} outColor={Colors.white} inColor={Colors.white} isCheck={this.state.maleChosen} />
                     </TouchableOpacity>
                     <Text style={styles.radioText} > {strings.male} </Text>
                 </View>
 
                 <View style={[styles.radioButtonView,{marginTop: vh(30)}]} >
                 <TouchableOpacity onPress={() => { this.clicked(true, 2) }} style={styles.radioButton} >
-                    <RadioButton innerCircleDimension = {30} outerCircleDimension = {16} outColor={Colors.white} inColor={Colors.white} isCheck={this.state.femaleChosen} />
+                    <RadioButton innerCircleDimension = {16} outerCircleDimension = {30} outColor={Colors.white} inColor={Colors.white} isCheck={this.state.femaleChosen} />
                 </TouchableOpacity>
                 <Text style={styles.radioText} > {strings.female} </Text>
                 </View>

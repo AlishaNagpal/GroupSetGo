@@ -36,7 +36,7 @@ import LeaveEvent from './Screens/ExploreHome/ExploreHomeEventScreen/MainCompone
 import transitionConfiguration from './transitionConfiguration';
 import RaiseIncident from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/Settlement/RaiseIncident/RaiseIncident'
 import RaiseReport from './Screens/ExploreHome/ExploreHomeEventScreen/TabScreens/Settlement/RaiseIncident/RaiseReport'
-import Check from './Screens/Check';
+import Check from './Check';
 import RateAndReviewStep1 from './Screens/RateAndReview/RateAndReviewStep1'
 import RateAndReviewStep2 from './Screens/RateAndReview/RateAndReviewStep2'
 import RateAndReviewStep3 from './Screens/RateAndReview/RateAndReviewStep3'
@@ -50,6 +50,7 @@ import CategorySelectModal from './Screens/CreateEvent/CategorySelectModal'
 import SortDialog from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/SortDialog/SortDialog';
 import Filter from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/filterPage/Filter';
 import InfoDialog from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/filterPage/InfoDialog';
+import InfoForFamily from './Screens/CreateEvent/InfoForFamily'
 
 // console.disableYellowBox = true
 
@@ -274,6 +275,9 @@ const RootStack = createStackNavigator(
     InfoDialog: {
       screen: InfoDialog
     },
+    InfoForFamily:{
+      screen:InfoForFamily
+    }
   },
   {
     mode: 'modal',

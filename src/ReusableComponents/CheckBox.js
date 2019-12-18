@@ -52,30 +52,31 @@ export default class CheckBox extends Component {
     this.setState(prevState => ({
       isCheck: !prevState.isCheck,
     }))
-    this.props.clicked && this.props.clicked(this.props.id,this.state.isCheck );
+    this.props.clicked && this.props.clicked(this.props.id,!this.state.isCheck );
   }
 
   render() {
     return (
       <TouchableOpacity onPress={this.checkClicked} style={this.props.style} activeOpacity={1}>
         <View style={{
-          height: vh(24),
-          width: vh(24),
+          height: this.props.outerSize,
+          width: this.props.outerSize,
           borderWidth: vw(2),
           borderRadius: vh(0.7),
-          borderColor: Colors.fadedGray2,
+          borderColor: this.state.isCheck ? this.props.innerColor : this.props.outerColor,
           alignItems: 'center',
           justifyContent: 'center',
         }}>
           <View style={{
-            height: vh(20),
-            width: vh(20),
+            height: this.props.innerSize,
+            width: this.props.innerSize,
+            alignItems:'center'
             // backgroundColor: this.state.isCheck ? Colors.darkGreen : Colors.white,
           }} >
             {this.state.isCheck ? <VectorIcons.MaterialCommunityIcons
               name='check'
-              color={Colors.darkGray2}
-              size={vh(20)}
+              color= {this.props.innerColor}
+              size= {this.props.innerSize}
               /> : null }
             </View>
         </View>

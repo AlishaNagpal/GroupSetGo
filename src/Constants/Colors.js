@@ -44,7 +44,8 @@ const Colors = {
     darkerButLightGray: 'rgb(249,249,249)',
     newGrey: 'rgb(125, 125, 125)',
     lightPink: 'rgb(231, 87, 114)',
-    newGray: 'rgb(122, 122, 122)'
+    newGray: 'rgb(122, 122, 122)',
+    tranparentView: 'rgba(0,0,0,0.6)'
 }
 
 export default Colors;

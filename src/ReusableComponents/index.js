@@ -5,6 +5,7 @@ import ProgressiveImage from './ProgressiveImage.js'
 import Stars from './Stars/Stars'
 import FloatingTitleTextInputField from './FloatingTextInput/FloatingTitleTextInputField'
 import FloatingLabel from './FloatingTextInput/FloatingLabel'
+import CustomSwitch from './CustomSwitch/CustomSwitch'
 
 export{
     CheckBox,
@@ -13,5 +14,6 @@ export{
     ProgressiveImage,
     Stars,
     FloatingTitleTextInputField,
-    FloatingLabel
+    FloatingLabel,
+    CustomSwitch
 }

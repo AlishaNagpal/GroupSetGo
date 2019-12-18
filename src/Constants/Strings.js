@@ -110,6 +110,7 @@ const strings = {
     raiseIncidentHeading: 'Raise Incident',
     cancelIt: 'Cancel',
     Yes: 'Yes',
+    No: 'No',
     RateReview: 'Rate & Review',
     SKIP: 'SKIP',
     rateStep1: 'STEP 1/3',
@@ -148,6 +149,14 @@ const strings = {
     perPersonCost: 'per person cost',
     freeEvent: 'free events',
     paidEvent: 'paid events',
+    selectCategories:'Select Categories',
+    done: 'Done',
+    familyFriendly:"Family Friendly",
+    eventType: 'EVENT TYPE',
+    private: 'Private',
+    public: 'Public',
+    text1: ' Family friendly events do not have age restrictions for participants and safer for all age groups.',
+    text2: 'In Public events, anyone meeting criteria (age, gender & verification status) can join. In Private events, event owner can  ad/ remove participants & tehse events are not discoverable without direct URL / Auth code / Invite email'
 }
 
 export default strings;

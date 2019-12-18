@@ -1,62 +1,77 @@
 export default CATEGORIES = [
     {
         name:'Adventure',
-        selected:false
+        selected:false,
+        id:1,
     },
     {
         name:'Art',
-        selected:false
+        selected:false,
+        id:2
     },
     {
         name:'Causes',
-        selected:false
+        selected:false,
+        id:3
     },
     {
         name:'Dance',
-        selected:false
+        selected:false,
+        id:4
     },
     {
         name:'Drinks',
-        selected:false
+        selected:false,
+        id:5
     },
     {
         name:'Films',
-        selected:false
+        selected:false,
+        id:6
     },
     {
         name:'Fitness',
-        selected:false
+        selected:false,
+        id:7
     },
     {
         name:'Food',
-        selected:false
+        selected:false,
+        id:8
     },
     {
         name:'Music Concert',
-        selected:false
+        selected:false,
+        id:9
     },
     {
         name:'Networking',
-        selected:false
+        selected:false,
+        id:10
     },
     {
         name:'Outdoor',
-        selected:false
+        selected:false,
+        id:11
     },
     {
         name:'Party',
-        selected:false
+        selected:false,
+        id:12
     },
     {
         name:'Sports & Games',
-        selected:false
+        selected:false,
+        id:13
     },
     {
         name:'Travel',
-        selected:false
+        selected:false,
+        id:14
     },
     {
         name:'Others',
-        selected:false
+        selected:false,
+        id:15
     },
 ]

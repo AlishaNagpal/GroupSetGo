@@ -229,9 +229,16 @@ export default styles = StyleSheet.create({
         backgroundColor:Colors.white,
     },
     select:{
-        marginTop:vh(27.7),
+        marginTop:vh(25),
         marginLeft:vw(15.3),
         color: Colors.fadedGray,
+        fontFamily:'SourceSansPro-Regular'
+    },
+    select2:{
+        marginTop:vh(25),
+        color: Colors.fadedGray,
+        flexDirection:'row',
+        fontFamily:'SourceSansPro-Regular',
     },
     separator3: {
         height: vh(2),
@@ -240,4 +247,130 @@ export default styles = StyleSheet.create({
         backgroundColor: Colors.veryVeryLightGray,
         marginTop: vh(12.7)
     },
+    category:{
+        height: vh(550),
+        backgroundColor: Colors.white,
+        width: vw(380)
+    },
+    categoryHeader:{
+        height: vh(50),
+        backgroundColor:Colors.fadedRed,
+        width: vw(380)
+    },
+    categoryHeaderText:{
+        color: Colors.white,
+        fontFamily:'SourceSansPro-Bold',
+        fontSize: vh(18),
+        justifyContent: 'center',
+        marginTop: vh(12),
+        marginLeft: vw(5)
+    },
+    categoryFooter:{
+        height: vh(50),
+        backgroundColor:Colors.fadedRed,
+        width: vw(380),
+        alignItems:'center'
+    },
+    flatlistMainView:{
+        flexDirection:'row',
+        height: vh(55),
+        borderBottomWidth: vh(1),
+        borderColor: Colors.veryVeryLightGray
+    },
+    roundBlack:{
+        height: vw(30),
+        width: vw(30),
+        backgroundColor: Colors.tranparentView,
+        borderRadius: vw(25),
+        marginLeft: vw(10),
+        marginTop:vh(15)
+    },
+    categoryText:{
+        marginLeft: vw(10),
+        marginTop:vh(20),
+        fontSize:vh(14.7),
+        color: Colors.fadedGray2
+    },
+    CheckBox:{
+        alignSelf:'center'
+    },
+    space:{
+        flexDirection:'row',
+        justifyContent:'space-between',
+        width: vw(320)
+    },
+    iconStyle:{
+        alignSelf:'center',
+        marginTop: vh(22),
+    },
+    selectedStyle:{
+        justifyContent:'space-between',
+        flexDirection:'row',
+        width: vw(380)
+    },
+    family:{
+        flexDirection:'row',
+        justifyContent:'space-between',
+        width: vw(390)
+    },
+    familyText:{
+        color: Colors.fadedGray,
+        fontFamily:'SourceSansPro-Regular',
+        marginRight: vw(10)
+    },
+    switch:{
+        marginTop:vh(-5)
+    },
+    buttonStyleGradient:{
+        height: vw(66.7),
+        width: vw(66.7),
+        borderRadius: vw(34),
+        alignItems:'center',
+        justifyContent:'center',
+        position:'absolute',
+        top: vh(620),
+        left: vw(320),
+    },
+    eventType:{
+        backgroundColor: Colors.white,
+        height: vh(64),
+        width: vw(DesignWidth),
+        marginBottom: vh(50),
+        flexDirection:'row',
+        alignItems:'center'
+    },
+    RadioButton:{
+        flexDirection:'row',
+        marginLeft: vw(13.3)
+    },
+    RadioButton2:{
+        flexDirection:'row',
+        marginLeft: vw(55)
+    },
+    radioText:{
+        fontFamily:'SourceSansPro-Semibold'
+    },
+    infoMain:{
+        height: vh(243),
+        width: vw(300),
+        backgroundColor: Colors.white,
+        borderRadius: vh(20)
+    },
+    infoStyle:{
+       position:'absolute',
+       top: vh(-60),
+       left: vw(80) 
+    },
+    text1:{
+        marginTop: vh(50),
+        alignSelf:'center',
+        textAlign:'center',
+        paddingHorizontal: vw(8)
+    },
+    text2:{
+        alignSelf:'center',
+        textAlign:'center',
+        paddingHorizontal: vw(8),
+        marginTop:vh(5)
+    }
 });

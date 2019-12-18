@@ -1,26 +1,47 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, TextInput, FlatList, Image } from 'react-native';
+import { View, Text, TouchableOpacity, TextInput, FlatList, Image, Animated } from 'react-native';
 import { VectorIcons, vh, Colors, strings, vw } from '../../Constants'
 import * as Progress from 'react-native-progress';
 import styles from './styles'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scrollview'
-import { Toast } from '../../ReusableComponents'
+import { Toast, CustomSwitch, RadioButton } from '../../ReusableComponents'
 import LinearGradient from 'react-native-linear-gradient'
 const colors = [Colors.fadedRed, Colors.darkishPink]
 import ImagePicker from 'react-native-image-crop-picker';
-
-export default class CreateEventStep1 extends Component {
+import { saveCategoryData } from '../../Store/Action/Action'
+import { connect } from 'react-redux'
+class CreateEventStep2 extends Component {
 
   state = {
     call: false,
     imageData: [],
-    showImages: false
+    showImages: false,
+    familyFriendly: false,
+    switchPosition: new Animated.ValueXY({ x: vw(0), y: vh(0) }),
+    private: true,
+    public: false,
+    value: ''
   }
 
   resetCall = (value) => {
     this.setState({
       call: value
     })
+  }
+
+
+  clicked(check, id) {
+    if (id === 1) {
+      this.setState({
+        private: check,
+        public: !check
+      })
+    } else {
+      this.setState({
+        private: !check,
+        public: check
+      })
+    }
   }
 
   pickImage = () => {
@@ -32,7 +53,6 @@ export default class CreateEventStep1 extends Component {
       var data = this.state.imageData;
       data.push(image.path);
       this.setState({ imageData: data.splice(0) });
-      // console.log(this.state.imageData)
     });
     this.setState({
       showImages: true
@@ -40,21 +60,29 @@ export default class CreateEventStep1 extends Component {
   }
 
   callAlert = () => {
-    // if (this.state.title === '' || this.state.Hashtag === '' || this.state.Address === '' || this.state.Event_Date === '' || this.state.Start_Time === '' || this.state.Duration === '') {
-    //   this.resetCall(true)
-    // } else {
-    //   this.props.navigation.navigate('CreateEventStep3')
-    // }
+    if (this.state.imageData === [] || this.props.selected === false || this.state.value === '') {
+      this.resetCall(true)
+    } else {
+      this.props.navigation.navigate('CreateEventStep3')
+    }
   }
 
   delete = (id) => {
     let temp = this.state.imageData
-    console.log(id)
     temp.splice(id, 1)
     this.setState({
       imageData: temp
     })
   }
+
+  toggleSwitch() {
+    this.setState({
+      familyFriendly: !this.state.familyFriendly
+    })
+    if (this.state.familyFriendly === true) {
+      this.props.navigation.navigate('InfoForFamily')
+    }
+  };
 
   renderData = (rowData) => {
     const { item, index } = rowData
@@ -96,6 +124,8 @@ export default class CreateEventStep1 extends Component {
               style={styles.textInputBox}
               placeholder='Description'
               multiline={true}
+              value={this.state.value}
+              onChangeText={(text) => this.setState({ value: text })}
             />
           </View>
           <Text style={styles.addPhoto} > {strings.addPhoto} </Text>
@@ -121,21 +151,49 @@ export default class CreateEventStep1 extends Component {
           </View>
           <Text style={styles.addPhoto} > {strings.category} </Text>
           <View style={styles.selectView}>
-            <TouchableOpacity activeOpacity={1} onPress={()=>this.props.navigation.navigate('CategorySelectModal')} >
-              <Text style={styles.select} > {strings.select} </Text>
+            <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('CategorySelectModal')} style={styles.selectedStyle}  >
+              <Text style={styles.select} > {this.props.selected ? " " + this.props.savedCategories : strings.select} </Text>
+              <VectorIcons.Ionicons name='ios-arrow-down' size={vh(25)} color={Colors.fadedGray} style={styles.iconStyle} />
             </TouchableOpacity>
             <View style={styles.separator3} />
+            <View style={styles.family}>
+              <Text style={styles.select} > {strings.familyFriendly} </Text>
+              <View style={styles.select2} >
+                <Text style={styles.familyText} > {this.state.familyFriendly ? strings.Yes : strings.No} </Text>
+                <View style={styles.switch} >
+                  <CustomSwitch switchEnabled={this.state.familyFriendly} switchPosition={this.state.switchPosition} toggleSwitch={() => this.toggleSwitch()} />
+                </View>
+              </View>
+            </View>
+          </View>
+          <Text style={styles.addPhoto} > {strings.eventType} </Text>
+
+          <View style={styles.eventType} >
+            <View style={styles.RadioButton} >
+              <TouchableOpacity onPress={() => { this.clicked(true, 1) }}>
+                <RadioButton innerCircleDimension={12} outerCircleDimension={20} buttonSize={25} outColor={this.state.private ? Colors.fadedRed : Colors.fadedGray} inColor={Colors.fadedRed} isCheck={this.state.private} />
+              </TouchableOpacity>
+              <Text style={[styles.radioText, { color: this.state.private ? Colors.black : Colors.fadedGray }]} > {strings.private} </Text>
+            </View>
+
+            <View style={styles.RadioButton2} >
+              <TouchableOpacity onPress={() => { this.clicked(true, 2) }} >
+                <RadioButton innerCircleDimension={12} outerCircleDimension={20} outColor={this.state.public ? Colors.fadedRed : Colors.fadedGray} inColor={Colors.fadedRed} isCheck={this.state.public} />
+              </TouchableOpacity>
+              <Text style={[styles.radioText, { color: this.state.public ? Colors.black : Colors.fadedGray }]} > {strings.public} </Text>
+            </View>
           </View>
 
-          <LinearGradient colors={colors} start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} style={styles.buttonStyle}  >
-            <TouchableOpacity
-              onPress={() => this.callAlert()}
-              activeOpacity={1}
-            >
-              <VectorIcons.Ionicons name='ios-arrow-round-forward' size={vh(55)} color={Colors.white} style={styles.icon} />
-            </TouchableOpacity>
-          </LinearGradient>
+
         </KeyboardAwareScrollView>
+        <LinearGradient colors={colors} start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} style={styles.buttonStyleGradient}  >
+          <TouchableOpacity
+            onPress={() => this.callAlert()}
+            activeOpacity={1}
+          >
+            <VectorIcons.Ionicons name='ios-arrow-round-forward' size={vh(55)} color={Colors.white} style={styles.icon} />
+          </TouchableOpacity>
+        </LinearGradient>
         {this.state.call === true &&
           <Toast top={-15} from={0} to={-60} message={strings.fillAll} call={(value) => this.resetCall(value)} />
         }
@@ -143,3 +201,23 @@ export default class CreateEventStep1 extends Component {
     );
   }
 }
+
+
+function mapDispatchToProps(dispatch) {
+  return {
+    saveCategoryData: (value) => dispatch(saveCategoryData(value)),
+  }
+}
+
+function mapStateToProps(state) {
+  const { savedCategories, selected } = state.Reducer;
+  return {
+    savedCategories,
+    selected
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CreateEventStep2);
