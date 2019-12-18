@@ -76,7 +76,7 @@ export default class CreateEventStep1 extends Component {
                         </View>
                     </View>
                     <Text style={styles.stepText} > {strings.createEventStep1} </Text>
-                    <Progress.Bar style={styles.progressBar} progress={2 / 100} width={vw(388)} color={Colors.green} unfilledColor={Colors.progressBarColor} borderColor={Colors.progressBarColor} animated={true} />
+                    <Progress.Bar style={styles.progressBar} progress={25 / 100} width={vw(388)} color={Colors.green} unfilledColor={Colors.progressBarColor} borderColor={Colors.progressBarColor} animated={true} />
                     <View style={styles.dataView} >
                         <View style={styles.textInputView} >
                             <FloatingTitleTextInputField

@@ -197,7 +197,7 @@ const MainStack = createStackNavigator(
     },
   },
   {
-    initialRouteName: 'SplashScreen',
+    initialRouteName: 'CreateEventStep3',
     defaultNavigationOptions: ({ navigation }) => ({
       headerBackTitle: null,
       header: null,

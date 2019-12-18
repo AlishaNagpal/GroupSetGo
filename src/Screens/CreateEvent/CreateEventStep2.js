@@ -117,7 +117,7 @@ class CreateEventStep2 extends Component {
         </View>
         <KeyboardAwareScrollView keyboardShouldPersistTaps={'always'}  >
           <Text style={styles.stepText} > {strings.createEventStep2} </Text>
-          <Progress.Bar style={styles.progressBar} progress={25 / 100} width={vw(388)} color={Colors.green} unfilledColor={Colors.progressBarColor} borderColor={Colors.progressBarColor} animated={true} />
+          <Progress.Bar style={styles.progressBar} progress={50 / 100} width={vw(388)} color={Colors.green} unfilledColor={Colors.progressBarColor} borderColor={Colors.progressBarColor} animated={true} />
 
           <View style={styles.textBox} >
             <TextInput

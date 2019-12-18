@@ -4,7 +4,7 @@ import { StyleSheet, View, Text, Slider } from 'react-native';
 
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
 
-class App extends React.Component {
+class SliderExamples extends React.Component {
     state = {
         sliderOneChanging: false,
         sliderOneValue: [5],
@@ -140,7 +140,7 @@ class App extends React.Component {
     }
 }
 
-export default App;
+export default SliderExamples;
 
 var styles = StyleSheet.create({
     container: {

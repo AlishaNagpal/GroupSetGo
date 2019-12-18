@@ -129,6 +129,7 @@ const strings = {
     createEventStep1: 'STEP 1/4: EVENT DETAILS',
     fillAll: "Please enter all of the details!",
     createEventStep2: 'STEP 2/4: ADDITIONAL DETAILS',
+    createEventStep3: 'STEP 3/4: PARTICIPANTS DETAILS',
     addPhoto: 'ADD PHOTO',
     addPhotoTextString: "Photos help more engagement from the participants.",
     category: 'CATEGORY',
@@ -162,7 +163,10 @@ const strings = {
     eventCategory: 'event category',
     familyFriends: 'family friends only',
     apply: 'apply filters',
-
+    totalParticipants:'Total Participants',
+    ageRestriction: 'Age Restriction',
+    age: 'Age',
+    genderMix: 'Specify Gender Mix',
 }
 
 export default strings;

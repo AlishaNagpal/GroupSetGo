@@ -136,28 +136,28 @@ export default styles = StyleSheet.create({
         width: vw(DesignWidth),
         marginLeft: vw(-210),
     },
-    iconMargin:{
+    iconMargin: {
         marginTop: vh(15)
     },
-    buttonStyle:{
+    buttonStyle: {
         height: vw(66.7),
         width: vw(66.7),
         borderRadius: vw(34),
-        alignItems:'center',
-        justifyContent:'center',
+        alignItems: 'center',
+        justifyContent: 'center',
         marginTop: vh(180),
         marginLeft: vw(320),
     },
-    icon:{
+    icon: {
         marginTop: vh(5)
     },
-    textBox:{
+    textBox: {
         backgroundColor: Colors.white,
         height: vh(131),
-        width:vw(DesignWidth),
+        width: vw(DesignWidth),
         marginTop: vh(13)
     },
-    textInputBox:{
+    textInputBox: {
         marginTop: vh(17),
         height: vh(96.7),
         width: vw(386.7),
@@ -166,79 +166,79 @@ export default styles = StyleSheet.create({
         paddingLeft: vw(10),
         paddingRight: vw(10)
     },
-    addPhoto:{
+    addPhoto: {
         marginTop: vh(13.7),
         marginLeft: vw(13),
         fontFamily: 'SourceSansPro-Semibold',
         fontSize: vh(14.7),
         marginBottom: vh(13.7)
     },
-    addPhotoView:{
+    addPhotoView: {
         backgroundColor: Colors.white,
         width: vw(DesignWidth)
     },
-    addPhotoSelect:{
+    addPhotoSelect: {
         backgroundColor: Colors.fadedGray,
         marginTop: vh(13),
         marginLeft: vw(13.3),
         width: vw(387.3),
         height: vh(150),
-        alignItems:'center',
-        justifyContent:'center'
+        alignItems: 'center',
+        justifyContent: 'center'
     },
-    addPhotoButton:{
+    addPhotoButton: {
         borderWidth: vh(2),
         borderColor: Colors.white,
         height: vh(41.7),
         width: vw(126),
-        alignItems:'center',
-        justifyContent:'center'
+        alignItems: 'center',
+        justifyContent: 'center'
     },
-    addPhotoText:{
-        color:Colors.white,
-        fontFamily:'SourceSansPro-Regular',
+    addPhotoText: {
+        color: Colors.white,
+        fontFamily: 'SourceSansPro-Regular',
         fontSize: vh(14.7)
     },
-    addphotoDescrption:{
-        marginTop:vh(6.7),
+    addphotoDescrption: {
+        marginTop: vh(6.7),
         color: Colors.verLightGrey,
         paddingLeft: vw(10),
-        fontFamily:'SourceSansPro-Regular',
+        fontFamily: 'SourceSansPro-Regular',
         fontSize: vh(14.7),
         alignSelf: 'center'
     },
-    flatlist:{
+    flatlist: {
         // flexDirection:'row'
         marginTop: vh(10)
     },
-    flatlistImage:{
+    flatlistImage: {
         height: vw(46.7),
         width: vw(46.7),
         marginLeft: vw(13.3)
     },
-    delete:{
+    delete: {
         height: vw(20),
         width: vw(20),
-        position:'absolute',
+        position: 'absolute',
         left: vw(40),
         top: vw(-5)
     },
-    selectView:{
+    selectView: {
         height: vh(136.7),
-        width:vw(DesignWidth),
-        backgroundColor:Colors.white,
+        width: vw(DesignWidth),
+        backgroundColor: Colors.white,
     },
-    select:{
-        marginTop:vh(25),
-        marginLeft:vw(15.3),
+    select: {
+        marginTop: vh(25),
+        marginLeft: vw(15.3),
         color: Colors.fadedGray,
-        fontFamily:'SourceSansPro-Regular'
+        fontFamily: 'SourceSansPro-Regular'
     },
-    select2:{
-        marginTop:vh(25),
+    select2: {
+        marginTop: vh(25),
         color: Colors.fadedGray,
-        flexDirection:'row',
-        fontFamily:'SourceSansPro-Regular',
+        flexDirection: 'row',
+        fontFamily: 'SourceSansPro-Regular',
     },
     separator3: {
         height: vh(2),
@@ -247,130 +247,154 @@ export default styles = StyleSheet.create({
         backgroundColor: Colors.veryVeryLightGray,
         marginTop: vh(12.7)
     },
-    category:{
+    category: {
         height: vh(550),
         backgroundColor: Colors.white,
         width: vw(380)
     },
-    categoryHeader:{
+    categoryHeader: {
         height: vh(50),
-        backgroundColor:Colors.fadedRed,
+        backgroundColor: Colors.fadedRed,
         width: vw(380)
     },
-    categoryHeaderText:{
+    categoryHeaderText: {
         color: Colors.white,
-        fontFamily:'SourceSansPro-Bold',
+        fontFamily: 'SourceSansPro-Bold',
         fontSize: vh(18),
         justifyContent: 'center',
         marginTop: vh(12),
         marginLeft: vw(5)
     },
-    categoryFooter:{
+    categoryFooter: {
         height: vh(50),
-        backgroundColor:Colors.fadedRed,
+        backgroundColor: Colors.fadedRed,
         width: vw(380),
-        alignItems:'center'
+        alignItems: 'center'
     },
-    flatlistMainView:{
-        flexDirection:'row',
+    flatlistMainView: {
+        flexDirection: 'row',
         height: vh(55),
         borderBottomWidth: vh(1),
         borderColor: Colors.veryVeryLightGray
     },
-    roundBlack:{
+    roundBlack: {
         height: vw(30),
         width: vw(30),
         backgroundColor: Colors.tranparentView,
         borderRadius: vw(25),
         marginLeft: vw(10),
-        marginTop:vh(15)
+        marginTop: vh(15)
     },
-    categoryText:{
+    categoryText: {
         marginLeft: vw(10),
-        marginTop:vh(20),
-        fontSize:vh(14.7),
+        marginTop: vh(20),
+        fontSize: vh(14.7),
         color: Colors.fadedGray2
     },
-    CheckBox:{
-        alignSelf:'center'
+    CheckBox: {
+        alignSelf: 'center'
     },
-    space:{
-        flexDirection:'row',
-        justifyContent:'space-between',
+    space: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
         width: vw(320)
     },
-    iconStyle:{
-        alignSelf:'center',
+    iconStyle: {
+        alignSelf: 'center',
         marginTop: vh(22),
     },
-    selectedStyle:{
-        justifyContent:'space-between',
-        flexDirection:'row',
+    selectedStyle: {
+        justifyContent: 'space-between',
+        flexDirection: 'row',
         width: vw(380)
     },
-    family:{
-        flexDirection:'row',
-        justifyContent:'space-between',
+    family: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
         width: vw(390)
     },
-    familyText:{
+    familyText: {
         color: Colors.fadedGray,
-        fontFamily:'SourceSansPro-Regular',
+        fontFamily: 'SourceSansPro-Regular',
         marginRight: vw(10)
     },
-    switch:{
-        marginTop:vh(-5)
+    switch: {
+        marginTop: vh(-5)
     },
-    buttonStyleGradient:{
+    buttonStyleGradient: {
         height: vw(66.7),
         width: vw(66.7),
         borderRadius: vw(34),
-        alignItems:'center',
-        justifyContent:'center',
-        position:'absolute',
-        top: vh(620),
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'absolute',
+        top: vh(660),
         left: vw(320),
     },
-    eventType:{
+    eventType: {
         backgroundColor: Colors.white,
         height: vh(64),
         width: vw(DesignWidth),
         marginBottom: vh(50),
-        flexDirection:'row',
-        alignItems:'center'
+        flexDirection: 'row',
+        alignItems: 'center'
     },
-    RadioButton:{
-        flexDirection:'row',
+    RadioButton: {
+        flexDirection: 'row',
         marginLeft: vw(13.3)
     },
-    RadioButton2:{
-        flexDirection:'row',
+    RadioButton2: {
+        flexDirection: 'row',
         marginLeft: vw(55)
     },
-    radioText:{
-        fontFamily:'SourceSansPro-Semibold'
+    radioText: {
+        fontFamily: 'SourceSansPro-Semibold'
     },
-    infoMain:{
+    infoMain: {
         height: vh(243),
         width: vw(300),
         backgroundColor: Colors.white,
         borderRadius: vh(20)
     },
-    infoStyle:{
-       position:'absolute',
-       top: vh(-60),
-       left: vw(80) 
+    infoStyle: {
+        position: 'absolute',
+        top: vh(-60),
+        left: vw(80)
     },
-    text1:{
+    text1: {
         marginTop: vh(50),
-        alignSelf:'center',
-        textAlign:'center',
+        alignSelf: 'center',
+        textAlign: 'center',
         paddingHorizontal: vw(8)
     },
-    text2:{
-        alignSelf:'center',
-        textAlign:'center',
+    text2: {
+        alignSelf: 'center',
+        textAlign: 'center',
         paddingHorizontal: vw(8),
-        marginTop:vh(5)
+        marginTop: vh(5)
+    },
+    bottomView: {
+        width: vw(DesignWidth),
+        backgroundColor: Colors.white,
+        marginTop: vh(13),
+        marginBottom: vh(122)
+    },
+    totalParticipantsText: {
+        marginLeft: vw(18),
+        fontFamily: 'SourceSansPro-Semibold',
+        fontSize: vh(20),
+    },
+    margin: {
+        marginLeft: 18
+    },
+    sliderStyle: {
+        flexDirection: 'row',
+        width: vw(370),
+        justifyContent: 'space-between',
+        marginTop: vh(-15)
+    },
+    sliderText: {
+        color: Colors.fadedGray,
+        fontSize: vh(13)
     }
 });

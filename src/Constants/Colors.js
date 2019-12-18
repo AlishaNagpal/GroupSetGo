@@ -21,6 +21,7 @@ const Colors = {
     backgroundColorLightGray: 'rgb(245,245,245)',
     tealBlue: 'rgb(237, 247, 246)',
     green: 'rgba(34, 138, 51, 1)',
+    brightGreen: '#2EC23C',
     darkGray2: 'rgb(72,72,72)',
     fadedGray2: 'rgb(123, 123, 123)',
     shareBlue: 'rgb(60, 117, 151)',
