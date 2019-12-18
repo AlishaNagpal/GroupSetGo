@@ -20,7 +20,7 @@ const CustomSwitch = (props) => {
             activeOpacity={1}
             style={[styles.containerStyle, {
                 backgroundColor: props.switchEnabled
-                    ? 'green'
+                    ? Colors.darkNewGreen
                     : Colors.lightGray,
             }]}>
             <Animated.View

@@ -8,7 +8,7 @@ const Colors = {
     darkishPink: 'rgb(127,36,97)',
     darkViolet: '#7E2561',
     rosa: '#ff90b0',
-    darkModeratePink:'#9B2F60',
+    darkModeratePink: '#9B2F60',
     noColor: '#ffffff00',
     darkGray: 'rgb(48,47,47)',
     lightGrey: 'rgb(83,83,83)',
@@ -17,7 +17,7 @@ const Colors = {
     lightGray: '#E9E9E9',
     fadedGray: '#7c7c7c',
     gray: '#848484',
-    redShadow:'#bd2e44',
+    redShadow: '#bd2e44',
     backgroundColorLightGray: 'rgb(245,245,245)',
     tealBlue: 'rgb(237, 247, 246)',
     green: 'rgba(34, 138, 51, 1)',
@@ -45,7 +45,10 @@ const Colors = {
     newGrey: 'rgb(125, 125, 125)',
     lightPink: 'rgb(231, 87, 114)',
     newGray: 'rgb(122, 122, 122)',
-    tranparentView: 'rgba(0,0,0,0.6)'
+    tranparentView: 'rgba(0,0,0,0.6)',
+    toolightGrey: 'rgb(251, 251, 251)',
+    darkNewGreen: 'rgb(20, 146, 38)',
+    slotGray: 'rgb(224, 224, 224)',
 }
 
 export default Colors;

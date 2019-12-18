@@ -125,12 +125,12 @@ const strings = {
     goingPeople: 'Going',
     createEvent: 'Create Event',
     save: 'SAVE',
-    saveModal:'Your data has been saved!',
+    saveModal: 'Your data has been saved!',
     createEventStep1: 'STEP 1/4: EVENT DETAILS',
-    fillAll:"Please enter all of the details!",
+    fillAll: "Please enter all of the details!",
     createEventStep2: 'STEP 2/4: ADDITIONAL DETAILS',
     addPhoto: 'ADD PHOTO',
-    addPhotoTextString:"Photos help more engagement from the participants.",
+    addPhotoTextString: "Photos help more engagement from the participants.",
     category: 'CATEGORY',
     select: 'Select',
     sortBy: 'sort by',
@@ -141,9 +141,9 @@ const strings = {
     filters: 'filters',
     reset: 'reset',
     info1: "Date Range: Selecting a date range would only display the events that have the event date in the range selected.",
-    info2: "Per Person Cost: Provides the ability to see Only Free Events, Only Paid Events or Both. You can even select the per person cost range according to your budget",  
-    info3: "Min Available Slots: If you are bringing company, using this option, you can filter the events to only those that can accommodate your group.",   
-    info4: "% Fill: Gives an indication of how close the event is to meeting the MINIMUM participant count.",    
+    info2: "Per Person Cost: Provides the ability to see Only Free Events, Only Paid Events or Both. You can even select the per person cost range according to your budget",
+    info3: "Min Available Slots: If you are bringing company, using this option, you can filter the events to only those that can accommodate your group.",
+    info4: "% Fill: Gives an indication of how close the event is to meeting the MINIMUM participant count.",
     info5: 'Family Friendly Only: If you have underage kids in the group, you can filter to "Family Friendly Only" events that will not have age restrictions.',
     dateRange: 'date range',
     perPersonCost: 'per person cost',
@@ -156,7 +156,13 @@ const strings = {
     private: 'Private',
     public: 'Public',
     text1: ' Family friendly events do not have age restrictions for participants and safer for all age groups.',
-    text2: 'In Public events, anyone meeting criteria (age, gender & verification status) can join. In Private events, event owner can  ad/ remove participants & tehse events are not discoverable without direct URL / Auth code / Invite email'
+    text2: 'In Public events, anyone meeting criteria (age, gender & verification status) can join. In Private events, event owner can  ad/ remove participants & tehse events are not discoverable without direct URL / Auth code / Invite email',
+    availableSlot: 'available slots',
+    percent: 'percent filled',
+    eventCategory: 'event category',
+    familyFriends: 'family friends only',
+    apply: 'apply filters',
+
 }
 
 export default strings;
