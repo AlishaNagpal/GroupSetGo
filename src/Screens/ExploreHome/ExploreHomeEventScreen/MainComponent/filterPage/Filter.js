@@ -24,9 +24,17 @@ export default class Filter extends Component {
     };
   }
 
-  resetCheckBox = (value) => {
+  resetAllData = () => {
     this.setState({
-      check: value
+      myDateStart: null,
+      myDateEnd: null,
+      check: false,
+      scrollEnabled: true,
+      switchEnabled: false,
+      switchPosition: new Animated.ValueXY({ x: vw(0), y: vh(0) }),
+      counter: 0,
+      nonCollidingMultiSliderValue: [3000, 7000],
+      nonCollidingMultiSliderValue2: [20, 80],
     })
   }
 
@@ -39,8 +47,11 @@ export default class Filter extends Component {
     return (c)
   }
 
-  enableScroll = () => this.setState({ scrollEnabled: true });
-  disableScroll = () => this.setState({ scrollEnabled: false });
+  resetCheckBox = (value) => {
+    this.setState({
+      check: value
+    })
+  }
 
   nonCollidingMultiSliderValuesChange = values => {
     this.setState({
@@ -84,12 +95,12 @@ export default class Filter extends Component {
           </View>
           <View style={styles.filterView}>
             <TouchableOpacity onPress={() => this.props.navigation.navigate('InfoDialog')}>
-              <Image source={Images.info} />
+              <Image source={Images.smallInfo} />
             </TouchableOpacity>
-            <Text style={styles.reviewHeadingReset}>{Strings.reset}</Text>
+            <Text style={styles.reviewHeadingReset} onPress={() => this.props.navigation.navigate('ResetDialog')}>{Strings.reset}</Text>
           </View>
         </View>
-        <ScrollView bounces={false} scrollEnabled={this.state.scrollEnabled} showsVerticalScrollIndicator={false}>
+        <ScrollView bounces={false} showsVerticalScrollIndicator={false}>
           <View style={styles.dateHead}>
             <Text style={styles.dateText}>{Strings.dateRange}</Text>
           </View>
@@ -140,40 +151,46 @@ export default class Filter extends Component {
                 isCheck={this.state.check}
                 clicked={(value) => this.resetCheckBox(value)}
                 id={1}
+                outerColor={Colors.fadedGray}
+                innerColor={Colors.fadedGray}
+                outerSize={vh(24)}
+                innerSize={vh(20)}
               />
               <Text style={styles.checkText}>{Strings.freeEvent}</Text>
               <CheckBox
                 isCheck={this.state.check}
                 clicked={(value) => this.resetCheckBox(value)}
                 id={2}
+                outerColor={Colors.fadedGray}
+                innerColor={Colors.fadedGray}
+                outerSize={vh(24)}
+                innerSize={vh(20)}
               />
               <Text style={styles.checkText}>{Strings.paidEvent}</Text>
             </View>
-              <View style={styles.costTextView}>
-                <Text style={styles.costText}>${this.state.nonCollidingMultiSliderValue[0]} - </Text>
-                <Text style={styles.costText}>${this.state.nonCollidingMultiSliderValue[1]}</Text>
-              </View>
-              <View style={styles.slider}>
+            <View style={styles.costTextView}>
+              <Text style={styles.costText}>${this.state.nonCollidingMultiSliderValue[0]} - </Text>
+              <Text style={styles.costText}>${this.state.nonCollidingMultiSliderValue[1]}</Text>
+            </View>
+            <View style={styles.slider}>
               <MultiSlider
                 values={[
                   this.state.nonCollidingMultiSliderValue[0],
                   this.state.nonCollidingMultiSliderValue[1],
                 ]}
-                allowOverlap = {false}
+                allowOverlap={false}
                 sliderLength={vw(385)}
                 step={500}
                 min={0}
                 max={10000}
                 minMarkerOverlapDistance={500}
-                onValuesChangeStart={this.disableScroll}
-                onValuesChangeFinish={this.enableScroll}
                 onValuesChange={this.nonCollidingMultiSliderValuesChange}
               />
             </View>
             <View style={styles.dateInnerView}>
-            <Text style={styles.costText}>0</Text>
-                <Text style={styles.costText}>$10,000</Text>
-              </View>
+              <Text style={styles.costText}>0</Text>
+              <Text style={styles.costText}>$10,000</Text>
+            </View>
           </View>
           <View style={styles.availableOuterView} />
           <View style={styles.availableView}>
@@ -202,32 +219,30 @@ export default class Filter extends Component {
             <Text style={styles.dateText}>{Strings.percent}</Text>
           </View>
           <View style={styles.percentSliderView}>
-          <View style={styles.costTextView}>
-                <Text style={styles.costText}>{this.state.nonCollidingMultiSliderValue2[0]} - </Text>
-                <Text style={styles.costText}>{this.state.nonCollidingMultiSliderValue2[1]}</Text>
-              </View>
-              <View style={styles.slider}>
+            <View style={styles.costTextView}>
+              <Text style={styles.costText}>{this.state.nonCollidingMultiSliderValue2[0]} - </Text>
+              <Text style={styles.costText}>{this.state.nonCollidingMultiSliderValue2[1]}</Text>
+            </View>
+            <View style={styles.slider}>
               <MultiSlider
                 values={[
                   this.state.nonCollidingMultiSliderValue2[0],
                   this.state.nonCollidingMultiSliderValue2[1],
                 ]}
-                allowOverlap = {false}
+                allowOverlap={false}
                 sliderLength={vw(385)}
                 step={5}
                 min={0}
                 max={100}
                 minMarkerOverlapDistance={20}
-                onValuesChangeStart={this.disableScroll}
-                onValuesChangeFinish={this.enableScroll}
                 onValuesChange={this.nonCollidingMultiSliderValues2Change}
               />
             </View>
             <View style={styles.dateInnerView}>
-            <Text style={styles.costText}>0</Text>
-                <Text style={styles.costText}>100</Text>
-              </View>
-              </View>
+              <Text style={styles.costText}>0</Text>
+              <Text style={styles.costText}>100</Text>
+            </View>
+          </View>
           <View style={styles.availableOuterView} />
           <View style={styles.category}>
             <Text style={styles.dateText}>{Strings.eventCategory}</Text>

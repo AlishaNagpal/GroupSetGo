@@ -22,12 +22,8 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
     infoIconView: {
-        backgroundColor: Colors.lightPink,
-        height: vh(76.3),
-        width: vh(76.3),
-        borderRadius: vh(38.2),
         position: 'absolute',
-        top: vh(106.3),   
+        top: vh(76.3),   
     },
     infoIcon: {
         left: vw(35)

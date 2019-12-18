@@ -51,6 +51,7 @@ import SortDialog from './Screens/ExploreHome/ExploreHomeEventScreen/MainCompone
 import Filter from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/filterPage/Filter';
 import InfoDialog from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/filterPage/InfoDialog';
 import InfoForFamily from './Screens/CreateEvent/InfoForFamily'
+import ResetDialog from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/filterPage/ResetDialog';
 
 // console.disableYellowBox = true
 
@@ -277,7 +278,10 @@ const RootStack = createStackNavigator(
     },
     InfoForFamily:{
       screen:InfoForFamily
-    }
+    },
+    ResetDialog: {
+      screen: ResetDialog
+    },
   },
   {
     mode: 'modal',
