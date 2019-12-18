@@ -73,8 +73,12 @@ const styles = StyleSheet.create({
         marginLeft: vw(10),
         marginRight: vw(20)
     },
-    sliderView: {
-        marginHorizontal: vw(13.3)
+    costTextView: {
+        flexDirection: 'row',
+    },
+    costText: {
+        fontFamily: 'Poppins-Medium',
+        fontSize: vw(14.7)
     },
     slider: {
         alignItems: 'center',
@@ -86,7 +90,22 @@ const styles = StyleSheet.create({
     availableView: {
         backgroundColor: Colors.white,
         paddingVertical: vw(32),
-        paddingHorizontal: vw(13.3)
+        paddingHorizontal: vw(13.3),
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        flexDirection: 'row'
+    },
+    plusMinusView: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    slotNumView: {
+        borderColor: Colors.slotGray,
+        height: vw(23.3),
+        width: vw(33.3),
+        borderWidth: vw(1),
+        borderRadius: vw(1.7),
+        marginHorizontal: vw(7)
     },
     percent: {
         backgroundColor: Colors.lightGray,
@@ -98,6 +117,37 @@ const styles = StyleSheet.create({
         padding: vw(13.3),
         paddingTop: vw(27.3)
     },
+    family: {
+        backgroundColor: Colors.white,
+        padding: vw(13.3),
+        paddingVertical: vh(20.3),
+        alignItems: 'center',
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
+    familyBtnView: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    familyYes: {
+        textTransform: 'capitalize',
+        fontSize: vw(15.3),
+        fontFamily: 'SourceSansPro-Semibold',
+        paddingHorizontal: vw(10)
+    },
+    applyView: {
+        backgroundColor: Colors.darkNewGreen,
+        padding: vw(13.3),
+        paddingTop: vw(19.7),
+        alignItems: 'center'
+    },
+    applyText: {
+        textTransform: 'uppercase',
+        fontSize: vw(17.7),
+        fontFamily: 'SourceSansPro-Semibold',
+        color: Colors.white
+    },
+
 })
 
 export default styles;
