@@ -197,7 +197,7 @@ const MainStack = createStackNavigator(
     },
   },
   {
-    initialRouteName: 'CreateEventStep3',
+    initialRouteName: 'HomeNavigator',
     defaultNavigationOptions: ({ navigation }) => ({
       headerBackTitle: null,
       header: null,

@@ -75,10 +75,14 @@ const styles = StyleSheet.create({
     },
     costTextView: {
         flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+        paddingTop: vh(17.7)
     },
     costText: {
         fontFamily: 'Poppins-Medium',
-        fontSize: vw(14.7)
+        fontSize: vw(15.7),
+        color: Colors.darkGray2
     },
     slider: {
         alignItems: 'center',
@@ -111,6 +115,9 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.lightGray,
         padding: vw(13.3),
         paddingTop: vw(27.3)
+    },
+    percentSliderView: {
+        paddingHorizontal: vw(13.3)
     },
     category: {
         backgroundColor: Colors.toolightGrey,

@@ -20,6 +20,7 @@ export default class Filter extends Component {
       switchPosition: new Animated.ValueXY({ x: vw(0), y: vh(0) }),
       counter: 0,
       nonCollidingMultiSliderValue: [3000, 7000],
+      nonCollidingMultiSliderValue2: [20, 80],
     };
   }
 
@@ -43,21 +44,27 @@ export default class Filter extends Component {
 
   nonCollidingMultiSliderValuesChange = values => {
     this.setState({
-        nonCollidingMultiSliderValue: values,
+      nonCollidingMultiSliderValue: values,
     });
-};
+  };
 
-incrementCounter = () => {
-  this.setState({
-    counter: this.state.counter + 1
-  })
-}
+  incrementCounter = () => {
+    this.setState({
+      counter: this.state.counter + 1
+    })
+  }
 
-decrementCounter = () => {
-  this.setState({
-    counter: this.state.counter > 0 ? this.state.counter - 1 : 0
-  })
-}
+  decrementCounter = () => {
+    this.setState({
+      counter: this.state.counter > 0 ? this.state.counter - 1 : 0
+    })
+  }
+
+  nonCollidingMultiSliderValues2Change = values => {
+    this.setState({
+      nonCollidingMultiSliderValue2: values,
+    });
+  };
 
   toggleSwitch() {
     this.setState({
@@ -142,67 +149,85 @@ decrementCounter = () => {
               />
               <Text style={styles.checkText}>{Strings.paidEvent}</Text>
             </View>
-            <View style={styles.slider}>
               <View style={styles.costTextView}>
-            <Text style={styles.costText}>{this.state.nonCollidingMultiSliderValue[0]} </Text>
-                    <Text style={styles.costText}>{this.state.nonCollidingMultiSliderValue[1]}</Text>
-                    </View>
+                <Text style={styles.costText}>${this.state.nonCollidingMultiSliderValue[0]} - </Text>
+                <Text style={styles.costText}>${this.state.nonCollidingMultiSliderValue[1]}</Text>
+              </View>
+              <View style={styles.slider}>
               <MultiSlider
-              values={[
-                this.state.nonCollidingMultiSliderValue[0],
-                        this.state.nonCollidingMultiSliderValue[1],
-            ]}
-                allowOverlap
-                snapped
+                values={[
+                  this.state.nonCollidingMultiSliderValue[0],
+                  this.state.nonCollidingMultiSliderValue[1],
+                ]}
+                allowOverlap = {false}
                 sliderLength={vw(385)}
-                step={1}
+                step={500}
                 min={0}
                 max={10000}
-                minMarkerOverlapDistance={40}
+                minMarkerOverlapDistance={500}
                 onValuesChangeStart={this.disableScroll}
                 onValuesChangeFinish={this.enableScroll}
                 onValuesChange={this.nonCollidingMultiSliderValuesChange}
               />
             </View>
+            <View style={styles.dateInnerView}>
+            <Text style={styles.costText}>0</Text>
+                <Text style={styles.costText}>$10,000</Text>
+              </View>
           </View>
           <View style={styles.availableOuterView} />
           <View style={styles.availableView}>
             <View>
-            <Text style={styles.dateText}>{Strings.availableSlot}</Text>
+              <Text style={styles.dateText}>{Strings.availableSlot}</Text>
             </View>
             <View style={styles.plusMinusView}>
-            <VectorIcons.AntDesign
-                  name='minuscircleo'
-                  color={Colors.fadedRed}
-                  size={vh(23.3)}
-                  onPress={() => {this.decrementCounter()}}
-                />
-                <View style={styles.slotNumView}>
+              <VectorIcons.AntDesign
+                name='minuscircleo'
+                color={Colors.fadedRed}
+                size={vh(23.3)}
+                onPress={() => { this.decrementCounter() }}
+              />
+              <View style={styles.slotNumView}>
                 <Text style={styles.familyYes}>{this.state.counter}</Text>
               </View>
-                 <VectorIcons.AntDesign
-                  name='pluscircleo'
-                  color={Colors.fadedRed}
-                  size={vh(23.3)}
-                  onPress={() => {this.incrementCounter()}}
-                />
-              </View>
+              <VectorIcons.AntDesign
+                name='pluscircleo'
+                color={Colors.fadedRed}
+                size={vh(23.3)}
+                onPress={() => { this.incrementCounter() }}
+              />
+            </View>
           </View>
           <View style={styles.percent}>
             <Text style={styles.dateText}>{Strings.percent}</Text>
           </View>
-          <View style={styles.slider}>
-            <MultiSlider
-              enabledOne={true}
-              enabledTwo={true}
-              allowOverlap={false}
-              sliderLength={300}
-              min={0}
-              max={10000}
-              onValuesChangeStart={this.disableScroll}
-              onValuesChangeFinish={this.enableScroll}
-            />
-          </View>
+          <View style={styles.percentSliderView}>
+          <View style={styles.costTextView}>
+                <Text style={styles.costText}>{this.state.nonCollidingMultiSliderValue2[0]} - </Text>
+                <Text style={styles.costText}>{this.state.nonCollidingMultiSliderValue2[1]}</Text>
+              </View>
+              <View style={styles.slider}>
+              <MultiSlider
+                values={[
+                  this.state.nonCollidingMultiSliderValue2[0],
+                  this.state.nonCollidingMultiSliderValue2[1],
+                ]}
+                allowOverlap = {false}
+                sliderLength={vw(385)}
+                step={5}
+                min={0}
+                max={100}
+                minMarkerOverlapDistance={20}
+                onValuesChangeStart={this.disableScroll}
+                onValuesChangeFinish={this.enableScroll}
+                onValuesChange={this.nonCollidingMultiSliderValues2Change}
+              />
+            </View>
+            <View style={styles.dateInnerView}>
+            <Text style={styles.costText}>0</Text>
+                <Text style={styles.costText}>100</Text>
+              </View>
+              </View>
           <View style={styles.availableOuterView} />
           <View style={styles.category}>
             <Text style={styles.dateText}>{Strings.eventCategory}</Text>
