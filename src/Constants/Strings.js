@@ -169,7 +169,10 @@ const strings = {
     genderMix: 'Specify Gender Mix',
     resetAll: 'Do you want to Reset All filters ?',
     resetall: 'Reset All',
-
+    myAccount: 'my account',
+    account: 'account',
+    help: 'help',
+    inviteFrnd: 'invite friend',
 }
 
 export default strings;

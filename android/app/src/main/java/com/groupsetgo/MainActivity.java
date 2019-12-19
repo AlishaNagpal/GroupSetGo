@@ -1,6 +1,12 @@
 package com.groupsetgo;
 
 import com.facebook.react.ReactActivity;
+import com.facebook.react.ReactPackage;
+import com.facebook.react.shell.MainReactPackage;
+import com.reactnativecommunity.viewpager.RNCViewPagerPackage;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class MainActivity extends ReactActivity {
 
@@ -12,4 +18,11 @@ public class MainActivity extends ReactActivity {
   protected String getMainComponentName() {
     return "GroupSetGo";
   }
+
+  protected List<ReactPackage> getPackages() {
+  return Arrays.<ReactPackage>asList(
+    new MainReactPackage(),
+    new RNCViewPagerPackage()
+  );
+}
 }
