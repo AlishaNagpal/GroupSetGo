@@ -111,7 +111,7 @@ class HomeScreen extends PureComponent {
             <Text numberOfLines={1} style={styles.headingText2}>
               {item.heading}
             </Text>
-            <Text style={styles.place2}> {item.place} </Text>
+            <Text style={styles.place2} numberOfLines={1} ellipsizeMode='tail' > {item.place} </Text>
             <View style={styles.perPerson}>
               <Text style={styles.moneyText}> {item.money} </Text>
               <Text style={styles.moneyPerson}> {strings.perPerson} </Text>

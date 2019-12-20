@@ -6,7 +6,8 @@ import {
   TouchableOpacity,
   Text,
   ScrollView,
-  RefreshControl
+  RefreshControl,
+  SafeAreaView
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
@@ -33,7 +34,7 @@ export default class ExploreHomeScreen extends PureComponent {
   rotateValue = new Animated.Value(0);
   constructor() {
     super();
-    this.rotateValue.addListener(({ value }) => this.setState({ opac: value }));
+    // this.rotateValue.addListener(({ value }) => this.setState({ opac: value }));
   }
 
   onRefresh = () => {
@@ -64,7 +65,7 @@ export default class ExploreHomeScreen extends PureComponent {
   render() {
     return (
       <React.Fragment>
-        <View style={[styles.mainContainer, { marginTop: vh(28) }]}>
+        <View style={styles.mainContainer}>
           <View style={styles.headerView}>
             <Image source={Images.maleImage} style={styles.headerImage} />
             <TouchableOpacity

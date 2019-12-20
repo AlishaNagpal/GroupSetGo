@@ -9,14 +9,15 @@ export default styles = StyleSheet.create({
     headerView: {
         height: vh(90),
         backgroundColor: Colors.fadedRed,
-        width: vw(DesignWidth),
+        width: '100%',
         flexDirection: 'row',
+        paddingTop:vh(30)
     },
     backButtonStyle: {
         marginLeft: vw(13.3),
         flexDirection: 'row',
         alignItems: 'center',
-        marginTop: vh(30),
+        flex: 1
     },
     headerText: {
         color: Colors.white,
@@ -31,8 +32,8 @@ export default styles = StyleSheet.create({
         fontSize: vh(15.3)
     },
     skipView: {
-        marginTop: vh(47),
-        marginLeft: vw(200)
+        right: vw(20),
+        top: vh(17)
     },
     containerStyleModal: {
         flex: 1,

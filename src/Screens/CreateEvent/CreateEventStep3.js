@@ -3,14 +3,13 @@ import { View, Text, TouchableOpacity, ScrollView, FlatList, Image, Animated } f
 import { VectorIcons, vh, Colors, strings, vw } from '../../Constants'
 import * as Progress from 'react-native-progress';
 import styles from './styles'
-import { Toast, CustomSwitch } from '../../ReusableComponents'
+import { CustomSwitch } from '../../ReusableComponents'
 import LinearGradient from 'react-native-linear-gradient'
 const colors = [Colors.fadedRed, Colors.darkishPink]
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
 export default class CreateEventStep3 extends Component {
 
   state = {
-    call: false,
     switchPosition: new Animated.ValueXY({ x: vw(0), y: vh(0) }),
     verifiedUsers: false,
     totalParticipants: [10, 50],
@@ -94,20 +93,6 @@ export default class CreateEventStep3 extends Component {
     })
   }
 
-  resetCall = (value) => {
-    this.setState({
-      call: value
-    })
-  }
-
-  callAlert = () => {
-    // if (this.state.imageData === [] || this.props.selected === false || this.state.value === '') {
-    //   this.resetCall(true)
-    // } else {
-    //   this.props.navigation.navigate('CreateEventStep4')
-    // }
-  }
-
   render() {
     return (
       <View style={styles.containerStyle}>
@@ -116,17 +101,15 @@ export default class CreateEventStep3 extends Component {
             <VectorIcons.Ionicons name="ios-arrow-back" size={vh(30)} color={Colors.white} />
             <Text style={styles.headerText} > {strings.createEvent} </Text>
           </TouchableOpacity>
-          <View style={styles.skipView} >
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('SaveModal')} >
-              <Text style={styles.skipText} > {strings.save} </Text>
-            </TouchableOpacity>
-          </View>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('SaveModal')} style={styles.skipView}  >
+            <Text style={styles.skipText} > {strings.save} </Text>
+          </TouchableOpacity>
         </View>
         <Text style={styles.stepText} > {strings.createEventStep3} </Text>
         <Progress.Bar style={styles.progressBar} progress={75 / 100} width={vw(388)} color={Colors.green} unfilledColor={Colors.progressBarColor} borderColor={Colors.progressBarColor} animated={true} />
         <ScrollView bounces={false} showsVerticalScrollIndicator={false} >
           <View style={styles.bottomView}>
-            <View style={styles.family} >
+            <View style={styles.family}>
               <Text style={styles.select} > {strings.verified} </Text>
               <View style={styles.select2} >
                 <Text style={styles.familyText} > {this.state.verifiedUsers ? strings.Yes : strings.No} </Text>
@@ -237,7 +220,7 @@ export default class CreateEventStep3 extends Component {
                     }}
                     max={100}
                   />
-                   <View style={styles.sliderStyle}>
+                  <View style={styles.sliderStyle}>
                     <Text style={styles.sliderText} >0</Text>
                     <Text style={styles.sliderText} >100</Text>
                   </View>
@@ -276,15 +259,12 @@ export default class CreateEventStep3 extends Component {
 
         <LinearGradient colors={colors} start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} style={styles.buttonStyleGradient}  >
           <TouchableOpacity
-            onPress={() => this.callAlert()}
+            onPress={() => this.props.navigation.navigate('CreateEventStep4')}
             activeOpacity={1}
           >
             <VectorIcons.Ionicons name='ios-arrow-round-forward' size={vh(55)} color={Colors.white} style={styles.icon} />
           </TouchableOpacity>
         </LinearGradient>
-        {this.state.call === true &&
-          <Toast top={-15} from={0} to={-60} message={strings.fillAll} call={(value) => this.resetCall(value)} />
-        }
       </View>
     );
   }
