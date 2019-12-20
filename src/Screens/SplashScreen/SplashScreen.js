@@ -76,7 +76,7 @@ export default class SplashScreen extends Component {
       return (
         <View style={{ flex: 1 }}>
           <Animated.Image
-            source={Pics.logoSmall} style={{ ...this.moveAnimationLogo.getLayout(), height: 40, width: 40, transform: [{ scale: logoScale }], position: 'absolute' }}
+            source={Pics.logoSmall} style={{ ...this.moveAnimationLogo.getLayout(), height: vh(40), width: vh(40), transform: [{ scale: logoScale }], position: 'absolute' }}
           />
           <Animated.Text
             style={{ ...this.moveAnimationText.getLayout(), color: Colors.darkPink, transform:[{scale:textSize}], fontSize: vh(30), position: 'absolute' }}

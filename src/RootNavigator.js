@@ -51,6 +51,16 @@ import SortDialog from './Screens/ExploreHome/ExploreHomeEventScreen/MainCompone
 import Filter from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/filterPage/Filter';
 import InfoDialog from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/filterPage/InfoDialog';
 import InfoForFamily from './Screens/CreateEvent/InfoForFamily'
+import ResetDialog from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/filterPage/ResetDialog';
+import MyAccount from './Screens/MyAccount/MyAccount';
+import ChangePwd from './Screens/MyAccount/ChangePwd/ChangePwd';
+import ContactUs from './Screens/MyAccount/ContactUs/ContactUs';
+import MyProfile from './Screens/MyAccount/MyProfile/MyProfile';
+import Payments from './Screens/MyAccount/Payments/Payments';
+import PrivacyPolicy from './Screens/MyAccount/PrivacyPolicy/PrivacyPolicy';
+import Settings from './Screens/MyAccount/Settings/Settings';
+import TNC from './Screens/MyAccount/TNC/TNC';
+import InviteFrnd from './Screens/MyAccount/InviteFrnd/InviteFrnd';
 
 // console.disableYellowBox = true
 
@@ -137,64 +147,35 @@ const TabNavigator = createAppContainer(
 
 const MainStack = createStackNavigator(
   {
-    HomeNavigator: {
-      screen: TabNavigator,
-    },
-    SplashScreen: {
-      screen: SplashScreen,
-    },
-    OnboardingLogin: {
-      screen: OnboardingLogin,
-    },
-    HomeDetails6: {
-      screen: HomeDetails6,
-    },
-    ExploreNoOfParticipants: {
-      screen: ExploreNoOfParticipants
-    },
-    HomeScreen: {
-      screen: HomeScreen
-    },
-    FlagInappropriate: {
-      screen: FlagInappropriate
-    },
-    VenueReviews: {
-      screen: VenueReviews
-    },
-    Reviews: {
-      screen: Reviews
-    },
-    Settlement: {
-      screen: Settlement
-    },
-    ReviewFlatList: {
-      screen: ReviewFlatList
-    },
-    RaiseReport:{
-      screen:RaiseReport
-    },
+    HomeNavigator: TabNavigator,
+    SplashScreen: SplashScreen,
+    OnboardingLogin: OnboardingLogin,
+    HomeDetails6: HomeDetails6,
+    ExploreNoOfParticipants: ExploreNoOfParticipants,
+    HomeScreen: HomeScreen,
+    FlagInappropriate: FlagInappropriate,
+    VenueReviews: VenueReviews,
+    Reviews: Reviews,
+    Settlement: Settlement,
+    ReviewFlatList: ReviewFlatList,
+    RaiseReport:RaiseReport,
     Check: Check,
-    RateAndReviewStep1:{
-      screen:RateAndReviewStep1
-    },
-    RateAndReviewStep2:{
-      screen:RateAndReviewStep2
-    },
-    RateAndReviewStep3:{
-      screen:RateAndReviewStep3
-    },
-    CreateEventStep1:{
-      screen: CreateEventStep1
-    },
-    CreateEventStep2:{
-      screen: CreateEventStep2
-    },
-    CreateEventStep3:{
-      screen: CreateEventStep3
-    },
-    CreateEventStep4:{
-      screen: CreateEventStep4
-    },
+    RateAndReviewStep1: RateAndReviewStep1,
+    RateAndReviewStep2: RateAndReviewStep2,
+    RateAndReviewStep3: RateAndReviewStep3,
+    CreateEventStep1: CreateEventStep1,
+    CreateEventStep2: CreateEventStep2,
+    CreateEventStep3: CreateEventStep3,
+    CreateEventStep4: CreateEventStep4,
+    MyAccount: MyAccount ,
+    ChangePwd: ChangePwd,
+    ContactUs: ContactUs,
+    MyProfile: MyProfile,
+    Payments: Payments,
+    PrivacyPolicy: PrivacyPolicy,
+    Settings: Settings,
+    TNC: TNC,
+    InviteFrnd: InviteFrnd,
   },
   {
     initialRouteName: 'SplashScreen',
@@ -277,7 +258,10 @@ const RootStack = createStackNavigator(
     },
     InfoForFamily:{
       screen:InfoForFamily
-    }
+    },
+    ResetDialog: {
+      screen: ResetDialog
+    },
   },
   {
     mode: 'modal',

@@ -26,6 +26,8 @@ const Images = {
     maleImage: require('../Assets/Images/maleImage.jpeg'),
     cancel: require('../Assets/Images/icCancel.png'),
     info: require('../Assets/Images/icInfo.png'),
+    smallInfo: require('../Assets/Images/icNewinfo.png'),
+    listArrow: require('../Assets/Images/icAccountNextArrow.png'),
 }
 
 export default Images;

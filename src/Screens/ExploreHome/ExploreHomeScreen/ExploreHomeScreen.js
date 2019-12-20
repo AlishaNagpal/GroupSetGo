@@ -67,7 +67,9 @@ export default class ExploreHomeScreen extends PureComponent {
       <React.Fragment>
         <View style={styles.mainContainer}>
           <View style={styles.headerView}>
-            <Image source={Images.maleImage} style={styles.headerImage} />
+            <TouchableOpacity  onPress={() => this.props.navigation.navigate('MyAccount')}>
+            <Image source={Images.maleImage} style={styles.headerImage}  />
+            </TouchableOpacity>
             <TouchableOpacity
               style={styles.textInputView}
               onPress={() =>
