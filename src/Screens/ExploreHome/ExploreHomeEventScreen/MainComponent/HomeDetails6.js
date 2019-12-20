@@ -150,7 +150,7 @@ class HomeDetails6 extends Component {
     render() {
         const { data } = this.state;
         return (
-            <View style={styles.mainView} ref="containerView">
+            <View style={styles.mainView} ref="containerView" >
                 <ScrollView bounces={false} showsVerticalScrollIndicator={false}>
                     <View>
                         <ProgressiveImage
@@ -245,25 +245,25 @@ class HomeDetails6 extends Component {
                         </View>
                     </View>
                     <View style={styles.separator2} />
-                    <View>
-                        {this.state.render && <View ref="innerView"><ScrollableTabView
-                            style={{ ...styles.tabBarStyle, }}
+                    <View >
+                        {this.state.render && <View ref="innerView" ><ScrollableTabView
+                            style={{ ...styles.tabBarStyle }}
                             tabBarActiveTextColor={Colors.fadedRed}
                             tabBarInactiveTextColor={Colors.tabGray}
                             tabBarUnderlineStyle={styles.tabBarUnderline}
                             activeTabStyle={{ backgroundColor: null }}
                             tabBarTextStyle={styles.tabBarFont}
                             initialPage={0}
-                            onChangeTab={() => this.calculateDimensions()}
+                            // onChangeTab={ Platform.OS === 'ios' ? () => this.calculateDimensions() : null}
                             ref={(tabView) => { this.tabView = tabView }}
                         >
-                            <View ref="ABOUT" tabLabel="ABOUT">
+                            <View ref="ABOUT" tabLabel="ABOUT" style={{flex: 1}}>
                                 <About tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} />
                             </View>
                             <View ref="PARTICIPANTS" style={{ flex: 1 }} tabLabel="PARTICIPANTS">
                                 <Participants tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} goToPage={() => this.goToPage(2)} />
                             </View>
-                            {data.settlement && <View ref="SETTLEMENT" tabLabel="SETTLEMENT"><Settlement tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} /></View>}
+                            {data.settlement && <View ref="SETTLEMENT" style={{ flex: 1 }} tabLabel="SETTLEMENT"><Settlement tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} /></View>}
                         </ScrollableTabView></View>}
                     </View>
                 </ScrollView>

@@ -6,7 +6,7 @@ import { Toast } from '../../ReusableComponents'
 
 import { styles } from './styles'
 import strings from '../../Constants/Strings'
-import { Colors, VectorIcons } from '../../Constants'
+import { Colors, VectorIcons, vh } from '../../Constants'
 import { vw, } from '../../Constants'
 import images from '../../Constants/images'
 
@@ -50,11 +50,16 @@ export default class LoginWithEmail extends PureComponent {
     render() {
         return (
             <View style={styles.containerStyle}>
-                <TouchableOpacity
-                    onPress={() => this.props.navigation.goBack()}>
-                    <Image
-                        source={images.crossImage}
-                        style={styles.crossButtonStyle} />
+                <TouchableOpacity onPress={() => this.props.navigation.goBack()} style={styles.crossBtn} >
+                        <VectorIcons.Entypo 
+                        name= 'cross'
+                        color= 'red'
+                        size = {vh(30)}
+                        style={{padding: vw(10),}}
+                        />
+                    {/* <Image
+                        source={images.cancel}
+                        style={styles.crossButtonStyle} /> */}
                 </TouchableOpacity>
                 {/* <KeyboardAwareScrollView> */}
                 <Text style={styles.welcomeBackStyle}>{strings.welcomeBack}</Text>

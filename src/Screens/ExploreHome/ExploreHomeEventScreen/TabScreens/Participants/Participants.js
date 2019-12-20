@@ -94,12 +94,6 @@ class Participants extends Component {
     this.props.goToPage()
   }
 
-  calculateDimensions = () => {
-    this.refs.innerView.measureLayout(findNodeHandle(this.refs.containerView), (xPos, yPos, Width, Height) => {
-      this.setState({ height: Height });
-    });
-  }
-
   render() {
     const { navigation, goToPage } = this.props;
     const { data } = this.state

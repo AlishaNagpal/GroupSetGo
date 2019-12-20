@@ -42,7 +42,7 @@ export default class SplashScreen extends Component {
         duration: 800,
       }),
       Animated.timing(this.moveAnimationText, {
-        toValue: { x: width/3.25, y: height/2 },
+        toValue: { x: width/3.5, y: height/2 },
         duration: 800,
       })
     ]),
@@ -76,10 +76,10 @@ export default class SplashScreen extends Component {
       return (
         <View style={{ flex: 1 }}>
           <Animated.Image
-            source={Pics.logoSmall} style={{ ...this.moveAnimationLogo.getLayout(), height: vh(40), width: vh(40), transform: [{ scale: logoScale }], position: 'absolute' }}
+            source={Pics.logoSmall} style={{ ...this.moveAnimationLogo.getLayout(), ...styles.logoStyle,  transform: [{ scale: logoScale }] }}
           />
           <Animated.Text
-            style={{ ...this.moveAnimationText.getLayout(), color: Colors.darkPink, transform:[{scale:textSize}], fontSize: vh(30), position: 'absolute' }}
+            style={{ ...this.moveAnimationText.getLayout(),  transform:[{scale:textSize}], ...styles.textStyle }}
           >
             Group Set Go
         </Animated.Text>

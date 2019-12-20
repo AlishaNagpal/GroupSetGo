@@ -96,7 +96,7 @@ class About extends Component {
           </TouchableOpacity>
         </View>
 
-        <MapView
+        {/* <MapView
           style={styles.mapStyle}
           provider={PROVIDER_GOOGLE}
           scrollEnabled={false}
@@ -122,7 +122,7 @@ class About extends Component {
             </Callout>
           </Marker>
 
-        </MapView>
+        </MapView> */}
       </View>
     );
   }
