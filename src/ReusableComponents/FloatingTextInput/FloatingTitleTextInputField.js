@@ -65,7 +65,6 @@ export default class FloatingTitleTextInputField extends Component {
   }
 
   render() {
-    // console.warn("aaaaaaaaa",this.props)
     return (
       <View style={Styles.container}>
         <Animated.Text

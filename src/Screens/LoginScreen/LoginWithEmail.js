@@ -1,12 +1,12 @@
 import React, { PureComponent } from 'react'
-import { Text, View, Image, TextInput, TouchableOpacity} from 'react-native'
+import { Text, View, Image, TextInput, TouchableOpacity } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 // import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scrollview'
 import { Toast } from '../../ReusableComponents'
 
 import { styles } from './styles'
 import strings from '../../Constants/Strings'
-import { Colors, VectorIcons } from '../../Constants'
+import { Colors, VectorIcons, vh } from '../../Constants'
 import { vw, } from '../../Constants'
 import images from '../../Constants/images'
 
@@ -53,8 +53,9 @@ export default class LoginWithEmail extends PureComponent {
                 <TouchableOpacity
                     onPress={() => this.props.navigation.goBack()}>
                     <Image
-                        source={images.crossImage}
-                        style={styles.crossButtonStyle} />
+                        source={images.cancelImage}
+                        style={styles.crossButtonStyle}
+                    />
                 </TouchableOpacity>
                 {/* <KeyboardAwareScrollView> */}
                 <Text style={styles.welcomeBackStyle}>{strings.welcomeBack}</Text>

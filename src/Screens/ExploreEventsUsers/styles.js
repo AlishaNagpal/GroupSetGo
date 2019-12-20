@@ -7,8 +7,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     headerView: {
-        // alignItems: 'center',
-        height: vh(90),
+        // height: vh(70),
         backgroundColor: Colors.fadedRed,
         width: vw(DesignWidth),
     },
@@ -19,7 +18,7 @@ const styles = StyleSheet.create({
     },
     tabbarViewStyle: {
         width: vw(DesignWidth),
-        height: vh(DesignHeight - vh(90)),
+        height: vh(DesignHeight - vh(70)),
     }
 });
 

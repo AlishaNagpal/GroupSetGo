@@ -52,7 +52,8 @@ const styles = StyleSheet.create({
     dateInnerView: {
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        marginTop: vh(-20)
     },
     dateNewText: {
         fontFamily: 'SourceSansPro-Regular',

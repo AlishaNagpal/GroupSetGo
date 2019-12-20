@@ -58,6 +58,11 @@ export default styles = StyleSheet.create({
         height: vh(226.7),
         width: vw(414)
     },
+    mapStyleContainer: {
+        // flex: 1,
+        height: vh(226.7),
+        width: vw(414)
+    },
     row2: {
         flexDirection: 'row',
         justifyContent: 'space-between',

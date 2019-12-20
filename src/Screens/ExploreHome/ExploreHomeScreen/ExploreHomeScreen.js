@@ -7,7 +7,7 @@ import {
   Text,
   ScrollView,
   RefreshControl,
-  SafeAreaView
+  Platform
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
@@ -24,17 +24,19 @@ const colors = [
 ];
 import HomeScreen from './HomeScreen';
 import ExploreMapScreen from './ExploreMapScreen';
+import { Toast } from '../../../ReusableComponents'
 export default class ExploreHomeScreen extends PureComponent {
   state = {
     opacityChanged: false,
     opac: 0,
     rotateRight: false,
-    refresh: false
+    refresh: false,
+    call: false
   };
   rotateValue = new Animated.Value(0);
   constructor() {
     super();
-    // this.rotateValue.addListener(({ value }) => this.setState({ opac: value }));
+    this.rotateValue.addListener(({ value }) => this.setState({ opac: value }));
   }
 
   onRefresh = () => {
@@ -45,6 +47,13 @@ export default class ExploreHomeScreen extends PureComponent {
       this.setState({ refresh: false })
     }, 2000)
   }
+
+  resetCall = (value) => {
+    this.setState({
+      call: value
+    })
+  }
+
 
   rotateView = () => {
     Animated.timing(this.rotateValue, {
@@ -65,11 +74,12 @@ export default class ExploreHomeScreen extends PureComponent {
   render() {
     return (
       <React.Fragment>
-        <View style={styles.mainContainer}>
+        <View style={[styles.mainContainer, { marginTop: Platform.OS === 'ios' ? vh(27) : vh(0) }]}>
           <View style={styles.headerView}>
-            <TouchableOpacity  onPress={() => this.props.navigation.navigate('MyAccount')}>
-            <Image source={Images.maleImage} style={styles.headerImage}  />
+            <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('MyAccount')} >
+              <Image source={Images.maleImage} style={styles.headerImage} />
             </TouchableOpacity>
+
             <TouchableOpacity
               style={styles.textInputView}
               onPress={() =>
@@ -92,7 +102,7 @@ export default class ExploreHomeScreen extends PureComponent {
               />
             </TouchableOpacity>
 
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => this.resetCall(true)} >
               <VectorIcons.MaterialCommunityIcons
                 name="bell-outline"
                 size={vh(22)}
@@ -102,10 +112,10 @@ export default class ExploreHomeScreen extends PureComponent {
             </TouchableOpacity>
           </View>
           <View style={styles.sortFilterView}>
-            <TouchableOpacity style={styles.sortStyle} onPress = {() => this.props.navigation.navigate('SortDialog')}>
+            <TouchableOpacity style={styles.sortStyle} onPress={() => this.props.navigation.navigate('SortDialog')}>
               <Text style={styles.sortText}> {strings.sort} </Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.sortStyle}  onPress = {() => this.props.navigation.navigate('Filter')}>
+            <TouchableOpacity style={styles.sortStyle} onPress={() => this.props.navigation.navigate('Filter')}>
               <Text style={styles.sortText}> {strings.filter} </Text>
             </TouchableOpacity>
           </View>
@@ -121,7 +131,6 @@ export default class ExploreHomeScreen extends PureComponent {
               <ScrollView
                 showsVerticalScrollIndicator={false}
                 contentContainerStyle={{ opacity: 1 - this.state.opac, paddingBottom: vh(60) }}
-                // bounces={false}
                 refreshControl={
                   <RefreshControl refreshing={this.state.refresh} onRefresh={this.onRefresh} />
                 }
@@ -141,10 +150,13 @@ export default class ExploreHomeScreen extends PureComponent {
           </Animated.View>
         </View>
         <LinearGradient colors={colors} style={styles.gradient}>
-          <TouchableOpacity onPress={()=>this.props.navigation.navigate('CreateEventStep1')} >
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('CreateEventStep1')} >
             <Image source={Images.calendar} style={styles.calendar} />
           </TouchableOpacity>
         </LinearGradient>
+        {this.state.call === true &&
+          <Toast top={-30} from={30} to={-30} message={strings.UnderWork} call={(value) => this.resetCall(value)} />
+        }
       </React.Fragment>
     );
   }

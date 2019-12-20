@@ -19,7 +19,6 @@ const url = Platform.select({
 class About extends Component {
   state = {
     data: '',
-    // height: null
   }
 
   componentDidMount() {
@@ -36,13 +35,6 @@ class About extends Component {
       })
     }
   }
-
-  // calculateDimensions = () => {
-  //   this.refs.innerView.measureLayout(findNodeHandle(this.refs.containerView), (xPos, yPos, Width, Height) => {
-  //     this.setState({ height: Height });
-  //     this.props.aboutHeightCalculate(Height)
-  //   });
-  // }
 
   render() {
     const { data } = this.state
@@ -96,7 +88,8 @@ class About extends Component {
           </TouchableOpacity>
         </View>
 
-        <MapView
+       <View style={styles.mapStyleContainer} >
+       <MapView
           style={styles.mapStyle}
           provider={PROVIDER_GOOGLE}
           scrollEnabled={false}
@@ -121,8 +114,8 @@ class About extends Component {
               </View>
             </Callout>
           </Marker>
-
         </MapView>
+       </View>
       </View>
     );
   }

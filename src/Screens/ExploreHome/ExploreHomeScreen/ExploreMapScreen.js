@@ -43,6 +43,7 @@ class ExploreMapScreen extends Component {
     };
   }
 
+
   Press = (id) => {
     let temp = this.state.data
     let indexToEdit = temp.findIndex(item => item.serialNo == id)
@@ -78,6 +79,7 @@ class ExploreMapScreen extends Component {
           style={styles.mapStyle}
           provider={PROVIDER_GOOGLE}
           zoomEnabled={true}
+          scrollEnabled={true}
           maxZoomLevel={13.3}
           region={{
             latitude: 36.116442,
@@ -91,18 +93,13 @@ class ExploreMapScreen extends Component {
               coordinate={marker.latlng}
               ref={marker => (this.marker = marker)}
             >
-              <Image
-                source={Images.marker}
-                style={styles.marker} />
-              <MapView.Callout onPress={() => this.Press(marker.id)} >
+              <MapView.Callout onPress={() => this.Press(marker.id)}  >
                 <View style={styles.calloutView} >
                   <Text>{marker.title}</Text>
                   <Text>{marker.description}</Text>
                 </View>
               </MapView.Callout>
-
             </MapView.Marker>
-
           ))}
 
         </MapView>
@@ -110,11 +107,10 @@ class ExploreMapScreen extends Component {
           this.state.cardIsRendered && (
             <View style={styles.mainCardView}>
               <TouchableOpacity onPress={() => this.callScreen(data.serialNo)} >
-                <Image source={{uri: data.source}} style={styles.flatlistImage} />
+                <Image source={{ uri: data.source }} style={styles.flatlistImage} />
                 <TouchableOpacity onPress={() => { this.toggle(data.serialNo, data.hearted) }} style={styles.heart} activeOpacity={1}  >
                   <Image source={data.hearted ? Images.heartFilled : Images.heartEmpty} />
                 </TouchableOpacity>
-                {/* <Image source={Images.heartEmpty} style={styles.heart} /> */}
                 <View style={styles.cheersView} >
                   <Image source={Images.cheers} style={styles.cheers} />
                 </View>
@@ -138,7 +134,7 @@ class ExploreMapScreen extends Component {
             </View>
           )
         }
-      </View>
+      </View >
     );
   }
 }

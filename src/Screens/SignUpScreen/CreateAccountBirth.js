@@ -28,7 +28,6 @@ class CreateAccountBirth extends PureComponent {
         const month = date.getMonth();
         const day = date.getDate();
         const c = new Date(year - 18, month, day)
-        console.log("djsabck", c)
         return (c)
     }
     render() {
@@ -63,7 +62,6 @@ class CreateAccountBirth extends PureComponent {
 
 function mapStateToProps(state) {
     const { date } = state.Reducer
-    console.log(date)
     return { date }
 
 }

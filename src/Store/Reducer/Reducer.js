@@ -1,12 +1,13 @@
 import { combineReducers } from "redux";
 import * as Actions from '../../utils/ActionTypes'
 import DATA from '../../DataSource'
-import CATEGORIES from '../../DataSourceForCategories'
+import * as CATEGORIES from '../../DataSourceForCategories'
 
 const initialState = {
     date: "01-01-1990",
     Event_Data: DATA,
-    categoryData: CATEGORIES,
+    categoryData: CATEGORIES.CATEGORIES,
+    categoryDataType2: CATEGORIES.CATEGORIES2,
     savedCategories: [],
     selected: false,
 };
@@ -20,6 +21,8 @@ const Reducer = (state = initialState, action) => {
             return { ...state, Event_Data: action.payload.data }
         case Actions.CATEGORY_MODAL:
             return { ...state, categoryData: action.payload.data }
+        case Actions.CATEGORY_MODAL_PART2:
+            return { ...state, categoryDataType2: action.payload.data }
         case Actions.SAVED_CATEGORIES:
             return { ...state, savedCategories: action.payload.data }
         case Actions.SELECTED:

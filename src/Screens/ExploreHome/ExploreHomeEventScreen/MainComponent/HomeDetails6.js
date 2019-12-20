@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import { View, Text, Image, ScrollView, TouchableOpacity, findNodeHandle } from 'react-native';
+import { View, Text, Image, ScrollView, TouchableOpacity, Platform} from 'react-native';
 
 // Custom Imports
 import styles from './styles';
 import { VectorIcons, vh, vw, Colors, strings } from '../../../../Constants';
 import * as Progress from 'react-native-progress';
+import { ProgressiveImage, Toast } from '../../../../ReusableComponents'
 import { connect } from 'react-redux'
 import { eventDATA } from '../../../../Store/Action/Action'
 import About from '../TabScreens/About/About';
 import Participants from '../TabScreens/Participants/Participants';
 import Settlement from '../TabScreens/Settlement/Settlement';
 var ScrollableTabView = require('react-native-scrollable-tab-view');
-import { ProgressiveImage } from '../../../../ReusableComponents'
 
 class HomeDetails6 extends Component {
     state = {
@@ -22,7 +22,8 @@ class HomeDetails6 extends Component {
         tabNumber: 0,
         aboutTab: null,
         participamntsTab: null,
-        toggle: false
+        toggle: false,
+        call:false
     }
 
     componentDidMount() {
@@ -43,6 +44,12 @@ class HomeDetails6 extends Component {
                 data: newData
             })
         }
+    }
+
+    resetCall = (value) => {
+        this.setState({
+            call: value
+        })
     }
 
     toggle(id, value) {
@@ -74,7 +81,7 @@ class HomeDetails6 extends Component {
         return (
             <TouchableOpacity style={styles.center}
                 // onpress of join tap
-                onPress={() => this.props.navigation.navigate({ routeName: "AddGuests", key: "2" })}
+                onPress={() => this.props.navigation.navigate("AddGuests", {id: this.props.navigation.getParam('id').id  })}
                 activeOpacity={1} >
                 <VectorIcons.Ionicons
                     name={this.state.data.joined ? "ios-remove-circle-outline" : "ios-add-circle-outline"}
@@ -116,41 +123,41 @@ class HomeDetails6 extends Component {
         this.tabView.goToPage(pageId);
     }
 
-    calculateDimensions = () => {
-        // setTimeout(() => {
-        //     this.refs.innerView.measureLayout(findNodeHandle(this.refs.containerView), (xPos, yPos, Width, Height) => {
-        //         this.setState({ heightTab: Height, tabNumber: 0, aboutTab: Height, toggle: false });
-        //         alert(this.state.aboutTab)
-        //     });
-        // }, 600)
+    // calculateDimensions = () => {
+    //     // setTimeout(() => {
+    //     //     this.refs.innerView.measureLayout(findNodeHandle(this.refs.containerView), (xPos, yPos, Width, Height) => {
+    //     //         this.setState({ heightTab: Height, tabNumber: 0, aboutTab: Height, toggle: false });
+    //     //         alert(this.state.aboutTab)
+    //     //     });
+    //     // }, 600)
 
-        setTimeout(() => {
-            this.refs.PARTICIPANTS.measureLayout(findNodeHandle(this.refs.containerView), (xPos, yPos, Width, Height) => {
-                this.setState({ heightTab: Height, tabNumber: 1, participamntsTab: Height, toggle: true });
-                alert(this.state.participamntsTab)
-            });
-        }, 600)
+    //     setTimeout(() => {
+    //         this.refs.PARTICIPANTS.measureLayout(findNodeHandle(this.refs.containerView), (xPos, yPos, Width, Height) => {
+    //             this.setState({ heightTab: Height, tabNumber: 1, participamntsTab: Height, toggle: true });
+    //             alert(this.state.participamntsTab)
+    //         });
+    //     }, 600)
 
-        // if (this.state.tabNumber === 0) {
-        //     setTimeout(() => {
-        //         this.refs.PARTICIPANTS.measureLayout(findNodeHandle(this.refs.containerView), (xPos, yPos, Width, Height) => {
-        //             this.setState({ heightTab: Height, tabNumber: 1 });
-        //             alert(Height)
-        //         });
-        //     }, 600)
-        // } else {
+    //     // if (this.state.tabNumber === 0) {
+    //     //     setTimeout(() => {
+    //     //         this.refs.PARTICIPANTS.measureLayout(findNodeHandle(this.refs.containerView), (xPos, yPos, Width, Height) => {
+    //     //             this.setState({ heightTab: Height, tabNumber: 1 });
+    //     //             alert(Height)
+    //     //         });
+    //     //     }, 600)
+    //     // } else {
 
-        //     this.refs.innerView.measureLayout(findNodeHandle(this.refs.containerView), (xPos, yPos, Width, Height) => {
-        //         this.setState({ heightTab: Height, tabNumber: 0 });
-        //         alert(Height)
-        //     });
-        // }
-    }
+    //     //     this.refs.innerView.measureLayout(findNodeHandle(this.refs.containerView), (xPos, yPos, Width, Height) => {
+    //     //         this.setState({ heightTab: Height, tabNumber: 0 });
+    //     //         alert(Height)
+    //     //     });
+    //     // }
+    // }
 
     render() {
         const { data } = this.state;
         return (
-            <View style={styles.mainView} ref="containerView">
+            <View style={[styles.mainView,{marginTop: Platform.OS === 'ios' ? vh(30) : vh(0) }]}>
                 <ScrollView bounces={false} showsVerticalScrollIndicator={false}>
                     <View>
                         <ProgressiveImage
@@ -238,7 +245,7 @@ class HomeDetails6 extends Component {
                             {this.goingSave()}
                         </View>
                         <View style={styles.divide} >
-                            <TouchableOpacity style={styles.center} activeOpacity={1} >
+                            <TouchableOpacity style={styles.center} activeOpacity={1} onPress={()=>this.resetCall(true)} >
                                 <VectorIcons.SimpleLineIcons name="share" color={Colors.shareBlue} size={vh(20)} />
                                 <Text style={styles.shareText}> {strings.share} </Text>
                             </TouchableOpacity>
@@ -254,19 +261,22 @@ class HomeDetails6 extends Component {
                             activeTabStyle={{ backgroundColor: null }}
                             tabBarTextStyle={styles.tabBarFont}
                             initialPage={0}
-                            onChangeTab={() => this.calculateDimensions()}
+                            // onChangeTab={() => this.calculateDimensions()}
                             ref={(tabView) => { this.tabView = tabView }}
                         >
                             <View ref="ABOUT" tabLabel="ABOUT">
                                 <About tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} />
                             </View>
-                            <View ref="PARTICIPANTS" style={{ flex: 1 }} tabLabel="PARTICIPANTS">
+                            <View ref="PARTICIPANTS"  tabLabel="PARTICIPANTS">
                                 <Participants tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} goToPage={() => this.goToPage(2)} />
                             </View>
                             {data.settlement && <View ref="SETTLEMENT" tabLabel="SETTLEMENT"><Settlement tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} /></View>}
                         </ScrollableTabView></View>}
                     </View>
                 </ScrollView>
+                {this.state.call === true &&
+                    <Toast top={-30} from={0} to={-30} message={strings.UnderWork} call={(value) => this.resetCall(value)} />
+                }
             </View>
         );
     }

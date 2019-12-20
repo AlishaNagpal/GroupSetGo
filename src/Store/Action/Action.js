@@ -22,12 +22,28 @@ export const categoryModalData = () => {
     }
 }
 
+export const categoryModalDataPart2 = () => {
+    return (dispatch, getState) => {
+        const { categoryDataType2 } = getState().Reducer;
+        dispatch({ type: Actions.CATEGORY_MODAL_PART2, payload: { data: categoryDataType2 } });
+    }
+}
+
 export const saveCategoryData = (value) =>{
     return (dispatch, getState) => {
         const { savedCategories } = getState().Reducer;
         let emptyArray = savedCategories;
         emptyArray = emptyArray.slice();
         emptyArray.push(value)
+        dispatch({ type: Actions.SAVED_CATEGORIES, payload: { data: emptyArray } });
+    }
+}
+
+export const getCategoryData = () =>{
+    return (dispatch, getState) => {
+        const { savedCategories } = getState().Reducer;
+        let emptyArray = savedCategories;
+        emptyArray = emptyArray.slice();
         dispatch({ type: Actions.SAVED_CATEGORIES, payload: { data: emptyArray } });
     }
 }

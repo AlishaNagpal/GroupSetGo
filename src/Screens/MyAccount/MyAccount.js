@@ -1,16 +1,10 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, ScrollView, FlatList, Image } from 'react-native';
-import { vh, vw, VectorIcons, Colors, Strings, Images } from '../../Constants';
+import { View, Text, TouchableOpacity, FlatList, ScrollView } from 'react-native';
+import { vh, VectorIcons, Colors, Strings } from '../../Constants';
 import styles from './styles';
 import NewFlatlist from './Flatlist';
 
 export default class MyAccount extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-        };
-    }
-
     myList = (myData) => {
         return (
             <FlatList
@@ -48,30 +42,35 @@ export default class MyAccount extends Component {
     render() {
         return (
             <View style={styles.containerStyle}>
-                <View style={styles.headerView}>
-                    <TouchableOpacity onPress={() => this.props.navigation.pop()} >
-                        <VectorIcons.MaterialCommunityIcons
-                            name="keyboard-backspace"
-                            size={vh(30)}
-                            color={Colors.white}
-                            style={styles.backButtonStyle}
-                        />
-                    </TouchableOpacity>
+                <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.pop()} style={styles.headerView} >
+                    <VectorIcons.Ionicons
+                        name="ios-arrow-back"
+                        size={vh(30)}
+                        color={Colors.white}
+                        style={styles.backButtonStyle}
+                    />
                     <Text style={styles.reviewHeading}>{Strings.myAccount}</Text>
-                </View>
-                <View style={styles.accountHead}>
-                    <Text style={styles.reviewHeadingAccount}>{Strings.account}</Text>
-                </View>
-                {this.myList(DATA)}
-                <View style={styles.accountHead}>
-                    <Text style={styles.reviewHeadingAccount}>{Strings.help}</Text>
-                </View>
-                {this.myList(DATA2)}
-                <View style={styles.availableOuterView} />
-                <TouchableOpacity style={styles.listView} onPress={() => this.props.navigation.navigate('InviteFrnd')}>
-                    <Text style={styles.listText}>{Strings.inviteFrnd}</Text>
                 </TouchableOpacity>
+                <ScrollView showsVerticalScrollIndicator={false} >
+                    <View style={styles.accountHead}>
+                        <Text style={styles.reviewHeadingAccount}>{Strings.account}</Text>
+                    </View>
+                    {this.myList(DATA)}
+                    <View style={styles.accountHead}>
+                        <Text style={styles.reviewHeadingAccount}>{Strings.help}</Text>
+                    </View>
+                    {this.myList(DATA2)}
+                    <View style={styles.availableOuterView} />
+                    <TouchableOpacity style={[styles.listView, styles.bottomStyle]} onPress={() => this.props.navigation.navigate('InviteFrnd')}>
+                        <Text style={styles.listText}>{Strings.inviteFrnd}</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={[styles.listView, { marginBottom: vh(30) }]} onPress={() => this.props.navigation.navigate('Logout')}>
+                        <Text style={styles.listText}>{Strings.logout}</Text>
+                        <VectorIcons.MaterialCommunityIcons name='logout' size={vh(20)} color={Colors.fadedGray} />
+                    </TouchableOpacity>
+                </ScrollView>
             </View>
+
         );
     }
 }

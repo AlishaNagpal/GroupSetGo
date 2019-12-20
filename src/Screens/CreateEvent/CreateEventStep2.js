@@ -20,7 +20,8 @@ class CreateEventStep2 extends Component {
     switchPosition: new Animated.ValueXY({ x: vw(0), y: vh(0) }),
     private: true,
     public: false,
-    value: ''
+    value: '',
+    // selected: this.props.selected
   }
 
   resetCall = (value) => {
@@ -73,6 +74,14 @@ class CreateEventStep2 extends Component {
     this.setState({
       imageData: temp
     })
+   setTimeout(() => {
+    if (this.state.imageData === []) {
+      this.setState({
+        showImages:false
+      })
+      this.forceUpdate()
+    } 
+   }, 200); 
   }
 
   toggleSwitch() {
@@ -139,7 +148,7 @@ class CreateEventStep2 extends Component {
               </TouchableOpacity>
             </View>
             <Text style={styles.addphotoDescrption} > {strings.addPhotoTextString} </Text>
-            {this.state.showImages &&
+            {this.state.showImages  &&
               <FlatList
                 data={this.state.imageData}
                 keyExtractor={(item, index) => index.toString()}
@@ -152,7 +161,7 @@ class CreateEventStep2 extends Component {
           <Text style={styles.addPhoto} > {strings.category} </Text>
           <View style={styles.selectView}>
             <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('CategorySelectModal')} style={styles.selectedStyle}  >
-              <Text style={styles.select} > {this.props.selected ? " " + this.props.savedCategories : strings.select} </Text>
+              <Text style={styles.select} > {this.props.selected ?( " " + this.props.savedCategories ): strings.select} </Text>
               <VectorIcons.Ionicons name='ios-arrow-down' size={vh(25)} color={Colors.fadedGray} style={styles.iconStyle} />
             </TouchableOpacity>
             <View style={styles.separator3} />

@@ -245,17 +245,12 @@ export default styles = StyleSheet.create({
         height: vw(230),
         width: vw(340),
         borderRadius: vh(16.7),
-        top: vh(280),
         backgroundColor: Colors.white,
         borderWidth: vw(0.2),
         borderColor: Colors.fadedGray,
-        bottom: vh(60),
+        bottom: vh(70),
         marginLeft: vw(28)
 
-    },
-    marker: {
-        height: 30,
-        width: 30
     },
     calloutView: {
         width: 180,

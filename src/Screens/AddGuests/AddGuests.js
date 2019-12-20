@@ -31,11 +31,6 @@ export default class AddGuests extends PureComponent {
     scrollViewHeight: vh(DesignHeight)
   };
 
-  componentDidMount(){
-    console.log(this.props.navigation.getParam('id'));
-    
-  }
-
   clicked(check, id) {
     if (id === 1) {
       this.setState({

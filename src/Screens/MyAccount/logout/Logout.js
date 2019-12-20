@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, Image } from 'react-native';
 import styles from './styles';
 import { strings, Images } from '../../../Constants';
 
-export default class ChangePwd extends Component {
+export default class Logout extends Component {
   render() {
     return (
       <View style={styles.containerView}>

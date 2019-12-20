@@ -36,6 +36,7 @@ export default class Filter extends Component {
       nonCollidingMultiSliderValue: [3000, 7000],
       nonCollidingMultiSliderValue2: [20, 80],
     })
+    // this.forceUpdate();
   }
 
   getDate = () => {
@@ -87,17 +88,15 @@ export default class Filter extends Component {
     return (
       <View style={styles.containerStyle}>
         <View style={styles.headerView}>
-          <View style={styles.filterView}>
-            <TouchableOpacity onPress={() => this.props.navigation.pop()}>
-              <Image source={Images.cancel} />
-            </TouchableOpacity>
+          <TouchableOpacity onPress={() => this.props.navigation.pop()} style={styles.filterView} >
+            <Image source={Images.cancel} />
             <Text style={styles.reviewHeadingFilter}>{Strings.filters}</Text>
-          </View>
+          </TouchableOpacity>
           <View style={styles.filterView}>
             <TouchableOpacity onPress={() => this.props.navigation.navigate('InfoDialog')}>
               <Image source={Images.smallInfo} />
             </TouchableOpacity>
-            <Text style={styles.reviewHeadingReset} onPress={() => this.props.navigation.navigate('ResetDialog')}>{Strings.reset}</Text>
+            <Text style={styles.reviewHeadingReset} onPress={() => this.props.navigation.navigate('ResetDialog', { onReset: this.resetAllData.bind(this) })}>{Strings.reset}</Text>
           </View>
         </View>
         <ScrollView bounces={false} showsVerticalScrollIndicator={false}>
@@ -119,7 +118,6 @@ export default class Filter extends Component {
                 />}
                 mode={'date'}
                 androidMode={'calendar'}
-                minDate={new Date()}
                 maxDate={this.getDate()}
                 onDateChange={(date) => { this.setState({ myDateStart: date }) }}
               />
@@ -136,7 +134,6 @@ export default class Filter extends Component {
                 />}
                 mode={'date'}
                 androidMode={'calendar'}
-                minDate={new Date()}
                 maxDate={this.getDate()}
                 onDateChange={(date) => { this.setState({ myDateEnd: date }) }}
               />
@@ -194,9 +191,7 @@ export default class Filter extends Component {
           </View>
           <View style={styles.availableOuterView} />
           <View style={styles.availableView}>
-            <View>
-              <Text style={styles.dateText}>{Strings.availableSlot}</Text>
-            </View>
+            <Text style={styles.dateText}>{Strings.availableSlot}</Text>
             <View style={styles.plusMinusView}>
               <VectorIcons.AntDesign
                 name='minuscircleo'
@@ -244,16 +239,16 @@ export default class Filter extends Component {
             </View>
           </View>
           <View style={styles.availableOuterView} />
-          <View style={styles.category}>
+          <TouchableOpacity style={styles.category} onPress={() => this.props.navigation.navigate('CategorySelectModalPart2')} >
             <Text style={styles.dateText}>{Strings.eventCategory}</Text>
-          </View>
+          </TouchableOpacity>
           <View style={styles.availableOuterView} />
           <View style={styles.family}>
             <View>
               <Text style={styles.dateText}>{Strings.familyFriends}</Text>
             </View>
             <View style={styles.familyBtnView}>
-              <Text style={styles.familyYes}>{Strings.Yes}</Text>
+              <Text style={styles.familyYes}>{this.state.switchEnabled ? Strings.Yes : Strings.No}</Text>
               <CustomSwitch switchEnabled={this.state.switchEnabled} switchPosition={this.state.switchPosition} toggleSwitch={() => this.toggleSwitch()} />
             </View>
           </View>

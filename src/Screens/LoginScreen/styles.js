@@ -98,9 +98,8 @@ export const styles = StyleSheet.create({
     crossButtonStyle: {
         width: vw(18.3),
         height: vw(18.3),
-        marginLeft: vw(377.7),
-        marginTop: vh(19.7),
-        backgroundColor: 'red'
+        marginLeft: vw(365),
+        marginTop: vh(25),
     },
     errorView: {
         position: 'absolute',

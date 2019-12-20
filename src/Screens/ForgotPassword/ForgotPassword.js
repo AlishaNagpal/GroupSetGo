@@ -7,7 +7,7 @@ import LinearGradient from 'react-native-linear-gradient'
  */
 import { styles } from './styles'
 import strings from '../../Constants/Strings'
-import { vw, vh, DesignWidth } from '../../Constants/Dimension'
+import { vw, vh, DesignWidth, VectorIcons } from '../../Constants'
 import Colors from '../../Constants/Colors'
 import { Toast } from '../../ReusableComponents'
 

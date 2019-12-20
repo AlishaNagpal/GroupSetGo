@@ -6,23 +6,7 @@ import {
   } from 'react-native';
   import {vw, VectorIcons, } from '../../../../../Constants';
 import styles from './style';
-
-const numOfLine = 3;
-
 export default class Reviews extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-        textShow: true,
-        num: 0,
-      };
-  }
-
-  toggle=()=>{
-    this.setState({
-      textShow: !this.state.textShow
-    })
-}
 
   render() {
       const item = this.props.myData 
@@ -49,13 +33,8 @@ export default class Reviews extends Component {
           </View>
         </View>
         <View style={styles.reviewView}>
-          <Text 
-          style={styles.rwText} 
-          // onTextLayout={({ nativeEvent: { lines } }) => this.setState({textShow: lines.length > numOfLine })}
-          numberOfLines={this.state.textShow ? numOfLine : null}
-          >{item.review}
-          </Text>
-          <Text style={styles.readMore} onPress = {this.toggle}>{this.state.textShow ? 'show more' : 'show less'}</Text>
+          <Text style={styles.rwText} >{item.review} </Text>
+          {/* <Text style={styles.readMore} onPress = {this.toggle}>{this.state.textShow ? 'Show More' : 'Show Less'}</Text> */}
         </View>
       </View>
     );

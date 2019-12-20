@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     letsStartStyle: {
         fontFamily: 'SourceSansPro-Semibold',
         fontSize: vw(22),
-        marginTop: vh(15)
+        marginTop: vh(10)
     },
     justAMinuteStyle: {
         fontSize: vw(15.3),

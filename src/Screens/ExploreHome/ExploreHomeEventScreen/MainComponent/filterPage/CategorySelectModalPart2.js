@@ -1,35 +1,18 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, FlatList } from 'react-native';
-import styles from './styles'
-import { strings, Colors, vh } from '../../Constants'
-import { categoryModalData, saveCategoryData, SELECTED, getCategoryData } from '../../Store/Action/Action'
+import styles from '../../../../CreateEvent/styles'
+import { strings, Colors, vh } from '../../../../../Constants'
+import { categoryModalDataPart2} from '../../../../../Store/Action/Action'
 import { connect } from 'react-redux'
-import { CheckBox } from '../../ReusableComponents'
+import { CheckBox } from '../../../../../ReusableComponents'
 
-class CategorySelectModal extends Component {
+class CategorySelectModalPart2 extends Component {
   clicked = (id, check) => {
-    let temp = this.props.categoryData
+    let temp = this.props.categoryDataType2
     let indexTofind = temp.findIndex(item => item.id === id)
     if (indexTofind !== -1) {
-      this.props.categoryData[indexTofind].selected = check
+      temp[indexTofind].selected = check
     }
-    if (check === true) {
-      this.props.saveCategoryData(temp[indexTofind].name)
-      this.props.SELECTED(true)
-    } else {
-      let temporary = this.props.savedCategories
-      let index = temporary.findIndex(item => item === temp[indexTofind].name)
-      if (index !== -1) {
-        this.props.savedCategories.splice(index, 1)
-        setTimeout(() => {
-          this.props.getCategoryData()
-          this.props.SELECTED(false)
-        }, 200)
-      }
-    }
-
-
-
   }
 
   renderData = (rowData) => {
@@ -63,7 +46,7 @@ class CategorySelectModal extends Component {
             <Text style={styles.categoryHeaderText} > {strings.selectCategories} </Text>
           </View>
           <FlatList
-            data={this.props.categoryData}
+            data={this.props.categoryDataType2}
             keyExtractor={(item, index) => item.toString() + index.toString()}
             renderItem={this.renderData}
             showsVerticalScrollIndicator={false}
@@ -84,23 +67,18 @@ class CategorySelectModal extends Component {
 
 function mapDispatchToProps(dispatch) {
   return {
-    categoryModalData: () => dispatch(categoryModalData()),
-    saveCategoryData: (value) => dispatch(saveCategoryData(value)),
-    SELECTED: (value) => dispatch(SELECTED(value)),
-    getCategoryData: () => dispatch(getCategoryData())
+    categoryModalDataPart2: () => dispatch(categoryModalDataPart2()),
   }
 }
 
 function mapStateToProps(state) {
-  const { categoryData, savedCategories, selected } = state.Reducer;
+  const { categoryDataType2 } = state.Reducer;
   return {
-    categoryData,
-    savedCategories,
-    selected
+    categoryDataType2,
   }
 }
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(CategorySelectModal);
+)(CategorySelectModalPart2);

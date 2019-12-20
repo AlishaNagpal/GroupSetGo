@@ -173,6 +173,7 @@ const strings = {
     account: 'account',
     help: 'help',
     inviteFrnd: 'invite friend',
+    logout: 'Logout'
 }
 
 export default strings;

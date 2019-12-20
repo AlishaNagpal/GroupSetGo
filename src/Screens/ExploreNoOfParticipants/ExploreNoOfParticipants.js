@@ -10,9 +10,7 @@ import { vh, Colors, vw, VectorIcons } from '../../Constants'
 import { FlatList } from 'react-native-gesture-handler'
 
 export default class ExploreNoOfParticipants extends PureComponent {
-    // state = {
-    //     itemTapped: {}
-    // }
+   
     renderItems = (rowData) => {
         return (
             <TouchableOpacity onPress={() => this.props.navigation.navigate("Card", { itemTapped: rowData })} style={styles.cardStyle}>

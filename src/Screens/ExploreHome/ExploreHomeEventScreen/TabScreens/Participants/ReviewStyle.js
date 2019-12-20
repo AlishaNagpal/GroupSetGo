@@ -6,6 +6,7 @@ const ReviewStyle = StyleSheet.create({
 containerStyle: {
     flex: 1,
     alignItems: 'center',
+    marginBottom: vh(20)
 },
 headerView: {
     // alignItems: 'center',

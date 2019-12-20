@@ -1,4 +1,82 @@
-export default CATEGORIES = [
+export const CATEGORIES = [
+    {
+        name:'Adventure',
+        selected:false,
+        id:1,
+    },
+    {
+        name:'Art',
+        selected:false,
+        id:2
+    },
+    {
+        name:'Causes',
+        selected:false,
+        id:3
+    },
+    {
+        name:'Dance',
+        selected:false,
+        id:4
+    },
+    {
+        name:'Drinks',
+        selected:false,
+        id:5
+    },
+    {
+        name:'Films',
+        selected:false,
+        id:6
+    },
+    {
+        name:'Fitness',
+        selected:false,
+        id:7
+    },
+    {
+        name:'Food',
+        selected:false,
+        id:8
+    },
+    {
+        name:'Music Concert',
+        selected:false,
+        id:9
+    },
+    {
+        name:'Networking',
+        selected:false,
+        id:10
+    },
+    {
+        name:'Outdoor',
+        selected:false,
+        id:11
+    },
+    {
+        name:'Party',
+        selected:false,
+        id:12
+    },
+    {
+        name:'Sports & Games',
+        selected:false,
+        id:13
+    },
+    {
+        name:'Travel',
+        selected:false,
+        id:14
+    },
+    {
+        name:'Others',
+        selected:false,
+        id:15
+    },
+]
+
+export const CATEGORIES2 = [
     {
         name:'Adventure',
         selected:false,

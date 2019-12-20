@@ -70,9 +70,10 @@ class VenueReviews extends Component {
           data={this.state.data.reviewDATA}
           keyExtractor={(item, index) => index.toString()}
           renderItem={this.renderData}
-          showsVerticalScrollIndicator = {false}
-          showsHorizontalScrollIndicator = {false}
-          alwaysBounceHorizontal = {false}
+          showsVerticalScrollIndicator={false}
+          showsHorizontalScrollIndicator={false}
+          alwaysBounceHorizontal={false}
+          bounces={false}
         />
       </View>
     );

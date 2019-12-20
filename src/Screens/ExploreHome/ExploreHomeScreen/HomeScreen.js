@@ -4,7 +4,7 @@ import styles from './style';
 import { connect } from 'react-redux';
 import { eventDATA } from '../../../Store/Action/Action';
 import { Images, vw, vh, Colors, VectorIcons, strings } from '../../../Constants';
-import { ProgressiveImage, Toast } from '../../../ReusableComponents'
+import { ProgressiveImage} from '../../../ReusableComponents'
 
 class HomeScreen extends PureComponent {
   callScreen = id => {

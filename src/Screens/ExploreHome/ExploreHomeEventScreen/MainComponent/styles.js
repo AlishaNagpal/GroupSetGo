@@ -4,7 +4,6 @@ import { vh, vw, Colors, DesignHeight, DesignWidth } from '../../../../Constants
 export default styles = StyleSheet.create({
     mainView: {
         flex: 1,
-        marginTop: vh(30)
     },
     pic: {
         height: vh(270),
@@ -12,15 +11,14 @@ export default styles = StyleSheet.create({
     },
     backButton: {
         position: 'absolute',
-        top: vh(41.3),
+        top: vh(20),
         left: vw(13.3)
     },
     flagBtn: {
         position: 'absolute',
-        top: vh(40),
+        top: vh(20),
         right: vw(13.3),
         height:vw(50),
-        // width:vw(50)
     },
     cheersView: {
         backgroundColor: 'black',

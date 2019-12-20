@@ -60,17 +60,22 @@ import Payments from './Screens/MyAccount/Payments/Payments';
 import PrivacyPolicy from './Screens/MyAccount/PrivacyPolicy/PrivacyPolicy';
 import Settings from './Screens/MyAccount/Settings/Settings';
 import TNC from './Screens/MyAccount/TNC/TNC';
+import Logout from './Screens/MyAccount/logout/Logout'
 import InviteFrnd from './Screens/MyAccount/InviteFrnd/InviteFrnd';
+import CategorySelectModalPart2 from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/filterPage/CategorySelectModalPart2'
+import ExploreSaved from './Screens/ExploreSaved/ExploreSaved'
+import ExploreChat from "./Screens/ExploreChat/ExploreChat";
+import ExploreMyEvents from "./Screens/ExploreMyEvents/ExploreMyEvents";
 
-// console.disableYellowBox = true
+console.disableYellowBox = true
 
 const Explore = createStackNavigator({ Explore: ExploreHomeScreen, Map: ExploreMapScreen },
   { defaultNavigationOptions: { header: null } });
-const Saved = createStackNavigator({ Saved: ExploreHomeScreen, },
+const Saved = createStackNavigator({ Saved: ExploreSaved, },
   { defaultNavigationOptions: { header: null } });
-const MyEvents = createStackNavigator({ MyEvents: ExploreHomeScreen },
+const MyEvents = createStackNavigator({ MyEvents: ExploreMyEvents },
   { defaultNavigationOptions: { header: null } });
-const Chat = createStackNavigator({ Chat: ExploreHomeScreen },
+const Chat = createStackNavigator({ Chat: ExploreChat },
   { defaultNavigationOptions: { header: null } });
 
 const TabNavigator = createAppContainer(
@@ -147,12 +152,12 @@ const TabNavigator = createAppContainer(
 
 const MainStack = createStackNavigator(
   {
-    HomeNavigator: TabNavigator,
+    HomeNavigator:{ screen:TabNavigator}, 
     SplashScreen: SplashScreen,
     OnboardingLogin: OnboardingLogin,
-    HomeDetails6: HomeDetails6,
+    HomeDetails6: { screen: HomeDetails6},
     ExploreNoOfParticipants: ExploreNoOfParticipants,
-    HomeScreen: HomeScreen,
+    HomeScreen: {screen: HomeScreen },
     FlagInappropriate: FlagInappropriate,
     VenueReviews: VenueReviews,
     Reviews: Reviews,
@@ -175,7 +180,11 @@ const MainStack = createStackNavigator(
     PrivacyPolicy: PrivacyPolicy,
     Settings: Settings,
     TNC: TNC,
+    Logout:Logout,
     InviteFrnd: InviteFrnd,
+    ExploreEventsUsers: {
+      screen: ExploreEventsUsers,
+    },
   },
   {
     initialRouteName: 'SplashScreen',
@@ -223,9 +232,6 @@ const RootStack = createStackNavigator(
     Review: {
       screen: Review,
     },
-    ExploreEventsUsers: {
-      screen: ExploreEventsUsers,
-    },
     Flag: {
       screen: Flag
     },
@@ -262,6 +268,7 @@ const RootStack = createStackNavigator(
     ResetDialog: {
       screen: ResetDialog
     },
+    CategorySelectModalPart2:CategorySelectModalPart2
   },
   {
     mode: 'modal',

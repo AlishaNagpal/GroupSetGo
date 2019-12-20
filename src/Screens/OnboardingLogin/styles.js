@@ -1,14 +1,11 @@
 import { StyleSheet } from 'react-native'
-
-/**
- * custom imports
- */
-import { vw, vh } from '../../Constants/Dimension';
+import { vw, vh, Colors } from '../../Constants';
 
 export const styles = StyleSheet.create({
     containerStyle: {
         flex: 1,
         alignItems: 'center',
+        backgroundColor:Colors.white
     },
     logoImageStyle: {
         width: vw(82),
