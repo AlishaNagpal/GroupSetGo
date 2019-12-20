@@ -127,7 +127,7 @@ class HomeDetails6 extends Component {
         setTimeout(() => {
             this.refs.PARTICIPANTS.measureLayout(findNodeHandle(this.refs.containerView), (xPos, yPos, Width, Height) => {
                 this.setState({ heightTab: Height, tabNumber: 1, participamntsTab: Height, toggle: true });
-                alert(this.state.participamntsTab)
+                // alert(this.state.participamntsTab)
             });
         }, 600)
 

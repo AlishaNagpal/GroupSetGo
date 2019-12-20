@@ -62,7 +62,7 @@ import Settings from './Screens/MyAccount/Settings/Settings';
 import TNC from './Screens/MyAccount/TNC/TNC';
 import InviteFrnd from './Screens/MyAccount/InviteFrnd/InviteFrnd';
 
-// console.disableYellowBox = true
+console.disableYellowBox = true
 
 const Explore = createStackNavigator({ Explore: ExploreHomeScreen, Map: ExploreMapScreen },
   { defaultNavigationOptions: { header: null } });
