@@ -1,14 +1,12 @@
 import React, { PureComponent } from 'react'
-import { Text, View, Image, TouchableOpacity, Alert } from 'react-native'
+import { Text, View, Image, TouchableOpacity } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 
 /**
  * custom imports
  */
 import { styles } from './styles'
-import Images from '../../Constants/images'
-import strings from '../../Constants/Strings'
-import { Colors } from '../../Constants'
+import { Colors, Images, strings } from '../../Constants'
 import { Toast } from "../../ReusableComponents";
 
 const colors = [Colors.fadedRed, Colors.darkishPink]

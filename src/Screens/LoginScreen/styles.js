@@ -95,6 +95,11 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         marginTop: vh(16)
     },
+    crossBtn: {
+        position: 'absolute',
+        right: vw(20),
+        top: vh(20),
+    },
     crossButtonStyle: {
         width: vw(18.3),
         height: vw(18.3),

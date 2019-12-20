@@ -17,7 +17,6 @@ export default class MyAccount extends Component {
                 showsVerticalScrollIndicator={false}
             />
         );
-
     }
 
     renderItems = (rawData) => {
