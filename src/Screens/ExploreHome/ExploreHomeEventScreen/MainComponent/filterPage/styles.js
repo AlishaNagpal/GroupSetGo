@@ -65,6 +65,7 @@ const styles = StyleSheet.create({
     },
     personCheckView: {
         flexDirection: 'row',
+        alignItems: 'center'
     },
     checkText: {
         fontFamily: 'SourceSansPro-Regular',
@@ -141,7 +142,7 @@ const styles = StyleSheet.create({
         textTransform: 'capitalize',
         fontSize: vw(15.3),
         fontFamily: 'SourceSansPro-Semibold',
-        paddingHorizontal: vw(10)
+        textAlign: 'center'
     },
     applyView: {
         backgroundColor: Colors.darkNewGreen,

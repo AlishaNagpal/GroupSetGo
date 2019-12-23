@@ -8,10 +8,9 @@ import * as Progress from 'react-native-progress';
 import { ProgressiveImage, Toast } from '../../../../ReusableComponents'
 import { connect } from 'react-redux'
 import { eventDATA } from '../../../../Store/Action/Action'
-import About from '../TabScreens/About/About';
-import Participants from '../TabScreens/Participants/Participants';
-import Settlement from '../TabScreens/Settlement/Settlement';
 var ScrollableTabView = require('react-native-scrollable-tab-view');
+import { ProgressiveImage } from '../../../../ReusableComponents'
+import NewTabNavigation from './NewTabNavigation';
 
 class HomeDetails6 extends Component {
     state = {
@@ -253,7 +252,11 @@ class HomeDetails6 extends Component {
                     </View>
                     <View style={styles.separator2} />
                     <View >
-                        {this.state.render && <View ref="innerView" ><ScrollableTabView
+                   <NewTabNavigation 
+                   screenProps={this.props.navigation.getParam('id')}
+                   goToPage={() => this.goToPage(2)}
+                   />
+                        {/* {this.state.render && <View ref="innerView" ><ScrollableTabView
                             style={{ ...styles.tabBarStyle }}
                             tabBarActiveTextColor={Colors.fadedRed}
                             tabBarInactiveTextColor={Colors.tabGray}
@@ -271,7 +274,7 @@ class HomeDetails6 extends Component {
                                 <Participants tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} goToPage={() => this.goToPage(2)} />
                             </View>
                             {data.settlement && <View ref="SETTLEMENT" style={{ flex: 1 }} tabLabel="SETTLEMENT"><Settlement tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} /></View>}
-                        </ScrollableTabView></View>}
+                        </ScrollableTabView></View>} */}
                     </View>
                 </ScrollView>
                 {this.state.call === true &&
