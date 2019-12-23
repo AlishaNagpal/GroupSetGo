@@ -4,7 +4,6 @@ import DATA from '../../DataSource'
 import * as CATEGORIES from '../../DataSourceForCategories'
 
 const initialState = {
-    date: "01-01-1990",
     Event_Data: DATA,
     categoryData: CATEGORIES.CATEGORIES,
     categoryDataType2: CATEGORIES.CATEGORIES2,
@@ -15,8 +14,6 @@ const initialState = {
 
 const Reducer = (state = initialState, action) => {
     switch (action.type) {
-        case Actions.PICK_DATE:
-            return { ...state, date: action.payload.date }
         case Actions.EVENT_DATA:
             return { ...state, Event_Data: action.payload.data }
         case Actions.CATEGORY_MODAL:

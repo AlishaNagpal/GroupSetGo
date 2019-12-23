@@ -1,33 +1,39 @@
 import React, { PureComponent } from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient'
-import DatePicker from 'react-native-custom-datetimepicker'
-import { connect } from 'react-redux'
+import DateTimePicker from 'react-native-modal-datetime-picker'
 
 //Custom Imports
 import styles from './styles'
 import { VectorIcons, Colors, vh, strings } from '../../Constants';
-import { pickDate } from '../../Store/Action/Action'
-import moment from 'moment';
+// import moment from 'moment';
 
 const colors = [Colors.moderateRed, Colors.moderatePink, Colors.darkModeratePink, Colors.darkViolet, Colors.darkViolet, Colors.darkViolet]
 
-class CreateAccountBirth extends PureComponent {
-    setDate = (event, date) => {
-        date = date
-        this.props.pickDate(date)
-    }
+export default class CreateAccountBirth extends PureComponent {
+    state = { isDateTimePickerVisible: false, day: '01', month: '01', year: '1990' }
+    showDateTimePicker = () => {
+        this.setState({ isDateTimePickerVisible: true });
+    };
 
-    componentWillMount() {
-        this.getDate()
-    }
+    hideDateTimePicker = () => {
+        this.setState({ isDateTimePickerVisible: false });
+    };
 
-    getDate = () => {
-        const date = new Date();
+    handleDatePicked = date => {
         const year = date.getFullYear();
         const month = date.getMonth();
         const day = date.getDate();
-        const c = new Date(year - 18, month, day)
+        this.setState({
+            day: day,
+            month:month,
+            year:year
+        })
+        this.hideDateTimePicker();
+    };
+
+    getDate = () => {
+        const c = new Date(1990, 0, 1)
         return (c)
     }
     render() {
@@ -41,16 +47,18 @@ class CreateAccountBirth extends PureComponent {
                 <Text style={styles.stepText} > {strings.step3} </Text>
                 <Text style={styles.belowStep} > {strings.birth} </Text>
                 <Text style={styles.description}> {strings.birthDescription} </Text>
-                <DatePicker
-                    style={styles.datePicker}
-                    date={this.props.date}
-                    placeholder="select date"
-                    format='DD-MM-YYYY'
-                    iconComponent={<VectorIcons.EvilIcons name="calendar" color={Colors.white} size={25} />}
+                <Text style={styles.textDate} > Your Birthday?</Text>
+
+                <TouchableOpacity style={styles.dateTimePicker} onPress={this.showDateTimePicker} activeOpacity={1} >
+                    <Text style={styles.dateText} > {this.state.day}-{this.state.month}-{this.state.year} </Text>
+                    <VectorIcons.EvilIcons name="calendar" color={Colors.white} size={25} style={styles.calendar} />
+                </TouchableOpacity>
+                <DateTimePicker
+                    isVisible={this.state.isDateTimePickerVisible}
+                    onConfirm={this.handleDatePicked}
+                    onCancel={this.hideDateTimePicker}
                     mode={'date'}
-                    maxDate={this.getDate()}
-                    onDateChange={this.setDate}
-                    TouchableComponent={TouchableOpacity}
+                    date={this.getDate()}
                 />
                 <TouchableOpacity style={styles.buttonStyle} onPress={() => { this.props.navigation.navigate('createAccountGender') }} >
                     <Text style={styles.buttonText}> {strings.next} </Text>
@@ -59,17 +67,3 @@ class CreateAccountBirth extends PureComponent {
         );
     }
 }
-
-function mapStateToProps(state) {
-    const { date } = state.Reducer
-    return { date }
-
-}
-
-function mapDispatchToProps(dispatch) {
-    return {
-        pickDate: (date) => dispatch(pickDate(date))
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(CreateAccountBirth)

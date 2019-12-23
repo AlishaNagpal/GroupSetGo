@@ -90,11 +90,6 @@ export default styles = StyleSheet.create({
         top: vh(-35),
         left: vw(300)
     },
-    datePicker: {
-        width: vw(200),
-        alignSelf: 'center',
-        marginTop: vw(20)
-    },
     errorView: {
         position: 'absolute',
         height: vh(70),
@@ -118,6 +113,28 @@ export default styles = StyleSheet.create({
     infoText:{
         color: Colors.chatBlue,
         marginTop: vh(25),
+    },
+    dateTimePicker:{
+        flexDirection:'row',
+        alignItems:'center',
+        left: vw(80),
+        top: vh(20),
+        marginBottom: vh(30),
+        borderBottomWidth:2,
+        borderColor: Colors.white,
+        width: vw(270)
+    },
+    textDate:{
+        color:Colors.verLightGrey,
+        fontSize: vh(16),
+        left: vw(80),
+        top: vh(20),
+    },
+    dateText:{
+        color: Colors.white
+    },
+    calendar:{
+        marginLeft: vw(140)
     }
 
 })

@@ -45,23 +45,25 @@ const styles = StyleSheet.create({
         fontSize: vw(17.7),
         fontFamily: 'SourceSansPro-Semibold'
     },
+    startDateText: {
+        textTransform: 'uppercase',
+        fontSize: vw(17.7),
+        fontFamily: 'SourceSansPro-Semibold',
+        color:Colors.fadedGray,
+    },
     dateView: {
         marginHorizontal: vw(13.3),
-        marginVertical: vw(20.7),
+        marginTop: vw(20.7),
     },
     dateInnerView: {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        marginTop: vh(-20)
     },
     dateNewText: {
         fontFamily: 'SourceSansPro-Regular',
         fontSize: vw(17.7),
         color: Colors.verLightGrey
-    },
-    datePicker: {
-        width: '45%'
     },
     personCheckView: {
         flexDirection: 'row',
@@ -155,6 +157,9 @@ const styles = StyleSheet.create({
         fontFamily: 'SourceSansPro-Semibold',
         color: Colors.white
     },
+    dateTimePicker: {
+        width: '45%'
+    }
 
 })
 

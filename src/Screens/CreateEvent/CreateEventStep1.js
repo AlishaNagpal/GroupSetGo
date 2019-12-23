@@ -4,7 +4,7 @@ import { VectorIcons, vh, Colors, strings, vw } from '../../Constants'
 import * as Progress from 'react-native-progress';
 import styles from './styles'
 import { FloatingTitleTextInputField, FloatingLabel, Toast } from '../../ReusableComponents'
-import DatePicker from 'react-native-custom-datetimepicker'
+import DatePicker from 'react-native-modal-datetime-picker'
 import LinearGradient from 'react-native-linear-gradient'
 const colors = [Colors.fadedRed, Colors.darkishPink]
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scrollview'

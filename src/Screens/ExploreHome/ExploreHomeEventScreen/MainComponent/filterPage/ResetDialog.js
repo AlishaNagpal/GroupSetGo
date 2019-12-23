@@ -9,7 +9,7 @@ import strings from '../../../../../Constants/Strings'
 
 export default class ResetDialog extends PureComponent {
     goBackwards = () =>{
-        this.props.navigation.state.params.onReset()
+        // this.props.navigation.state.params.onReset()
         this.props.navigation.navigate('HomeNavigator')
     }
     render() {

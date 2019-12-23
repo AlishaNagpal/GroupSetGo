@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, Image, ScrollView, Animated } from 'react-native';
-import DatePicker from 'react-native-custom-datetimepicker'
+import DateTimePicker from 'react-native-modal-datetime-picker'
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
 
 import { Images, vh, vw, VectorIcons, Colors, Strings } from '../../../../../Constants';
@@ -12,8 +12,16 @@ export default class Filter extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      myDateStart: null,
-      myDateEnd: null,
+      startDay: null,
+      startMonth: null,
+      startYear: null,
+      endDay: null,
+      endMonth: null,
+      endYear: null,
+      isDateTimePickerVisibleStart: false,
+      isDateTimePickerVisibleEnd: false,
+      isDateVisibleStart: false,
+      isDateVisibleend: false,
       check: false,
       scrollEnabled: true,
       switchEnabled: false,
@@ -24,29 +32,47 @@ export default class Filter extends Component {
     };
   }
 
-  resetAllData = () => {
-    this.setState({
-      myDateStart: null,
-      myDateEnd: null,
-      check: false,
-      scrollEnabled: true,
-      switchEnabled: false,
-      switchPosition: new Animated.ValueXY({ x: vw(0), y: vh(0) }),
-      counter: 0,
-      nonCollidingMultiSliderValue: [3000, 7000],
-      nonCollidingMultiSliderValue2: [20, 80],
-    })
-    // this.forceUpdate();
-  }
+  showDateTimePickerStart = () => {
+    this.setState({ isDateTimePickerVisibleStart: true });
+  };
 
-  getDate = () => {
-    const date = new Date();
+  hideDateTimePickerStart = () => {
+    this.setState({ isDateTimePickerVisibleStart: false });
+  };
+
+  handleDatePickedStart = date => {
     const year = date.getFullYear();
     const month = date.getMonth();
     const day = date.getDate();
-    const c = new Date(year - 18, month, day)
-    return (c)
-  }
+    this.setState({
+      startDay: day,
+      startMonth: month,
+      startYear: year,
+      isDateVisibleStart: true
+    })
+    this.hideDateTimePickerStart();
+  };
+
+  showDateTimePickerEnd = () => {
+    this.setState({ isDateTimePickerVisibleEnd: true });
+  };
+
+  hideDateTimePickerEnd = () => {
+    this.setState({ isDateTimePickerVisibleEnd: false });
+  };
+
+  handleDatePickedEnd = date => {
+    const year = date.getFullYear();
+    const month = date.getMonth();
+    const day = date.getDate();
+    this.setState({
+      endDay: day,
+      endMonth: month,
+      endYear: year,
+      isDateVisibleend: true
+    })
+    this.hideDateTimePickerEnd();
+  };
 
   resetCheckBox = (value) => {
     this.setState({
@@ -96,7 +122,7 @@ export default class Filter extends Component {
             <TouchableOpacity onPress={() => this.props.navigation.navigate('InfoDialog')}>
               <Image source={Images.smallInfo} />
             </TouchableOpacity>
-            <Text style={styles.reviewHeadingReset} onPress={() => this.props.navigation.navigate('ResetDialog', { onReset: this.resetAllData.bind(this) })}>{Strings.reset}</Text>
+            <Text style={styles.reviewHeadingReset} onPress={() => this.props.navigation.navigate('ResetDialog')}>{Strings.reset}</Text>
           </View>
         </View>
         <ScrollView bounces={false} showsVerticalScrollIndicator={false}>
@@ -105,37 +131,27 @@ export default class Filter extends Component {
           </View>
           <View style={styles.dateView}>
             <View style={styles.dateInnerView}>
-              <DatePicker
-                style={styles.datePicker}
-                date={this.state.myDateStart}
-                placeholder="Start Date"
-                format='DD-MM-YYYY'
-                iconComponent={<VectorIcons.AntDesign
-                  name='calendar'
-                  color={Colors.newGray}
-                  size={vh(20.3)}
-                  style={styles.infoIcon}
-                />}
+              <TouchableOpacity style={styles.dateTimePicker} onPress={this.showDateTimePickerStart} activeOpacity={1} >
+                <Text style={styles.startDateText} > {this.state.isDateVisibleStart ? (this.state.startDay + '-' + this.state.startMonth + '-' + this.state.startYear) : 'Start Date'} </Text>
+                <VectorIcons.EvilIcons name="calendar" color={Colors.white} size={25} style={styles.calendar} />
+              </TouchableOpacity>
+              <DateTimePicker
+                isVisible={this.state.isDateTimePickerVisibleStart}
+                onConfirm={this.handleDatePickedStart}
+                onCancel={this.hideDateTimePickerStart}
+                minimumDate={new Date()}
                 mode={'date'}
-                androidMode={'calendar'}
-                maxDate={this.getDate()}
-                onDateChange={(date) => { this.setState({ myDateStart: date }) }}
               />
-              <DatePicker
-                style={styles.datePicker}
-                date={this.state.myDateEnd}
-                placeholder="End Date"
-                format='DD-MM-YYYY'
-                iconComponent={<VectorIcons.AntDesign
-                  name='calendar'
-                  color={Colors.newGray}
-                  size={vh(20.3)}
-                  style={styles.infoIcon}
-                />}
+
+              <TouchableOpacity style={styles.dateTimePicker} onPress={this.showDateTimePickerEnd} activeOpacity={1} >
+                <Text style={styles.startDateText} > {this.state.isDateVisibleend ? (this.state.endDay + '-' + this.state.endMonth + '-' + this.state.endYear) : 'End Date'} </Text>
+                <VectorIcons.EvilIcons name="calendar" color={Colors.white} size={25} style={styles.calendar} />
+              </TouchableOpacity>
+              <DateTimePicker
+                isVisible={this.state.isDateTimePickerVisibleEnd}
+                onConfirm={this.handleDatePickedEnd}
+                onCancel={this.hideDateTimePickerEnd}
                 mode={'date'}
-                androidMode={'calendar'}
-                maxDate={this.getDate()}
-                onDateChange={(date) => { this.setState({ myDateEnd: date }) }}
               />
             </View>
           </View>
