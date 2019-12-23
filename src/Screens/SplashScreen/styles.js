@@ -6,9 +6,8 @@ export default styles = StyleSheet.create({
         position: 'absolute',
       },
       myLogo:{
-          position: 'absolute',
-          top: vh(200),
-          left: vw(80),
+          height: '100%',
+          width: '100%'
       },
       logoStyle: {
         height: vh(45),

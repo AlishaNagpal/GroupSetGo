@@ -67,8 +67,6 @@ import ExploreSaved from './Screens/ExploreSaved/ExploreSaved'
 import ExploreChat from "./Screens/ExploreChat/ExploreChat";
 import ExploreMyEvents from "./Screens/ExploreMyEvents/ExploreMyEvents";
 
-import NewTabNavigation from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/NewTabNavigation';
-
 console.disableYellowBox = true
 
 const Explore = createStackNavigator({ Explore: ExploreHomeScreen, Map: ExploreMapScreen },
