@@ -7,7 +7,6 @@ import {
 } from 'react-native';
 
 // Custom Imports
-import { Gradient } from '../../Constants/Gradient';
 import styles from './styles';
 import Pics from '../../Constants/images';
 
@@ -66,8 +65,7 @@ export default class SplashScreen extends Component {
     if (this.state.back === true) {
       return (
         <View style={{ flex: 1 }}>
-          <Gradient />
-          <Image source={Pics.logo} style={styles.myLogo} />
+          <Image source={Pics.launchScreen} style={styles.myLogo} />
         </View>
       );
     }

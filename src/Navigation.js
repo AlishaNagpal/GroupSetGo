@@ -65,7 +65,8 @@ import CategorySelectModalPart2 from './Screens/ExploreHome/ExploreHomeEventScre
 import ExploreSaved from './Screens/ExploreSaved/ExploreSaved'
 import ExploreChat from "./Screens/ExploreChat/ExploreChat";
 import ExploreMyEvents from "./Screens/ExploreMyEvents/ExploreMyEvents";
-import ResetPassword from './Screens/ResetPassword/ResetPassword'
+import ResetPassword from './Screens/ResetPassword/ResetPassword';
+import NewTabNavigation from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/NewTabNavigation';
 
 console.disableYellowBox = true
 
@@ -182,6 +183,7 @@ const MainStack = createStackNavigator(
         InviteFrnd: InviteFrnd,
         ExploreEventsUsers: ExploreEventsUsers,
         ResetPassword: ResetPassword,
+        NewTabNavigation: NewTabNavigation,
     },
     {
         initialRouteName: 'HomeNavigator',

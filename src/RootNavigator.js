@@ -67,7 +67,6 @@ import ExploreSaved from './Screens/ExploreSaved/ExploreSaved'
 import ExploreChat from "./Screens/ExploreChat/ExploreChat";
 import ExploreMyEvents from "./Screens/ExploreMyEvents/ExploreMyEvents";
 
-
 console.disableYellowBox = true
 
 const Explore = createStackNavigator({ Explore: ExploreHomeScreen, Map: ExploreMapScreen },
@@ -186,9 +185,10 @@ const MainStack = createStackNavigator(
     ExploreEventsUsers: {
       screen: ExploreEventsUsers,
     },
+    NewTabNavigation: NewTabNavigation,
   },
   {
-    initialRouteName: 'SplashScreen',
+    initialRouteName: 'HomeNavigator',
     defaultNavigationOptions: ({ navigation }) => ({
       headerBackTitle: null,
       header: null,

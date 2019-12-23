@@ -8,10 +8,7 @@ import * as Progress from 'react-native-progress';
 import { ProgressiveImage, Toast } from '../../../../ReusableComponents'
 import { connect } from 'react-redux'
 import { eventDATA } from '../../../../Store/Action/Action'
-import About from '../TabScreens/About/About';
-import Participants from '../TabScreens/Participants/Participants';
-import Settlement from '../TabScreens/Settlement/Settlement';
-var ScrollableTabView = require('react-native-scrollable-tab-view');
+import NewTabNavigation from './NewTabNavigation';
 
 class HomeDetails6 extends Component {
     state = {
@@ -123,36 +120,6 @@ class HomeDetails6 extends Component {
         this.tabView.goToPage(pageId);
     }
 
-    // calculateDimensions = () => {
-    //     // setTimeout(() => {
-    //     //     this.refs.innerView.measureLayout(findNodeHandle(this.refs.containerView), (xPos, yPos, Width, Height) => {
-    //     //         this.setState({ heightTab: Height, tabNumber: 0, aboutTab: Height, toggle: false });
-    //     //         alert(this.state.aboutTab)
-    //     //     });
-    //     // }, 600)
-
-    //     setTimeout(() => {
-    //         this.refs.PARTICIPANTS.measureLayout(findNodeHandle(this.refs.containerView), (xPos, yPos, Width, Height) => {
-    //             this.setState({ heightTab: Height, tabNumber: 1, participamntsTab: Height, toggle: true });
-    //             alert(this.state.participamntsTab)
-    //         });
-    //     }, 600)
-
-    //     // if (this.state.tabNumber === 0) {
-    //     //     setTimeout(() => {
-    //     //         this.refs.PARTICIPANTS.measureLayout(findNodeHandle(this.refs.containerView), (xPos, yPos, Width, Height) => {
-    //     //             this.setState({ heightTab: Height, tabNumber: 1 });
-    //     //             alert(Height)
-    //     //         });
-    //     //     }, 600)
-    //     // } else {
-
-    //     //     this.refs.innerView.measureLayout(findNodeHandle(this.refs.containerView), (xPos, yPos, Width, Height) => {
-    //     //         this.setState({ heightTab: Height, tabNumber: 0 });
-    //     //         alert(Height)
-    //     //     });
-    //     // }
-    // }
 
     render() {
         const { data } = this.state;
@@ -253,25 +220,10 @@ class HomeDetails6 extends Component {
                     </View>
                     <View style={styles.separator2} />
                     <View >
-                        {this.state.render && <View ref="innerView" ><ScrollableTabView
-                            style={{ ...styles.tabBarStyle }}
-                            tabBarActiveTextColor={Colors.fadedRed}
-                            tabBarInactiveTextColor={Colors.tabGray}
-                            tabBarUnderlineStyle={styles.tabBarUnderline}
-                            activeTabStyle={{ backgroundColor: null }}
-                            tabBarTextStyle={styles.tabBarFont}
-                            initialPage={0}
-                            // onChangeTab={ Platform.OS === 'ios' ? () => this.calculateDimensions() : null}
-                            ref={(tabView) => { this.tabView = tabView }}
-                        >
-                            <View ref="ABOUT" tabLabel="ABOUT" style={{flex: 1}}>
-                                <About tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} />
-                            </View>
-                            <View ref="PARTICIPANTS"  tabLabel="PARTICIPANTS">
-                                <Participants tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} goToPage={() => this.goToPage(2)} />
-                            </View>
-                            {data.settlement && <View ref="SETTLEMENT" style={{ flex: 1 }} tabLabel="SETTLEMENT"><Settlement tabView={this.tabView} navigation={this.props.navigation} screenProps={this.props.navigation.getParam('id')} /></View>}
-                        </ScrollableTabView></View>}
+                        {this.state.render && <NewTabNavigation 
+                   screenProps={this.props.navigation.getParam('id')}
+                   goToPage={() => this.goToPage(2)}
+                   />}
                     </View>
                 </ScrollView>
                 {this.state.call === true &&
