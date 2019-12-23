@@ -51,6 +51,7 @@ const Colors = {
     darkNewGreen: 'rgb(20, 146, 38)',
     slotGray: 'rgb(224, 224, 224)',
     lightBlack: 'rgb(82, 82, 82)',
+    newFadedgrey: 'rgb(124, 124, 124)',
 }
 
 export default Colors;

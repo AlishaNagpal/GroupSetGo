@@ -19,7 +19,7 @@ class Participants extends Component {
   state = { data: '', count: 0, textShown: false, height: null }
 
   componentDidMount() {
-    this.getData(this.props.screenProps.id)
+    this.getData(this.props.screenProps.screenProps.id)
   }
 
   getData = (id) => {
@@ -91,11 +91,11 @@ class Participants extends Component {
   }
 
   callTab() {
-    this.props.goToPage()
+    this.props.screenProps.goToPage
   }
 
   render() {
-    const { navigation } = this.props;
+    const {navigation} = this.props.screenProps;
     const { data } = this.state
     return (
       <View style={styles.mainView}>
@@ -135,7 +135,7 @@ class Participants extends Component {
               horizontal={true}
               scrollEnabled={false}
             />
-            {this.state.data !== '' && data.PARTICIPANTS.length > 5 && <TouchableOpacity onPress={() => this.props.navigation.navigate("ExploreNoOfParticipants")}>
+            {this.state.data !== '' && data.PARTICIPANTS.length > 5 && <TouchableOpacity onPress={() => navigation.navigate("ExploreNoOfParticipants")}>
               <View style={styles.plusView}>
                 <Text style={styles.plusText}>+{data.PARTICIPANTS.length - 5}</Text>
               </View>
@@ -175,16 +175,16 @@ class Participants extends Component {
           </TouchableOpacity>}
         </View>}
         {/* -------------- Settle Account ----------------- */}
-        {!data.settlement &&
+        {/* {!data.settlement &&
           <View style={styles.settle}>
             <LinearGradient colors={colors} start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} style={styles.gradientStyle} >
               <TouchableOpacity style={styles.loginButtonStyle}
-                onPress={() => this.toggleSettlement(this.props.screenProps.id, true)}
+                onPress={() => this.toggleSettlement(this.props.screenProps.screenProps.id, true)}
               >
                 <Text style={styles.loginButtonTitleStyle}>{Strings.settleAcc}</Text>
               </TouchableOpacity>
             </LinearGradient>
-          </View>}
+          </View>} */}
       </View>
     );
   }

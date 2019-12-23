@@ -6,34 +6,32 @@ import Participants from '../TabScreens/Participants/Participants';
 import Settlement from '../TabScreens/Settlement/Settlement';
 import {vh, vw, Colors } from '../../../../Constants';
 
-const tabState = false
+const tabState = true
 
 const NavTabBar = createMaterialTopTabNavigator({
-  
     About: {
-    screen: About,
+    screen: About, 
   },
   Participants: {
-    screen: Participants
+    screen: Participants,
   },
   ...(tabState && { Settlement: Settlement }),
 },
   {
     initialRouteName: 'About',
     tabBarOptions: {
+      activeTintColor: Colors.fadedRed,
+      inactiveTintColor: Colors.fadedGray2,
       labelStyle: {
         fontFamily: 'Poppins-SemiBold',
-        fontSize: vw(16.3),
-        color: Colors.fadedRed
+        fontSize: vw(14.3),
       },
-      showIcon: false,
       style: {
         backgroundColor: 'white',
-       paddingVertical: vw(4.7)
       },
       indicatorStyle: {
         backgroundColor: Colors.fadedRed,
-        height: vh(3),
+        height: vh(4),
       },
     },
     swipeEnabled: true,

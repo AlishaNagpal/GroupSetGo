@@ -221,8 +221,7 @@ class HomeDetails6 extends Component {
                     <View style={styles.separator2} />
                     <View >
                         {this.state.render && <NewTabNavigation 
-                   screenProps={this.props.navigation.getParam('id')}
-                   goToPage={() => this.goToPage(2)}
+                   screenProps={{screenProps: this.props.navigation.getParam('id'), navigation: this.props.navigation, goToPage: () => this.goToPage(2)}}
                    />}
                     </View>
                 </ScrollView>

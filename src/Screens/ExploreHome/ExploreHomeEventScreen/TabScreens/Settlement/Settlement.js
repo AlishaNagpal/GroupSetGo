@@ -17,7 +17,7 @@ class Settlement extends Component {
   }
 
   componentDidMount() {
-    this.getData(this.props.screenProps.id);
+    this.getData(this.props.screenProps.screenProps.id);
   }
 
   getData = (id) => {
@@ -44,6 +44,7 @@ class Settlement extends Component {
   }
 
   render() {
+    const {navigation} = this.props.screenProps;
     const { data } = this.state
     return (
       <View style={styles.containerStyle}>
@@ -54,7 +55,7 @@ class Settlement extends Component {
           <Text style={styles.totalBudgetHeadingStyle}>
             {strings.totalBudget}
           </Text>
-          <TouchableOpacity activeOpacity={0.5}>
+          <TouchableOpacity activeOpacity={1}>
             <Text style={styles.amountTextStyle}> {data.personalBudget} </Text>
           </TouchableOpacity>
         </View>
@@ -81,13 +82,14 @@ class Settlement extends Component {
         <View style={styles.raiseIncident}>
           <TouchableOpacity
             style={styles.raiseIncidentButton}
-            onPress={() => this.props.navigation.navigate('RaiseIncident')}
+            onPress={() => navigation.navigate('RaiseIncident')}
           >
             <Text style={styles.raiseIncidentText}> {strings.raiseIncedent} </Text>
           </TouchableOpacity>
           <LinearGradient colors={colors} start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }}  >
             <TouchableOpacity
-              onPress={() => { this.props.navigation.navigate('RateAndReviewStep1', {id: this.props.screenProps.id})}}
+              onPress={() => { navigation.navigate('RateAndReviewStep1', {id: this.props.screenProps.screenProps.id})}}
+              // onPress={() => console.warn('props ', navigation)}
               style={styles.rateReviewButton}>
               <Text style={styles.rateReviewText}> {strings.rateReview} </Text>
             </TouchableOpacity>

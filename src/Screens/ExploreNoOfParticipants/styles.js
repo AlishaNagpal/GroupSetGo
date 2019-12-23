@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
         marginLeft: vw(13.7),
         flexDirection:'row',
         alignItems:'center',
-        marginTop:vh(20),
+        marginTop:vh(10),
     },
     checkmarkStyle: {
         position: 'absolute',

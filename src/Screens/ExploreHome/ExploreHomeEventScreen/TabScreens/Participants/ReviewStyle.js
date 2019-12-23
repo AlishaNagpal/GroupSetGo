@@ -10,12 +10,13 @@ containerStyle: {
 },
 headerView: {
     // alignItems: 'center',
-    height: vh(86.7),
+    height: vh(80.7),
     backgroundColor: Colors.fadedRed,
     width: vw(DesignWidth),
     flexDirection: 'row',
     justifyContent: 'flex-start',
-    paddingTop: vh(42)
+    paddingTop: vh(42),
+    alignItems: 'center'
 },
 backButtonStyle: {
     marginLeft: vw(13.3),

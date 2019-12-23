@@ -22,7 +22,7 @@ class About extends Component {
   }
 
   componentDidMount() {
-    this.getData(this.props.screenProps.id);
+    this.getData(this.props.screenProps.screenProps.id);
   }
 
   getData = (id) => {
@@ -83,7 +83,7 @@ class About extends Component {
         <View style={styles.separator} />
         <View style={styles.row2} >
           <Text style={styles.detailsTextHead} > {strings.venue} </Text>
-          <TouchableOpacity onPress={() => this.props.navigation.navigate('VenueReviews', { id: this.props.screenProps.id })} >
+          <TouchableOpacity onPress={() => this.props.screenProps.navigation.navigate('VenueReviews', { id: this.props.screenProps.screenProps.id })} >
             <Text style={styles.viewMoreText} > {data.reviews} {strings.reviews} </Text>
           </TouchableOpacity>
         </View>

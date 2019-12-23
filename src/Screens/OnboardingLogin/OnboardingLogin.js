@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import { Text, View, Image, TouchableOpacity } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
+import { LoginManager } from 'react-native-fbsdk'
 
 /**
  * custom imports
@@ -21,6 +22,76 @@ export default class OnboardingLogin extends PureComponent {
         })
     }
 
+    // handleFacebookLogin () {
+    //     LoginManager.logInWithReadPermissions(['public_profile', 'email', 'user_friends']).then(
+    //       function (result) {
+    //         if (result.isCancelled) {
+    //           console.warn('Login cancelled')
+    //         } else {
+    //           console.warn('Login success with permissions: ' + result.grantedPermissions.toString())
+    //         }
+    //       },
+    //       function (error) {
+    //         console.warn('Login fail with error: ' + error)
+    //       }
+    //     )
+    //   }
+
+    fblogin = () => {
+        LoginManager.logInWithPermissions(['public_profile']).then(
+          result => {
+            if (result.isCancelled) {
+              console.warn('Login cancelled');
+              return;
+            } else {
+              console.whereSharingExperiences(
+                'Login success with permissions: ' +
+                  result.grantedPermissions.toString(),
+              );
+            }
+            {
+              AccessToken.getCurrentAccessToken().then(data => {
+                let accessToken = data.accessToken;
+                console.log(data.accessToken.toString());
+                const responseInfoCallback = (error, result) => {
+                  if (error) {
+                    console.log(error);
+                  } else {
+                    console.warn('Success fetching data: ' + JSON.stringify(result));
+                    console.warn('FB PIC', result.picture);
+    
+                    // this.setState({
+                    //   username: result.name,
+                    //   profilepic: result.picture.data.url,
+                    //   usermail:result.email
+                    // });
+                    // this.storedata();
+                    this.props.navigation.navigate('Home');
+                  }
+                  console.warn(result);
+                };
+                const infoRequest = new GraphRequest(
+                  '/me',
+                  {
+                    accessToken: accessToken,
+                    parameters: {
+                      fields: {
+                        string:
+                          'email,name,first_name,middle_name,last_name,picture.type(large)',
+                      },
+                    },
+                  },
+                  responseInfoCallback,
+                );
+                new GraphRequestManager().addRequest(infoRequest).start();
+              });
+            }
+          },
+          function(error) {
+            console.log('Login fail with error: ' + error);
+          },
+        );
+      };
 
     render() {
         return (
@@ -46,7 +117,7 @@ export default class OnboardingLogin extends PureComponent {
                 </View>
                 <Text style={styles.youCanAlsoLoginWithStyle}>{strings.youCanAlsoLoginWith}</Text>
                 <View style={styles.socialLoginViewStyle}>
-                    <TouchableOpacity onPress={() => this.resetCall(true)} >
+                    <TouchableOpacity onPress={this.fblogin} >
                         <Image style={styles.googleButtonStyle} source={Images.facebookLogo} />
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() =>this.resetCall(true)} >
