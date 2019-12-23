@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Animated, TouchableHighlight } from 'react-native';
+import { Animated, TouchableOpacity } from 'react-native';
 import { Colors } from '../../Constants'
 
 export default class FloatingLabel extends Component {
@@ -36,13 +36,11 @@ export default class FloatingLabel extends Component {
 
     render() {
         return (
-            <TouchableHighlight onPress={()=>this.handleFocus()} >
-                <Animated.View >
-                    <Animated.Text
-                        style={[this.props.style, this._returnAnimatedTitleStyles()]}
-                    > {this.props.title} </Animated.Text>
-                </Animated.View>
-            </TouchableHighlight>
+            <TouchableOpacity onPress={() => this.handleFocus()} activeOpacity={1} >
+                <Animated.Text
+                    style={[this.props.style, this._returnAnimatedTitleStyles()]}
+                > {this.props.title} </Animated.Text>
+            </TouchableOpacity>
         );
     }
 }

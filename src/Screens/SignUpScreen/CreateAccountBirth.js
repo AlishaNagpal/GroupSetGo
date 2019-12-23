@@ -6,12 +6,12 @@ import DateTimePicker from 'react-native-modal-datetime-picker'
 //Custom Imports
 import styles from './styles'
 import { VectorIcons, Colors, vh, strings } from '../../Constants';
-// import moment from 'moment';
+import moment from 'moment';
 
 const colors = [Colors.moderateRed, Colors.moderatePink, Colors.darkModeratePink, Colors.darkViolet, Colors.darkViolet, Colors.darkViolet]
 
 export default class CreateAccountBirth extends PureComponent {
-    state = { isDateTimePickerVisible: false, day: '01', month: '01', year: '1990' }
+    state = { isDateTimePickerVisible: false, date: '01-Jan-1990' }
     showDateTimePicker = () => {
         this.setState({ isDateTimePickerVisible: true });
     };
@@ -21,13 +21,9 @@ export default class CreateAccountBirth extends PureComponent {
     };
 
     handleDatePicked = date => {
-        const year = date.getFullYear();
-        const month = date.getMonth();
-        const day = date.getDate();
+        var data = moment(date).format("DD-MMM-YYYY")
         this.setState({
-            day: day,
-            month:month,
-            year:year
+            date: data
         })
         this.hideDateTimePicker();
     };
@@ -50,7 +46,7 @@ export default class CreateAccountBirth extends PureComponent {
                 <Text style={styles.textDate} > Your Birthday?</Text>
 
                 <TouchableOpacity style={styles.dateTimePicker} onPress={this.showDateTimePicker} activeOpacity={1} >
-                    <Text style={styles.dateText} > {this.state.day}-{this.state.month}-{this.state.year} </Text>
+                    <Text style={styles.dateText} > {this.state.date} </Text>
                     <VectorIcons.EvilIcons name="calendar" color={Colors.white} size={25} style={styles.calendar} />
                 </TouchableOpacity>
                 <DateTimePicker

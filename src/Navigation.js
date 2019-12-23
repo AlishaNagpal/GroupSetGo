@@ -240,7 +240,7 @@ const SplashStack = createStackNavigator(
 
 const AuthStack = createStackNavigator(
     {
-        OnboardingLogin:OnboardingLogin,
+        OnboardingLogin: OnboardingLogin,
         LoginWithEmail: LoginWithEmail,
         SkipLoginDialog: SkipLoginDialog,
         createAccountName: createAccountName,
@@ -263,7 +263,7 @@ const AuthStack = createStackNavigator(
 export default createAppContainer(createSwitchNavigator(
     {
         SplashStack: SplashStack,
-        AuthStack:AuthStack,
+        AuthStack: AuthStack,
         ModalStack: ModalStack
     },
     {

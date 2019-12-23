@@ -4,6 +4,7 @@ import { string, func, object } from 'prop-types';
 import { Colors, vh, vw, } from '../../Constants';
 
 export default class FloatingTitleTextInputField extends Component {
+
   static propTypes = {
     attrName: string.isRequired,
     title: string.isRequired,
@@ -32,7 +33,7 @@ export default class FloatingTitleTextInputField extends Component {
       this.setState({ isFieldActive: true });
       Animated.timing(this.position, {
         toValue: 1,
-        duration: 600,
+        duration: 300,
       }).start();
     }
   }
@@ -64,22 +65,29 @@ export default class FloatingTitleTextInputField extends Component {
     }
   }
 
+  handleOnSubmitEditing = () => {
+    if (this.props.onSubmitEditing)
+      this.props.onSubmitEditing()
+  }
+
   render() {
     return (
       <View style={Styles.container}>
         <Animated.Text
-          style={[Styles.titleStyles, this._returnAnimatedTitleStyles()]}
+          style={[this.props.placeholderStyle, this._returnAnimatedTitleStyles()]}
         >
           {this.props.title}
         </Animated.Text>
         <TextInput
           value={this.props.value}
           style={this.props.style}
+          ref={"FloatingLabelInput"}
           underlineColorAndroid='transparent'
           onFocus={this._handleFocus}
           onBlur={this._handleBlur}
           onChangeText={this._onChangeText}
           keyboardType={this.props.keyboardType}
+          onSubmitEditing={this.handleOnSubmitEditing}
           {...this.props.otherTextInputProps}
         />
       </View>
@@ -91,11 +99,5 @@ const Styles = StyleSheet.create({
   container: {
     width: vw(380),
     height: vh(50),
-    marginVertical: vh(4)
   },
-  titleStyles: {
-    position: 'absolute',
-    fontFamily: 'SourceSansPro-Regular',
-    left: vw(10),
-  }
 })

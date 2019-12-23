@@ -4,7 +4,7 @@ import { createAppContainer } from 'react-navigation';
 import About from '../TabScreens/About/About';
 import Participants from '../TabScreens/Participants/Participants';
 import Settlement from '../TabScreens/Settlement/Settlement';
-import { VectorIcons, vh, vw, Colors, strings } from '../../../../Constants';
+import {vh, vw, Colors } from '../../../../Constants';
 
 const tabState = false
 

@@ -29,7 +29,7 @@ class HomeDetails6 extends Component {
             this.setState({
                 render: true
             });
-        }, 500)
+        }, 100)
     }
 
     getData = (id) => {

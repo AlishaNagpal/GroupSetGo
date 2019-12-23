@@ -24,7 +24,7 @@ const ReviewStyle = StyleSheet.create({
         marginLeft: vw(13.3),
         fontFamily: 'SourceSansPro-Semibold',
         textTransform: 'capitalize',
-        top:vh(-3)
+        // top:vh(-3)
     },
     accountHead: {
         padding: vw(13.3),

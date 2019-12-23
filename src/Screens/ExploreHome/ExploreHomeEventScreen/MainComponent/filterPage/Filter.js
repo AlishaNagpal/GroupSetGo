@@ -7,17 +7,15 @@ import { Images, vh, vw, VectorIcons, Colors, Strings } from '../../../../../Con
 import styles from './styles';
 import CheckBox from '../../../../../ReusableComponents/CheckBox';
 import CustomSwitch from '../../../../../ReusableComponents/CustomSwitch/CustomSwitch';
+import moment from 'moment';
 
 export default class Filter extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      startDay: null,
-      startMonth: null,
-      startYear: null,
-      endDay: null,
-      endMonth: null,
-      endYear: null,
+      startDate: null,
+      endDate: null,
+      minimumDate:null,
       isDateTimePickerVisibleStart: false,
       isDateTimePickerVisibleEnd: false,
       isDateVisibleStart: false,
@@ -41,14 +39,11 @@ export default class Filter extends Component {
   };
 
   handleDatePickedStart = date => {
-    const year = date.getFullYear();
-    const month = date.getMonth();
-    const day = date.getDate();
+    var data = moment(date).format("DD-MMM-YYYY")
     this.setState({
-      startDay: day,
-      startMonth: month,
-      startYear: year,
-      isDateVisibleStart: true
+      startDate:data,
+      isDateVisibleStart: true,
+      minimumDate: date
     })
     this.hideDateTimePickerStart();
   };
@@ -62,13 +57,9 @@ export default class Filter extends Component {
   };
 
   handleDatePickedEnd = date => {
-    const year = date.getFullYear();
-    const month = date.getMonth();
-    const day = date.getDate();
+    var data = moment(date).format("DD-MMM-YYYY")
     this.setState({
-      endDay: day,
-      endMonth: month,
-      endYear: year,
+      endDate: data,
       isDateVisibleend: true
     })
     this.hideDateTimePickerEnd();
@@ -132,7 +123,7 @@ export default class Filter extends Component {
           <View style={styles.dateView}>
             <View style={styles.dateInnerView}>
               <TouchableOpacity style={styles.dateTimePicker} onPress={this.showDateTimePickerStart} activeOpacity={1} >
-                <Text style={styles.startDateText} > {this.state.isDateVisibleStart ? (this.state.startDay + '-' + this.state.startMonth + '-' + this.state.startYear) : 'Start Date'} </Text>
+                <Text style={styles.startDateText} > {this.state.isDateVisibleStart ? (this.state.startDate) : 'Start Date'} </Text>
                 <VectorIcons.EvilIcons name="calendar" color={Colors.white} size={25} style={styles.calendar} />
               </TouchableOpacity>
               <DateTimePicker
@@ -144,13 +135,14 @@ export default class Filter extends Component {
               />
 
               <TouchableOpacity style={styles.dateTimePicker} onPress={this.showDateTimePickerEnd} activeOpacity={1} >
-                <Text style={styles.startDateText} > {this.state.isDateVisibleend ? (this.state.endDay + '-' + this.state.endMonth + '-' + this.state.endYear) : 'End Date'} </Text>
+                <Text style={styles.startDateText} > {this.state.isDateVisibleend ? (this.state.endDate) : 'End Date'} </Text>
                 <VectorIcons.EvilIcons name="calendar" color={Colors.white} size={25} style={styles.calendar} />
               </TouchableOpacity>
               <DateTimePicker
                 isVisible={this.state.isDateTimePickerVisibleEnd}
                 onConfirm={this.handleDatePickedEnd}
                 onCancel={this.hideDateTimePickerEnd}
+                minimumDate={this.state.minimumDate}
                 mode={'date'}
               />
             </View>

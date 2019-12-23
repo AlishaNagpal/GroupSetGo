@@ -10,7 +10,7 @@ export default styles = StyleSheet.create({
         backgroundColor: Colors.fadedRed,
         width: '100%',
         flexDirection: 'row',
-        paddingTop:vh(30)
+        paddingTop: vh(30)
     },
     backButtonStyle: {
         marginLeft: vw(13.3),
@@ -23,7 +23,6 @@ export default styles = StyleSheet.create({
         fontSize: vh(20),
         fontFamily: 'SourceSansPro-Semibold',
         marginLeft: vh(5),
-        marginBottom: vh(5)
     },
     skipText: {
         color: Colors.white,
@@ -90,27 +89,23 @@ export default styles = StyleSheet.create({
         marginTop: vh(13)
     },
     textInputStyle: {
-        paddingLeft: vw(14)
+        borderColor: Colors.verLightGrey,
+        borderBottomWidth: vw(1),
+        marginLeft: vw(13.3),
+        width: vw(380),
+        marginTop: vh(4)
     },
     textInputView: {
-        marginTop: vh(35.7)
-    },
-    separator: {
-        height: vh(2),
-        width: vw(380),
-        marginLeft: vw(13),
-        backgroundColor: Colors.fadedGray,
-        marginTop: vh(-30)
-    },
-    datePicker: {
-        width: vw(380),
-        marginLeft: vw(13),
-        marginTop: vh(-25),
+        marginTop: vh(20)
     },
     timePicker: {
         width: vw(180),
-        marginLeft: vw(13),
-        marginTop: vh(-25),
+        marginTop: vh(5),
+        borderColor: Colors.verLightGrey,
+        borderBottomWidth: vw(1),
+        marginLeft: vw(13.3),
+        flexDirection:'row',
+        justifyContent: 'space-between',
     },
     textAnimated: {
         position: 'absolute',
@@ -118,7 +113,8 @@ export default styles = StyleSheet.create({
         marginTop: vh(-18)
     },
     rowStyle: {
-        flexDirection: 'row'
+        flexDirection: 'row',
+        marginTop:vh(10)
     },
     Duration: {
         marginLeft: vw(20),
@@ -396,5 +392,22 @@ export default styles = StyleSheet.create({
     sliderText: {
         color: Colors.fadedGray,
         fontSize: vh(13)
-    }
+    },
+    placeholderStyle: {
+        position: 'absolute',
+        fontFamily: 'SourceSansPro-Regular',
+        left: vw(10),
+    },
+    dateText: {
+        left:vw(-6),
+        bottom:vw(-3)
+    },
+    dateTimePicker: {
+        borderColor: Colors.verLightGrey,
+        borderBottomWidth: vw(1),
+        width: vw(380),
+        marginLeft: vw(13.3),
+        flexDirection:'row',
+        justifyContent: 'space-between',
+    },
 });
