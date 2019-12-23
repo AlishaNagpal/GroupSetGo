@@ -37,11 +37,11 @@ export default class SplashScreen extends Component {
     Animated.parallel([
       Animated.timing(this.moveAnimationLogo, {
         toValue: { x: width/2.25, y: height/2.4},
-        duration: 200,
+        duration: 100,
       }),
       Animated.timing(this.moveAnimationText, {
         toValue: { x: width/3.5, y: height/2 },
-        duration: 200,
+        duration: 100,
       })
     ]),
     Animated.timing(this.animatedValue, {
