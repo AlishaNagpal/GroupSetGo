@@ -53,7 +53,6 @@ import InfoDialog from './Screens/ExploreHome/ExploreHomeEventScreen/MainCompone
 import InfoForFamily from './Screens/CreateEvent/InfoForFamily'
 import ResetDialog from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/filterPage/ResetDialog';
 import MyAccount from './Screens/MyAccount/MyAccount';
-import ChangePwd from './Screens/MyAccount/ChangePwd/ChangePwd';
 import ContactUs from './Screens/MyAccount/ContactUs/ContactUs';
 import MyProfile from './Screens/MyAccount/MyProfile/MyProfile';
 import Payments from './Screens/MyAccount/Payments/Payments';
@@ -66,7 +65,7 @@ import CategorySelectModalPart2 from './Screens/ExploreHome/ExploreHomeEventScre
 import ExploreSaved from './Screens/ExploreSaved/ExploreSaved'
 import ExploreChat from "./Screens/ExploreChat/ExploreChat";
 import ExploreMyEvents from "./Screens/ExploreMyEvents/ExploreMyEvents";
-import { create } from 'react-test-renderer';
+import ResetPassword from './Screens/ResetPassword/ResetPassword'
 
 console.disableYellowBox = true
 
@@ -173,7 +172,6 @@ const MainStack = createStackNavigator(
         CreateEventStep3: CreateEventStep3,
         CreateEventStep4: CreateEventStep4,
         MyAccount: MyAccount,
-        ChangePwd: ChangePwd,
         ContactUs: ContactUs,
         MyProfile: MyProfile,
         Payments: Payments,
@@ -182,9 +180,8 @@ const MainStack = createStackNavigator(
         TNC: TNC,
         Logout: Logout,
         InviteFrnd: InviteFrnd,
-        ExploreEventsUsers: {
-            screen: ExploreEventsUsers,
-        },
+        ExploreEventsUsers: ExploreEventsUsers,
+        ResetPassword: ResetPassword,
     },
     {
         initialRouteName: 'HomeNavigator',
@@ -260,18 +257,6 @@ const AuthStack = createStackNavigator(
         }
     },
 )
-
-// const onBoardLoginStack = createStackNavigator(
-//     {
-//         OnboardingLogin: OnboardingLogin
-//     },
-//     {
-//         defaultNavigationOptions: ({ navigation }) => ({
-//             headerBackTitle: null,
-//             header: null,
-//         }),
-//     }
-// )
 
 export default createAppContainer(createSwitchNavigator(
     {

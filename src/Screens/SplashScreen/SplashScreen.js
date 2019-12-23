@@ -10,7 +10,6 @@ import {
 import { Gradient } from '../../Constants/Gradient';
 import styles from './styles';
 import Pics from '../../Constants/images';
-import { vh, vw, Colors } from '../../Constants/index';
 
 const {width,height} = Dimensions.get("window");
 
@@ -31,7 +30,7 @@ export default class SplashScreen extends Component {
         back: false
       })
       this.animateMove()
-    }, 500)
+    }, 1500)
   }
 
   animateMove = () => {
@@ -39,11 +38,11 @@ export default class SplashScreen extends Component {
     Animated.parallel([
       Animated.timing(this.moveAnimationLogo, {
         toValue: { x: width/2.25, y: height/2.4},
-        duration: 800,
+        duration: 200,
       }),
       Animated.timing(this.moveAnimationText, {
         toValue: { x: width/3.5, y: height/2 },
-        duration: 800,
+        duration: 200,
       })
     ]),
     Animated.timing(this.animatedValue, {

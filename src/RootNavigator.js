@@ -67,6 +67,7 @@ import ExploreSaved from './Screens/ExploreSaved/ExploreSaved'
 import ExploreChat from "./Screens/ExploreChat/ExploreChat";
 import ExploreMyEvents from "./Screens/ExploreMyEvents/ExploreMyEvents";
 
+
 console.disableYellowBox = true
 
 const Explore = createStackNavigator({ Explore: ExploreHomeScreen, Map: ExploreMapScreen },
@@ -277,7 +278,7 @@ const RootStack = createStackNavigator(
     cardStyle: {
       opacity: 1,
       backgroundColor: Colors.transparentBG
-    }
+    },
   },
 );
 

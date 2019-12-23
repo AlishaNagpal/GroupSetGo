@@ -136,7 +136,7 @@ export default styles = StyleSheet.create({
     },
     headingText: {
         fontFamily: 'SourceSansPro-Semibold',
-        fontSize: vh(18.7),
+        fontSize: vw(18.7),
     },
     headingText2:{ 
         fontSize: vw(16.7), 
@@ -153,13 +153,13 @@ export default styles = StyleSheet.create({
     },
     place: {
         fontFamily: 'SourceSansPro-Regular',
-        fontSize: vh(14),
+        fontSize: vw(14),
         color: Colors.fadedGray,
         top: vw(5)
     },
     place2: {
         fontFamily: 'SourceSansPro-Regular',
-        fontSize: vh(14),
+        fontSize: vw(14),
         color: Colors.fadedGray,
         top: vw(8)
     },
@@ -171,12 +171,12 @@ export default styles = StyleSheet.create({
     },
     moneyText: {
         fontFamily: 'SourceSansPro-Semibold',
-        fontSize: vh(13.7),
+        fontSize: vw(13.7),
         top: vw(5)
     },
     moneyPerson: {
         fontFamily: 'SourceSansPro-Regular',
-        fontSize: vh(13.7),
+        fontSize: vw(13.7),
         top: vw(5)
     },
     goingView: {
@@ -186,7 +186,7 @@ export default styles = StyleSheet.create({
     },
     goingText: {
         fontFamily: 'SourceSansPro-Regular',
-        fontSize: vh(12),
+        fontSize: vw(12),
         color: Colors.fadedGray
     },
     goingIcon: {

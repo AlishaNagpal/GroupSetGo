@@ -10,8 +10,7 @@ import strings from '../../../../../Constants/Strings'
 export default class ResetDialog extends PureComponent {
     goBackwards = () =>{
         this.props.navigation.state.params.onReset()
-        console.log("this.props",this.props)
-        this.props.navigation.goBack()
+        this.props.navigation.navigate('HomeNavigator')
     }
     render() {
         return (

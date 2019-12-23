@@ -76,7 +76,7 @@ export default class MyAccount extends Component {
 
 const DATA = [
     { title: 'my profile', route: 'MyProfile' },
-    { title: 'change password', route: 'ChangePwd' },
+    { title: 'change password', route: 'ResetPassword' },
     { title: 'payments', route: 'Payments' },
     { title: 'settings', route: 'Settings' },
 ]

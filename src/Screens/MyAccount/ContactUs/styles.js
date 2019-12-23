@@ -3,9 +3,12 @@ import { vh, vw, Colors, } from '../../../Constants';
 
 const ReviewStyle = StyleSheet.create({
     containerView: {
-        alignItems: 'center',
         flex: 1,
-        justifyContent: 'center'
+    },
+    center: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingTop: vh(200)
     },
     imageStyle: {
         height: vw(100),
@@ -15,12 +18,9 @@ const ReviewStyle = StyleSheet.create({
         marginTop: vh(30),
         color: Colors.fadedGray
     },
-    button: {
-        paddingTop: vh(50)
-    },
-    goBack: {
-        padding: vh(10),
-        borderWidth: vh(1)
+    backIcon:{
+        marginTop:vh(30),
+        marginLeft:vw(20)
     }
 })
 

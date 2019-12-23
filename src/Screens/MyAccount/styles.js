@@ -8,12 +8,12 @@ const ReviewStyle = StyleSheet.create({
         backgroundColor: Colors.veryVeryLightGray
     },
     headerView: {
-        height: vh(86.7),
         backgroundColor: Colors.fadedRed,
         width: vw(DesignWidth),
         flexDirection: 'row',
         paddingTop: vh(30),
-        alignItems:'center'
+        alignItems:'center',
+        height: vh(86.7)
     },
     backButtonStyle: {
         marginLeft: vw(13.3),

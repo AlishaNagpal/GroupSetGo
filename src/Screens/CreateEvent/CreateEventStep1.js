@@ -64,7 +64,7 @@ export default class CreateEventStep1 extends Component {
         return (
             <View style={styles.containerStyle}>
                 <KeyboardAwareScrollView keyboardShouldPersistTaps={'always'} >
-                    <View style={styles.headerView}>
+                    <View style={[styles.headerView,{height: vh(90)}]}>
                         <TouchableOpacity onPress={() => this.props.navigation.goBack()} style={styles.backButtonStyle}>
                             <VectorIcons.Ionicons name="ios-arrow-back" size={vh(30)} color={Colors.white} />
                             <Text style={styles.headerText} > {strings.createEvent} </Text>

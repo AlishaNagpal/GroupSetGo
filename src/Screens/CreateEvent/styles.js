@@ -7,7 +7,6 @@ export default styles = StyleSheet.create({
         backgroundColor: Colors.veryVeryLightGray
     },
     headerView: {
-        height: vh(90),
         backgroundColor: Colors.fadedRed,
         width: '100%',
         flexDirection: 'row',
@@ -141,13 +140,13 @@ export default styles = StyleSheet.create({
         marginTop: vh(15)
     },
     buttonStyle: {
-        height: vw(66.7),
-        width: vw(66.7),
-        borderRadius: vw(34),
-        alignItems: 'center',
-        justifyContent: 'center',
         marginTop: vh(180),
         marginLeft: vw(320),
+        width: vw(66),
+        height: vw(66),
+        borderRadius: vw(33),
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     icon: {
         marginTop: vh(5)

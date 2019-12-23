@@ -6,7 +6,7 @@ import { Images, strings } from '../../Constants'
 export default class infoForFamily extends Component {
   render() {
     return (
-      <TouchableOpacity  style={styles.containerStyleModal} onPress={() => this.props.navigation.navigate('CreateEventStep2')} >
+      <TouchableOpacity  activeOpacity={1} style={styles.containerStyleModal} onPress={() => this.props.navigation.navigate('CreateEventStep2')} >
         <View style={styles.infoMain} >
           <Image
             style={styles.infoStyle}

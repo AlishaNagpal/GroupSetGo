@@ -21,15 +21,16 @@ class CategorySelectModal extends Component {
       let index = temporary.findIndex(item => item === temp[indexTofind].name)
       if (index !== -1) {
         this.props.savedCategories.splice(index, 1)
+        this.props.getCategoryData()
+
         setTimeout(() => {
-          this.props.getCategoryData()
-          this.props.SELECTED(false)
+          if (this.props.savedCategories.length === 0) {
+            this.props.SELECTED(false)
+          }
         }, 200)
+
       }
     }
-
-
-
   }
 
   renderData = (rowData) => {

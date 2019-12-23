@@ -27,7 +27,7 @@ export default class ResetPassword extends PureComponent {
         return (
             <View style={styles.containerStyle}>
                 <View style={{ width: vw(DesignWidth) }}>
-                    <TouchableOpacity onPress={this.props.toggleModalVisibility}>
+                    <TouchableOpacity onPress={()=>this.props.navigation.goBack()}>
                         <VectorIcons.Ionicons name="ios-arrow-back" size={vh(30)} color={Colors.rosa} style={styles.backButtonStyle} />
                     </TouchableOpacity>
                 </View>

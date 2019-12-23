@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     },
     headerView: {
         alignItems: 'center',
-        height: vh(86.7),
+        height: vh(80),
         backgroundColor: Colors.fadedRed,
         width: vw(DesignWidth),
         flexDirection: 'row',
@@ -17,14 +17,14 @@ const styles = StyleSheet.create({
     },
     reviewHeadingFilter: {
         color: Colors.white,
-        fontSize: vh(25),
+        fontSize: vw(25),
         fontFamily: 'SourceSansPro-Semibold',
         paddingLeft: vw(10),
         textTransform: 'capitalize'
     },
     reviewHeadingReset: {
         color: Colors.white,
-        fontSize: vh(20),
+        fontSize: vw(20),
         fontFamily: 'SourceSansPro-Regular',
         paddingLeft: vw(10),
         textTransform: 'uppercase'

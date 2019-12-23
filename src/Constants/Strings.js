@@ -173,7 +173,8 @@ const strings = {
     account: 'account',
     help: 'help',
     inviteFrnd: 'invite friend',
-    logout: 'Logout'
+    logout: 'Logout',
+    noSaved: 'No saved events found!',
 }
 
 export default strings;
