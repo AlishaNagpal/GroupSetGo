@@ -6,7 +6,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { connect } from 'react-redux'
 import { eventDATA } from '../../../../../Store/Action/Action'
 import LinearGradient from 'react-native-linear-gradient'
-import { Colors} from '../../../../../Constants'
+import { Colors } from '../../../../../Constants'
 
 const colors = [Colors.fadedRed, Colors.darkishPink]
 
@@ -31,6 +31,10 @@ class Settlement extends Component {
     }
   }
 
+  call = () => {
+    console.warn("nav",this.props.screenProps.navigation )
+    // this.props.screenProps.navigation.navigate('RaiseIncident')
+  }
 
   renderPriceDetailsList = (rowData) => {
     const { item } = rowData
@@ -44,6 +48,7 @@ class Settlement extends Component {
   }
 
   render() {
+    const { navigation } = this.props.screenProps
     const { data } = this.state
     return (
       <View style={styles.containerStyle}>
@@ -81,14 +86,13 @@ class Settlement extends Component {
         <View style={styles.raiseIncident}>
           <TouchableOpacity
             style={styles.raiseIncidentButton}
-            onPress={() => this.props.screenProps.navigation.navigate('RaiseIncident')}
+            onPress={()=>this.call}
           >
             <Text style={styles.raiseIncidentText}> {strings.raiseIncedent} </Text>
           </TouchableOpacity>
           <LinearGradient colors={colors} start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }}  >
             <TouchableOpacity
-              onPress={() => { this.props.screenProps.navigation.navigate('RateAndReviewStep1', {id: this.props.screenProps.screenProps.id})}}
-              // onPress={() => console.warn('props ', navigation)}
+              onPress={() => { navigation.navigate('RateAndReviewStep1', { id: this.props.screenProps.screenProps.id }) }}
               style={styles.rateReviewButton}>
               <Text style={styles.rateReviewText}> {strings.rateReview} </Text>
             </TouchableOpacity>
