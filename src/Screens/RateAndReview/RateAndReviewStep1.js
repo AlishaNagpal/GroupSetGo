@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, Image, TextInput } from 'react-native';
-import { Colors, VectorIcons, vh, strings, vw, Images } from '../../Constants'
+import { Colors, VectorIcons, vh, strings, vw, Images, Strings } from '../../Constants'
 import styles from './style'
 import * as Progress from 'react-native-progress';
 import { Stars, Toast } from '../../ReusableComponents'
@@ -43,18 +43,16 @@ export default class RateAndReviewStep1 extends Component {
 
     render() {
         return (
-            <View style={styles.containerStyle}>
+            <View style={styles.containerStyle}> 
                 <View style={styles.headerView}>
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('HomeDetails6')} style={styles.backButtonStyle}>
-                        <VectorIcons.Ionicons name="ios-arrow-back" size={vh(30)} color={Colors.white} />
-                        <Text style={styles.headerText} > {strings.RateReview} </Text>
-                    </TouchableOpacity>
-                    <View style={styles.skipView} >
-                        <TouchableOpacity onPress={() => this.props.navigation.navigate('RateAndReviewStep2', {id: this.props.navigation.getParam('id')})} >
-                            <Text style={styles.skipText} > {strings.SKIP} </Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
+          <TouchableOpacity onPress={() => this.props.navigation.pop()} style={styles.backButtonStyle} >
+          <VectorIcons.Ionicons name="ios-arrow-back" size={vh(30)} color={Colors.white} />
+            <Text style={styles.headerText}>{Strings.RateReview}</Text>
+          </TouchableOpacity>
+          <View style={styles.skipView}>
+            <Text style={styles.skipText} onPress={() => this.props.navigation.navigate('RateAndReviewStep2', {id: this.props.navigation.getParam('id')})}>{Strings.SKIP}</Text>
+          </View>
+        </View>
                 <Text style={styles.stepText} > {strings.rateStep1} </Text>
                 <Progress.Bar style={styles.progressBar} progress={this.state.valid ? 33/100 : 2 / 100} width={vw(388)} color={Colors.green} unfilledColor={Colors.progressBarColor} borderColor={Colors.progressBarColor} animated={true} />
                 <View style={styles.bottomView} >

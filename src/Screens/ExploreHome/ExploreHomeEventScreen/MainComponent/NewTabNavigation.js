@@ -18,13 +18,18 @@ const NavTabBar = createMaterialTopTabNavigator({
   ...(tabState && { Settlement: Settlement }),
 },
   {
+    navigationOptions:{
+      gesturesEnabled: true,
+    },
     initialRouteName: 'About',
+    lazy: true,
+    swipeEnabled: false,
     tabBarOptions: {
       activeTintColor: Colors.fadedRed,
       inactiveTintColor: Colors.fadedGray2,
       labelStyle: {
         fontFamily: 'Poppins-SemiBold',
-        fontSize: vw(14.3),
+        fontSize: vw(14.5),
       },
       style: {
         backgroundColor: 'white',
@@ -34,7 +39,6 @@ const NavTabBar = createMaterialTopTabNavigator({
         height: vh(4),
       },
     },
-    swipeEnabled: true,
   },
 )
 

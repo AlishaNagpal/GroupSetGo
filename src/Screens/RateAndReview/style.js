@@ -7,23 +7,24 @@ export default styles = StyleSheet.create({
         backgroundColor: Colors.veryVeryLightGray
     },
     headerView: {
-        height: vh(90),
+        alignItems: 'center',
+        height: vh(80),
         backgroundColor: Colors.fadedRed,
         width: vw(DesignWidth),
-        flexDirection:'row',
+        flexDirection: 'row',
+        paddingTop: vh(30),
+        justifyContent: 'space-between'
     },
     backButtonStyle: {
-        marginLeft: vw(13.3),
         flexDirection: 'row',
         alignItems: 'center',
-        marginTop: vh(30),
+        paddingHorizontal: vw(13),
     },
     headerText: {
         color: Colors.white,
         fontSize: vh(20),
         fontFamily: 'SourceSansPro-Semibold',
-        marginLeft: vh(5),
-        marginBottom: vh(5)
+        marginLeft: vw(5),
     },
     skipText:{
         color: Colors.white,
@@ -31,15 +32,12 @@ export default styles = StyleSheet.create({
         fontSize:vh(15.3)
     },
     skipView:{
-        marginTop: vh(47),
-        marginLeft: vw(200)
+        paddingRight: vw(13)
     },
     stepText:{
         color: Colors.fadedGray,
         fontSize:vh(14.7),
         fontFamily:'SourceSansPro-Regular',
-        marginLeft: vw(13.7),
-        marginTop: vh(15.3),
     },
     progressBar:{
         marginLeft: vw(13),

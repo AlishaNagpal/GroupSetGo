@@ -103,7 +103,7 @@ export default class Filter extends Component {
 
   render() {
     return (
-      <View style={styles.containerStyle}>
+      <View style={styles.containerStyle}> 
         <View style={styles.headerView}>
           <TouchableOpacity onPress={() => this.props.navigation.pop()} style={styles.filterView} >
             <Image source={Images.cancel} />

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { Text, View, Image, FlatList } from 'react-native';
+import { Text, View, Image, FlatList, Platform, TouchableOpacity } from 'react-native';
 import styles from './styles';
 import strings from '../../../../../Constants/Strings';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import { connect } from 'react-redux'
 import { eventDATA } from '../../../../../Store/Action/Action'
 import LinearGradient from 'react-native-linear-gradient'
 import { Colors } from '../../../../../Constants'
+import {TouchableOpacity as RNTouchableOpacity} from 'react-native-gesture-handler'
 
 const colors = [Colors.fadedRed, Colors.darkishPink]
 
@@ -48,6 +48,7 @@ class Settlement extends Component {
   }
 
   render() {
+    //const TouchableComponent = Platform.OS === 'android' ? RNTouchableOpacity : TouchableOpacity;
     const { navigation } = this.props.screenProps
     const { data } = this.state
     return (
@@ -86,7 +87,7 @@ class Settlement extends Component {
         <View style={styles.raiseIncident}>
           <TouchableOpacity
             style={styles.raiseIncidentButton}
-            onPress={()=>this.call}
+            onPress={()=>navigation.navigate("RaiseIncident")}
           >
             <Text style={styles.raiseIncidentText}> {strings.raiseIncedent} </Text>
           </TouchableOpacity>
