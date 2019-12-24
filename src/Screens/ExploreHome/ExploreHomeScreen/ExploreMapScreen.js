@@ -79,6 +79,7 @@ class ExploreMapScreen extends Component {
           style={styles.mapStyle}
           provider={PROVIDER_GOOGLE}
           zoomEnabled={true}
+          showsUserLocation={true}
           scrollEnabled={true}
           maxZoomLevel={13.3}
           region={{

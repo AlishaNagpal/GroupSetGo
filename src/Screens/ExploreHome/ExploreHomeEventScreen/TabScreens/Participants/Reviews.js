@@ -34,16 +34,17 @@ export default class ParticipantReview extends Component {
     const { navigation } = this.props;
     return (
       <View style={styles.containerStyle}>
-        <TouchableOpacity onPress={() => this.props.navigation.pop()} style={styles.headerView} >
+        <View style={styles.headerView}>
+        <TouchableOpacity onPress={() => this.props.navigation.pop()}  style={styles.btnStyle}>
           <VectorIcons.Ionicons
             name="ios-arrow-back"
             size={vh(30)}
             color={Colors.white}
             style={styles.backButtonStyle}
           />
-
           <Text style={styles.reviewHeading}>Reviews ({navigation.getParam('allReviews').length})</Text>
         </TouchableOpacity>
+        </View>
         <FlatList
           data={navigation.getParam('allReviews')}
           keyExtractor={(item, id) => id.toString()}

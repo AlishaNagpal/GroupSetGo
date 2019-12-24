@@ -7,17 +7,18 @@ export default styles = StyleSheet.create({
         backgroundColor: Colors.veryVeryLightGray
     },
     headerView: {
-        height: vh(90),
+        alignItems: 'center',
+        height: vh(80),
         backgroundColor: Colors.fadedRed,
         width: vw(DesignWidth),
         flexDirection: 'row',
     },
     backButtonStyle: {
-        marginLeft: vw(13.3),
         flexDirection: 'row',
         alignItems: 'center',
         marginTop: vh(30),
-        flex: 1
+        flex: 1,
+        left:vw(10)
     },
     headerText: {
         color: Colors.white,
@@ -31,9 +32,8 @@ export default styles = StyleSheet.create({
         fontSize: vh(15.3)
     },
     skipView: {
-        marginTop: vh(47),
+        marginTop: vw(30),
         right: vw(10)
-        // marginLeft: vw(200)
     },
     stepText: {
         color: Colors.fadedGray,

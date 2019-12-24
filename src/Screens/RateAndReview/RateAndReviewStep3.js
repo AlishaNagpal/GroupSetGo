@@ -77,7 +77,12 @@ export default class RateAndReviewStep2 extends Component {
                         }}
                         multiline={true}
                     />
-                    <LinearGradient colors={this.state.valid ? colors : colors2} start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} style={styles.buttonStyle}  >
+                   
+                </View>
+                {this.state.call === true &&
+                    <Toast top={-15} from={0} to={-60} message={strings.pleaseTellUs} call={(value) => this.resetCall(value)} />
+                }
+                 <LinearGradient colors={this.state.valid ? colors : colors2} start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} style={styles.buttonStyle}  >
                         <TouchableOpacity
                             onPress={() => this.callAlert()}
                             activeOpacity={1}
@@ -86,10 +91,6 @@ export default class RateAndReviewStep2 extends Component {
                             <VectorIcons.Ionicons name='md-checkmark' size={vh(55)} color={this.state.valid ? Colors.white : Colors.stars} style={styles.icon} />
                         </TouchableOpacity>
                     </LinearGradient>
-                </View>
-                {this.state.call === true &&
-                    <Toast top={-15} from={0} to={-60} message={strings.pleaseTellUs} call={(value) => this.resetCall(value)} />
-                }
             </View>
         )
     }
