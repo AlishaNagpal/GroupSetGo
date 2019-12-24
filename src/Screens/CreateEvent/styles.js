@@ -10,7 +10,8 @@ export default styles = StyleSheet.create({
         backgroundColor: Colors.fadedRed,
         width: '100%',
         flexDirection: 'row',
-        paddingTop: vh(30)
+        paddingTop: vh(30),
+        height: vh(90)
     },
     backButtonStyle: {
         marginLeft: vw(13.3),
@@ -93,7 +94,7 @@ export default styles = StyleSheet.create({
         borderBottomWidth: vw(1),
         marginLeft: vw(13.3),
         width: vw(380),
-        marginTop: vh(4)
+        // marginTop: vw(4)
     },
     textInputView: {
         marginTop: vh(20)
@@ -136,8 +137,9 @@ export default styles = StyleSheet.create({
         marginTop: vh(15)
     },
     buttonStyle: {
-        marginTop: vh(180),
-        marginLeft: vw(320),
+        right:vw(10),
+        position:'absolute',
+        bottom:vh(60),
         width: vw(66),
         height: vw(66),
         borderRadius: vw(33),
@@ -145,7 +147,7 @@ export default styles = StyleSheet.create({
         alignItems: 'center'
     },
     icon: {
-        marginTop: vh(5)
+        // marginTop: vh(5)
     },
     textBox: {
         backgroundColor: Colors.white,
@@ -324,8 +326,8 @@ export default styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         position: 'absolute',
-        top: vh(660),
-        left: vw(320),
+        bottom: vh(60),
+        right: vw(10),
     },
     eventType: {
         backgroundColor: Colors.white,
@@ -396,11 +398,11 @@ export default styles = StyleSheet.create({
     placeholderStyle: {
         position: 'absolute',
         fontFamily: 'SourceSansPro-Regular',
-        left: vw(10),
+        left: vw(10)
     },
     dateText: {
         left:vw(-6),
-        bottom:vw(-3)
+        bottom:vw(3),
     },
     dateTimePicker: {
         borderColor: Colors.verLightGrey,
@@ -409,5 +411,6 @@ export default styles = StyleSheet.create({
         marginLeft: vw(13.3),
         flexDirection:'row',
         justifyContent: 'space-between',
+        top:vh(15)
     },
 });

@@ -9,14 +9,13 @@ containerStyle: {
     marginBottom: vh(20)
 },
 headerView: {
-    // alignItems: 'center',
     height: vh(80.7),
     backgroundColor: Colors.fadedRed,
     width: vw(DesignWidth),
     flexDirection: 'row',
-    justifyContent: 'flex-start',
+    // justifyContent: 'flex-start',
     paddingTop: vh(42),
-    alignItems: 'center'
+    alignItems: 'center',
 },
 backButtonStyle: {
     marginLeft: vw(13.3),
@@ -30,7 +29,8 @@ reviewHeading: {
     color: Colors.white,
     fontSize: vh(20),
     marginLeft: vw(13.3),
-    fontFamily: 'SourceSansPro-Semibold'
+    fontFamily: 'SourceSansPro-Semibold',
+    // bottom:vw(5)
 },
 separator: {
     flex: 1,

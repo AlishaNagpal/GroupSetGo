@@ -11,14 +11,14 @@ export default class ParticipantReview extends Component {
     };
   }
 
-  renderReviewList = (rawData) =>{
+  renderReviewList = (rawData) => {
     const { item, id } = rawData
     return (
-      <ReviewFlatList 
-      myData = {item}
-      myId = {id}
+      <ReviewFlatList
+        myData={item}
+        myId={id}
       />
-      
+
     );
   }
 
@@ -34,26 +34,25 @@ export default class ParticipantReview extends Component {
     const { navigation } = this.props;
     return (
       <View style={styles.containerStyle}>
-        <View style={styles.headerView}>
-          <TouchableOpacity onPress={() => this.props.navigation.pop()} >
-            <VectorIcons.MaterialCommunityIcons
-              name="keyboard-backspace"
-              size={vh(30)}
-              color={Colors.white}
-              style={styles.backButtonStyle}
-            />
-          </TouchableOpacity>
-          <Text style={styles.reviewHeading}>Reviews ({navigation.getParam('allReviews').length})</Text>
-        </View>
-        <FlatList
-            data={navigation.getParam('allReviews')}
-            keyExtractor={(item, id) => id.toString()}
-            renderItem={this.renderReviewList}
-            nestedScrollEnabled={true}
-            bounces={false}
-            ItemSeparatorComponent = {this.FlatListItemSeparator}
-            showsVerticalScrollIndicator={false}
+        <TouchableOpacity onPress={() => this.props.navigation.pop()} style={styles.headerView} >
+          <VectorIcons.Ionicons
+            name="ios-arrow-back"
+            size={vh(30)}
+            color={Colors.white}
+            style={styles.backButtonStyle}
           />
+
+          <Text style={styles.reviewHeading}>Reviews ({navigation.getParam('allReviews').length})</Text>
+        </TouchableOpacity>
+        <FlatList
+          data={navigation.getParam('allReviews')}
+          keyExtractor={(item, id) => id.toString()}
+          renderItem={this.renderReviewList}
+          nestedScrollEnabled={true}
+          bounces={false}
+          ItemSeparatorComponent={this.FlatListItemSeparator}
+          showsVerticalScrollIndicator={false}
+        />
       </View>
     );
   }

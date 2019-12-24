@@ -44,7 +44,6 @@ class Settlement extends Component {
   }
 
   render() {
-    const {navigation} = this.props.screenProps;
     const { data } = this.state
     return (
       <View style={styles.containerStyle}>
@@ -82,13 +81,13 @@ class Settlement extends Component {
         <View style={styles.raiseIncident}>
           <TouchableOpacity
             style={styles.raiseIncidentButton}
-            onPress={() => navigation.navigate('RaiseIncident')}
+            onPress={() => this.props.screenProps.navigation.navigate('RaiseIncident')}
           >
             <Text style={styles.raiseIncidentText}> {strings.raiseIncedent} </Text>
           </TouchableOpacity>
           <LinearGradient colors={colors} start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }}  >
             <TouchableOpacity
-              onPress={() => { navigation.navigate('RateAndReviewStep1', {id: this.props.screenProps.screenProps.id})}}
+              onPress={() => { this.props.screenProps.navigation.navigate('RateAndReviewStep1', {id: this.props.screenProps.screenProps.id})}}
               // onPress={() => console.warn('props ', navigation)}
               style={styles.rateReviewButton}>
               <Text style={styles.rateReviewText}> {strings.rateReview} </Text>

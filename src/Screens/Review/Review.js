@@ -45,7 +45,7 @@ class Review extends PureComponent {
     render() {
         return (
             <View style={styles.containerStyle}>
-                <TouchableOpacity onPress={() => this.props.navigation.goBack()} style={styles.headerView}>
+                <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.goBack()} style={styles.headerView}>
                     <VectorIcons.Ionicons name="ios-arrow-back" size={vh(30)} color={Colors.white} style={styles.backButtonStyle} />
                     <Text style={styles.reviewHeadingStyle}> {strings.review} </Text>
                 </TouchableOpacity>

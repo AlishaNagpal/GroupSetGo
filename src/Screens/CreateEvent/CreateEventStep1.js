@@ -8,7 +8,6 @@ import DateTimePicker from 'react-native-modal-datetime-picker'
 import LinearGradient from 'react-native-linear-gradient'
 const colors = [Colors.fadedRed, Colors.darkishPink]
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scrollview'
-import moment from "moment";
 
 export default class CreateEventStep1 extends Component {
     constructor(props) {
@@ -28,7 +27,13 @@ export default class CreateEventStep1 extends Component {
             startTimeValue: 'Start Time',
             colorChangeTime: false,
             colorChangeDate: false,
-            isFieldActive:false,
+            isFieldActive: false,
+            day: null,
+            month: null,
+            year: null,
+            hour: null,
+            amPM: null,
+            minutes: null
         }
     }
     showDateTimePicker = () => {
@@ -40,10 +45,15 @@ export default class CreateEventStep1 extends Component {
     };
 
     handleDatePicked = date => {
-        var data = moment(date).format("DD-MMM-YYYY")
+        const dateHere = date;
+        const year = dateHere.getFullYear();
+        const month = dateHere.getMonth();
+        const day = dateHere.getDate();
         this.setState({
-            date: data,
-            colorChangeDate: true
+            day: day,
+            month: month + 1,
+            year: year,
+            colorChangeDate: true,
         })
         this.hideDateTimePicker();
     };
@@ -57,9 +67,13 @@ export default class CreateEventStep1 extends Component {
     };
 
     handleStartTimePicked = date => {
-        var data = moment(date).format("hh-mm-A")
+        let dateHere = date;
+        let hours = dateHere.getHours();
+        let minutes = dateHere.getMinutes();
         this.setState({
-            startTimeValue: data,
+            hour: hours,
+            // amPM: null,
+            minutes: minutes,
             colorChangeTime: true
         })
         this.hideStartTimePicker();
@@ -81,7 +95,7 @@ export default class CreateEventStep1 extends Component {
         })
     }
     callAlert = () => {
-        if (this.state.title === '' || this.state.Hashtag === '' || this.state.Address === '' || this.state.Duration === '') {
+        if (this.state.title === '' || this.state.Hashtag === '' || this.state.Address === '') {
             this.resetCall(true)
         } else {
             this.props.navigation.navigate('CreateEventStep2')
@@ -111,7 +125,7 @@ export default class CreateEventStep1 extends Component {
         return (
             <View style={styles.containerStyle}>
                 <KeyboardAwareScrollView keyboardShouldPersistTaps={'always'} >
-                    <View style={[styles.headerView, { height: vh(90) }]}>
+                    <View style={styles.headerView}>
                         <TouchableOpacity onPress={() => this.props.navigation.goBack()} style={styles.backButtonStyle}>
                             <VectorIcons.Ionicons name="ios-arrow-back" size={vh(30)} color={Colors.white} />
                             <Text style={styles.headerText} > {strings.createEvent} </Text>
@@ -150,6 +164,8 @@ export default class CreateEventStep1 extends Component {
                         </View>
                         <View style={styles.textInputView} >
                             <FloatingTitleTextInputField
+                                placeholderStyle={{ marginTop: vh(20) }}
+                                style={{ marginTop: vh(20) }}
                                 attrName='Address'
                                 title='Address'
                                 value={this.state.Address}
@@ -161,8 +177,7 @@ export default class CreateEventStep1 extends Component {
                         </View>
                         <View style={styles.textInputView} >
                             <TouchableOpacity style={styles.dateTimePicker} onPress={this.showDateTimePicker} activeOpacity={1} >
-                                {/* {this.renderLabel()} */}
-                                <Text style={[styles.dateText, { color: this.state.colorChangeDate ? Colors.black : Colors.fadedGray, }]} > {this.state.date} </Text>
+                                <Text style={[styles.dateText, { color: this.state.colorChangeDate ? Colors.black : Colors.fadedGray, }]} > {this.state.colorChangeDate ? (this.state.day + '-' + this.state.month + '-' + this.state.year) : this.state.date} </Text>
                                 <VectorIcons.EvilIcons name="calendar" color={Colors.verLightGrey} size={25} />
                                 <DateTimePicker
                                     isVisible={this.state.isDateTimePickerVisible}
@@ -172,22 +187,23 @@ export default class CreateEventStep1 extends Component {
                                 />
                             </TouchableOpacity>
                         </View>
-                        <View style={styles.rowStyle} >
-                            <View style={styles.textInputView} >
+                        {/* <View style={styles.rowStyle} > */}
+                        <View style={styles.textInputView} >
 
-                                <TouchableOpacity style={styles.timePicker} onPress={this.showStartTimePicker} activeOpacity={1} >
-                                    <Text style={[styles.dateText, { bottom: vw(-8), color: this.state.colorChangeTime ? Colors.black : Colors.fadedGray }]}> {this.state.startTimeValue} </Text>
-                                    <VectorIcons.Ionicons name="md-time" color={Colors.verLightGrey} size={25} style={styles.calendar} />
-                                </TouchableOpacity>
+                            <TouchableOpacity style={styles.dateTimePicker} onPress={this.showStartTimePicker} activeOpacity={1} >
+                                <Text style={[styles.dateText, {color: this.state.colorChangeTime ? Colors.black : Colors.fadedGray }]}> {this.state.colorChangeTime ? (this.state.hour + ':' + this.state.minutes) : this.state.startTimeValue} </Text>
+                                <VectorIcons.Ionicons name="md-time" color={Colors.verLightGrey} size={25} style={styles.calendar} />
                                 <DateTimePicker
                                     isVisible={this.state.startTime}
                                     onConfirm={this.handleStartTimePicked}
                                     onCancel={this.hideStartTimePicker}
                                     mode={'time'}
                                 />
-                            </View>
+                            </TouchableOpacity>
 
-                            <View style={styles.Duration} >
+                            {/* </View> */}
+
+                            {/* <View style={styles.Duration} >
                                 <FloatingLabel style={styles.textAnimated2} title={'Duration'} call={(value) => this.call(value)} />
                                 <Text>{this.state.Duration}</Text>
                                 <View style={[styles.separator2, { bottom: this.state.Duration === '' ? vh(0) : vh(3) }]} />
@@ -208,22 +224,24 @@ export default class CreateEventStep1 extends Component {
                                     <Picker.Item label="2.5 Hrs." value="2.5 Hrs." />
                                 </Picker>
                                 }
-                            </View>
+                            </View> */}
                         </View>
-                        <LinearGradient colors={colors} start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} style={styles.buttonStyle}  >
-                            <TouchableOpacity
-                                onPress={() => this.callAlert()}
-                                activeOpacity={1}
-                            >
-                                <VectorIcons.Ionicons name='ios-arrow-round-forward' size={vh(55)} color={Colors.white} style={styles.icon} />
-                            </TouchableOpacity>
-                        </LinearGradient>
                     </View>
+
                 </KeyboardAwareScrollView>
                 {this.state.call === true &&
                     <Toast top={-15} from={0} to={-60} message={strings.fillAll} call={(value) => this.resetCall(value)} />
                 }
+                <LinearGradient colors={colors} start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} style={styles.buttonStyle}  >
+                    <TouchableOpacity
+                        onPress={() => this.callAlert()}
+                        activeOpacity={1}
+                    >
+                        <VectorIcons.Ionicons name='ios-arrow-round-forward' size={vh(55)} color={Colors.white} style={styles.icon} />
+                    </TouchableOpacity>
+                </LinearGradient>
             </View>
+
         );
     }
 }

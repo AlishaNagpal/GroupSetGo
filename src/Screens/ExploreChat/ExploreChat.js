@@ -7,7 +7,7 @@ export default class ExploreChat extends Component {
   render() {
     return (
       <View style={styles.main}>
-        <View style={styles.header} >
+        {/* <View style={styles.header} >
           <TouchableOpacity onPress={() => this.props.navigation.navigate('MyAccount')} >
             <Image
               source={Images.maleImage}
@@ -15,7 +15,7 @@ export default class ExploreChat extends Component {
             />
           </TouchableOpacity>
           <Text style={styles.saveText} > {strings.chatIcon} </Text>
-        </View>
+        </View> */}
         <View style={styles.center} >
           <Image
             source={Images.logo}

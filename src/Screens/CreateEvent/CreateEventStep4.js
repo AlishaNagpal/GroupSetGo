@@ -16,7 +16,7 @@ export default class CreateEventStep4 extends Component {
           />
           <Text style={styles.text} > {strings.UnderWork} </Text>
           <TouchableOpacity activeOpacity={1} onPress={()=>this.props.navigation.navigate('HomeNavigator')} style={styles.buttonCode} >
-            <Text style={{color:Colors.white}} > Exit Code </Text>
+            <Text style={{color:Colors.white}} > Exit </Text>
           </TouchableOpacity>
         </View>
       </View>
