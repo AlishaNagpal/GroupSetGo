@@ -124,7 +124,7 @@ class HomeDetails6 extends Component {
     render() {
         const { data } = this.state;
         return (
-            <View style={[styles.mainView,{marginTop: Platform.OS === 'ios' ? vh(30) : vh(0) }]}>
+            <View style={[styles.mainView,{marginTop: Platform.OS === 'ios' ? vh(27) : vh(0) }]}>
                 <ScrollView bounces={false} showsVerticalScrollIndicator={false}>
                     <View>
                         <ProgressiveImage

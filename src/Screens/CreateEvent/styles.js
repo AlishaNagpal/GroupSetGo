@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Platform  } from 'react-native'
 import { vw, vh, Colors, DesignWidth } from '../../Constants';
 
 export default styles = StyleSheet.create({
@@ -86,18 +86,20 @@ export default styles = StyleSheet.create({
     dataView: {
         backgroundColor: Colors.white,
         width: vw(414),
-        height: vh(344),
+        height: vw(400),
         marginTop: vh(13)
     },
     textInputStyle: {
-        borderColor: Colors.verLightGrey,
-        borderBottomWidth: vw(1),
-        marginLeft: vw(13.3),
-        width: vw(380),
-        // marginTop: vw(4)
+        // borderColor: Colors.verLightGrey,
+        // borderBottomWidth: vw(1),
+        // marginLeft: vw(13.3),
+        // width: vw(380),
     },
     textInputView: {
-        marginTop: vh(20)
+        marginTop: vw(20)
+    },
+    textInputView2: {
+        marginTop: vw(40)
     },
     timePicker: {
         width: vw(180),
@@ -105,7 +107,7 @@ export default styles = StyleSheet.create({
         borderColor: Colors.verLightGrey,
         borderBottomWidth: vw(1),
         marginLeft: vw(13.3),
-        flexDirection:'row',
+        flexDirection: 'row',
         justifyContent: 'space-between',
     },
     textAnimated: {
@@ -115,11 +117,10 @@ export default styles = StyleSheet.create({
     },
     rowStyle: {
         flexDirection: 'row',
-        marginTop:vh(10)
     },
     Duration: {
         marginLeft: vw(20),
-        marginTop: vh(39)
+        marginTop: vw(60)
     },
     separator2: {
         height: vh(2),
@@ -137,9 +138,9 @@ export default styles = StyleSheet.create({
         marginTop: vh(15)
     },
     buttonStyle: {
-        right:vw(10),
-        position:'absolute',
-        bottom:vh(60),
+        right: vw(10),
+        position: 'absolute',
+        bottom: vh(60),
         width: vw(66),
         height: vw(66),
         borderRadius: vw(33),
@@ -396,21 +397,29 @@ export default styles = StyleSheet.create({
         fontSize: vh(13)
     },
     placeholderStyle: {
-        position: 'absolute',
-        fontFamily: 'SourceSansPro-Regular',
-        left: vw(10)
+        // fontFamily: 'SourceSansPro-Regular',
+        // position: 'absolute',
+        // marginLeft: 10,
+        // marginRight: 10,
+        // backgroundColor: '#fff',
+        // alignSelf: 'flex-start',
+        // fontSize: 11,
     },
     dateText: {
-        left:vw(-6),
-        bottom:vw(3),
+        left: vw(-6),
+        bottom: Platform.OS === 'ios' ? vw(-5) : vw(9),
     },
     dateTimePicker: {
         borderColor: Colors.verLightGrey,
         borderBottomWidth: vw(1),
-        width: vw(380),
-        marginLeft: vw(13.3),
-        flexDirection:'row',
+        width: vw(372),
+        marginLeft: vw(25),
+        flexDirection: 'row',
         justifyContent: 'space-between',
-        top:vh(15)
+        top: Platform.OS === 'ios' ? vw(10) : vw(28),
+    },
+    dateText2: {
+        left: vw(-6),
+        bottom: Platform.OS === 'ios' ? vw(-10) : vw(5),
     },
 });

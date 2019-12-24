@@ -20,7 +20,7 @@ export default class RateAndReviewStep1 extends Component {
         if (this.state.inputValue === '') {
             this.resetCall(true)
         } else if (this.state.inputValue !== '' && this.state.starRatings === true) {
-            this.props.navigation.navigate('RateAndReviewStep2', {id: this.props.navigation.getParam('id')})
+            this.props.navigation.navigate('RateAndReviewStep2', { id: this.props.navigation.getParam('id') })
         }
     }
 
@@ -50,13 +50,13 @@ export default class RateAndReviewStep1 extends Component {
                         <Text style={styles.headerText} > {strings.RateReview} </Text>
                     </TouchableOpacity>
                     <View style={styles.skipView} >
-                        <TouchableOpacity onPress={() => this.props.navigation.navigate('RateAndReviewStep2', {id: this.props.navigation.getParam('id')})} >
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate('RateAndReviewStep2', { id: this.props.navigation.getParam('id') })} >
                             <Text style={styles.skipText} > {strings.SKIP} </Text>
                         </TouchableOpacity>
                     </View>
                 </View>
                 <Text style={styles.stepText} > {strings.rateStep1} </Text>
-                <Progress.Bar style={styles.progressBar} progress={this.state.valid ? 33/100 : 2 / 100} width={vw(388)} color={Colors.green} unfilledColor={Colors.progressBarColor} borderColor={Colors.progressBarColor} animated={true} />
+                <Progress.Bar style={styles.progressBar} progress={this.state.valid ? 33 / 100 : 2 / 100} width={vw(388)} color={Colors.green} unfilledColor={Colors.progressBarColor} borderColor={Colors.progressBarColor} animated={true} />
                 <View style={styles.bottomView} >
                     <Text style={styles.rateHost} > {strings.rateHost} </Text>
                     <Image source={Images.maleDefault} style={styles.maleImage} />
@@ -68,6 +68,7 @@ export default class RateAndReviewStep1 extends Component {
                     </View>
                     <TextInput
                         style={styles.textInput}
+                        placeholder={'Description'}
                         value={this.state.inputValue}
                         onChangeText={(text) => {
                             this.setState({ inputValue: text })
@@ -77,19 +78,19 @@ export default class RateAndReviewStep1 extends Component {
                         }}
                         multiline={true}
                     />
-                    <LinearGradient colors={this.state.valid ? colors : colors2} start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} style={styles.buttonStyle}  >
-                        <TouchableOpacity
-                            onPress={() => this.callAlert()}
-                            activeOpacity={1}
-                            valid={this.state.valid}
-                        >
-                            <VectorIcons.Ionicons name='ios-arrow-round-forward' size={vh(55)} color={this.state.valid ? Colors.white : Colors.stars} style={styles.icon} />
-                        </TouchableOpacity>
-                    </LinearGradient>
                 </View>
                 {this.state.call === true &&
                     <Toast top={-15} from={0} to={-60} message={strings.pleaseTellUs} call={(value) => this.resetCall(value)} />
                 }
+                <LinearGradient colors={this.state.valid ? colors : colors2} start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} style={styles.buttonStyle}  >
+                    <TouchableOpacity
+                        onPress={() => this.callAlert()}
+                        activeOpacity={1}
+                        valid={this.state.valid}
+                    >
+                        <VectorIcons.Ionicons name='ios-arrow-round-forward' size={vh(55)} color={this.state.valid ? Colors.white : Colors.stars} />
+                    </TouchableOpacity>
+                </LinearGradient>
             </View>
         )
     }

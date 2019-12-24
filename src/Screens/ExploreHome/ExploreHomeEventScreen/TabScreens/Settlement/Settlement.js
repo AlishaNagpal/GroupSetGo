@@ -32,8 +32,8 @@ class Settlement extends Component {
   }
 
   call = () => {
-    console.warn("nav",this.props.screenProps.navigation )
-    // this.props.screenProps.navigation.navigate('RaiseIncident')
+    // console.warn("nav",this.props.screenProps.navigation )
+    this.props.screenProps.navigation.navigate('RaiseIncident')
   }
 
   renderPriceDetailsList = (rowData) => {
@@ -86,7 +86,7 @@ class Settlement extends Component {
         <View style={styles.raiseIncident}>
           <TouchableOpacity
             style={styles.raiseIncidentButton}
-            onPress={()=>this.call}
+            onPress={() => this.props.screenProps.navigation.navigate('RaiseIncident')}
           >
             <Text style={styles.raiseIncidentText}> {strings.raiseIncedent} </Text>
           </TouchableOpacity>

@@ -68,7 +68,7 @@ import ExploreMyEvents from "./Screens/ExploreMyEvents/ExploreMyEvents";
 import ResetPassword from './Screens/ResetPassword/ResetPassword';
 import NewTabNavigation from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/NewTabNavigation';
 
-// console.disableYellowBox = true
+console.disableYellowBox = true
 
 const Explore = createStackNavigator({ Explore: ExploreHomeScreen, Map: ExploreMapScreen },
     { defaultNavigationOptions: { header: null } });
@@ -186,7 +186,7 @@ const MainStack = createStackNavigator(
         NewTabNavigation: NewTabNavigation,
     },
     {
-        initialRouteName: 'HomeNavigator',
+        initialRouteName: 'CreateEventStep1',
         defaultNavigationOptions: ({ navigation }) => ({
             headerBackTitle: null,
             header: null,
@@ -267,7 +267,7 @@ export default createAppContainer(createSwitchNavigator(
         ModalStack: ModalStack
     },
     {
-        initialRouteName: 'SplashStack',
+        initialRouteName: 'ModalStack',
         headerMode: 'none',
         defaultNavigationOptions: ({ navigation }) => ({
             headerBackTitle: null,

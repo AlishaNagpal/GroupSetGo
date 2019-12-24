@@ -10,74 +10,75 @@ export default styles = StyleSheet.create({
         height: vh(90),
         backgroundColor: Colors.fadedRed,
         width: vw(DesignWidth),
-        flexDirection:'row',
+        flexDirection: 'row',
     },
     backButtonStyle: {
         marginLeft: vw(13.3),
         flexDirection: 'row',
         alignItems: 'center',
         marginTop: vh(30),
+        flex: 1
     },
     headerText: {
         color: Colors.white,
         fontSize: vh(20),
         fontFamily: 'SourceSansPro-Semibold',
         marginLeft: vh(5),
-        marginBottom: vh(5)
     },
-    skipText:{
+    skipText: {
         color: Colors.white,
-        fontFamily:'SourceSansPro-Regular',
-        fontSize:vh(15.3)
+        fontFamily: 'SourceSansPro-Regular',
+        fontSize: vh(15.3)
     },
-    skipView:{
+    skipView: {
         marginTop: vh(47),
-        marginLeft: vw(200)
+        right: vw(10)
+        // marginLeft: vw(200)
     },
-    stepText:{
+    stepText: {
         color: Colors.fadedGray,
-        fontSize:vh(14.7),
-        fontFamily:'SourceSansPro-Regular',
+        fontSize: vh(14.7),
+        fontFamily: 'SourceSansPro-Regular',
         marginLeft: vw(13.7),
         marginTop: vh(15.3),
     },
-    progressBar:{
+    progressBar: {
         marginLeft: vw(13),
         marginRight: vw(13),
         width: vw(388),
         marginTop: vh(8.7)
     },
-    bottomView:{
+    bottomView: {
         backgroundColor: Colors.white,
         width: vw(DesignWidth),
         height: vh(591.7),
         marginTop: vh(13),
-        alignItems:'center'
+        alignItems: 'center'
     },
-    rateHost:{
+    rateHost: {
         marginTop: vh(30.3),
-        fontFamily:'Poppins-Medium',
+        fontFamily: 'Poppins-Medium',
         fontSize: vh(16.7)
     },
-    maleImage:{
+    maleImage: {
         height: vw(90),
         width: vw(90),
         borderRadius: vw(55),
         marginTop: vh(13),
     },
-    starView:{
+    starView: {
         marginTop: vh(18),
-        flexDirection:'row',
-        alignSelf:'center',
+        flexDirection: 'row',
+        alignSelf: 'center',
     },
-    experienceView:{
+    experienceView: {
         marginTop: vh(24)
     },
-    experienceText:{
+    experienceText: {
         fontFamily: 'SourceSansPro-Semibold',
         fontSize: vh(16.7)
     },
-    textInput:{
+    textInput: {
         height: vh(130),
         width: vw(380),
         marginLeft: vw(13.7),
@@ -88,17 +89,15 @@ export default styles = StyleSheet.create({
         paddingTop: vh(10),
         paddingRight: vw(10)
     },
-    buttonStyle:{
+    buttonStyle: {
         height: vw(66.7),
         width: vw(66.7),
         borderRadius: vw(34),
-        alignItems:'center',
-        justifyContent:'center',
-        marginTop: vh(100),
-        marginLeft: vw(320)
-    },
-    icon:{
-        marginTop: vh(5)
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'absolute',
+        bottom: vw(50),
+        right: vw(20)
     },
     containerStyleModal: {
         flex: 1,

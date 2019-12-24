@@ -13,7 +13,6 @@ headerView: {
     backgroundColor: Colors.fadedRed,
     width: vw(DesignWidth),
     flexDirection: 'row',
-    // justifyContent: 'flex-start',
     paddingTop: vh(42),
     alignItems: 'center',
 },
@@ -30,7 +29,7 @@ reviewHeading: {
     fontSize: vh(20),
     marginLeft: vw(13.3),
     fontFamily: 'SourceSansPro-Semibold',
-    // bottom:vw(5)
+    bottom:vw(5)
 },
 separator: {
     flex: 1,

@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     },
     headerViewStyle: {
         flexDirection: 'row',
-        height: vh(60),
+        height: vh(90),
         backgroundColor: Colors.fadedRed,
         width: vw(DesignWidth),
         alignItems:'center'
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
         marginLeft: vw(13.7),
         flexDirection:'row',
         alignItems:'center',
-        marginTop:vh(10),
+        marginTop:vh(30),
     },
     checkmarkStyle: {
         position: 'absolute',
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
         marginLeft: vw(13.7),
         color: Colors.white,
         fontSize: vw(20),
-        fontFamily: 'SourceSansPro-Semibold'
+        fontFamily: 'SourceSansPro-Semibold',
     },
     cardStyle: {
         width: vw(DesignWidth),

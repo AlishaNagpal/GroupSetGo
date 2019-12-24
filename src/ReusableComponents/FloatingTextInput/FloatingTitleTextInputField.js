@@ -33,7 +33,7 @@ export default class FloatingTitleTextInputField extends Component {
       this.setState({ isFieldActive: true });
       Animated.timing(this.position, {
         toValue: 1,
-        duration: 300,
+        duration: 150,
       }).start();
     }
   }
@@ -43,7 +43,7 @@ export default class FloatingTitleTextInputField extends Component {
       this.setState({ isFieldActive: false });
       Animated.timing(this.position, {
         toValue: 0,
-        duration: 600,
+        duration: 150,
       }).start();
     }
   }
@@ -58,7 +58,7 @@ export default class FloatingTitleTextInputField extends Component {
     return {
       top: this.position.interpolate({
         inputRange: [0, 1],
-        outputRange: [0, -15],
+        outputRange: [20, 3],
       }),
       fontSize: isFieldActive ? 11.5 : 15,
       color: Colors.fadedGray
@@ -70,17 +70,24 @@ export default class FloatingTitleTextInputField extends Component {
       this.props.onSubmitEditing()
   }
 
+  renderLabel = () => (
+    <Animated.Text
+      style={[Styles.placeholderStyle, this.props.placeholderStyle, this._returnAnimatedTitleStyles()]}
+    >
+      {this.props.title}
+    </Animated.Text>
+  )
+
   render() {
     return (
       <View style={Styles.container}>
-        <Animated.Text
-          style={[this.props.placeholderStyle, this._returnAnimatedTitleStyles()]}
-        >
-          {this.props.title}
-        </Animated.Text>
+        {
+          this.renderLabel()
+        }
+
         <TextInput
           value={this.props.value}
-          style={this.props.style}
+          style={[Styles.textInputStyle, this.props.style]}
           ref={"FloatingLabelInput"}
           underlineColorAndroid='transparent'
           onFocus={this._handleFocus}
@@ -97,7 +104,29 @@ export default class FloatingTitleTextInputField extends Component {
 
 const Styles = StyleSheet.create({
   container: {
-    width: vw(380),
-    height: vh(50),
+    width: "100%",
+    height: vw(60),
+    paddingLeft: vw(10),
+    paddingRight: vw(10),
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  placeholderStyle: {
+    position: 'absolute',
+    paddingLeft: vw(10),
+    paddingRight: vw(10),
+    marginLeft: vw(12),
+    marginRight: vw(12),
+    backgroundColor: '#fff',
+    alignSelf: 'flex-start',
+    color: Colors.fadedGray,
+    fontFamily: 'SourceSansPro-Regular',
+    fontSize: vw(11),
+  },
+  textInputStyle: {
+    borderColor: Colors.verLightGrey,
+    borderBottomWidth: vw(1),
+    marginLeft: vw(13.3),
+    width: vw(370),
   },
 })

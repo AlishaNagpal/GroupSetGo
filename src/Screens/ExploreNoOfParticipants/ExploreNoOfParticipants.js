@@ -30,7 +30,7 @@ export default class ExploreNoOfParticipants extends PureComponent {
             <View style={styles.containerStyle}>
                 <View style={styles.headerViewStyle}>
                     <TouchableOpacity onPress={() => { this.props.navigation.goBack() }} style={styles.backButtonStyle}  >
-                        <VectorIcons.Ionicons name="ios-arrow-round-back" size={vh(40)} color={Colors.white} />
+                        <VectorIcons.Ionicons name="ios-arrow-back" size={vh(30)} color={Colors.white} />
                         <Text style={styles.headerTitleStyle}>{strings.participantList}</Text>
                     </TouchableOpacity>
                 </View>

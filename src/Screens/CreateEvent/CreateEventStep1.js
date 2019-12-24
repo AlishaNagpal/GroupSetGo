@@ -72,7 +72,6 @@ export default class CreateEventStep1 extends Component {
         let minutes = dateHere.getMinutes();
         this.setState({
             hour: hours,
-            // amPM: null,
             minutes: minutes,
             colorChangeTime: true
         })
@@ -101,25 +100,6 @@ export default class CreateEventStep1 extends Component {
             this.props.navigation.navigate('CreateEventStep2')
         }
     }
-
-    // _returnAnimatedTitleStyles = () => {
-    //     const { isFieldActive } = this.state;
-    //     return {
-    //         top: this.position.interpolate({
-    //             inputRange: [0, 1],
-    //             outputRange: [18, -13],
-    //         }),
-    //         fontSize: isFieldActive ? 18 : 15,
-    //         //color: isFieldActive ? 'black' : 'dimgrey',
-    //     }
-    // }
-    // renderLabel = () => (
-    //     <Animated.Text
-    //         style={[styles.dateText, this._returnAnimatedTitleStyles()]}
-    //     >
-    //         {this.state.date}
-    //     </Animated.Text>
-    // )
 
     render() {
         return (
@@ -188,11 +168,10 @@ export default class CreateEventStep1 extends Component {
                             </TouchableOpacity>
                         </View>
                         {/* <View style={styles.rowStyle} > */}
-                        <View style={styles.textInputView} >
-
-                            <TouchableOpacity style={styles.dateTimePicker} onPress={this.showStartTimePicker} activeOpacity={1} >
-                                <Text style={[styles.dateText, {color: this.state.colorChangeTime ? Colors.black : Colors.fadedGray }]}> {this.state.colorChangeTime ? (this.state.hour + ':' + this.state.minutes) : this.state.startTimeValue} </Text>
-                                <VectorIcons.Ionicons name="md-time" color={Colors.verLightGrey} size={25} style={styles.calendar} />
+                        <View style={styles.textInputView2} >
+                            <TouchableOpacity style={[styles.dateTimePicker,]} onPress={this.showStartTimePicker} activeOpacity={1} >
+                                <Text style={[styles.dateText2, { color: this.state.colorChangeTime ? Colors.black : Colors.fadedGray }]}> {this.state.colorChangeTime ? (this.state.hour + ':' + this.state.minutes) : this.state.startTimeValue} </Text>
+                                <VectorIcons.Ionicons name="md-time" color={Colors.verLightGrey} size={25} />
                                 <DateTimePicker
                                     isVisible={this.state.startTime}
                                     onConfirm={this.handleStartTimePicked}
@@ -200,11 +179,15 @@ export default class CreateEventStep1 extends Component {
                                     mode={'time'}
                                 />
                             </TouchableOpacity>
+                        </View>
 
-                            {/* </View> */}
+                        {/* <View style={styles.textInputView2} >
+                                <TouchableOpacity style={[styles.dateTimePicker, { width: vw(180), top:vw() }]} onPress={this.showStartTimePicker} activeOpacity={1} >
+                                    <Text style={[styles.dateText2, { color: this.state.colorChangeTime ? Colors.black : Colors.fadedGray }]}> {this.state.colorChangeTime ? (this.state.hour + ':' + this.state.minutes) : this.state.startTimeValue} </Text>
+                                </TouchableOpacity>
+                            </View> */}
 
-                            {/* <View style={styles.Duration} >
-                                <FloatingLabel style={styles.textAnimated2} title={'Duration'} call={(value) => this.call(value)} />
+                        {/* <View style={styles.Duration} >
                                 <Text>{this.state.Duration}</Text>
                                 <View style={[styles.separator2, { bottom: this.state.Duration === '' ? vh(0) : vh(3) }]} />
                                 {this.state.durationSelected && <Picker
@@ -225,7 +208,7 @@ export default class CreateEventStep1 extends Component {
                                 </Picker>
                                 }
                             </View> */}
-                        </View>
+                        {/* </View> */}
                     </View>
 
                 </KeyboardAwareScrollView>

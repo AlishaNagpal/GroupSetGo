@@ -54,6 +54,5 @@ export default styles = StyleSheet.create({
         fontSize: vh(20),
         fontFamily: 'SourceSansPro-Semibold',
         marginLeft: vh(5),
-        marginBottom: vh(5)
     }
 });
