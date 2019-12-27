@@ -3,13 +3,15 @@ import { Text, TextInput, TouchableOpacity } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scrollview'
 import { Toast } from '../../ReusableComponents'
+import { connect } from 'react-redux'
 
 //Custom Imports
 import styles from './styles'
+import { setData } from '../../Store/Action/Action'
 import { Colors, vh, VectorIcons, strings } from '../../Constants';
 const colors = [Colors.moderateRed, Colors.moderatePink, Colors.darkModeratePink, Colors.darkViolet, Colors.darkViolet, Colors.darkViolet]
 
-export default class createAccountName extends PureComponent {
+class createAccountName extends PureComponent {
 
     state = { firstName: '', lastName: '', call: false }
 
@@ -17,6 +19,7 @@ export default class createAccountName extends PureComponent {
         if (!(/^[a-zA-Z ]+$/.test(firstName)) || !(/^[a-zA-Z ]+$/.test(lastName)) || this.state.firstName === '' || this.state.lastName === '') {
             this.resetCall(true)
         }else{
+            this.props.setData('name', firstName+' '+lastName)
             this.props.navigation.navigate('createAccountEmail')
         }
     }
@@ -88,3 +91,21 @@ export default class createAccountName extends PureComponent {
         );
     }
 }
+
+function mapDispatchToProps(dispatch) {
+    return {
+      setData: (key, value) => dispatch(setData(key, value))
+    }
+  }
+  
+  function mapStateToProps(state) {
+    const { profileData } = state.Reducer;
+    return {
+        profileData
+    }
+  }
+  
+  export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(createAccountName);

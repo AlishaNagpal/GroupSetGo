@@ -6,6 +6,7 @@ import android.content.Context;
 import com.airbnb.android.react.maps.BuildConfig;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+import co.apptailor.googlesignin.RNGoogleSigninPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.airbnb.android.react.maps.MapsPackage;
@@ -13,7 +14,10 @@ import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
 import java.lang.reflect.InvocationTargetException;
+import co.apptailor.googlesignin.RNGoogleSigninPackage;  // <--- import
+
 import java.util.List;
+
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -30,8 +34,9 @@ public class MainApplication extends Application implements ReactApplication {
           List<ReactPackage> packages = new PackageList(this).getPackages();
           // Packages that cannot be autolinked yet can be added manually here, for example:
           //  packages.add(new MainReactPackage());
+            new RNGoogleSigninPackage(); // <-- this needs to be in the list
 
-          return packages;
+            return packages;
         }
 
         @Override

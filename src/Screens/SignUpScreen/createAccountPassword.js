@@ -3,14 +3,16 @@ import { Text, TextInput, TouchableOpacity, View, Animated } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scrollview'
 import { Toast } from '../../ReusableComponents'
+import { connect } from 'react-redux'
 
 //Custom Imports
 import styles from './styles'
+import { setData } from '../../Store/Action/Action'
 import { Colors, vh, VectorIcons, strings } from '../../Constants';
 
 const colors = [Colors.moderateRed, Colors.moderatePink, Colors.darkModeratePink, Colors.darkViolet, Colors.darkViolet, Colors.darkViolet]
 
-export default class createAccountPassword extends PureComponent {
+class createAccountPassword extends PureComponent {
 
     state = { password: '', confirmPassword: '', call: false, showFirst: false, showSecond: false }
 
@@ -22,7 +24,8 @@ export default class createAccountPassword extends PureComponent {
         if (!(/^(?=.{6,})(?=.*[@#$%^&+=]).*$/.test(password)) || !(/^(?=.{6,})(?=.*[@#$%^&+=]).*$/.test(confirmPassword)) || this.state.password === '' || this.state.confirmPassword === '' || this.state.password !== this.state.confirmPassword) {
             this.resetCall(true)
         } else {
-            this.props.navigation.navigate('HomeNavigator')
+            this.props.setData('password',this.state.password) 
+            this.props.navigation.navigate('HomeNavigator')   
         }
     }
 
@@ -46,7 +49,7 @@ export default class createAccountPassword extends PureComponent {
         return (
             < LinearGradient start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} colors={colors} style={styles.gradient} >
                 <KeyboardAwareScrollView keyboardShouldPersistTaps = {'always'} >
-                    <TouchableOpacity onPress={() => { this.props.navigation.navigate('createAccountGender') }} >
+                    <TouchableOpacity onPress={() => { this.props.navigation.pop() }} >
                         <VectorIcons.Ionicons name="ios-arrow-back" size={vh(30)} color={Colors.white} style={styles.iconPos} />
                     </TouchableOpacity>
                     <Text style={[styles.mainHeading, { marginTop: vh(100) }]}> {strings.awesome} </Text>
@@ -108,3 +111,21 @@ export default class createAccountPassword extends PureComponent {
         );
     }
 }
+
+function mapDispatchToProps(dispatch) {
+    return {
+      setData: (key, value) => dispatch(setData(key, value))
+    }
+  }
+
+function mapStateToProps(state) {
+    const { profileData } = state.Reducer;
+    return {
+        profileData
+    }
+  }
+  
+  export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(createAccountPassword);

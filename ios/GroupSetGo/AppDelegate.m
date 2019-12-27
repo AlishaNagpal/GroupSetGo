@@ -11,6 +11,9 @@
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 #import <GoogleMaps/GoogleMaps.h>
+@import Firebase;
+@import GoogleSignIn;
+//@interface AppDelegate : UIResponder <UIApplicationDelegate, GIDSignInDelegate>
 
 @implementation AppDelegate
 
@@ -18,6 +21,10 @@
 {
   [[FBSDKApplicationDelegate sharedInstance] application:application
                            didFinishLaunchingWithOptions:launchOptions];
+  
+  [GIDSignIn sharedInstance].clientID = @"367694714799-cc2egu2ncoc87jjij311jqtc7kg7ahlu.apps.googleusercontent.com";
+  [GIDSignIn sharedInstance].delegate = self;
+  [FIRApp configure];
   
   for (NSString* family in [UIFont familyNames])
   {
@@ -59,8 +66,9 @@
             openURL:(NSURL *)url
             options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
   
-  BOOL handled =  [[FBSDKApplicationDelegate sharedInstance] application:application openURL:url options:options];
+  BOOL handled =  [[FBSDKApplicationDelegate sharedInstance] application:application openURL:url options:options] || [[GIDSignIn sharedInstance] handleURL:url];
   // Add any custom logic here.
+  
   return handled;
 }
 
@@ -68,5 +76,32 @@
   [FBSDKAppEvents activateApp];
 }
 
+- (void)signIn:(GIDSignIn *)signIn
+didSignInForUser:(GIDGoogleUser *)user
+     withError:(NSError *)error {
+  if (error != nil) {
+    if (error.code == kGIDSignInErrorCodeHasNoAuthInKeychain) {
+      NSLog(@"The user has not signed in before or they have since signed out.");
+    } else {
+      NSLog(@"%@", error.localizedDescription);
+    }
+    return;
+  }
+  // Perform any operations on signed in user here.
+  NSString *userId = user.userID;                  // For client-side use only!
+  NSString *idToken = user.authentication.idToken; // Safe to send to the server
+  NSString *fullName = user.profile.name;
+  NSString *givenName = user.profile.givenName;
+  NSString *familyName = user.profile.familyName;
+  NSString *email = user.profile.email;
+  // ...
+}
+
+- (void)signIn:(GIDSignIn *)signIn
+didDisconnectWithUser:(GIDGoogleUser *)user
+     withError:(NSError *)error {
+  // Perform any operations when the user disconnects from app here.
+  // ...
+}
 
 @end

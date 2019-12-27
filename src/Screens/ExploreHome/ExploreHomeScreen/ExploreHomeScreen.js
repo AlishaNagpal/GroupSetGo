@@ -10,6 +10,7 @@ import {
   Platform
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import { connect } from 'react-redux'
 
 //Custom Imports
 import styles from './style';
@@ -25,7 +26,7 @@ const colors = [
 import HomeScreen from './HomeScreen';
 import ExploreMapScreen from './ExploreMapScreen';
 import { Toast } from '../../../ReusableComponents'
-export default class ExploreHomeScreen extends PureComponent {
+class ExploreHomeScreen extends PureComponent {
   state = {
     opacityChanged: false,
     opac: 0,
@@ -37,6 +38,10 @@ export default class ExploreHomeScreen extends PureComponent {
   constructor() {
     super();
     this.rotateValue.addListener(({ value }) => this.setState({ opac: value }));
+  }
+
+  componentDidMount(){
+    
   }
 
   onRefresh = () => {
@@ -77,7 +82,7 @@ export default class ExploreHomeScreen extends PureComponent {
         <View style={[styles.mainContainer, { marginTop: Platform.OS === 'ios' ? vh(27) : vh(0) }]}>
           <View style={styles.headerView}>
             <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('MyAccount')} >
-              <Image source={Images.maleImage} style={styles.headerImage} />
+            <Image source={this.props.profileData.type === 'normal' ? this.props.profileData.profilePic : {uri : this.props.profileData.profilePic}} style={styles.headerImage} />
             </TouchableOpacity>
 
             <TouchableOpacity
@@ -161,3 +166,14 @@ export default class ExploreHomeScreen extends PureComponent {
     );
   }
 }
+
+function mapStateToProps(state) {
+  const { profileData } = state.Reducer;
+  return {
+    profileData
+  }
+}
+
+export default connect(
+  mapStateToProps,
+)(ExploreHomeScreen);

@@ -1,13 +1,10 @@
 import { StyleSheet } from 'react-native';
-import {vh,vw, Colors} from '../../Constants'
+import {vh,vw, Colors, DesignHeight, DesignWidth} from '../../Constants'
 
 export default styles = StyleSheet.create({
-    container: {
-        position: 'absolute',
-      },
       myLogo:{
-          height: '100%',
-          width: '100%'
+        height: DesignHeight,
+        width: DesignWidth,
       },
       logoStyle: {
         height: vh(45),

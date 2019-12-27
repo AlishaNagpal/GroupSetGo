@@ -8,7 +8,7 @@ import * as Progress from 'react-native-progress';
 import { ProgressiveImage, Toast } from '../../../../ReusableComponents'
 import { connect } from 'react-redux'
 import { eventDATA } from '../../../../Store/Action/Action'
-import NewTabNavigation from './NewTabNavigation';
+import NewTabNavigation from './NewTabNavigation'; 
 
 class HomeDetails6 extends Component {
     state = {
@@ -157,7 +157,7 @@ class HomeDetails6 extends Component {
                             <Text style={styles.tagText}> {data.hashtag} </Text>
                         </View>
                         <View style={styles.profilePicture}>
-                            <Image source={data.profile} style={styles.imgView} />
+                        <Image source={this.props.profileData.type === 'normal' ? this.props.profileData.profilePic : {uri : this.props.profileData.profilePic}} style={styles.imgView} />
                             <View style={styles.ratingView}>
                                 <Text style={styles.ratingText}> {data.reviewRating} </Text>
                                 <VectorIcons.Ionicons
@@ -240,9 +240,10 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-    const { Event_Data } = state.Reducer;
+    const { Event_Data, profileData } = state.Reducer;
     return {
-        Event_Data
+        Event_Data,
+        profileData
     }
 }
 
