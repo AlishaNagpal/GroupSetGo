@@ -39,9 +39,7 @@ class OnboardingLogin extends PureComponent {
     fblogin = () => {
         LoginManager.logInWithPermissions(['public_profile']).then(
           result => {
-            this.setState({
-              isLoading: true
-            })
+            
             if (result.isCancelled) {
               console.log('Login cancelled');
               return;
@@ -50,6 +48,9 @@ class OnboardingLogin extends PureComponent {
                 'Login success with permissions: ' +
                   result.grantedPermissions.toString(),
               );
+              this.setState({
+                isLoading: true
+              })
             }
             {
               AccessToken.getCurrentAccessToken().then(data => {
@@ -104,12 +105,10 @@ class OnboardingLogin extends PureComponent {
               console.log('err is => ', error)
             });
             console.log('signing in')
-            this.setState({ isLoading: true });
+            
             this.getCurrentUserInfo()
         } catch (error) {
-          this.setState({
-            isLoading: false
-          })
+         
             if (error.code === statusCodes.SIGN_IN_CANCELLED) {
                 console.log('cancelled the login')
 
@@ -128,6 +127,7 @@ class OnboardingLogin extends PureComponent {
     getCurrentUserInfo = async () => {
       this.setState({
           signInState: false,
+          isLoading: true,
       })
       try {
           const userInfo = await GoogleSignin.signInSilently();
