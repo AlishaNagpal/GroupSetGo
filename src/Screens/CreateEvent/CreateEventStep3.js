@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, ScrollView, FlatList, Image, Animated } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView,Animated } from 'react-native';
 import { VectorIcons, vh, Colors, strings, vw } from '../../Constants'
 import * as Progress from 'react-native-progress';
 import styles from './styles'
@@ -97,7 +97,7 @@ export default class CreateEventStep3 extends Component {
     return (
       <View style={styles.containerStyle}>
         <View style={styles.headerView}>
-          <TouchableOpacity onPress={() => this.props.navigation.goBack()} style={styles.backButtonStyle}>
+          <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.goBack()} style={styles.backButtonStyle}>
             <VectorIcons.Ionicons name="ios-arrow-back" size={vh(30)} color={Colors.white} />
             <Text style={styles.headerText} > {strings.createEvent} </Text>
           </TouchableOpacity>

@@ -33,7 +33,7 @@ export default class FloatingTitleTextInputField extends Component {
       this.setState({ isFieldActive: true });
       Animated.timing(this.position, {
         toValue: 1,
-        duration: 150,
+        duration: 200,
       }).start();
     }
   }
@@ -43,7 +43,7 @@ export default class FloatingTitleTextInputField extends Component {
       this.setState({ isFieldActive: false });
       Animated.timing(this.position, {
         toValue: 0,
-        duration: 150,
+        duration: 200,
       }).start();
     }
   }

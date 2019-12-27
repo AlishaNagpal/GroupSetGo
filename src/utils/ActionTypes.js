@@ -3,3 +3,4 @@ export const CATEGORY_MODAL = 'categoryModal';
 export const CATEGORY_MODAL_PART2 = 'categoryModalPart2'
 export const SAVED_CATEGORIES = 'savedCategories';
 export const SELECTED = 'selected';
+export const GET_DURATION = 'duration';

@@ -6,6 +6,7 @@ import Stars from './Stars/Stars'
 import FloatingTitleTextInputField from './FloatingTextInput/FloatingTitleTextInputField'
 import FloatingLabel from './FloatingTextInput/FloatingLabel'
 import CustomSwitch from './CustomSwitch/CustomSwitch'
+import DatePicker from './DatePicker/DatePicker'
 
 export{
     CheckBox,
@@ -15,5 +16,6 @@ export{
     Stars,
     FloatingTitleTextInputField,
     FloatingLabel,
-    CustomSwitch
+    CustomSwitch,
+    DatePicker,
 }

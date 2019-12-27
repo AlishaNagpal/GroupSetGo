@@ -45,6 +45,7 @@ import CreateEventStep1 from './Screens/CreateEvent/CreateEventStep1'
 import CreateEventStep2 from './Screens/CreateEvent/CreateEventStep2'
 import CreateEventStep3 from './Screens/CreateEvent/CreateEventStep3'
 import CreateEventStep4 from './Screens/CreateEvent/CreateEventStep4'
+import PickerView from './Screens/CreateEvent/PickerView'
 import SaveModal from './Screens/CreateEvent/SaveModal'
 import CategorySelectModal from './Screens/CreateEvent/CategorySelectModal'
 import SortDialog from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/SortDialog/SortDialog';
@@ -67,6 +68,7 @@ import ExploreChat from "./Screens/ExploreChat/ExploreChat";
 import ExploreMyEvents from "./Screens/ExploreMyEvents/ExploreMyEvents";
 import ResetPassword from './Screens/ResetPassword/ResetPassword';
 import NewTabNavigation from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/NewTabNavigation';
+import PublishModel from './Screens/CreateEvent/PublishModel'
 
 console.disableYellowBox = true
 
@@ -186,7 +188,7 @@ const MainStack = createStackNavigator(
         NewTabNavigation: NewTabNavigation,
     },
     {
-        initialRouteName: 'HomeNavigator',
+        initialRouteName: 'CreateEventStep4',
         defaultNavigationOptions: ({ navigation }) => ({
             headerBackTitle: null,
             header: null,
@@ -214,7 +216,9 @@ const ModalStack = createStackNavigator(
         InfoDialog: InfoDialog,
         InfoForFamily: InfoForFamily,
         ResetDialog: ResetDialog,
-        CategorySelectModalPart2: CategorySelectModalPart2
+        CategorySelectModalPart2: CategorySelectModalPart2,
+        PickerView:PickerView,
+        PublishModel:PublishModel,
     },
     {
         mode: 'modal',

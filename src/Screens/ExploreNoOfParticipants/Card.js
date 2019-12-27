@@ -28,7 +28,7 @@ export default class Card extends PureComponent {
   };
   render() {
     return (
-      <View style={styles.cardContainerStyle}>
+      <TouchableOpacity style={styles.cardContainerStyle} onPress={()=>this.props.navigation.pop()} >
         <View style={styles.cardViewStyle}>
             <Image
               source={itemTapped.userImage}
@@ -48,7 +48,7 @@ export default class Card extends PureComponent {
               renderItem={this.renderItems}
             />
           </View>
-      </View>
+      </TouchableOpacity>
     );
   }
 }

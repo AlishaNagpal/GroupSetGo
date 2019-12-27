@@ -48,3 +48,9 @@ export const SELECTED = (value) => {
         dispatch({ type: Actions.SELECTED, payload: { data: value } });
     }
 }
+
+export const DURATION_SELECTED = (value) => {
+    return (dispatch) => {
+        dispatch({ type: Actions.GET_DURATION, payload: { duration: value } });
+    }
+}

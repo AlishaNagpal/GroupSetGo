@@ -74,23 +74,20 @@ class CreateEventStep2 extends Component {
     this.setState({
       imageData: temp
     })
-   setTimeout(() => {
-    if (this.state.imageData === []) {
-      this.setState({
-        showImages:false
-      })
-      this.forceUpdate()
-    } 
-   }, 200); 
+    setTimeout(() => {
+      if (this.state.imageData === []) {
+        this.setState({
+          showImages: false
+        })
+        this.forceUpdate()
+      }
+    }, 200);
   }
 
   toggleSwitch() {
     this.setState({
       familyFriendly: !this.state.familyFriendly
     })
-    if (this.state.familyFriendly === true) {
-      this.props.navigation.navigate('InfoForFamily')
-    }
   };
 
   renderData = (rowData) => {
@@ -114,17 +111,20 @@ class CreateEventStep2 extends Component {
     return (
       <View style={styles.containerStyle}>
         <View style={styles.headerView}>
-          <TouchableOpacity onPress={() => this.props.navigation.goBack()} style={styles.backButtonStyle}>
+          <TouchableOpacity onPress={() => this.props.navigation.goBack()} style={styles.backButtonStyle} activeOpacity={1} >
             <VectorIcons.Ionicons name="ios-arrow-back" size={vh(30)} color={Colors.white} />
             <Text style={styles.headerText} > {strings.createEvent} </Text>
           </TouchableOpacity>
           <View style={styles.skipView} >
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('SaveModal')} >
+            <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('InfoForFamily')} >
+              <VectorIcons.Ionicons name="ios-information-circle-outline" size={vh(18)} color={Colors.white} />
+            </TouchableOpacity>
+            <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('SaveModal')} >
               <Text style={styles.skipText} > {strings.save} </Text>
             </TouchableOpacity>
           </View>
         </View>
-        <KeyboardAwareScrollView keyboardShouldPersistTaps={'always'}  >
+        <KeyboardAwareScrollView keyboardShouldPersistTaps={'always'} bounces={false}   >
           <Text style={styles.stepText} > {strings.createEventStep2} </Text>
           <Progress.Bar style={styles.progressBar} progress={50 / 100} width={vw(388)} color={Colors.green} unfilledColor={Colors.progressBarColor} borderColor={Colors.progressBarColor} animated={true} />
 
@@ -148,7 +148,7 @@ class CreateEventStep2 extends Component {
               </TouchableOpacity>
             </View>
             <Text style={styles.addphotoDescrption} > {strings.addPhotoTextString} </Text>
-            {this.state.showImages  &&
+            {this.state.showImages &&
               <FlatList
                 data={this.state.imageData}
                 keyExtractor={(item, index) => index.toString()}
@@ -161,7 +161,7 @@ class CreateEventStep2 extends Component {
           <Text style={styles.addPhoto} > {strings.category} </Text>
           <View style={styles.selectView}>
             <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('CategorySelectModal')} style={styles.selectedStyle}  >
-              <Text style={styles.select} > {this.props.selected ?( " " + this.props.savedCategories ): strings.select} </Text>
+              <Text style={styles.select} > {this.props.selected ? (" " + this.props.savedCategories) : strings.select} </Text>
               <VectorIcons.Ionicons name='ios-arrow-down' size={vh(25)} color={Colors.fadedGray} style={styles.iconStyle} />
             </TouchableOpacity>
             <View style={styles.separator3} />

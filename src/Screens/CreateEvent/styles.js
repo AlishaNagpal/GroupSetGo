@@ -1,4 +1,4 @@
-import { StyleSheet, Platform  } from 'react-native'
+import { StyleSheet, Platform } from 'react-native'
 import { vw, vh, Colors, DesignWidth } from '../../Constants';
 
 export default styles = StyleSheet.create({
@@ -28,11 +28,13 @@ export default styles = StyleSheet.create({
     skipText: {
         color: Colors.white,
         fontFamily: 'SourceSansPro-Regular',
-        fontSize: vh(15.3)
+        fontSize: vh(15.3),
+        marginLeft: vw(5)
     },
     skipView: {
         right: vw(20),
-        top: vh(17)
+        flexDirection: 'row',
+        alignItems: 'center'
     },
     containerStyleModal: {
         flex: 1,
@@ -86,7 +88,7 @@ export default styles = StyleSheet.create({
     dataView: {
         backgroundColor: Colors.white,
         width: vw(414),
-        height: vw(400),
+        height: vw(420),
         marginTop: vh(13)
     },
     textInputStyle: {
@@ -97,9 +99,6 @@ export default styles = StyleSheet.create({
     },
     textInputView: {
         marginTop: vw(20)
-    },
-    textInputView2: {
-        marginTop: vw(40)
     },
     timePicker: {
         width: vw(180),
@@ -119,8 +118,13 @@ export default styles = StyleSheet.create({
         flexDirection: 'row',
     },
     Duration: {
+        width: '100%'
+    },
+    DurationAndroid: {
         marginLeft: vw(20),
-        marginTop: vw(60)
+        width: vw(170),
+        borderBottomColor: Colors.verLightGrey,
+        borderBottomWidth: vh(1),
     },
     separator2: {
         height: vh(2),
@@ -132,7 +136,7 @@ export default styles = StyleSheet.create({
     },
     pickerStyle: {
         width: vw(DesignWidth),
-        marginLeft: vw(-210),
+        // marginLeft: vw(-210),
     },
     iconMargin: {
         marginTop: vh(15)
@@ -231,13 +235,22 @@ export default styles = StyleSheet.create({
         marginTop: vh(25),
         marginLeft: vw(15.3),
         color: Colors.fadedGray,
-        fontFamily: 'SourceSansPro-Regular'
+        fontFamily: 'SourceSansPro-Regular',
+        textTransform: 'capitalize',
+        fontSize: vh(15.3)
     },
     select2: {
         marginTop: vh(25),
         color: Colors.fadedGray,
         flexDirection: 'row',
         fontFamily: 'SourceSansPro-Regular',
+    },
+    select3: {
+        marginTop: vh(15),
+        color: Colors.fadedGray,
+        flexDirection: 'row',
+        fontFamily: 'SourceSansPro-Regular',
+        alignItems: 'center'
     },
     separator3: {
         height: vh(2),
@@ -317,8 +330,15 @@ export default styles = StyleSheet.create({
         fontFamily: 'SourceSansPro-Regular',
         marginRight: vw(10)
     },
+    dollarText: {
+        fontFamily: 'SourceSansPro-Regular',
+        marginRight: vw(10),
+        color: Colors.black,
+        fontSize: vh(15.3)
+    },
     switch: {
-        marginTop: vh(-5)
+        marginTop: vh(-5),
+        alignSelf: 'center'
     },
     buttonStyleGradient: {
         height: vw(66.7),
@@ -337,6 +357,13 @@ export default styles = StyleSheet.create({
         marginBottom: vh(50),
         flexDirection: 'row',
         alignItems: 'center'
+    },
+    costSegregation: {
+        backgroundColor: Colors.white,
+        width: vw(DesignWidth),
+        marginTop: vh(28),
+        flexDirection: 'row',
+        alignItems: 'center',
     },
     RadioButton: {
         flexDirection: 'row',
@@ -406,8 +433,8 @@ export default styles = StyleSheet.create({
         // fontSize: 11,
     },
     dateText: {
-        left: vw(-6),
-        bottom: Platform.OS === 'ios' ? vw(-5) : vw(9),
+        bottom: Platform.OS === 'ios' ? vw(-5) : vw(-10),
+        position: 'absolute'
     },
     dateTimePicker: {
         borderColor: Colors.verLightGrey,
@@ -417,9 +444,94 @@ export default styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         top: Platform.OS === 'ios' ? vw(10) : vw(28),
+        marginBottom: Platform.OS === 'ios' ? vw(0) : vw(28)
+    },
+    cancelByDate: {
+        borderColor: Colors.veryVeryLightGray,
+        borderBottomWidth: vw(2),
+        width: vw(380),
+        marginLeft: vw(10),
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        top: Platform.OS === 'ios' ? vw(10) : vw(28),
+        marginBottom: Platform.OS === 'ios' ? vw(0) : vw(28)
     },
     dateText2: {
-        left: vw(-6),
+        // left: vw(-6),
         bottom: Platform.OS === 'ios' ? vw(-10) : vw(5),
+        position: 'absolute'
     },
+    durationSelect: {
+        // left: vw(-6),
+        bottom: Platform.OS === 'ios' ? vw(-6) : vw(5),
+    },
+    containerStylePicker: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'flex-end',
+        backgroundColor: 'rgba(0,0,0,0.4)'
+    },
+    cancelConfirm: {
+        backgroundColor: Colors.white,
+        height: vw(50),
+        flexDirection: 'row',
+        paddingHorizontal: vw(20),
+        width: '100%',
+        alignItems: 'center',
+        borderBottomWidth: vh(1),
+        borderBottomColor: Colors.veryVeryLightGray
+    },
+    cancelText: {
+        fontFamily: 'SourceSansPro-SemiBold',
+        fontSize: vh(17.3),
+    },
+    confirmText: {
+        fontFamily: 'SourceSansPro-SemiBold',
+        fontSize: vh(17.3),
+        textTransform: 'capitalize',
+        right: vw(10),
+        color: Colors.green
+    },
+    cancelButton: {
+        flex: 1
+    },
+    bottomIcon: {
+        bottom: Platform.OS === 'ios' ? vh(0) : vh(5)
+    },
+    publishButton: {
+        height: vw(53.3),
+        width: vw(374),
+        borderRadius: vw(34),
+        alignItems: 'center',
+        justifyContent: 'center',
+        bottom: vh(20),
+        left: vw(20)
+    },
+    publishText: {
+        textTransform: 'uppercase',
+        color: Colors.white,
+        fontFamily: 'SourceSansPro-Semibold',
+        fontSize: vh(16.7)
+    },
+    settingMargin: {
+        marginTop: 40,
+        marginBottom: 10
+    },
+    totalCostTextInput: {
+        height: vh(43.3),
+        width: vw(80),
+        borderRadius: vw(3.3),
+        borderColor: Colors.veryVeryLightGray,
+        borderWidth: vw(2),
+        padding: vw(8),
+        flexDirection: 'row',
+        alignItems: 'center',
+        textAlign: 'center'
+    },
+    perPersonTextInput: {
+        height: vh(30),
+        width: vw(40),
+        color: Colors.fadedGray,
+        textAlign: 'center'
+    }
 });

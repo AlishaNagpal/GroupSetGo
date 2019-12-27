@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, Picker, Animated } from 'react-native';
+import { View, Text, TouchableOpacity, Animated, Platform } from 'react-native';
 import { VectorIcons, vh, Colors, strings, vw } from '../../Constants'
 import * as Progress from 'react-native-progress';
 import styles from './styles'
-import { FloatingTitleTextInputField, FloatingLabel, Toast } from '../../ReusableComponents'
-import DateTimePicker from 'react-native-modal-datetime-picker'
+import { FloatingTitleTextInputField, Toast, DatePicker, FloatingLabel } from '../../ReusableComponents'
 import LinearGradient from 'react-native-linear-gradient'
 const colors = [Colors.fadedRed, Colors.darkishPink]
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scrollview'
+import PickerViewAndroid from './PickerViewAndroid'
+import { connect } from 'react-redux'
+import { DURATION_SELECTED } from '../../Store/Action/Action'
 
-export default class CreateEventStep1 extends Component {
+class CreateEventStep1 extends Component {
     constructor(props) {
         super(props);
         const { value } = this.props;
@@ -19,64 +21,14 @@ export default class CreateEventStep1 extends Component {
             Hashtag: '',
             Address: '',
             Duration: '',
-            durationSelected: false,
             call: false,
-            isDateTimePickerVisible: false,
-            date: 'Event Date',
-            startTime: false,
-            startTimeValue: 'Start Time',
             colorChangeTime: false,
             colorChangeDate: false,
-            isFieldActive: false,
-            day: null,
-            month: null,
-            year: null,
-            hour: null,
-            amPM: null,
-            minutes: null
+            startDate: null,
+            timeNoted: null,
+            callingPicker:false
         }
     }
-    showDateTimePicker = () => {
-        this.setState({ isDateTimePickerVisible: true });
-    };
-
-    hideDateTimePicker = () => {
-        this.setState({ isDateTimePickerVisible: false });
-    };
-
-    handleDatePicked = date => {
-        const dateHere = date;
-        const year = dateHere.getFullYear();
-        const month = dateHere.getMonth();
-        const day = dateHere.getDate();
-        this.setState({
-            day: day,
-            month: month + 1,
-            year: year,
-            colorChangeDate: true,
-        })
-        this.hideDateTimePicker();
-    };
-
-    showStartTimePicker = () => {
-        this.setState({ startTime: true });
-    };
-
-    hideStartTimePicker = () => {
-        this.setState({ startTime: false });
-    };
-
-    handleStartTimePicked = date => {
-        let dateHere = date;
-        let hours = dateHere.getHours();
-        let minutes = dateHere.getMinutes();
-        this.setState({
-            hour: hours,
-            minutes: minutes,
-            colorChangeTime: true
-        })
-        this.hideStartTimePicker();
-    };
 
     resetCall = (value) => {
         this.setState({
@@ -87,26 +39,26 @@ export default class CreateEventStep1 extends Component {
     _updateMasterState = (attrName, value) => {
         this.setState({ [attrName]: value });
     }
-
-    call = (value) => {
-        this.setState({
-            durationSelected: value
-        })
-    }
     callAlert = () => {
-        if (this.state.title === '' || this.state.Hashtag === '' || this.state.Address === '') {
+        if (this.state.title === '' || this.state.Hashtag === '' || this.state.Address === '' || this.state.startDate === null || this.state.timeNoted === null) {
             this.resetCall(true)
         } else {
             this.props.navigation.navigate('CreateEventStep2')
         }
     }
 
+
+    callingPicker = () => {
+       this.setState({callingPicker:true})
+        this.props.navigation.navigate('PickerView')
+    }
+
     render() {
         return (
             <View style={styles.containerStyle}>
-                <KeyboardAwareScrollView keyboardShouldPersistTaps={'always'} >
+                <KeyboardAwareScrollView keyboardShouldPersistTaps={'always'} bounces={false} >
                     <View style={styles.headerView}>
-                        <TouchableOpacity onPress={() => this.props.navigation.goBack()} style={styles.backButtonStyle}>
+                        <TouchableOpacity onPress={() => this.props.navigation.goBack()} style={styles.backButtonStyle} activeOpacity={1} >
                             <VectorIcons.Ionicons name="ios-arrow-back" size={vh(30)} color={Colors.white} />
                             <Text style={styles.headerText} > {strings.createEvent} </Text>
                         </TouchableOpacity>
@@ -122,7 +74,7 @@ export default class CreateEventStep1 extends Component {
                         <View style={styles.textInputView} >
                             <FloatingTitleTextInputField
                                 attrName='title'
-                                title='Title'
+                                title='Title *'
                                 value={this.state.title}
                                 updateMasterState={this._updateMasterState}
                                 style={styles.textInputStyle}
@@ -133,7 +85,7 @@ export default class CreateEventStep1 extends Component {
                         <View style={styles.textInputView} >
                             <FloatingTitleTextInputField
                                 attrName='Hashtag'
-                                title='Hashtag'
+                                title='Hashtag *'
                                 value={this.state.Hashtag}
                                 updateMasterState={this._updateMasterState}
                                 style={styles.textInputStyle}
@@ -147,7 +99,7 @@ export default class CreateEventStep1 extends Component {
                                 placeholderStyle={{ marginTop: vh(20) }}
                                 style={{ marginTop: vh(20) }}
                                 attrName='Address'
-                                title='Address'
+                                title='Address *'
                                 value={this.state.Address}
                                 updateMasterState={this._updateMasterState}
                                 style={styles.textInputStyle}
@@ -156,65 +108,38 @@ export default class CreateEventStep1 extends Component {
                             />
                         </View>
                         <View style={styles.textInputView} >
-                            <TouchableOpacity style={styles.dateTimePicker} onPress={this.showDateTimePicker} activeOpacity={1} >
-                                <Text style={[styles.dateText, { color: this.state.colorChangeDate ? Colors.black : Colors.fadedGray, }]} > {this.state.colorChangeDate ? (this.state.day + '-' + this.state.month + '-' + this.state.year) : this.state.date} </Text>
-                                <VectorIcons.EvilIcons name="calendar" color={Colors.verLightGrey} size={25} />
-                                <DateTimePicker
-                                    isVisible={this.state.isDateTimePickerVisible}
-                                    onConfirm={this.handleDatePicked}
-                                    onCancel={this.hideDateTimePicker}
-                                    mode={'date'}
-                                />
-                            </TouchableOpacity>
+                            <DatePicker
+                                container={styles.dateTimePicker}
+                                textStyle={[styles.dateText, { color: this.state.colorChangeDate ? Colors.black : Colors.fadedGray, }]}
+                                mode={'date'}
+                                updateMasterState={this._updateMasterState}
+                                attrName={'startDate'}
+                                title={'Event Date *'}
+                                value={this.state.startDate}
+                            />
                         </View>
-                        {/* <View style={styles.rowStyle} > */}
-                        <View style={styles.textInputView2} >
-                            <TouchableOpacity style={[styles.dateTimePicker,]} onPress={this.showStartTimePicker} activeOpacity={1} >
-                                <Text style={[styles.dateText2, { color: this.state.colorChangeTime ? Colors.black : Colors.fadedGray }]}> {this.state.colorChangeTime ? (this.state.hour + ':' + this.state.minutes) : this.state.startTimeValue} </Text>
-                                <VectorIcons.Ionicons name="md-time" color={Colors.verLightGrey} size={25} />
-                                <DateTimePicker
-                                    isVisible={this.state.startTime}
-                                    onConfirm={this.handleStartTimePicked}
-                                    onCancel={this.hideStartTimePicker}
-                                    mode={'time'}
-                                />
-                            </TouchableOpacity>
+                        <View style={[styles.rowStyle, { marginTop: Platform.OS === 'ios' ? vw(40) : vw(10) }]} >
+                            <DatePicker
+                                container={[styles.dateTimePicker, { width: vw(180) }]}
+                                textStyle={[styles.dateText2, { color: this.state.colorChangeTime ? Colors.black : Colors.fadedGray }]}
+                                mode={'time'}
+                                updateMasterState={this._updateMasterState}
+                                attrName={'timeNoted'}
+                                title={'Start Time *'}
+                                value={this.state.timeNoted}
+                            />
+                            {
+                                Platform.OS === 'ios'
+                                    ? <TouchableOpacity style={[styles.dateTimePicker, { width: vw(170) }]} onPress={() => this.callingPicker()} activeOpacity={1} >
+                                        <Text style={[styles.durationSelect, { color: this.props.duration === 'Duration' ? Colors.fadedGray : Colors.black }]}> {this.props.duration} </Text>
+                                       { this.state.callingPicker &&  <FloatingLabel style={{ position: 'absolute', right: 110, top: -90 }} title={'Duration'} />}
+                                    </TouchableOpacity>
+                                    : <PickerViewAndroid />
+                            }
                         </View>
-
-                        {/* <View style={styles.textInputView2} >
-                                <TouchableOpacity style={[styles.dateTimePicker, { width: vw(180), top:vw() }]} onPress={this.showStartTimePicker} activeOpacity={1} >
-                                    <Text style={[styles.dateText2, { color: this.state.colorChangeTime ? Colors.black : Colors.fadedGray }]}> {this.state.colorChangeTime ? (this.state.hour + ':' + this.state.minutes) : this.state.startTimeValue} </Text>
-                                </TouchableOpacity>
-                            </View> */}
-
-                        {/* <View style={styles.Duration} >
-                                <Text>{this.state.Duration}</Text>
-                                <View style={[styles.separator2, { bottom: this.state.Duration === '' ? vh(0) : vh(3) }]} />
-                                {this.state.durationSelected && <Picker
-                                    selectedValue={this.state.Duration}
-                                    style={styles.pickerStyle}
-                                    itemStyle={{ backgroundColor: Colors.white, height: 320 }}
-                                    mode={'dropdown'}
-                                    onValueChange={(itemValue, itemIndex) =>
-                                        this.setState({ Duration: itemValue, durationSelected: false })
-                                    }>
-                                    <Picker.Item label="0.5 Hrs." value="0.5 Hrs." />
-                                    <Picker.Item label="1 Hrs." value="1 Hrs." />
-                                    <Picker.Item label="1.5 Hrs." value="1.5 Hrs." />
-                                    <Picker.Item label="2 Hrs." value="2 Hrs." />
-                                    <Picker.Item label="2.5 Hrs." value="2.5 Hrs." />
-                                    <Picker.Item label="2 Hrs." value="2 Hrs." />
-                                    <Picker.Item label="2.5 Hrs." value="2.5 Hrs." />
-                                </Picker>
-                                }
-                            </View> */}
-                        {/* </View> */}
                     </View>
 
                 </KeyboardAwareScrollView>
-                {this.state.call === true &&
-                    <Toast top={-15} from={0} to={-60} message={strings.fillAll} call={(value) => this.resetCall(value)} />
-                }
                 <LinearGradient colors={colors} start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} style={styles.buttonStyle}  >
                     <TouchableOpacity
                         onPress={() => this.callAlert()}
@@ -223,8 +148,29 @@ export default class CreateEventStep1 extends Component {
                         <VectorIcons.Ionicons name='ios-arrow-round-forward' size={vh(55)} color={Colors.white} style={styles.icon} />
                     </TouchableOpacity>
                 </LinearGradient>
+                {this.state.call === true &&
+                    <Toast top={-5} from={0} to={-60} message={strings.fillAll} call={(value) => this.resetCall(value)} />
+                }
             </View>
 
         );
     }
 }
+
+function mapDispatchToProps(dispatch) {
+    return {
+        DURATION_SELECTED: (value) => dispatch(DURATION_SELECTED(value))
+    }
+}
+
+function mapStateToProps(state) {
+    const { duration } = state.Reducer;
+    return {
+        duration
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(CreateEventStep1);

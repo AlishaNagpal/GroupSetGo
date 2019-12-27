@@ -9,6 +9,7 @@ const initialState = {
     categoryDataType2: CATEGORIES.CATEGORIES2,
     savedCategories: [],
     selected: false,
+    duration: 'Duration'
 };
 
 
@@ -24,6 +25,8 @@ const Reducer = (state = initialState, action) => {
             return { ...state, savedCategories: action.payload.data }
         case Actions.SELECTED:
             return { ...state, selected: action.payload.data }
+        case Actions.GET_DURATION:
+            return { ...state, duration: action.payload.duration }
         default:
             return state
     }

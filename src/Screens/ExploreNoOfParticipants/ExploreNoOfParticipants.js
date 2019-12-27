@@ -13,7 +13,7 @@ export default class ExploreNoOfParticipants extends PureComponent {
    
     renderItems = (rowData) => {
         return (
-            <TouchableOpacity onPress={() => this.props.navigation.navigate("Card", { itemTapped: rowData })} style={styles.cardStyle}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate("Card", { itemTapped: rowData, navigation: this.props.navigation.navigate })} style={styles.cardStyle}>
                 <VectorIcons.Ionicons name='ios-checkmark-circle' size={vw(15)} style={styles.checkmarkStyle} color={rowData.item.verified ? Colors.checkmarkGreen : Colors.lightGray} />
                 <Image
                     style={styles.userImageStyle}
@@ -29,7 +29,7 @@ export default class ExploreNoOfParticipants extends PureComponent {
         return (
             <View style={styles.containerStyle}>
                 <View style={styles.headerViewStyle}>
-                    <TouchableOpacity onPress={() => { this.props.navigation.goBack() }} style={styles.backButtonStyle}  >
+                    <TouchableOpacity onPress={() => { this.props.navigation.pop() }} style={styles.backButtonStyle}  >
                         <VectorIcons.Ionicons name="ios-arrow-back" size={vh(30)} color={Colors.white} />
                         <Text style={styles.headerTitleStyle}>{strings.participantList}</Text>
                     </TouchableOpacity>

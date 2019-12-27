@@ -130,6 +130,7 @@ const strings = {
     fillAll: "Please enter all of the details!",
     createEventStep2: 'STEP 2/4: ADDITIONAL DETAILS',
     createEventStep3: 'STEP 3/4: PARTICIPANTS DETAILS',
+    createEventStep4: 'STEP 4/4: BUDGET DETAILS',
     addPhoto: 'ADD PHOTO',
     addPhotoTextString: "Photos help more engagement from the participants.",
     category: 'CATEGORY',
@@ -175,6 +176,12 @@ const strings = {
     inviteFrnd: 'invite friend',
     logout: 'Logout',
     noSaved: 'No saved events found!',
+    shareCost: 'Share Cost',
+    publish: 'Publish',
+    publishedEvent1:'Your Private event with',
+    publishedEvent2: 'is now successfully created.',
+    fixedCost: 'Fixed Total Cost',
+    fixedPerson:'Fixed Per Person Cost',
 }
 
 export default strings;
