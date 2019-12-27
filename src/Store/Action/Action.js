@@ -1,5 +1,26 @@
 import * as Actions from '../../utils/ActionTypes'
 
+export const setProfileData = (name, email, profilePic, type) => {
+    return (dispatch, getState) => {
+        const { profileData } = getState().Reducer;
+        let emptyArray = profileData;
+        emptyArray.name = name;
+        emptyArray.email = email;
+        emptyArray.profilePic = profilePic;
+        emptyArray.type = type;
+        dispatch({ type: 'profileData', payload: { data: emptyArray } });
+    }
+}
+
+export const setData = (key, value) => {
+    return (dispatch, getState) => {
+        const { profileData } = getState().Reducer;
+        let emptyArray = profileData;
+        emptyArray[key] = value
+        dispatch({ type: key, payload: { data: emptyArray } });
+    }
+}
+
 export const eventDATA = () => {
     return (dispatch, getState) => {
         const { Event_Data } = getState().Reducer;
@@ -23,7 +44,7 @@ export const categoryModalDataPart2 = () => {
     }
 }
 
-export const saveCategoryData = (value) =>{
+export const saveCategoryData = (value) => {
     return (dispatch, getState) => {
         const { savedCategories } = getState().Reducer;
         let emptyArray = savedCategories;
@@ -33,7 +54,7 @@ export const saveCategoryData = (value) =>{
     }
 }
 
-export const getCategoryData = () =>{
+export const getCategoryData = () => {
     return (dispatch, getState) => {
         const { savedCategories } = getState().Reducer;
         let emptyArray = savedCategories;

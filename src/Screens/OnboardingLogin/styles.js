@@ -7,6 +7,13 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor:Colors.white
     },
+    indicator: {
+        position: 'absolute',
+        top: 0,
+        right: 0,
+        left: 0,
+        bottom: 0
+    },
     logoImageStyle: {
         width: vw(82),
         height: vw(83.3),

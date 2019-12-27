@@ -2,15 +2,17 @@ import React, { PureComponent } from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient'
 import DateTimePicker from 'react-native-modal-datetime-picker'
+import { connect } from 'react-redux'
 
 //Custom Imports
 import styles from './styles'
+import { setData } from '../../Store/Action/Action'
 import { VectorIcons, Colors, vh, strings } from '../../Constants';
 import moment from 'moment';
 
 const colors = [Colors.moderateRed, Colors.moderatePink, Colors.darkModeratePink, Colors.darkViolet, Colors.darkViolet, Colors.darkViolet]
 
-export default class CreateAccountBirth extends PureComponent {
+class CreateAccountBirth extends PureComponent {
     state = { isDateTimePickerVisible: false, date: '01-Jan-1990' }
     showDateTimePicker = () => {
         this.setState({ isDateTimePickerVisible: true });
@@ -21,11 +23,14 @@ export default class CreateAccountBirth extends PureComponent {
     };
 
     handleDatePicked = date => {
-        var data = moment(date).format("DD-MMM-YYYY")
+        var data = moment(date).format("DD-MMM-YYYY") 
+    
         this.setState({
             date: data
         })
         this.hideDateTimePicker();
+        this.props.setData('birthday', data)
+
     };
 
     getDate = () => {
@@ -35,7 +40,7 @@ export default class CreateAccountBirth extends PureComponent {
     render() {
         return (
             <LinearGradient start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} colors={colors} style={styles.gradient}>
-                <TouchableOpacity onPress={() => { this.props.navigation.navigate('createAccountEmail') }} >
+                <TouchableOpacity onPress={() => { this.props.navigation.pop() }} >
                     <VectorIcons.Ionicons name="ios-arrow-back" size={vh(30)} color={Colors.white} style={styles.iconPos} />
                 </TouchableOpacity>
                 <Text style={[styles.mainHeading, { marginTop: vh(100) }]}> {strings.awesome} </Text>
@@ -63,3 +68,21 @@ export default class CreateAccountBirth extends PureComponent {
         );
     }
 }
+
+function mapDispatchToProps(dispatch) {
+    return {
+        setData: (key, value) => dispatch(setData(key, value))
+    }
+  }
+  
+  function mapStateToProps(state) {
+    const { profileData } = state.Reducer;
+    return {
+        profileData
+    }
+  }
+  
+  export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(CreateAccountBirth);

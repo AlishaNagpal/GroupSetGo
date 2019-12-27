@@ -3,13 +3,15 @@ import { Text, TextInput, TouchableOpacity } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scrollview'
 import { Toast } from '../../ReusableComponents'
+import { connect } from 'react-redux'
 
 //Custom Imports
 import styles from './styles'
+import { setData } from '../../Store/Action/Action'
 import { VectorIcons, Colors, vh, strings } from '../../Constants';
 const colors = [Colors.moderateRed, Colors.moderatePink, Colors.darkModeratePink, Colors.darkViolet, Colors.darkViolet, Colors.darkViolet]
 
-export default class createAccountEmail extends PureComponent {
+class createAccountEmail extends PureComponent {
     state = { email: '', call: false }
     componentDidMount(){
         this.input1.focus()
@@ -19,6 +21,7 @@ export default class createAccountEmail extends PureComponent {
         if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) || this.state.email === '') {
             this.resetCall(true)
         } else {
+            this.props.setData('email',email)
             this.props.navigation.navigate('createAccountBirth')
         }
     }
@@ -33,7 +36,7 @@ export default class createAccountEmail extends PureComponent {
         return (
             <LinearGradient start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} colors={colors} style={styles.gradient} >
                 <KeyboardAwareScrollView keyboardShouldPersistTaps = {'always'} >
-                    <TouchableOpacity onPress={() => { this.props.navigation.navigate('createAccountName') }} >
+                    <TouchableOpacity onPress={() => { this.props.navigation.pop() }} >
                         <VectorIcons.Ionicons name="ios-arrow-back" size={vh(30)} color={Colors.white} style={styles.iconPos} />
                     </TouchableOpacity>
 
@@ -69,3 +72,21 @@ export default class createAccountEmail extends PureComponent {
         );
     }
 }
+
+function mapDispatchToProps(dispatch) {
+    return {
+        setData: (key, value) => dispatch(setData(key, value))
+    }
+  }
+  
+  function mapStateToProps(state) {
+    const { profileData } = state.Reducer;
+    return {
+        profileData
+    }
+  }
+  
+  export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(createAccountEmail);

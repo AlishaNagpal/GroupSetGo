@@ -1,7 +1,10 @@
 import React, { PureComponent } from 'react'
-import { Text, View, Image, TouchableOpacity } from 'react-native'
+import { Text, View, Image, TouchableOpacity, Alert, ActivityIndicator } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
-import { LoginManager } from 'react-native-fbsdk'
+import { LoginManager, AccessToken, GraphRequest, GraphRequestManager } from 'react-native-fbsdk'
+import { GoogleSignin, statusCodes } from '@react-native-community/google-signin';
+import { connect } from 'react-redux'
+import { setProfileData } from '../../Store/Action/Action'
 
 /**
  * custom imports
@@ -12,39 +15,38 @@ import { Toast } from "../../ReusableComponents";
 
 const colors = [Colors.fadedRed, Colors.darkishPink]
 
-export default class OnboardingLogin extends PureComponent {
+GoogleSignin.configure({
+  webClientId:'367694714799-r373nckmnddm98u80r8kclndaqtdqcnh.apps.googleusercontent.com',
+  androidClientId: '367694714799-ggiakjnsm70som14sqgchjggfbl6hjkh.apps.googleusercontent.com',
+  offlineAccess: false
+});
 
-    state = { call: false }
+class OnboardingLogin extends PureComponent {
+
+    state = { 
+      call: false, 
+      isLoading: false,
+      user: null,
+      signInState: false
+     }
 
     resetCall = (value) => {
         this.setState({
-            call: value
+            call: value,
         })
     }
-
-    // handleFacebookLogin () {
-    //     LoginManager.logInWithReadPermissions(['public_profile', 'email', 'user_friends']).then(
-    //       function (result) {
-    //         if (result.isCancelled) {
-    //           console.warn('Login cancelled')
-    //         } else {
-    //           console.warn('Login success with permissions: ' + result.grantedPermissions.toString())
-    //         }
-    //       },
-    //       function (error) {
-    //         console.warn('Login fail with error: ' + error)
-    //       }
-    //     )
-    //   }
 
     fblogin = () => {
         LoginManager.logInWithPermissions(['public_profile']).then(
           result => {
+            this.setState({
+              isLoading: true
+            })
             if (result.isCancelled) {
-              console.warn('Login cancelled');
+              console.log('Login cancelled');
               return;
             } else {
-              console.whereSharingExperiences(
+              console.log(
                 'Login success with permissions: ' +
                   result.grantedPermissions.toString(),
               );
@@ -56,20 +58,22 @@ export default class OnboardingLogin extends PureComponent {
                 const responseInfoCallback = (error, result) => {
                   if (error) {
                     console.log(error);
+                    Alert.alert('Unable to Login, Please try again!')
+                    this.setState({
+                      isLoading: false
+                    })
                   } else {
-                    console.warn('Success fetching data: ' + JSON.stringify(result));
-                    console.warn('FB PIC', result.picture);
-    
-                    // this.setState({
-                    //   username: result.name,
-                    //   profilepic: result.picture.data.url,
-                    //   usermail:result.email
-                    // });
-                    // this.storedata();
-                    this.props.navigation.navigate('Home');
-                  }
-                  console.warn(result);
-                };
+                    console.log('Success fetching data: ' + JSON.stringify(result));
+                    console.log('FB PIC', result.picture);
+                    this.props.setProfileData(result.name, result.email, result.picture.data.url, 'fb')
+                    console.log('res ',result)
+                    console.log('redux res ',this.props.profileData);
+                    this.setState({
+                      isLoading: false
+                    })
+                    this.props.navigation.navigate('HomeNavigator');
+                  }}
+                
                 const infoRequest = new GraphRequest(
                   '/me',
                   {
@@ -93,9 +97,69 @@ export default class OnboardingLogin extends PureComponent {
         );
       };
 
+      signIn = async () => {
+        try {
+            await GoogleSignin.hasPlayServices();
+            const userInfo = await GoogleSignin.signIn().then().catch(error => {
+              console.log('err is => ', error)
+            });
+            console.log('signing in')
+            this.setState({ isLoading: true });
+            this.getCurrentUserInfo()
+        } catch (error) {
+          this.setState({
+            isLoading: false
+          })
+            if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+                console.log('cancelled the login')
+
+            } else if (error.code === statusCodes.IN_PROGRESS) {
+                console.log('sign in is in progress already')
+
+            } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+                console.log('play services not available or outdated')
+
+            } else {
+                console.log('user cancelled login', error)
+            }
+        }
+    };
+
+    getCurrentUserInfo = async () => {
+      this.setState({
+          signInState: false,
+      })
+      try {
+          const userInfo = await GoogleSignin.signInSilently();
+          console.log('getting user data')
+          this.setState({ user: userInfo.user });
+          console.log('user-> ', this.state.user.name, this.state.user.email, this.state.user.photo)
+          this.props.setProfileData(this.state.user.name, this.state.user.email, this.state.user.photo, 'google')
+          this.setState({
+            isLoading: false
+          })
+          this.props.navigation.navigate('HomeNavigator');
+          
+      } catch (error) {
+          if (error.code === statusCodes.SIGN_IN_REQUIRED) {
+              console.log('not signed in yet')
+              // user has not signed in yet  
+          } else {
+              console.log('some other error')
+              // some other error
+          }
+      }
+  };
+
     render() {
         return (
             <View style={styles.containerStyle}>
+              <ActivityIndicator size='large'
+                            hidesWhenStopped='true'
+                            color= {Colors.darkishPink}
+                            animating={this.state.isLoading}
+                            style={styles.indicator}
+                        />
                 <Image
                     style={styles.logoImageStyle}
                     source={Images.logoImage}
@@ -118,10 +182,10 @@ export default class OnboardingLogin extends PureComponent {
                 <Text style={styles.youCanAlsoLoginWithStyle}>{strings.youCanAlsoLoginWith}</Text>
                 <View style={styles.socialLoginViewStyle}>
                     <TouchableOpacity onPress={this.fblogin} >
-                        <Image style={styles.googleButtonStyle} source={Images.facebookLogo} />
+                        <Image style={styles.facebookButtonStyle} source={Images.facebookLogo} />
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() =>this.resetCall(true)} >
-                        <Image style={styles.facebookButtonStyle} source={Images.googleLogo} />
+                    <TouchableOpacity onPress={this.signIn} >
+                        <Image style={styles.googleButtonStyle} source={Images.googleLogo} />
                     </TouchableOpacity>
                 </View>
 
@@ -137,3 +201,22 @@ export default class OnboardingLogin extends PureComponent {
         )
     }
 }
+
+
+function mapDispatchToProps(dispatch) {
+  return {
+    setProfileData: (name, email, profilePic, type) => dispatch(setProfileData(name, email, profilePic, type))
+  }
+}
+
+function mapStateToProps(state) {
+  const { profileData } = state.Reducer;
+  return {
+    profileData
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(OnboardingLogin);
