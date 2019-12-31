@@ -1,13 +1,14 @@
 import * as Actions from '../../utils/ActionTypes'
+import * as Default from '../../DataSourceForProfile'
 
-export const setProfileData = (name, email, profilePic, type) => {
+export const setProfileData = (name, email, profilePic, mytype) => {
     return (dispatch, getState) => {
         const { profileData } = getState().Reducer;
         let emptyArray = profileData;
         emptyArray.name = name;
         emptyArray.email = email;
         emptyArray.profilePic = profilePic;
-        emptyArray.type = type;
+        emptyArray.type = mytype;
         dispatch({ type: 'profileData', payload: { data: emptyArray } });
     }
 }
@@ -73,5 +74,12 @@ export const SELECTED = (value) => {
 export const DURATION_SELECTED = (value) => {
     return (dispatch) => {
         dispatch({ type: Actions.GET_DURATION, payload: { duration: value } });
+    }
+}
+
+export const Logout = () => {
+    return (dispatch) => {
+        let emptyArray = Default.DEFAULT
+        dispatch({ type: 'userlogout', payload: { data: emptyArray } });
     }
 }

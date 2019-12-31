@@ -27,6 +27,7 @@ const Images = {
     smallInfo: require('../Assets/Images/icNewinfo.png'),
     listArrow: require('../Assets/Images/icAccountNextArrow.png'),
     launchScreen: require('../Assets/Images/launch_screen.png'),
+    accountExit: require('../Assets/Images/icAccountExit.png'),
 }
 
 export default Images;

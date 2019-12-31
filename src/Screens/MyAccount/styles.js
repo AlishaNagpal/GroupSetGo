@@ -5,7 +5,7 @@ const ReviewStyle = StyleSheet.create({
 
     containerStyle: {
         flex: 1,
-        backgroundColor: Colors.veryVeryLightGray
+        backgroundColor: Colors.veryVeryLightGray,
     },
     headerView: {
         backgroundColor: Colors.fadedRed,
@@ -13,7 +13,11 @@ const ReviewStyle = StyleSheet.create({
         flexDirection: 'row',
         paddingTop: vh(30),
         alignItems:'center',
-        height: vh(86.7)
+        height: vh(86.7),
+    },
+    headerStyle: {
+        flexDirection: 'row', 
+        alignItems: 'center'
     },
     backButtonStyle: {
         marginLeft: vw(13.3),
@@ -24,7 +28,6 @@ const ReviewStyle = StyleSheet.create({
         marginLeft: vw(13.3),
         fontFamily: 'SourceSansPro-Semibold',
         textTransform: 'capitalize',
-        // top:vh(-3)
     },
     accountHead: {
         padding: vw(13.3),
@@ -41,14 +44,16 @@ const ReviewStyle = StyleSheet.create({
         justifyContent: 'space-between',
         flexDirection: 'row',
         paddingHorizontal: vw(13.3),
-        backgroundColor: Colors.white
+        backgroundColor: Colors.white,
+        borderBottomWidth: vw(0.8),
+        borderBottomColor: Colors.lightGray,
     },
     listText: {
-        color: Colors.lightBlack,
+        color: Colors.black,
         fontSize: vh(16.7),
         fontFamily: 'SourceSansPro-Regular',
         textTransform: 'capitalize',
-        paddingVertical: vh(21.3),
+        paddingVertical: vh(17.8),
     },
     separator: {
         flex: 1,
@@ -67,7 +72,16 @@ const ReviewStyle = StyleSheet.create({
     bottomStyle: {
         borderBottomWidth: vw(1),
         borderColor: Colors.veryVeryLightGray
-    }
+    },
+    footer: {
+        flexDirection: 'row',
+        paddingTop: vh(50),
+        paddingBottom: vh(20),
+        justifyContent: 'center'
+    },
+    footerTxt: {
+        color: Colors.midGrey
+    },
 })
 
 export default ReviewStyle;

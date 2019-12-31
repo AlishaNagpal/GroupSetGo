@@ -182,6 +182,8 @@ const strings = {
     publishedEvent2: 'is now successfully created.',
     fixedCost: 'Fixed Total Cost',
     fixedPerson:'Fixed Per Person Cost',
+    settings: 'Settings',
+    touch: 'Touch ID'
 }
 
 export default strings;

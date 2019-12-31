@@ -5,6 +5,7 @@ export default styles = StyleSheet.create({
       myLogo:{
         height: DesignHeight,
         width: DesignWidth,
+        flex: 1,
       },
       logoStyle: {
         height: vh(45),

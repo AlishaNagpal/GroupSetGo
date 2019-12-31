@@ -8,9 +8,16 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         backgroundColor: 'rgba(0,0,0,0.4)'
     },
+    indicator: {
+        position: 'absolute',
+        top: 0,
+        right: 0,
+        left: 0,
+        bottom: 0
+    },
     dialogboxStyle: {
         width: vw(300),
-        height: vh(200),
+        height: vh(220),
         backgroundColor: Colors.white,
         borderRadius: vh(20),
     },
@@ -19,15 +26,14 @@ const styles = StyleSheet.create({
         fontFamily: 'SourceSansPro-Regular',
         fontSize: vw(16.7),
         marginHorizontal: vw(40),
-        marginTop: vh(55.3),
+        marginVertical: vh(50.3),
         textAlign: 'center'
     },
     buttonsViewStyle: {
         flexDirection: 'row',
         flex: 1,
-        marginTop: vh(42),
         borderTopColor: Colors.darkGray,
-        borderTopWidth: vw(1)
+        borderTopWidth: vw(0.7)
     },
     yesContinueButtonStyle: {
         width: vw(149),
