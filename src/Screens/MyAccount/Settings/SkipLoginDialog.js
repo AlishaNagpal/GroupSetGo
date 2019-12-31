@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import { Text, View, TouchableOpacity, ActivityIndicator } from 'react-native'
 import { connect } from 'react-redux'
+import {LoginManager} from 'react-native-fbsdk';
 
 /**
  * custom imports
