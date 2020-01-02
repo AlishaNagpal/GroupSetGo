@@ -19,14 +19,14 @@ class CreateEventStep1 extends Component {
         this.state = {
             title: '',
             Hashtag: '',
-            Address: '',
-            Duration: '',
             call: false,
             colorChangeTime: false,
             colorChangeDate: false,
             startDate: null,
             timeNoted: null,
-            callingPicker:false
+            callingPicker: false,
+            ReplacedHastag: '',
+            addressCall: false,
         }
     }
 
@@ -38,6 +38,19 @@ class CreateEventStep1 extends Component {
 
     _updateMasterState = (attrName, value) => {
         this.setState({ [attrName]: value });
+        if (attrName === 'Hashtag') {
+            let res = this.state.Hashtag.replace(/[\B]^|\b^|\s\#+|\s+\b/g, " #")
+            this.setState({
+                ReplacedHastag: res
+            })
+        }
+    }
+
+    onSubmitHashtag = () => {
+        this.setState({
+            Hashtag: this.state.ReplacedHastag
+        })
+        this.refs.Address.refs.FloatingLabelInput.focus()
     }
     callAlert = () => {
         if (this.state.title === '' || this.state.Hashtag === '' || this.state.Address === '' || this.state.startDate === null || this.state.timeNoted === null) {
@@ -47,9 +60,13 @@ class CreateEventStep1 extends Component {
         }
     }
 
+    callinAddress = () => {
+        this.setState({ addressCall: true })
+        this.props.navigation.navigate('AddressModal')
+    }
 
     callingPicker = () => {
-       this.setState({callingPicker:true})
+        this.setState({ callingPicker: true })
         this.props.navigation.navigate('PickerView')
     }
 
@@ -91,10 +108,14 @@ class CreateEventStep1 extends Component {
                                 style={styles.textInputStyle}
                                 placeholderStyle={styles.placeholderStyle}
                                 ref="Hashtag"
-                                onSubmitEditing={() => this.refs.Address.refs.FloatingLabelInput.focus()}
+                                onSubmitEditing={this.onSubmitHashtag}
                             />
                         </View>
                         <View style={styles.textInputView} >
+                            {/* <TouchableOpacity style={styles.addressButton} onPress={this.callinAddress} >
+                                <Text style={[styles.AddressStyle, { color: this.props.address === 'Address *' ? Colors.fadedGray : Colors.black }]}> {this.props.address} </Text>
+                                {this.state.addressCall && <FloatingLabel style={{ position: 'absolute', left: 0, top: -10 }} title={'Address *'} goFrom={10} goTo={-28} />}
+                            </TouchableOpacity> */}
                             <FloatingTitleTextInputField
                                 placeholderStyle={{ marginTop: vh(20) }}
                                 style={{ marginTop: vh(20) }}
@@ -106,6 +127,7 @@ class CreateEventStep1 extends Component {
                                 placeholderStyle={styles.placeholderStyle}
                                 ref="Address"
                             />
+
                         </View>
                         <View style={styles.textInputView} >
                             <DatePicker
@@ -118,7 +140,7 @@ class CreateEventStep1 extends Component {
                                 value={this.state.startDate}
                             />
                         </View>
-                        <View style={[styles.rowStyle, { marginTop: Platform.OS === 'ios' ? vw(40) : vw(10) }]} >
+                        <View style={[styles.rowStyle, { marginTop: Platform.OS === 'ios' ? vw(40) : vw(0) }]} >
                             <DatePicker
                                 container={[styles.dateTimePicker, { width: vw(180) }]}
                                 textStyle={[styles.dateText2, { color: this.state.colorChangeTime ? Colors.black : Colors.fadedGray }]}
@@ -130,9 +152,9 @@ class CreateEventStep1 extends Component {
                             />
                             {
                                 Platform.OS === 'ios'
-                                    ? <TouchableOpacity style={[styles.dateTimePicker, { width: vw(170) }]} onPress={() => this.callingPicker()} activeOpacity={1} >
+                                    ? <TouchableOpacity style={[styles.dateTimePicker, { width: vw(170), justifyContent: 'flex-start' }]} onPress={() => this.callingPicker()} activeOpacity={1} >
                                         <Text style={[styles.durationSelect, { color: this.props.duration === 'Duration' ? Colors.fadedGray : Colors.black }]}> {this.props.duration} </Text>
-                                       { this.state.callingPicker &&  <FloatingLabel style={{ position: 'absolute', right: 110, top: -90 }} title={'Duration'} />}
+                                        {this.state.callingPicker && <FloatingLabel style={{ position: 'absolute', right: -10, top: -90 }} title={'Duration'} goFrom={5} goTo={-5} />}
                                     </TouchableOpacity>
                                     : <PickerViewAndroid />
                             }
@@ -164,9 +186,10 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-    const { duration } = state.Reducer;
+    const { duration, address } = state.Reducer;
     return {
-        duration
+        duration,
+        address
     }
 }
 

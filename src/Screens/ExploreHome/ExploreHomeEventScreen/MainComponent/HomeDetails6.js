@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image, ScrollView, TouchableOpacity, Platform} from 'react-native';
+import { View, Text, Image, ScrollView, TouchableOpacity, Platform } from 'react-native';
 
 // Custom Imports
 import styles from './styles';
@@ -7,8 +7,8 @@ import { VectorIcons, vh, vw, Colors, strings } from '../../../../Constants';
 import * as Progress from 'react-native-progress';
 import { ProgressiveImage, Toast } from '../../../../ReusableComponents'
 import { connect } from 'react-redux'
-import { eventDATA } from '../../../../Store/Action/Action'
-import NewTabNavigation from './NewTabNavigation'; 
+import { eventDATA, SavedEvents } from '../../../../Store/Action/Action'
+import NewTabNavigation from './NewTabNavigation';
 
 class HomeDetails6 extends Component {
     state = {
@@ -20,7 +20,7 @@ class HomeDetails6 extends Component {
         aboutTab: null,
         participamntsTab: null,
         toggle: false,
-        call:false
+        call: false
     }
 
     componentDidMount() {
@@ -55,6 +55,19 @@ class HomeDetails6 extends Component {
             this.props.Event_Data[index].hearted = value
             this.props.eventDATA()
         }
+        if (value === true) {
+            this.props.SavedEvents(this.props.Event_Data[index])
+        } else if (value === false) {
+            let temporary = this.props.savedEvents
+            let indexToDelete = temporary.findIndex(item => item.serialNo === id.id)
+            if(indexToDelete !== -1){
+                this.props.savedEvents.splice(indexToDelete, 1)
+            }
+        }
+
+        setTimeout(() => {
+            console.log(this.props.savedEvents)
+        }, 1000);
     }
 
     joined(id, value) {
@@ -77,8 +90,7 @@ class HomeDetails6 extends Component {
     goingJoin = () => {
         return (
             <TouchableOpacity style={styles.center}
-                // onpress of join tap
-                onPress={() => this.props.navigation.navigate("AddGuests", {id: this.props.navigation.getParam('id').id  })}
+                onPress={() => this.joined(this.state.id, !this.state.data.joined)}
                 activeOpacity={1} >
                 <VectorIcons.Ionicons
                     name={this.state.data.joined ? "ios-remove-circle-outline" : "ios-add-circle-outline"}
@@ -124,7 +136,7 @@ class HomeDetails6 extends Component {
     render() {
         const { data } = this.state;
         return (
-            <View style={[styles.mainView,{marginTop: Platform.OS === 'ios' ? vh(27) : vh(0) }]}>
+            <View style={[styles.mainView, { marginTop: Platform.OS === 'ios' ? vh(27) : vh(0) }]}>
                 <ScrollView bounces={false} showsVerticalScrollIndicator={false}>
                     <View>
                         <ProgressiveImage
@@ -157,7 +169,7 @@ class HomeDetails6 extends Component {
                             <Text style={styles.tagText}> {data.hashtag} </Text>
                         </View>
                         <View style={styles.profilePicture}>
-                        <Image source={this.props.profileData.type === 'normal' ? this.props.profileData.profilePic : {uri : this.props.profileData.profilePic}} style={styles.imgView} />
+                            <Image source={this.props.profileData.type === 'normal' ? this.props.profileData.profilePic : { uri: this.props.profileData.profilePic }} style={styles.imgView} />
                             <View style={styles.ratingView}>
                                 <Text style={styles.ratingText}> {data.reviewRating} </Text>
                                 <VectorIcons.Ionicons
@@ -170,7 +182,7 @@ class HomeDetails6 extends Component {
                     </View>
                     <View style={styles.viewTwo2}>
                         <Text style={styles.progressText}> {data.going} {strings.goingPeople} </Text>
-                        <Progress.Bar style={styles.progressBar} progress= { 10 / 100} width={vw(380)} color={Colors.green} unfilledColor={Colors.lightGray} borderColor={Colors.white} animated={true} />
+                        <Progress.Bar style={styles.progressBar} progress={10 / 100} width={vw(380)} color={Colors.green} unfilledColor={Colors.lightGray} borderColor={Colors.white} animated={true} />
                         <View style={styles.progressValue}>
                             <Text style={styles.barNumber}> {data.min} ({strings.min}) </Text>
                             <Text style={styles.barNumber2}> {data.max} ({strings.max}) </Text>
@@ -212,7 +224,7 @@ class HomeDetails6 extends Component {
                             {this.goingSave()}
                         </View>
                         <View style={styles.divide} >
-                            <TouchableOpacity style={styles.center} activeOpacity={1} onPress={()=>this.resetCall(true)} >
+                            <TouchableOpacity style={styles.center} activeOpacity={1} onPress={() => this.resetCall(true)} >
                                 <VectorIcons.SimpleLineIcons name="share" color={Colors.shareBlue} size={vh(20)} />
                                 <Text style={styles.shareText}> {strings.share} </Text>
                             </TouchableOpacity>
@@ -220,9 +232,9 @@ class HomeDetails6 extends Component {
                     </View>
                     <View style={styles.separator2} />
                     <View >
-                        {this.state.render && <NewTabNavigation 
-                   screenProps={{screenProps: this.props.navigation.getParam('id'), navigation: this.props.navigation, goToPage: () => this.goToPage(2)}}
-                   />}
+                        {this.state.render && <NewTabNavigation
+                            screenProps={{ screenProps: this.props.navigation.getParam('id'), navigation: this.props.navigation, goToPage: () => this.goToPage(2) }}
+                        />}
                     </View>
                 </ScrollView>
                 {this.state.call === true &&
@@ -235,15 +247,17 @@ class HomeDetails6 extends Component {
 
 function mapDispatchToProps(dispatch) {
     return {
-        eventDATA: () => dispatch(eventDATA())
+        eventDATA: () => dispatch(eventDATA()),
+        SavedEvents: (value) => dispatch(SavedEvents(value))
     }
 }
 
 function mapStateToProps(state) {
-    const { Event_Data, profileData } = state.Reducer;
+    const { Event_Data, profileData, savedEvents } = state.Reducer;
     return {
         Event_Data,
-        profileData
+        profileData,
+        savedEvents
     }
 }
 

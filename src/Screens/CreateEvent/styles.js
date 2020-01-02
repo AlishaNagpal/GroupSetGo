@@ -91,14 +91,17 @@ export default styles = StyleSheet.create({
         height: vw(420),
         marginTop: vh(13)
     },
+    AddressStyle: {
+        width: vw(380),
+        color: Colors.verLightGrey,
+        left:vw(-3),
+        marginBottom: Platform.OS === 'ios' ? vw(0) : vw(10)
+    },
     textInputStyle: {
-        // borderColor: Colors.verLightGrey,
-        // borderBottomWidth: vw(1),
-        // marginLeft: vw(13.3),
-        // width: vw(380),
+
     },
     textInputView: {
-        marginTop: vw(20)
+        marginTop: vw(20),
     },
     timePicker: {
         width: vw(180),
@@ -125,6 +128,7 @@ export default styles = StyleSheet.create({
         width: vw(170),
         borderBottomColor: Colors.verLightGrey,
         borderBottomWidth: vh(1),
+        height: vw(52)
     },
     separator2: {
         height: vh(2),
@@ -251,6 +255,13 @@ export default styles = StyleSheet.create({
         flexDirection: 'row',
         fontFamily: 'SourceSansPro-Regular',
         alignItems: 'center'
+    },
+    select4: {
+        color: Colors.fadedGray,
+        flexDirection: 'row',
+        fontFamily: 'SourceSansPro-Regular',
+        alignItems: 'center',
+        right: vw(13)
     },
     separator3: {
         height: vh(2),
@@ -405,6 +416,12 @@ export default styles = StyleSheet.create({
         marginTop: vh(13),
         marginBottom: vh(122)
     },
+    bottomView2: {
+        width: vw(DesignWidth),
+        backgroundColor: Colors.white,
+        marginTop: vh(13),
+        marginBottom: vh(40)
+    },
     totalParticipantsText: {
         marginLeft: vw(18),
         fontFamily: 'SourceSansPro-Semibold',
@@ -440,11 +457,18 @@ export default styles = StyleSheet.create({
         borderColor: Colors.verLightGrey,
         borderBottomWidth: vw(1),
         width: vw(372),
-        marginLeft: vw(25),
+        marginLeft: vw(20),
         flexDirection: 'row',
         justifyContent: 'space-between',
-        top: Platform.OS === 'ios' ? vw(10) : vw(28),
+        marginTop: Platform.OS === 'ios' ? vw(15) : vw(28),
         marginBottom: Platform.OS === 'ios' ? vw(0) : vw(28)
+    },
+    addressButton: {
+        borderColor: Colors.verLightGrey,
+        borderBottomWidth: vw(1),
+        width: vw(372),
+        marginLeft: vw(20),
+        marginTop: Platform.OS === 'ios' ? vw(15) : vw(28),
     },
     cancelByDate: {
         borderColor: Colors.veryVeryLightGray,
@@ -458,7 +482,7 @@ export default styles = StyleSheet.create({
     },
     dateText2: {
         // left: vw(-6),
-        bottom: Platform.OS === 'ios' ? vw(-10) : vw(5),
+        bottom: Platform.OS === 'ios' ? vw(0) : vw(5),
         position: 'absolute'
     },
     durationSelect: {
@@ -526,12 +550,56 @@ export default styles = StyleSheet.create({
         padding: vw(8),
         flexDirection: 'row',
         alignItems: 'center',
-        textAlign: 'center'
+        textAlign: 'center',
+        color: Colors.fadedGray,
     },
     perPersonTextInput: {
-        height: vh(30),
+        height: vw(40),
         width: vw(40),
         color: Colors.fadedGray,
         textAlign: 'center'
+    },
+    budgetBreak: {
+        color: Colors.fadedGray,
+        marginTop: vh(22.3),
+        marginLeft: vw(14.7),
+        fontSize: vw(16),
+        fontFamily: 'SourceSansPro-Regular',
+    },
+    breakdownText: {
+        flexDirection: 'row',
+        marginTop: vh(20.7)
+    },
+    breakdownTextInput: {
+        flex: 1,
+        width: vw(100),
+        marginLeft: vw(13.7),
+    },
+    halfSeparator: {
+        height: vh(2),
+        width: vw(250),
+        marginLeft: vw(13),
+        backgroundColor: Colors.veryVeryLightGray,
+        marginTop: vh(8)
+    },
+    breakdown: {
+        flexDirection: 'column',
+        flex: 1
+    },
+    addButton: {
+        backgroundColor: Colors.fadedRed,
+        height: vw(31),
+        width: vw(31),
+        marginTop: vh(17.3),
+        marginBottom: vh(16.3),
+        borderRadius: vw(15.5),
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginRight: vw(10)
+    },
+    searchView:{
+        backgroundColor:Colors.white,
+        width:vw(DesignWidth),
+        height:vh(450)
     }
 });

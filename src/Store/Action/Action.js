@@ -8,7 +8,7 @@ export const setProfileData = (name, email, profilePic, type) => {
         emptyArray.email = email;
         emptyArray.profilePic = profilePic;
         emptyArray.type = type;
-        dispatch({ type: 'profileData', payload: { data: emptyArray } });
+        dispatch({ type: Actions.PROFILE_DATA, payload: { data: emptyArray } });
     }
 }
 
@@ -73,5 +73,28 @@ export const SELECTED = (value) => {
 export const DURATION_SELECTED = (value) => {
     return (dispatch) => {
         dispatch({ type: Actions.GET_DURATION, payload: { duration: value } });
+    }
+}
+
+export const SavedEvents = (value) => {
+    return (dispatch, getState) => {
+        const { savedEvents } = getState().Reducer;
+        let emptyArray = savedEvents;
+        emptyArray = emptyArray.slice();
+        emptyArray.push(value)
+        dispatch({ type: Actions.GETTING_SAVED, payload: { data: emptyArray } });
+    }
+}
+
+export const GetSavedEvents = () => {
+    return (dispatch, getState) => {
+        const { savedEvents } = getState().Reducer;
+        dispatch({ type: Actions.GETTING_SAVED, payload: { data: savedEvents } });
+    }
+}
+
+export const getAddress = (value) => {
+    return (dispatch) => {
+        dispatch({ type: Actions.GETTING_ADDRESS, payload: { data: value } });
     }
 }

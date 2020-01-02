@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, ScrollView, Animated } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView, Animated, FlatList } from 'react-native';
 import { VectorIcons, vh, Colors, strings, vw } from '../../Constants'
 import * as Progress from 'react-native-progress';
 import styles from './styles'
-import { CustomSwitch, DatePicker, RadioButton } from '../../ReusableComponents'
+import { CustomSwitch, DatePicker, RadioButton, Toast } from '../../ReusableComponents'
 import LinearGradient from 'react-native-linear-gradient'
 import { TextInput } from 'react-native-gesture-handler';
 const colors = [Colors.fadedRed, Colors.darkishPink]
@@ -15,8 +15,12 @@ export default class CreateEventStep4 extends Component {
     cancelByDate: null,
     costTotal: true,
     totalCostValue: '',
-    minPersonCost:'50',
+    minPersonCost: '50',
     maxPersonCost: '100',
+    guestsData: [{ no: 1 }],
+    breakDown1: '',
+    addingMore: false,
+    call: false,
   }
 
   toggleSwitch() {
@@ -41,6 +45,25 @@ export default class CreateEventStep4 extends Component {
     }
   }
 
+  settingDynamicStates = (value, text) => {
+    this.state['breakDown_' + value] = text
+    console.log("checking states", this.state['breakDown_' + value])
+  }
+
+  callAlert = () => {
+    if (this.state.cancelByDate === null || this.props.totalCostValue === '' || this.state.minPersonCost === '' || this.state.maxPersonCost === '' || this.state.breakDown1 === '') {
+      this.resetCall(true)
+    } else {
+      this.props.navigation.navigate('PublishModel')
+    }
+  }
+
+  resetCall = (value) => {
+    this.setState({
+      call: value
+    })
+  }
+
   submitInput = (type) => {
     switch (type) {
       case 1:
@@ -49,25 +72,39 @@ export default class CreateEventStep4 extends Component {
       case 2:
         this.input3.focus();
         break;
-      // case 3:
-      //   this.input4.focus();
-      //   break;
-      // case 4:
-      //   this.input5.focus();
-      //   break;
-      // case 5:
-      //   this.input6.focus();
-      //   break;
-      // case 6:
-      //   this.input7.focus();
-      //   break;
-      // case 7:
-      //   this.input8.focus();
-      //   break;
-      // case 8:
-      //   this.input8.blur();
-      //   break;
+      case 3:
+        this.input4.focus();
+        break;
     }
+  }
+
+  renderGuestCards = (rowData) => {
+    return (
+      <View style={styles.breakdownText} >
+        <View style={styles.breakdown} >
+          <TextInput
+            placeholder={'e.g. Drinks'}
+            placeholderTextColor={Colors.newFadedgreyOpacity}
+            style={styles.breakdownTextInput}
+            onChangeText={(text) => this.settingDynamicStates(text, text)}
+          />
+          <View style={styles.halfSeparator} />
+        </View>
+        <View style={styles.select4} >
+          <Text style={styles.dollarText} > $ </Text>
+          <TextInput
+            style={[styles.totalCostTextInput, { backgroundColor: Colors.darkerButLightGray }]}
+            keyboardType={'number-pad'}
+            onChangeText={(text) => this.settingDynamicStates(text, text)}
+            placeholder='10'
+          />
+        </View>
+      </View>
+    )
+  }
+
+  scroll = () => {
+    scrollView.scrollTo({x: 0, y: 200, animated: true})
   }
 
   render() {
@@ -86,8 +123,12 @@ export default class CreateEventStep4 extends Component {
         </View>
         <Text style={styles.stepText} > {strings.createEventStep4} </Text>
         <Progress.Bar style={styles.progressBar} progress={1} width={vw(388)} color={Colors.green} unfilledColor={Colors.progressBarColor} borderColor={Colors.progressBarColor} animated={true} />
-        <ScrollView bounces={false} showsVerticalScrollIndicator={false} >
-          <View style={styles.bottomView}>
+        <ScrollView
+          bounces={false}
+          showsVerticalScrollIndicator={false}
+          ref={ref => scrollView = ref}
+        >
+          <View style={styles.bottomView2}>
             <View style={styles.family}>
               <Text style={styles.select} > {strings.shareCost} </Text>
               <View style={styles.select2} >
@@ -126,11 +167,11 @@ export default class CreateEventStep4 extends Component {
             </View>
             <View style={styles.separator3} />
             <View style={styles.family}>
-              <Text style={styles.select} > { this.state.costTotal ? strings.totalCost : strings.perPersonCost } </Text>
+              <Text style={styles.select} > {this.state.costTotal ? strings.totalCost : strings.perPersonCost} </Text>
               <View style={styles.select3} >
                 <Text style={styles.dollarText} > $ </Text>
                 <TextInput
-                  style={[styles.totalCostTextInput,{backgroundColor: this.state.totalCostValue === '' ? Colors.white : Colors.darkerButLightGray}]}
+                  style={[styles.totalCostTextInput, { backgroundColor: this.state.totalCostValue === '' ? Colors.white : Colors.darkerButLightGray }]}
                   value={this.state.totalCostValue}
                   onChangeText={(text) => this.setState({ totalCostValue: text })}
                   keyboardType={'number-pad'}
@@ -144,7 +185,7 @@ export default class CreateEventStep4 extends Component {
               <Text style={styles.select} > {!this.state.costTotal ? strings.totalCost : strings.perPersonCost} </Text>
               <View style={styles.select3} >
                 <Text style={styles.dollarText} > $ </Text>
-                <View style={[styles.totalCostTextInput,{width:vw(105), backgroundColor: Colors.darkerButLightGray}]} >
+                <View style={[styles.totalCostTextInput, { width: vw(105), backgroundColor: Colors.darkerButLightGray }]} >
                   <TextInput
                     style={styles.perPersonTextInput}
                     value={this.state.minPersonCost}
@@ -153,9 +194,9 @@ export default class CreateEventStep4 extends Component {
                     ref={ref => this.input2 = ref}
                     onSubmitEditing={() => this.submitInput(2)}
                   />
-                 <VectorIcons.Octicons name='dash' color={Colors.black} size={vw(15)} />
+                  <VectorIcons.Octicons name='dash' color={Colors.black} size={vw(15)} />
                   <TextInput
-                    style={[styles.perPersonTextInput,{marginLeft:vw(5)}]}
+                    style={[styles.perPersonTextInput, { marginLeft: vw(5) }]}
                     value={this.state.maxPersonCost}
                     onChangeText={(text) => this.setState({ maxPersonCost: text })}
                     keyboardType={'number-pad'}
@@ -166,18 +207,94 @@ export default class CreateEventStep4 extends Component {
               </View>
             </View>
             <View style={styles.separator3} />
+            <Text style={styles.budgetBreak} > {strings.budgetBreak} </Text>
+            <View style={styles.breakdownText} >
+              <View style={styles.breakdown} >
+                <TextInput
+                  placeholder={'e.g. Food'}
+                  placeholderTextColor={Colors.newFadedgreyOpacity}
+                  style={styles.breakdownTextInput}
+                  ref={ref => this.input6 = ref}
+                  onSubmitEditing={() => this.submitInput(6)}
+                />
+                <View style={styles.halfSeparator} />
+              </View>
+              <View style={styles.select4} >
+                <Text style={styles.dollarText} > $ </Text>
+                <TextInput
+                  style={[styles.totalCostTextInput, { backgroundColor: Colors.darkerButLightGray }]}
+                  value={this.state.breakDown1}
+                  placeholder='10'
+                  onChangeText={(text) => this.setState({ breakDown1: text })}
+                  keyboardType={'number-pad'}
+                  ref={ref => this.input4 = ref}
+                  onSubmitEditing={() => this.submitInput(4)}
+                />
+              </View>
+            </View>
+            <FlatList
+              data={this.state.guestsData}
+              bounces={false}
+              scrollEnabled={false}
+              showsVerticalScrollIndicator={false}
+              keyExtractor={item => item.no.toString()}
+              renderItem={this.renderGuestCards}
+            />
 
+            <View style={[styles.rowStyle, { left: this.state.addingMore ? vw(330) : vw(370) }]} >
+              {this.state.addingMore &&
+                <TouchableOpacity style={styles.addButton} activeOpacity={1}
+                  onPress={() => {
+                    if (this.state.guestsData.length > 1) {
+                      let array = this.state.guestsData.splice(this.state.guestsData.length - 1, 1)
+                      this.setState({
+                        guestsData: this.state.guestsData
+                      })
+                      this.scroll()
+                      if (this.state.guestsData.length === 1) {
+                        this.setState({
+                          addingMore: false
+                        })
+                      }
+                    }
+                  }} >
+                  <VectorIcons.Ionicons name='ios-remove' size={vw(30)} color={Colors.white} />
+                </TouchableOpacity>
+              }
+              <TouchableOpacity style={styles.addButton} activeOpacity={1}
+                onPress={() => {
+                  {
+                    this.state.guestsData.length < 4
+                      ? this.setState({
+                        guestsData: [
+                          ...this.state.guestsData,
+                          { no: this.state.guestsData.length + 1 },
+                        ],
+                      }, () => {
+                        this.setState({ addingMore: true })
+                        this.scroll()
+                      })
+                      : console.log('Limits have been reached');
+                  }
+                }} >
+                <VectorIcons.Ionicons name='ios-add' size={vw(30)} color={Colors.white} />
+              </TouchableOpacity>
+            </View>
 
           </View>
+
+          <LinearGradient colors={colors} start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} style={styles.publishButton}  >
+            <TouchableOpacity
+              onPress={this.callAlert}
+              activeOpacity={1}
+            >
+              <Text style={styles.publishText} > {strings.publish} </Text>
+            </TouchableOpacity>
+          </LinearGradient>
         </ScrollView>
-        <LinearGradient colors={colors} start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} style={styles.publishButton}  >
-          <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('PublishModel')}
-            activeOpacity={1}
-          >
-            <Text style={styles.publishText} > {strings.publish} </Text>
-          </TouchableOpacity>
-        </LinearGradient>
+        {this.state.call === true &&
+          <Toast top={-15} from={0} to={-60} message={strings.fillAll} call={(value) => this.resetCall(value)} />
+        }
       </View>
     );
   }

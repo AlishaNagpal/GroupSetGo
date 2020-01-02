@@ -8,20 +8,16 @@ import {
   FlatList,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-
-/**
- * custom imports
- */
 import { vh, Colors, Images, strings, vw, VectorIcons, DesignHeight } from '../../Constants';
 import styles from './styles';
 import { TextInput, ScrollView } from 'react-native-gesture-handler';
-import RadioButton from '../../ReusableComponents/RadioButton';
-import CustomSwitch from '../../ReusableComponents/CustomSwitch/CustomSwitch';
-
-import TextField from '../../ReusableComponents/customInput/TextField'
+import { RadioButton, CustomSwitch } from '../../ReusableComponents';
 const colors = [Colors.fadedRed, Colors.darkishPink];
 
-export default class AddGuests extends PureComponent {
+import { connect } from 'react-redux'
+import { eventDATA } from '../../Store/Action/Action'
+
+class AddGuests extends PureComponent {
   state = {
     switchEnabled: false,
     maleChosen: true,
@@ -128,17 +124,29 @@ export default class AddGuests extends PureComponent {
     );
   };
 
+
+  callCancel = () => {
+    let id = this.props.navigation.getParam('id')
+    console.log('in add guests', id)
+    let index = this.props.Event_Data.findIndex((e) => e.serialNo === id)
+    if (index != -1) {
+      this.props.Event_Data[index].joined = false
+      this.props.eventDATA()
+    }
+    this.props.navigation.goBack()
+  }
+
   render() {
     return (
       <>
         <ScrollView
           scrollEnabled={this.state.guestsData.length > 1}
           showsVerticalScrollIndicator={false}
-          bounces = {false}
+          bounces={false}
           contentContainerStyle={{ height: this.state.scrollViewHeight, backgroundColor: Colors.whitishGray }}
         >
           <View style={styles.containerStyle}>
-            <TouchableOpacity onPress = {()=>this.props.navigation.goBack()} style={styles.crossBtnStyle}>
+            <TouchableOpacity onPress={this.callCancel} style={styles.crossBtnStyle}>
               <Image
                 source={Images.cancelImage}
                 style={styles.crossBtnImageStyle}
@@ -203,25 +211,43 @@ export default class AddGuests extends PureComponent {
         </LinearGradient>}
         {
           <LinearGradient
-          colors={colors}
-          start={{ x: 1, y: 0 }}
-          end={{ x: 0, y: 1 }}
-          style={styles.gradientStyleNextArrow}>
-          <TouchableOpacity
-            onPress={() => {
-              // this.props.navigation.navigate("Review","K")
-              this.props.navigation.navigate('Review', {id: this.props.navigation.getParam('id') })
-            }}
-            style={styles.addMoreGuestsBtnStyle}>
-            <VectorIcons.FontAwesome
-              name="long-arrow-right"
-              color={Colors.white}
-              size={vh(30)}
-            />
-          </TouchableOpacity>
-        </LinearGradient>
+            colors={colors}
+            start={{ x: 1, y: 0 }}
+            end={{ x: 0, y: 1 }}
+            style={styles.gradientStyleNextArrow}>
+            <TouchableOpacity
+              onPress={() => {
+                this.props.navigation.navigate('Review', { id: this.props.navigation.getParam('id') })
+              }}
+              style={styles.addMoreGuestsBtnStyle}>
+              <VectorIcons.FontAwesome
+                name="long-arrow-right"
+                color={Colors.white}
+                size={vh(30)}
+              />
+            </TouchableOpacity>
+          </LinearGradient>
         }
       </>
     );
   }
 }
+
+
+function mapDispatchToProps(dispatch) {
+  return {
+    eventDATA: () => dispatch(eventDATA())
+  }
+}
+
+function mapStateToProps(state) {
+  const { Event_Data } = state.Reducer;
+  return {
+    Event_Data
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AddGuests);

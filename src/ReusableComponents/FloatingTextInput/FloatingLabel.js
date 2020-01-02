@@ -28,7 +28,7 @@ export default class FloatingLabel extends Component {
         return {
             top: this.position.interpolate({
                 inputRange: [0, 1],
-                outputRange: [5, -5],
+                outputRange: [this.props.goFrom, this.props.goTo],
             }),
             fontSize: isFieldActive ? 11.5 : 15,
             color: Colors.fadedGray

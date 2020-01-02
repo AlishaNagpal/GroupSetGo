@@ -52,6 +52,7 @@ const Colors = {
     slotGray: 'rgb(224, 224, 224)',
     lightBlack: 'rgb(82, 82, 82)',
     newFadedgrey: 'rgb(124, 124, 124)',
+    newFadedgreyOpacity: 'rgba(124,124, 124, 0.4)'
 }
 
 export default Colors;

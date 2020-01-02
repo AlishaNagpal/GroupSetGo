@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Animated, StyleSheet, TouchableOpacity, Text, Platform } from 'react-native';
+import { Animated, TouchableOpacity, Text, Platform } from 'react-native';
 import { string, func, object } from 'prop-types';
-import { Colors, vh, vw, VectorIcons } from '../../Constants';
+import { Colors, VectorIcons } from '../../Constants';
 import DateTimePicker from "react-native-modal-datetime-picker";
 import moment from 'moment'
 
@@ -89,7 +89,7 @@ export default class DatePicker extends Component {
         return {
             top: this.position.interpolate({
                 inputRange: [0, 1],
-                outputRange: [ Platform.OS==='ios' ? 5 : -7, -12],
+                outputRange: [ Platform.OS==='ios' ? 4 : -7, -12],
             }),
             fontSize: isFieldActive ? 11.5 : 15.3,
             color: Colors.fadedGray

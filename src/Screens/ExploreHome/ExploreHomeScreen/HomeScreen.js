@@ -2,9 +2,9 @@ import React, { PureComponent } from 'react';
 import { View, Text, TouchableOpacity, Image, FlatList } from 'react-native';
 import styles from './style';
 import { connect } from 'react-redux';
-import { eventDATA } from '../../../Store/Action/Action';
+import { eventDATA, SavedEvents } from '../../../Store/Action/Action';
 import { Images, vw, vh, Colors, VectorIcons, strings } from '../../../Constants';
-import { ProgressiveImage} from '../../../ReusableComponents'
+import { ProgressiveImage } from '../../../ReusableComponents'
 
 class HomeScreen extends PureComponent {
   callScreen = id => {
@@ -20,6 +20,18 @@ class HomeScreen extends PureComponent {
       this.props.Event_Data[index].hearted = !value;
       this.props.eventDATA();
     }
+    if (value === false) {
+      this.props.SavedEvents(this.props.Event_Data[index])
+    } else if (value === true) {
+      let temporary = this.props.savedEvents
+      let indexToDelete = temporary.findIndex(item => item.serialNo === id)
+      if (indexToDelete !== -1) {
+        this.props.savedEvents.splice(indexToDelete, 1)
+      }
+    }
+    setTimeout(() => {
+      console.log(this.props.savedEvents)
+    }, 1000);
   };
 
   renderData = rowData => {
@@ -152,13 +164,15 @@ class HomeScreen extends PureComponent {
 function mapDispatchToProps(dispatch) {
   return {
     eventDATA: () => dispatch(eventDATA()),
+    SavedEvents: (value) => dispatch(SavedEvents(value))
   };
 }
 
 function mapStateToProps(state) {
-  const { Event_Data } = state.Reducer;
+  const { Event_Data, savedEvents } = state.Reducer;
   return {
     Event_Data,
+    savedEvents
   };
 }
 

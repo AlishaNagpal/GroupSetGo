@@ -40,8 +40,8 @@ class ExploreHomeScreen extends PureComponent {
     this.rotateValue.addListener(({ value }) => this.setState({ opac: value }));
   }
 
-  componentDidMount(){
-    
+  componentDidMount() {
+
   }
 
   onRefresh = () => {
@@ -82,7 +82,7 @@ class ExploreHomeScreen extends PureComponent {
         <View style={[styles.mainContainer, { marginTop: Platform.OS === 'ios' ? vh(27) : vh(0) }]}>
           <View style={styles.headerView}>
             <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('MyAccount')} >
-            <Image source={this.props.profileData.type === 'normal' ? this.props.profileData.profilePic : {uri : this.props.profileData.profilePic}} style={styles.headerImage} />
+              <Image source={this.props.profileData.type === 'normal' ? this.props.profileData.profilePic : { uri: this.props.profileData.profilePic }} style={styles.headerImage} />
             </TouchableOpacity>
 
             <TouchableOpacity
@@ -146,8 +146,6 @@ class ExploreHomeScreen extends PureComponent {
                 <View
                   style={{
                     opacity: this.state.opac,
-                    position: 'absolute',
-                    flexDirection: 'column'
                   }}>
                   <ExploreMapScreen navigate={this.props.navigation.navigate} />
                 </View>

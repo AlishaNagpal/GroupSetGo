@@ -4,3 +4,6 @@ export const CATEGORY_MODAL_PART2 = 'categoryModalPart2'
 export const SAVED_CATEGORIES = 'savedCategories';
 export const SELECTED = 'selected';
 export const GET_DURATION = 'duration';
+export const GETTING_SAVED = 'gettingSavedEvents';
+export const PROFILE_DATA = 'profileData'
+export const GETTING_ADDRESS = 'gettingAddress'

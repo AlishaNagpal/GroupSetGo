@@ -44,7 +44,7 @@ class ExploreMapScreen extends Component {
   }
 
 
-  Press = (id) => {
+  Press(id) {
     let temp = this.state.data
     let indexToEdit = temp.findIndex(item => item.serialNo == id)
     let newData = temp[indexToEdit]
@@ -74,7 +74,7 @@ class ExploreMapScreen extends Component {
   render() {
     const { data } = this.state
     return (
-      <View style={styles.mainContainer} >
+      <View>
         <MapView
           style={styles.mapStyle}
           provider={PROVIDER_GOOGLE}
@@ -107,7 +107,7 @@ class ExploreMapScreen extends Component {
         {
           this.state.cardIsRendered && (
             <View style={styles.mainCardView}>
-              <TouchableOpacity onPress={() => this.callScreen(data.serialNo)} >
+              <TouchableOpacity onPress={() => this.callScreen(data.serialNo)} activeOpacity={1} >
                 <Image source={{ uri: data.source }} style={styles.flatlistImage} />
                 <TouchableOpacity onPress={() => { this.toggle(data.serialNo, data.hearted) }} style={styles.heart} activeOpacity={1}  >
                   <Image source={data.hearted ? Images.heartFilled : Images.heartEmpty} />

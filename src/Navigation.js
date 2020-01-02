@@ -69,6 +69,7 @@ import ExploreMyEvents from "./Screens/ExploreMyEvents/ExploreMyEvents";
 import ResetPassword from './Screens/ResetPassword/ResetPassword';
 import NewTabNavigation from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/NewTabNavigation';
 import PublishModel from './Screens/CreateEvent/PublishModel'
+import AddressModal from './Screens/CreateEvent/AddressModal'
 
 console.disableYellowBox = true
 
@@ -188,7 +189,7 @@ const MainStack = createStackNavigator(
         NewTabNavigation: NewTabNavigation,
     },
     {
-        initialRouteName: 'CreateEventStep4',
+        initialRouteName: 'HomeNavigator',
         defaultNavigationOptions: ({ navigation }) => ({
             headerBackTitle: null,
             header: null,
@@ -217,8 +218,9 @@ const ModalStack = createStackNavigator(
         InfoForFamily: InfoForFamily,
         ResetDialog: ResetDialog,
         CategorySelectModalPart2: CategorySelectModalPart2,
-        PickerView:PickerView,
-        PublishModel:PublishModel,
+        PickerView: PickerView,
+        PublishModel: PublishModel,
+        AddressModal: AddressModal
     },
     {
         mode: 'modal',
@@ -271,7 +273,7 @@ export default createAppContainer(createSwitchNavigator(
         ModalStack: ModalStack
     },
     {
-        initialRouteName: 'SplashStack',
+        initialRouteName: 'ModalStack',
         headerMode: 'none',
         defaultNavigationOptions: ({ navigation }) => ({
             headerBackTitle: null,

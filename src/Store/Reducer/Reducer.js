@@ -12,12 +12,14 @@ const initialState = {
     selected: false,
     duration: 'Duration',
     profileData: PROFILES.PROFILE,
+    savedEvents: [],
+    address: 'Address *'
 };
 
 
 const Reducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'profileData':
+        case Actions.PROFILE_DATA:
             return { ...state, profileData: action.payload.data }
         case 'name' || 'email' || 'birthday' || 'gender' || 'password':
             return { ...state, profileData: action.payload.data }
@@ -33,6 +35,10 @@ const Reducer = (state = initialState, action) => {
             return { ...state, selected: action.payload.data }
         case Actions.GET_DURATION:
             return { ...state, duration: action.payload.duration }
+        case Actions.GETTING_SAVED:
+            return { ...state, savedEvents: action.payload.data }
+        case Actions.GETTING_ADDRESS:
+            return { ...state, address: action.payload.data }
         default:
             return state
     }

@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { vh, vw, Colors } from '../../../Constants'
+import { vh, vw, Colors, DesignWidth } from '../../../Constants'
 
 export default styles = StyleSheet.create({
     mainContainer: {
@@ -236,8 +236,8 @@ export default styles = StyleSheet.create({
     },
     mapStyle: {
         height: vh(580),
-        width: vw(414),
-        marginTop: vh(10)
+        width: vw(DesignWidth),
+        // marginTop: vh(10)
     },
     mainCardView: {
         flex: 1,

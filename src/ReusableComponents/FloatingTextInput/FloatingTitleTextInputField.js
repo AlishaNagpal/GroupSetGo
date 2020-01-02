@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Animated, StyleSheet, TextInput } from 'react-native';
+import { View, Animated, StyleSheet, TextInput, Platform } from 'react-native';
 import { string, func, object } from 'prop-types';
 import { Colors, vh, vw, } from '../../Constants';
 
@@ -58,7 +58,7 @@ export default class FloatingTitleTextInputField extends Component {
     return {
       top: this.position.interpolate({
         inputRange: [0, 1],
-        outputRange: [20, 3],
+        outputRange: [ Platform.OS === 'ios' ? 18 : 20, 3],
       }),
       fontSize: isFieldActive ? 11.5 : 15,
       color: Colors.fadedGray
