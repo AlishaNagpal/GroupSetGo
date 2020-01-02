@@ -74,7 +74,7 @@ import Privacy from './Screens/MyAccount/Settings/Privacy';
 import Blocked from './Screens/MyAccount/Settings/Blocked';
 import LogoutDialog from './Screens/MyAccount/Settings/SkipLoginDialog';
 
-// console.disableYellowBox = true
+console.disableYellowBox = true
 
 const Explore = createStackNavigator({ Explore: ExploreHomeScreen, Map: ExploreMapScreen },
     { defaultNavigationOptions: { header: null } });
@@ -160,10 +160,10 @@ const TabNavigator = createAppContainer(
 
 const MainStack = createStackNavigator(
     {
-        HomeNavigator: { screen: TabNavigator },
-        HomeDetails6: { screen: HomeDetails6 },
+        HomeNavigator: TabNavigator,
+        HomeDetails6:HomeDetails6,
         ExploreNoOfParticipants: ExploreNoOfParticipants,
-        HomeScreen: { screen: HomeScreen },
+        HomeScreen: HomeScreen,
         FlagInappropriate: FlagInappropriate,
         VenueReviews: VenueReviews,
         Reviews: Reviews,

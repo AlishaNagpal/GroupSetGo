@@ -104,7 +104,7 @@ export default class CreateEventStep4 extends Component {
   }
 
   scroll = () => {
-    scrollView.scrollTo({x: 0, y: 200, animated: true})
+    scrollView.scrollTo({ x: 0, y: 200, animated: true })
   }
 
   render() {
