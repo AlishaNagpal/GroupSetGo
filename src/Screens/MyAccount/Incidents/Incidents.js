@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, Image } from 'react-native';
 import styles from './styles';
 import { strings, Images, VectorIcons, Colors, vh } from '../../../Constants';
 
-export default class TNC extends Component {
+export default class Incidents extends Component {
   render() {
     return (
       <View style={styles.containerView}>

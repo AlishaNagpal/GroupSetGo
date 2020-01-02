@@ -59,8 +59,7 @@ import MyProfile from './Screens/MyAccount/MyProfile/MyProfile';
 import Payments from './Screens/MyAccount/Payments/Payments';
 import PrivacyPolicy from './Screens/MyAccount/PrivacyPolicy/PrivacyPolicy';
 import Settings from './Screens/MyAccount/Settings/Settings';
-import TNC from './Screens/MyAccount/TNC/TNC';
-import Logout from './Screens/MyAccount/logout/Logout'
+import Incidents from './Screens/MyAccount/Incidents/Incidents';
 import InviteFrnd from './Screens/MyAccount/InviteFrnd/InviteFrnd';
 import CategorySelectModalPart2 from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/filterPage/CategorySelectModalPart2'
 import ExploreSaved from './Screens/ExploreSaved/ExploreSaved'
@@ -70,8 +69,12 @@ import ResetPassword from './Screens/ResetPassword/ResetPassword';
 import NewTabNavigation from './Screens/ExploreHome/ExploreHomeEventScreen/MainComponent/NewTabNavigation';
 import PublishModel from './Screens/CreateEvent/PublishModel'
 import AddressModal from './Screens/CreateEvent/AddressModal'
+import Notification from './Screens/MyAccount/Settings/Notification';
+import Privacy from './Screens/MyAccount/Settings/Privacy';
+import Blocked from './Screens/MyAccount/Settings/Blocked';
+import LogoutDialog from './Screens/MyAccount/Settings/SkipLoginDialog';
 
-console.disableYellowBox = true
+// console.disableYellowBox = true
 
 const Explore = createStackNavigator({ Explore: ExploreHomeScreen, Map: ExploreMapScreen },
     { defaultNavigationOptions: { header: null } });
@@ -181,12 +184,14 @@ const MainStack = createStackNavigator(
         Payments: Payments,
         PrivacyPolicy: PrivacyPolicy,
         Settings: Settings,
-        TNC: TNC,
-        Logout: Logout,
+        Incidents: Incidents,
         InviteFrnd: InviteFrnd,
         ExploreEventsUsers: ExploreEventsUsers,
         ResetPassword: ResetPassword,
         NewTabNavigation: NewTabNavigation,
+        Notification: Notification,
+        Privacy: Privacy,
+        Blocked: Blocked,
     },
     {
         initialRouteName: 'HomeNavigator',
@@ -220,7 +225,8 @@ const ModalStack = createStackNavigator(
         CategorySelectModalPart2: CategorySelectModalPart2,
         PickerView: PickerView,
         PublishModel: PublishModel,
-        AddressModal: AddressModal
+        AddressModal: AddressModal,
+        LogoutDialog: LogoutDialog,
     },
     {
         mode: 'modal',

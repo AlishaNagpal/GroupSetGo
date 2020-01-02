@@ -181,8 +181,10 @@ const strings = {
     publishedEvent1: 'Your Private event with',
     publishedEvent2: 'is now successfully created.',
     fixedCost: 'Fixed Total Cost',
-    fixedPerson: 'Fixed Per Person Cost',
     budgetBreak: 'Budget Breakdown',
+    fixedPerson:'Fixed Per Person Cost',
+    settings: 'Settings',
+    touch: 'Touch ID'
 }
 
 export default strings;

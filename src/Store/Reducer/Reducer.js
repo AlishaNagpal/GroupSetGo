@@ -19,9 +19,8 @@ const initialState = {
 
 const Reducer = (state = initialState, action) => {
     switch (action.type) {
-        case Actions.PROFILE_DATA:
-            return { ...state, profileData: action.payload.data }
-        case 'name' || 'email' || 'birthday' || 'gender' || 'password':
+        case ('userlogout' || 'profileData' || 'name' || 'email' || 'birthday' || 'gender' || 'password' ):
+            console.log('data ', action.payload.data)
             return { ...state, profileData: action.payload.data }
         case Actions.EVENT_DATA:
             return { ...state, Event_Data: action.payload.data }

@@ -1,56 +1,35 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, FlatList, ScrollView } from 'react-native';
-import { vh, VectorIcons, Colors, Strings } from '../../Constants';
+import { View, Text, TouchableOpacity, ScrollView, Image } from 'react-native';
+import { vh, VectorIcons, Colors, Strings, Images } from '../../Constants';
 import styles from './styles';
 import NewFlatlist from './Flatlist';
+import Header from './Header';
 
 export default class MyAccount extends Component {
+
     myList = (myData) => {
         return (
-            <FlatList
-                data={myData}
-                keyExtractor={(item, index) => index.toString()}
-                renderItem={this.renderItems}
-                scrollEnabled={false}
-                ItemSeparatorComponent={this.FlatListItemSeparator}
-                bounces={false}
-                showsVerticalScrollIndicator={false}
-            />
-        );
+            myData.map((item, i) => {
+                return (
+                    NewFlatlist(item, i, this.props.navigation)
+                )
+            })
+        )
     }
 
-    renderItems = (rawData) => {
-        const { item, index } = rawData;
+    myHeader = (myText) => {
         return (
-            <NewFlatlist
-                item={item}
-                index={index}
-                navigation={this.props.navigation}
-            />
-        );
-    }
-
-    FlatListItemSeparator = () => {
-        return (
-            <View
-                style={styles.separator}
-            />
-        );
+            Header(myText)
+        )
     }
 
     render() {
         return (
             <View style={styles.containerStyle}>
                 <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.pop()} style={styles.headerView} >
-                    <VectorIcons.Ionicons
-                        name="ios-arrow-back"
-                        size={vh(30)}
-                        color={Colors.white}
-                        style={styles.backButtonStyle}
-                    />
-                    <Text style={styles.reviewHeading}>{Strings.myAccount}</Text>
+                    {Header(Strings.myAccount)}
                 </TouchableOpacity>
-                <ScrollView showsVerticalScrollIndicator={false} >
+                <ScrollView showsVerticalScrollIndicator={false}>
                     <View style={styles.accountHead}>
                         <Text style={styles.reviewHeadingAccount}>{Strings.account}</Text>
                     </View>
@@ -63,13 +42,15 @@ export default class MyAccount extends Component {
                     <TouchableOpacity style={[styles.listView, styles.bottomStyle]} onPress={() => this.props.navigation.navigate('InviteFrnd')}>
                         <Text style={styles.listText}>{Strings.inviteFrnd}</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={[styles.listView, { marginBottom: vh(30) }]} onPress={() => this.props.navigation.navigate('Logout')}>
+                    <TouchableOpacity style={styles.listView} onPress={() => this.props.navigation.navigate('LogoutDialog')}>
                         <Text style={styles.listText}>{Strings.logout}</Text>
-                        <VectorIcons.MaterialCommunityIcons name='logout' size={vh(20)} color={Colors.fadedGray} />
+                        <Image source={Images.accountExit} />
                     </TouchableOpacity>
+                    <View style={styles.footer}>
+                        <Text style={styles.footerTxt}>v 1.1</Text>
+                    </View>
                 </ScrollView>
             </View>
-
         );
     }
 }
@@ -83,6 +64,6 @@ const DATA = [
 
 const DATA2 = [
     { title: 'contact us', route: 'ContactUs' },
+    { title: 'my incidents', route: 'Incidents' },
     { title: 'privacy policy', route: 'PrivacyPolicy' },
-    { title: 'terms and conditions', route: 'TNC' },
 ]

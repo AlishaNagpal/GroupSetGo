@@ -7,16 +7,8 @@ export default class MyProfile extends Component {
   render() {
     return (
       <View style={styles.containerView}>
-        <TouchableOpacity style={styles.backIcon} onPress={() => this.props.navigation.goBack()}>
-          <VectorIcons.Ionicons name='ios-arrow-back' color={Colors.fadedRed} size={vh(30)} />
-        </TouchableOpacity>
-        <View style={styles.center} >
-          <Image
-            source={Images.logo}
-            style={styles.imageStyle}
-          />
-          <Text style={styles.text} > {strings.UnderWork} </Text>
-        </View>
+        <View style={styles.mainHeader}>
+          </View>
       </View>
     );
   }

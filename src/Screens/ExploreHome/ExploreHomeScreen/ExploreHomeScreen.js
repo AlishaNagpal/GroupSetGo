@@ -26,6 +26,9 @@ const colors = [
 import HomeScreen from './HomeScreen';
 import ExploreMapScreen from './ExploreMapScreen';
 import { Toast } from '../../../ReusableComponents'
+
+const img = 'https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+
 class ExploreHomeScreen extends PureComponent {
   state = {
     opacityChanged: false,
@@ -82,9 +85,8 @@ class ExploreHomeScreen extends PureComponent {
         <View style={[styles.mainContainer, { marginTop: Platform.OS === 'ios' ? vh(27) : vh(0) }]}>
           <View style={styles.headerView}>
             <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('MyAccount')} >
-              <Image source={this.props.profileData.type === 'normal' ? this.props.profileData.profilePic : { uri: this.props.profileData.profilePic }} style={styles.headerImage} />
+              <Image source={{ uri: this.props.profileData.profilePic }} style={styles.headerImage} />
             </TouchableOpacity>
-
             <TouchableOpacity
               style={styles.textInputView}
               onPress={() =>

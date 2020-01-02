@@ -169,7 +169,7 @@ class HomeDetails6 extends Component {
                             <Text style={styles.tagText}> {data.hashtag} </Text>
                         </View>
                         <View style={styles.profilePicture}>
-                            <Image source={this.props.profileData.type === 'normal' ? this.props.profileData.profilePic : { uri: this.props.profileData.profilePic }} style={styles.imgView} />
+                        <Image source={{uri : this.props.profileData.profilePic}} style={styles.imgView} />
                             <View style={styles.ratingView}>
                                 <Text style={styles.ratingText}> {data.reviewRating} </Text>
                                 <VectorIcons.Ionicons
