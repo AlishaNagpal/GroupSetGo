@@ -11,8 +11,6 @@ import {
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { connect } from 'react-redux'
-
-//Custom Imports
 import styles from './style';
 import { Images, VectorIcons, Colors, vh, strings } from '../../../Constants';
 const colors = [
@@ -141,6 +139,7 @@ class ExploreHomeScreen extends PureComponent {
                 refreshControl={
                   <RefreshControl refreshing={this.state.refresh} onRefresh={this.onRefresh} />
                 }
+                bounces={this.props.Event_Data.length === 0 ? false : true}
               >
                 <HomeScreen navigate={this.props.navigation.navigate} />
               </ScrollView>
@@ -168,9 +167,10 @@ class ExploreHomeScreen extends PureComponent {
 }
 
 function mapStateToProps(state) {
-  const { profileData } = state.Reducer;
+  const { Event_Data, profileData } = state.Reducer;
   return {
-    profileData
+    profileData,
+    Event_Data
   }
 }
 
