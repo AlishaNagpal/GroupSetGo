@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { vh, vw, Colors, DesignWidth } from '../../../Constants'
+import { vh, vw, Colors, DesignWidth, DesignHeight } from '../../../Constants'
 
 export default styles = StyleSheet.create({
     mainContainer: {
@@ -107,7 +107,7 @@ export default styles = StyleSheet.create({
         alignItems: 'center',
         top: vh(120),
         left: vw(10),
-        justifyContent:'center'
+        justifyContent: 'center'
     },
     belowImage: {
         height: vh(85),
@@ -115,7 +115,7 @@ export default styles = StyleSheet.create({
         backgroundColor: Colors.white,
         shadowOpacity: vw(0.5),
         shadowColor: Colors.fadedGray,
-        borderBottomLeftRadius : vh(10),
+        borderBottomLeftRadius: vh(10),
         borderBottomRightRadius: vh(10),
         elevation: 6,
     },
@@ -125,7 +125,7 @@ export default styles = StyleSheet.create({
         backgroundColor: Colors.white,
         shadowOpacity: vw(1),
         shadowColor: Colors.fadedGray,
-        borderBottomLeftRadius : vh(10),
+        borderBottomLeftRadius: vh(10),
         borderBottomRightRadius: vh(10),
         elevation: 12
     },
@@ -138,10 +138,10 @@ export default styles = StyleSheet.create({
         fontFamily: 'SourceSansPro-Semibold',
         fontSize: vw(18.7),
     },
-    headingText2:{ 
-        fontSize: vw(16.7), 
-        width: vw(186.7), 
-        height: vh(19) ,
+    headingText2: {
+        fontSize: vw(16.7),
+        width: vw(186.7),
+        height: vh(19),
         fontFamily: 'SourceSansPro-Semibold',
         top: vh(3),
         left: vh(3)
@@ -149,7 +149,7 @@ export default styles = StyleSheet.create({
     moneyView: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginTop:vh(5)
+        marginTop: vh(5)
     },
     place: {
         fontFamily: 'SourceSansPro-Regular',
@@ -191,8 +191,8 @@ export default styles = StyleSheet.create({
     },
     goingIcon: {
         flexDirection: 'row',
-        alignContent:'center',
-        justifyContent:'center'
+        alignContent: 'center',
+        justifyContent: 'center'
     },
     flatlistHeight: {
         height: vh(270)
@@ -266,11 +266,25 @@ export default styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center'
     },
-    runIcon:{
+    runIcon: {
         height: vh(11.7),
         width: vw(12.3)
     },
-    flatlisted:{
+    flatlisted: {
         marginBottom: vh(35)
-    }
+    },
+    center: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        flex: 1,
+        marginTop: vw(190)
+    },
+    imageStyle: {
+        height: vw(100),
+        width: vw(100)
+    },
+    text: {
+        marginTop: vh(30),
+        color: Colors.newGray
+    },
 })

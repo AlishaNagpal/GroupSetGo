@@ -134,28 +134,48 @@ class HomeScreen extends PureComponent {
     );
   };
 
-  render() {
-    return (
-      <View style={styles.mainContainer}>
-        <Text style={styles.recommendedText}> {strings.recommended} </Text>
-        <View style={styles.flatlistHeight}>
+  verifying = () => {
+    if (this.props.Event_Data.length === 0) {
+      return (
+        <View style={styles.center} >
+          <Image
+            source={Images.logo}
+            style={styles.imageStyle}
+          />
+          <Text style={styles.text} > {strings.noSaved} </Text>
+        </View>
+      )
+    } else {
+      return (
+        <>
+          <Text style={styles.recommendedText}> {strings.recommended} </Text>
+          <View style={styles.flatlistHeight}>
+            <FlatList
+              keyExtractor={item => item.serialNo.toString()}
+              data={this.props.Event_Data}
+              renderItem={this.renderData}
+              horizontal
+              showsHorizontalScrollIndicator={false}
+            />
+          </View>
+          <Text style={styles.allEvents}> {strings.allEvents} </Text>
           <FlatList
             keyExtractor={item => item.serialNo.toString()}
             data={this.props.Event_Data}
-            renderItem={this.renderData}
-            horizontal
+            renderItem={this.renderData2}
             showsHorizontalScrollIndicator={false}
+            numColumns={2}
+            style={styles.flatlisted}
           />
-        </View>
-        <Text style={styles.allEvents}> {strings.allEvents} </Text>
-        <FlatList
-          keyExtractor={item => item.serialNo.toString()}
-          data={this.props.Event_Data}
-          renderItem={this.renderData2}
-          showsHorizontalScrollIndicator={false}
-          numColumns={2}
-          style={styles.flatlisted}
-        />
+        </>
+      )
+    }
+  }
+
+  render() {
+    return (
+      <View style={styles.mainContainer}>
+        {this.verifying()}
       </View>
     );
   }

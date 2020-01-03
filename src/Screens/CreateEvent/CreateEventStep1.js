@@ -19,14 +19,14 @@ class CreateEventStep1 extends Component {
         this.state = {
             title: '',
             Hashtag: '',
+            startDate: null,
+            timeNoted: null,
             call: false,
             colorChangeTime: false,
             colorChangeDate: false,
-            startDate: null,
-            timeNoted: null,
             callingPicker: false,
-            ReplacedHastag: '',
             addressCall: false,
+            formattedDate: null,
         }
     }
 
@@ -38,26 +38,34 @@ class CreateEventStep1 extends Component {
 
     _updateMasterState = (attrName, value) => {
         this.setState({ [attrName]: value });
-        if (attrName === 'Hashtag') {
-            let res = this.state.Hashtag.replace(/[\B]^|\b^|\s\#+|\s+\b/g, " #")
-            this.setState({
-                ReplacedHastag: res
-            })
-        }
     }
 
     onSubmitHashtag = () => {
+        let res = this.state.Hashtag.replace(/[\B]^|\b^|\s\#+|\s+\b/g, " #")
         this.setState({
-            Hashtag: this.state.ReplacedHastag
+            Hashtag: res
         })
-        this.refs.Address.refs.FloatingLabelInput.focus()
+        this.callinAddress()
     }
+
     callAlert = () => {
-        if (this.state.title === '' || this.state.Hashtag === '' || this.state.Address === '' || this.state.startDate === null || this.state.timeNoted === null) {
+        if (this.state.title === '' || this.state.Hashtag === '' || this.props.address === 'Address *' || this.state.startDate === null || this.state.timeNoted === null) {
             this.resetCall(true)
         } else {
-            this.props.navigation.navigate('CreateEventStep2')
+            let payload = {
+                heading: this.state.title,
+                hashtag: this.state.Hashtag,
+                place: this.props.address,
+                time: this.state.formattedDate + ' ' + '•' + ' ' + this.state.timeNoted
+            }
+            this.props.navigation.navigate('CreateEventStep2', { payloadPassed: payload })
         }
+    }
+
+    makingFormattedDate = (day, date, month) => {
+        this.setState({
+            formattedDate: day +', '+date + ' ' +month 
+        })
     }
 
     callinAddress = () => {
@@ -112,22 +120,10 @@ class CreateEventStep1 extends Component {
                             />
                         </View>
                         <View style={styles.textInputView} >
-                            {/* <TouchableOpacity style={styles.addressButton} onPress={this.callinAddress} >
+                            <TouchableOpacity style={styles.addressButton} onPress={this.callinAddress} >
                                 <Text style={[styles.AddressStyle, { color: this.props.address === 'Address *' ? Colors.fadedGray : Colors.black }]}> {this.props.address} </Text>
                                 {this.state.addressCall && <FloatingLabel style={{ position: 'absolute', left: 0, top: -10 }} title={'Address *'} goFrom={10} goTo={-28} />}
-                            </TouchableOpacity> */}
-                            <FloatingTitleTextInputField
-                                placeholderStyle={{ marginTop: vh(20) }}
-                                style={{ marginTop: vh(20) }}
-                                attrName='Address'
-                                title='Address *'
-                                value={this.state.Address}
-                                updateMasterState={this._updateMasterState}
-                                style={styles.textInputStyle}
-                                placeholderStyle={styles.placeholderStyle}
-                                ref="Address"
-                            />
-
+                            </TouchableOpacity>
                         </View>
                         <View style={styles.textInputView} >
                             <DatePicker
@@ -138,9 +134,10 @@ class CreateEventStep1 extends Component {
                                 attrName={'startDate'}
                                 title={'Event Date *'}
                                 value={this.state.startDate}
+                                makingFormattedDate={this.makingFormattedDate}
                             />
                         </View>
-                        <View style={[styles.rowStyle, { marginTop: Platform.OS === 'ios' ? vw(40) : vw(0) }]} >
+                        <View style={[styles.rowStyle, { marginTop: Platform.OS === 'ios' ? vw(20) : vw(0) }]} >
                             <DatePicker
                                 container={[styles.dateTimePicker, { width: vw(180) }]}
                                 textStyle={[styles.dateText2, { color: this.state.colorChangeTime ? Colors.black : Colors.fadedGray }]}

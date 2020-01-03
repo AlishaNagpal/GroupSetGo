@@ -5,21 +5,21 @@ import * as CATEGORIES from '../../DataSourceForCategories'
 import * as PROFILES from '../../DataSourceForProfile'
 
 const initialState = {
-    Event_Data: DATA,
+    Event_Data:[],
     categoryData: CATEGORIES.CATEGORIES,
     categoryDataType2: CATEGORIES.CATEGORIES2,
     savedCategories: [],
     selected: false,
-    duration: 'Duration',
     profileData: PROFILES.PROFILE,
     savedEvents: [],
-    address: 'Address *'
+    address: 'Address *',
+    duration: 'Duration',
 };
 
 
 const Reducer = (state = initialState, action) => {
     switch (action.type) {
-        case ('userlogout' || 'profileData' || 'name' || 'email' || 'birthday' || 'gender' || 'password' ):
+        case ('userlogout' || 'profileData' || 'name' || 'email' || 'birthday' || 'gender' || 'password'):
             console.log('data ', action.payload.data)
             return { ...state, profileData: action.payload.data }
         case Actions.EVENT_DATA:
@@ -32,12 +32,12 @@ const Reducer = (state = initialState, action) => {
             return { ...state, savedCategories: action.payload.data }
         case Actions.SELECTED:
             return { ...state, selected: action.payload.data }
-        case Actions.GET_DURATION:
-            return { ...state, duration: action.payload.duration }
         case Actions.GETTING_SAVED:
             return { ...state, savedEvents: action.payload.data }
         case Actions.GETTING_ADDRESS:
             return { ...state, address: action.payload.data }
+        case Actions.GET_DURATION:
+            return { ...state, duration: action.payload.duration }
         default:
             return state
     }

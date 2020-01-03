@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, ScrollView,Animated } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView, Animated } from 'react-native';
 import { VectorIcons, vh, Colors, strings, vw } from '../../Constants'
 import * as Progress from 'react-native-progress';
 import styles from './styles'
@@ -91,6 +91,18 @@ export default class CreateEventStep3 extends Component {
     this.setState({
       genderMix: !this.state.genderMix
     })
+  }
+
+  goingForward = () => {
+    let payload = {
+      usersVerified: this.state.verifiedUsers ? strings.Yes : strings.No,
+      ageGroup: this.state.ageRestrict[0] + '-' + this.state.ageRestrict[1] + ' years',
+      Male: this.state.maleSliderValue,
+      female: this.state.femaleSliderValue,
+    }
+    let data = this.props.navigation.getParam('payloadPassed')
+    let mergedData = {...data, ...payload}
+    this.props.navigation.navigate('CreateEventStep4',{payloadPassed: mergedData})
   }
 
   render() {
@@ -259,7 +271,7 @@ export default class CreateEventStep3 extends Component {
 
         <LinearGradient colors={colors} start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} style={styles.buttonStyleGradient}  >
           <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('CreateEventStep4')}
+            onPress={this.goingForward}
             activeOpacity={1}
           >
             <VectorIcons.Ionicons name='ios-arrow-round-forward' size={vh(55)} color={Colors.white} style={styles.icon} />

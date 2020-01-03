@@ -8,7 +8,7 @@ import { Toast, CustomSwitch, RadioButton } from '../../ReusableComponents'
 import LinearGradient from 'react-native-linear-gradient'
 const colors = [Colors.fadedRed, Colors.darkishPink]
 import ImagePicker from 'react-native-image-crop-picker';
-import { saveCategoryData } from '../../Store/Action/Action'
+import { saveCategoryData} from '../../Store/Action/Action'
 import { connect } from 'react-redux'
 class CreateEventStep2 extends Component {
 
@@ -21,7 +21,6 @@ class CreateEventStep2 extends Component {
     private: true,
     public: false,
     value: '',
-    // selected: this.props.selected
   }
 
   resetCall = (value) => {
@@ -64,7 +63,13 @@ class CreateEventStep2 extends Component {
     if (this.state.imageData === [] || this.props.selected === false || this.state.value === '') {
       this.resetCall(true)
     } else {
-      this.props.navigation.navigate('CreateEventStep3')
+      let payload={
+        details: this.state.value,
+        source: this.state.imageData[0],
+      }
+      let data = this.props.navigation.getParam('payloadPassed')
+      let mergedData = {...data, ...payload}
+      this.props.navigation.navigate('CreateEventStep3',{payloadPassed: mergedData})
     }
   }
 
@@ -214,12 +219,12 @@ class CreateEventStep2 extends Component {
 
 function mapDispatchToProps(dispatch) {
   return {
-    saveCategoryData: (value) => dispatch(saveCategoryData(value)),
+    saveCategoryData: (value) => dispatch(saveCategoryData(value))
   }
 }
 
 function mapStateToProps(state) {
-  const { savedCategories, selected } = state.Reducer;
+  const { savedCategories, selected} = state.Reducer;
   return {
     savedCategories,
     selected

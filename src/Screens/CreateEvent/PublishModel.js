@@ -3,8 +3,10 @@ import { Text, View, TouchableOpacity } from 'react-native'
 import styles from '../SkipLoginDialog/styles'
 import { strings, Colors } from '../../Constants'
 import { Share } from 'react-native';
+import { connect } from 'react-redux'
+import { DURATION_SELECTED, getAddress, saveCategoryData, makingAnEvent } from '../../Store/Action/Action'
 
-export default class PublishModel extends PureComponent {
+class PublishModel extends PureComponent {
 
     callingShare = () => {
         Share.share({
@@ -21,6 +23,15 @@ export default class PublishModel extends PureComponent {
         })
     }
 
+    callCopyURL = () => {
+        this.props.makingAnEvent(this.props.navigation.getParam('payloadPassed'))
+        this.props.DURATION_SELECTED('Duration')
+        this.props.getAddress('Address *')
+        this.props.saveCategoryData(null)
+        this.props.navigation.navigate("HomeNavigator")
+        console.log('Hopping for the best',this.props.Event_Data)
+    }
+
     render() {
         return (
             <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.pop()} style={styles.containerStyle}>
@@ -30,7 +41,7 @@ export default class PublishModel extends PureComponent {
                         <TouchableOpacity onPress={this.callingShare} activeOpacity={1} style={styles.yesContinueButtonStyle}>
                             <Text style={[styles.yesContinueTextStyle, { color: Colors.chatBlue }]}>Share</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => this.props.navigation.navigate("HomeNavigator")} activeOpacity={1} style={styles.loginButtonStyle}>
+                        <TouchableOpacity onPress={this.callCopyURL} activeOpacity={1} style={styles.loginButtonStyle}>
                             <Text style={styles.loginTextStyle}>Copy URL</Text>
                         </TouchableOpacity>
                     </View>
@@ -39,3 +50,25 @@ export default class PublishModel extends PureComponent {
         )
     }
 }
+
+
+function mapDispatchToProps(dispatch) {
+    return {
+        DURATION_SELECTED: (value) => dispatch(DURATION_SELECTED(value)),
+        getAddress: (value) => dispatch(getAddress(value)),
+        saveCategoryData: (value) => dispatch(saveCategoryData(value)),
+        makingAnEvent: (value) => dispatch(makingAnEvent(value))
+    }
+}
+
+function mapStateToProps(state) {
+    const { Event_Data } = state.Reducer;
+    return {
+        Event_Data
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(PublishModel);

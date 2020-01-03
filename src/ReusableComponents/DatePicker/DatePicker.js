@@ -13,7 +13,7 @@ export default class DatePicker extends Component {
         value: string.isRequired,
         updateMasterState: func.isRequired,
         otherTextInputProps: object,
-        attrName:string.isRequired
+        attrName: string.isRequired
     }
 
     static defaultProps = {
@@ -27,7 +27,7 @@ export default class DatePicker extends Component {
         this.state = {
             isFieldActive: false,
             isDateTimePickerVisible: false,
-            dateText:''
+            dateText: ''
         }
     }
 
@@ -44,13 +44,28 @@ export default class DatePicker extends Component {
         this._handleFocus();
         this.hideDateTimePicker();
         this.setState({ isFieldActive: true })
+        var gsDayNames = [
+            'SUN',
+            'MON',
+            'TUE',
+            'WED',
+            'THU',
+            'FRI',
+            'SAT'
+        ];
+        var months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+        var d = date;
+        var dayName = gsDayNames[d.getDay()];
+        var dateName = d.getDate()
+        var monthName = months[d.getMonth()];
+        this.props.makingFormattedDate && this.props.makingFormattedDate(dayName, dateName, monthName)
         var data = moment(date).format("DD-MMM-YYYY")
         this.setState({ dateText: data })
         this._onChangeText(data)
 
     };
 
-    handleTimePicked = (time) =>{
+    handleTimePicked = (time) => {
         this._handleFocus();
         this.hideDateTimePicker();
         this.setState({ isFieldActive: true })
@@ -89,7 +104,7 @@ export default class DatePicker extends Component {
         return {
             top: this.position.interpolate({
                 inputRange: [0, 1],
-                outputRange: [ Platform.OS==='ios' ? 4 : -7, -12],
+                outputRange: [Platform.OS === 'ios' ? 4 : -7, -12],
             }),
             fontSize: isFieldActive ? 11.5 : 15.3,
             color: Colors.fadedGray
@@ -106,8 +121,8 @@ export default class DatePicker extends Component {
 
     render() {
         return (
-        <TouchableOpacity style={[this.props.container]}
-                onPress={this.showDateTimePicker} 
+            <TouchableOpacity style={[this.props.container]}
+                onPress={this.showDateTimePicker}
                 activeOpacity={1}>
                 {
                     this.renderLabel()
@@ -117,7 +132,7 @@ export default class DatePicker extends Component {
                 <VectorIcons.EvilIcons name="calendar" color={Colors.verLightGrey} size={25} style={styles.bottomIcon} />
                 <DateTimePicker
                     isVisible={this.state.isDateTimePickerVisible}
-                    onConfirm={ this.props.mode === 'time' ?   this.handleTimePicked : this.handleDatePicked }
+                    onConfirm={this.props.mode === 'time' ? this.handleTimePicked : this.handleDatePicked}
                     onCancel={this.hideDateTimePicker}
                     mode={this.props.mode}
                 />

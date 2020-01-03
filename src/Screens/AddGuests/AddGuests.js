@@ -63,6 +63,14 @@ class AddGuests extends PureComponent {
   //   })
   // }
 
+  verify = () => {
+    if (this.props.navigation.getParam('payloadPassed')) {
+      this.props.navigation.navigate('PublishModel', { payloadPassed: this.props.navigation.getParam('payloadPassed') })
+    } else {
+      this.props.navigation.navigate('Review', { id: this.props.navigation.getParam('id') })
+    }
+  }
+
   renderGuestCards = rowData => {
     return (
       <View style={styles.cardContainerStyle}>
@@ -216,9 +224,7 @@ class AddGuests extends PureComponent {
             end={{ x: 0, y: 1 }}
             style={styles.gradientStyleNextArrow}>
             <TouchableOpacity
-              onPress={() => {
-                this.props.navigation.navigate('Review', { id: this.props.navigation.getParam('id') })
-              }}
+              onPress={this.verify}
               style={styles.addMoreGuestsBtnStyle}>
               <VectorIcons.FontAwesome
                 name="long-arrow-right"

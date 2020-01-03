@@ -460,7 +460,7 @@ export default styles = StyleSheet.create({
         marginLeft: vw(20),
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginTop: Platform.OS === 'ios' ? vw(15) : vw(28),
+        marginTop: Platform.OS === 'ios' ? vw(30) : vw(28),
         marginBottom: Platform.OS === 'ios' ? vw(0) : vw(28)
     },
     addressButton: {

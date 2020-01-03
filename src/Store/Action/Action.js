@@ -31,6 +31,17 @@ export const eventDATA = () => {
     }
 }
 
+
+export const makingAnEvent = (value) => {
+    return (dispatch, getState) => {
+        const { Event_Data } = getState().Reducer;
+        let emptyArray = Event_Data;
+        emptyArray = emptyArray.slice();
+        emptyArray.push(value)
+        dispatch({ type: Actions.EVENT_DATA, payload: { data: emptyArray } });
+    }
+}
+
 export const categoryModalData = () => {
     return (dispatch, getState) => {
         const { categoryData } = getState().Reducer;
@@ -71,12 +82,6 @@ export const SELECTED = (value) => {
     }
 }
 
-export const DURATION_SELECTED = (value) => {
-    return (dispatch) => {
-        dispatch({ type: Actions.GET_DURATION, payload: { duration: value } });
-    }
-}
-
 export const SavedEvents = (value) => {
     return (dispatch, getState) => {
         const { savedEvents } = getState().Reducer;
@@ -94,15 +99,21 @@ export const GetSavedEvents = () => {
     }
 }
 
+export const Logout = () => {
+    return (dispatch) => {
+        let emptyArray = Default.DEFAULT
+        dispatch({ type: 'userlogout', payload: { data: emptyArray } });
+    }
+}
+
 export const getAddress = (value) => {
     return (dispatch) => {
         dispatch({ type: Actions.GETTING_ADDRESS, payload: { data: value } });
     }
 }
 
-export const Logout = () => {
+export const DURATION_SELECTED = (value) => {
     return (dispatch) => {
-        let emptyArray = Default.DEFAULT
-        dispatch({ type: 'userlogout', payload: { data: emptyArray } });
+        dispatch({ type: Actions.GET_DURATION, payload: { duration: value } });
     }
 }

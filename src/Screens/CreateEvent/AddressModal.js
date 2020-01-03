@@ -4,7 +4,6 @@ import styles from './styles'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import { connect } from 'react-redux'
 import { getAddress } from '../../Store/Action/Action'
-import { VectorIcons, Colors, vh } from "../../Constants";
 
 class AddressModal extends Component {
   constructor(props) {
@@ -27,6 +26,7 @@ class AddressModal extends Component {
             fetchDetails={true}
             renderDescription={row => row.description} // custom description render
             onPress={(data, details = null) => { // 'details' is provided when fetchDetails = true
+              console.log(data,details)
               this.props.getAddress(details.formatted_address)
               this.props.navigation.goBack()
             }}
@@ -52,8 +52,8 @@ class AddressModal extends Component {
               }
             }}
 
-            currentLocation={true} // Will add a 'Current location' button at the top of the predefined places list
-            currentLocationLabel="Current location"
+            // currentLocation={true} // Will add a 'Current location' button at the top of the predefined places list
+            // currentLocationLabel="Current location"
             nearbyPlacesAPI='GooglePlacesSearch' // Which API to use: GoogleReverseGeocoding or GooglePlacesSearch
             GoogleReverseGeocodingQuery={{
               // available options for GoogleReverseGeocoding API : https://developers.google.com/maps/documentation/geocoding/intro
