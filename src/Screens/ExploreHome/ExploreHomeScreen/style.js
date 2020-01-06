@@ -248,7 +248,7 @@ export default styles = StyleSheet.create({
         backgroundColor: Colors.white,
         borderWidth: vw(0.2),
         borderColor: Colors.fadedGray,
-        bottom: vh(70),
+        bottom: vh(90),
         marginLeft: vw(28)
 
     },
@@ -286,5 +286,11 @@ export default styles = StyleSheet.create({
     text: {
         marginTop: vh(30),
         color: Colors.newGray
+    },
+    containerStyle: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'rgba(0,0,0,0)'
     },
 })

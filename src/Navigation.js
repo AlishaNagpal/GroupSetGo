@@ -74,6 +74,7 @@ import Privacy from './Screens/MyAccount/Settings/Privacy';
 import Blocked from './Screens/MyAccount/Settings/Blocked';
 import LogoutDialog from './Screens/MyAccount/Settings/SkipLoginDialog';
 import ProfileTab from './Screens/MyAccount/MyProfile/ProfileTab';
+import RenderCard from './Screens/ExploreHome/ExploreHomeScreen/RenderCard'
 
 
 console.disableYellowBox = true
@@ -230,6 +231,7 @@ const ModalStack = createStackNavigator(
         PublishModel: PublishModel,
         AddressModal: AddressModal,
         LogoutDialog: LogoutDialog,
+        RenderCard:RenderCard,
     },
     {
         mode: 'modal',

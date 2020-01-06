@@ -117,3 +117,13 @@ export const DURATION_SELECTED = (value) => {
         dispatch({ type: Actions.GET_DURATION, payload: { duration: value } });
     }
 }
+
+export const mapEventData = () => {
+    return (dispatch, getState) => {
+        const { map_event_data } = getState().Reducer;
+        let emptyArray = map_event_data;
+        emptyArray = emptyArray.slice();
+        dispatch({ type: Actions.MAP_EVENT_DATA, payload: { data: emptyArray } });
+    }
+}
+

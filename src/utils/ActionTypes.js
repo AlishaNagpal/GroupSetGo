@@ -7,3 +7,4 @@ export const GETTING_SAVED = 'gettingSavedEvents';
 export const PROFILE_DATA = 'profileData'
 export const GETTING_ADDRESS = 'gettingAddress';
 export const GET_DURATION = 'duration';
+export const MAP_EVENT_DATA = 'eventMapData';
