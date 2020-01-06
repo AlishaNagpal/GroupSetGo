@@ -184,7 +184,8 @@ const strings = {
     budgetBreak: 'Budget Breakdown',
     fixedPerson:'Fixed Per Person Cost',
     settings: 'Settings',
-    touch: 'Touch ID'
+    touch: 'Touch ID',
+    noEvents: 'No Events Found!'
 }
 
 export default strings;

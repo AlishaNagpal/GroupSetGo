@@ -142,7 +142,7 @@ class HomeScreen extends PureComponent {
             source={Images.logo}
             style={styles.imageStyle}
           />
-          <Text style={styles.text} > {strings.noSaved} </Text>
+          <Text style={styles.text} > {strings.noEvents} </Text>
         </View>
       )
     } else {

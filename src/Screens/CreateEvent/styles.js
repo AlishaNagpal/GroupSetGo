@@ -94,7 +94,7 @@ export default styles = StyleSheet.create({
     AddressStyle: {
         width: vw(380),
         color: Colors.verLightGrey,
-        left:vw(-3),
+        // left: Platform.OS === 'ios' ? vw(-3) : vw(5),
         marginBottom: Platform.OS === 'ios' ? vw(0) : vw(10)
     },
     textInputStyle: {
@@ -128,7 +128,8 @@ export default styles = StyleSheet.create({
         width: vw(170),
         borderBottomColor: Colors.verLightGrey,
         borderBottomWidth: vh(1),
-        height: vw(52)
+        height: vw(57),
+        // marginBottom:vh(-10)
     },
     separator2: {
         height: vh(2),

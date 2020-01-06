@@ -104,7 +104,7 @@ export default class DatePicker extends Component {
         return {
             top: this.position.interpolate({
                 inputRange: [0, 1],
-                outputRange: [Platform.OS === 'ios' ? 4 : -7, -12],
+                outputRange: [Platform.OS === 'ios' ? 4 : -7, Platform.OS === 'ios' ? -12 : -20],
             }),
             fontSize: isFieldActive ? 11.5 : 15.3,
             color: Colors.fadedGray
@@ -128,7 +128,7 @@ export default class DatePicker extends Component {
                     this.renderLabel()
                 }
 
-                <Text> {this.state.dateText} </Text>
+                <Text style={{marginBottom: 5}} > {this.state.dateText} </Text>
                 <VectorIcons.EvilIcons name="calendar" color={Colors.verLightGrey} size={25} style={styles.bottomIcon} />
                 <DateTimePicker
                     isVisible={this.state.isDateTimePickerVisible}

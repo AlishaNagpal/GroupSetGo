@@ -62,7 +62,6 @@ export default class CreateEventStep4 extends Component {
       let data = this.props.navigation.getParam('payloadPassed')
       let mergedData = { ...data, ...payload }
       let mergedData2 = { ...mergedData, ...DATA }
-      // this.props.navigation.navigate('PublishModel', { payloadPassed: mergedData2 })
       this.props.navigation.navigate('AddGuests', { payloadPassed: mergedData2 })
     }
   }
@@ -322,7 +321,7 @@ const DATA = {
   reviewRating: '4.5',
   venueRating: '4.4',
   hearted: false,
-  joined: false,
+  joined: true,
   waitlisted: false,
   eventID: 'GSG01234561',
   reviews: '5',

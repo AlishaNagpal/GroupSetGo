@@ -9,7 +9,7 @@ const colors = [Colors.fadedRed, Colors.darkishPink]
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scrollview'
 import PickerViewAndroid from './PickerViewAndroid'
 import { connect } from 'react-redux'
-import { DURATION_SELECTED } from '../../Store/Action/Action'
+import { DURATION_SELECTED, getAddress } from '../../Store/Action/Action'
 
 class CreateEventStep1 extends Component {
     constructor(props) {
@@ -64,7 +64,7 @@ class CreateEventStep1 extends Component {
 
     makingFormattedDate = (day, date, month) => {
         this.setState({
-            formattedDate: day +', '+date + ' ' +month 
+            formattedDate: day + ', ' + date + ' ' + month
         })
     }
 
@@ -78,12 +78,18 @@ class CreateEventStep1 extends Component {
         this.props.navigation.navigate('PickerView')
     }
 
+    goingBack = () => {
+        this.props.DURATION_SELECTED('Duration')
+        this.props.getAddress('Address *')
+        this.props.navigation.goBack()
+    }
+
     render() {
         return (
             <View style={styles.containerStyle}>
                 <KeyboardAwareScrollView keyboardShouldPersistTaps={'always'} bounces={false} >
                     <View style={styles.headerView}>
-                        <TouchableOpacity onPress={() => this.props.navigation.goBack()} style={styles.backButtonStyle} activeOpacity={1} >
+                        <TouchableOpacity onPress={this.goingBack} style={styles.backButtonStyle} activeOpacity={1} >
                             <VectorIcons.Ionicons name="ios-arrow-back" size={vh(30)} color={Colors.white} />
                             <Text style={styles.headerText} > {strings.createEvent} </Text>
                         </TouchableOpacity>
@@ -121,8 +127,8 @@ class CreateEventStep1 extends Component {
                         </View>
                         <View style={styles.textInputView} >
                             <TouchableOpacity style={styles.addressButton} onPress={this.callinAddress} >
-                                <Text style={[styles.AddressStyle, { color: this.props.address === 'Address *' ? Colors.fadedGray : Colors.black }]}> {this.props.address} </Text>
-                                {this.state.addressCall && <FloatingLabel style={{ position: 'absolute', left: 0, top: -10 }} title={'Address *'} goFrom={10} goTo={-28} />}
+                                <Text style={[styles.AddressStyle, { color: this.props.address === 'Address *' ? Colors.fadedGray : Colors.black, left: this.props.address === 'Address *' ? vw(-3) : vw(5), }]}> {this.props.address} </Text>
+                                {this.state.addressCall && <FloatingLabel style={{ position:'absolute', left: 0, top: Platform.OS === 'ios' ? -10 : 15, marginBottom: -10, }} title={'Address *'} goFrom={10} goTo={-28} />}
                             </TouchableOpacity>
                         </View>
                         <View style={styles.textInputView} >
@@ -178,6 +184,7 @@ class CreateEventStep1 extends Component {
 
 function mapDispatchToProps(dispatch) {
     return {
+        getAddress: (value) => dispatch(getAddress(value)),
         DURATION_SELECTED: (value) => dispatch(DURATION_SELECTED(value))
     }
 }
