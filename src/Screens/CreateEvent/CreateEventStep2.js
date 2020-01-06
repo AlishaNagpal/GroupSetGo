@@ -66,6 +66,7 @@ class CreateEventStep2 extends Component {
       let payload={
         details: this.state.value,
         source: this.state.imageData[0],
+        fullSource:this.state.imageData
       }
       let data = this.props.navigation.getParam('payloadPassed')
       let mergedData = {...data, ...payload}

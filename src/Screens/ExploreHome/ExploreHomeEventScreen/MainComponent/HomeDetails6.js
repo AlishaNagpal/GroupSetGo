@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image, ScrollView, TouchableOpacity, Platform } from 'react-native';
+import { View, Text, Image, ScrollView, TouchableOpacity, Platform, SectionList } from 'react-native';
 
 // Custom Imports
 import styles from './styles';
@@ -9,6 +9,7 @@ import { ProgressiveImage, Toast } from '../../../../ReusableComponents'
 import { connect } from 'react-redux'
 import { eventDATA, SavedEvents } from '../../../../Store/Action/Action'
 import NewTabNavigation from './NewTabNavigation';
+import { FlatList } from 'react-native-gesture-handler';
 
 class HomeDetails6 extends Component {
     state = {
@@ -60,14 +61,14 @@ class HomeDetails6 extends Component {
         } else if (value === false) {
             let temporary = this.props.savedEvents
             let indexToDelete = temporary.findIndex(item => item.serialNo === id.id)
-            if(indexToDelete !== -1){
+            if (indexToDelete !== -1) {
                 this.props.savedEvents.splice(indexToDelete, 1)
             }
         }
 
-        setTimeout(() => {
-            console.log(this.props.savedEvents)
-        }, 1000);
+        // setTimeout(() => {
+        //     console.log(this.props.savedEvents)
+        // }, 1000);
     }
 
     joined(id, value) {
@@ -132,6 +133,16 @@ class HomeDetails6 extends Component {
         this.tabView.goToPage(pageId);
     }
 
+    renderData = (rowData) => {
+        const { item } = rowData
+        return (
+            <ProgressiveImage
+                thumbnailSource={{ uri: this.state.data.thumbnail }}
+                source={{ uri: item }}
+                style={styles.pic}
+            />
+        )
+    }
 
     render() {
         const { data } = this.state;
@@ -139,11 +150,19 @@ class HomeDetails6 extends Component {
             <View style={[styles.mainView, { marginTop: Platform.OS === 'ios' ? vh(27) : vh(0) }]}>
                 <ScrollView bounces={false} showsVerticalScrollIndicator={false}>
                     <View>
-                        <ProgressiveImage
+                        <FlatList
+                            data={data.fullSource}
+                            keyExtractor={(item, index) => item + index}
+                            renderItem={this.renderData}
+                            horizontal
+                            bounces={false}
+                            pagingEnabled={true}
+                        />
+                        {/* <ProgressiveImage
                             thumbnailSource={{ uri: data.thumbnail }}
                             source={{ uri: data.source }}
                             style={styles.pic}
-                        />
+                        /> */}
                         <TouchableOpacity onPress={() => this.props.navigation.navigate('HomeNavigator')} style={styles.backButton} >
                             <VectorIcons.MaterialCommunityIcons
                                 name='keyboard-backspace'
@@ -169,7 +188,7 @@ class HomeDetails6 extends Component {
                             <Text style={styles.tagText}> {data.hashtag} </Text>
                         </View>
                         <View style={styles.profilePicture}>
-                        <Image source={{uri : this.props.profileData.profilePic}} style={styles.imgView} />
+                            <Image source={{ uri: this.props.profileData.profilePic }} style={styles.imgView} />
                             <View style={styles.ratingView}>
                                 <Text style={styles.ratingText}> {data.reviewRating} </Text>
                                 <VectorIcons.Ionicons

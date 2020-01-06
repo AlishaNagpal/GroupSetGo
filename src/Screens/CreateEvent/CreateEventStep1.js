@@ -128,7 +128,7 @@ class CreateEventStep1 extends Component {
                         <View style={styles.textInputView} >
                             <TouchableOpacity style={styles.addressButton} onPress={this.callinAddress} >
                                 <Text style={[styles.AddressStyle, { color: this.props.address === 'Address *' ? Colors.fadedGray : Colors.black, left: this.props.address === 'Address *' ? vw(-3) : vw(5), }]}> {this.props.address} </Text>
-                                {this.state.addressCall && <FloatingLabel style={{ position:'absolute', left: 0, top: Platform.OS === 'ios' ? -10 : 15, marginBottom: -10, }} title={'Address *'} goFrom={10} goTo={-28} />}
+                                {this.state.addressCall && <FloatingLabel style={{ position:'absolute', left: 0, top: Platform.OS === 'ios' ? -10 : 15, marginBottom: -10, }} title={'Address *'} goFrom={10} goTo={Platform.OS=== 'ios' ? -5 : -28 } />}
                             </TouchableOpacity>
                         </View>
                         <View style={styles.textInputView} >
@@ -157,7 +157,7 @@ class CreateEventStep1 extends Component {
                                 Platform.OS === 'ios'
                                     ? <TouchableOpacity style={[styles.dateTimePicker, { width: vw(170), justifyContent: 'flex-start' }]} onPress={() => this.callingPicker()} activeOpacity={1} >
                                         <Text style={[styles.durationSelect, { color: this.props.duration === 'Duration' ? Colors.fadedGray : Colors.black }]}> {this.props.duration} </Text>
-                                        {this.state.callingPicker && <FloatingLabel style={{ position: 'absolute', right: -10, top: -90 }} title={'Duration'} goFrom={5} goTo={-5} />}
+                                        {this.state.callingPicker && <FloatingLabel style={{ position: 'absolute', left: 0, top: -10 }} title={'Duration'} goFrom={5} goTo={Platform.OS=== 'ios' ? 0 : -5} />}
                                     </TouchableOpacity>
                                     : <PickerViewAndroid />
                             }

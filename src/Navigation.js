@@ -284,7 +284,7 @@ export default createAppContainer(createSwitchNavigator(
         ModalStack: ModalStack
     },
     {
-        initialRouteName: 'SplashStack',
+        initialRouteName: 'ModalStack',
         headerMode: 'none',
         defaultNavigationOptions: ({ navigation }) => ({
             headerBackTitle: null,

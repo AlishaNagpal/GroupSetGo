@@ -27,9 +27,8 @@ class PublishModel extends PureComponent {
         this.props.makingAnEvent(this.props.navigation.getParam('payloadPassed'))
         this.props.DURATION_SELECTED('Duration')
         this.props.getAddress('Address *')
-        this.props.saveCategoryData(null)
+        this.props.saveCategoryData([])
         this.props.navigation.navigate("HomeNavigator")
-        console.log('Hopping for the best',this.props.Event_Data)
     }
 
     render() {
