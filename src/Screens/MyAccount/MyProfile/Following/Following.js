@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Image } from 'react-native';
+import {Images, strings} from '../../../../Constants'
+import styles from './Styles'
 
 export default class Following extends Component {
   constructor(props) {
@@ -10,8 +12,12 @@ export default class Following extends Component {
 
   render() {
     return (
-      <View>
-        <Text> Following </Text>
+      <View style={styles.center} >
+        <Image
+          source={Images.logo}
+          style={styles.imageStyle}
+        />
+        <Text style={styles.text} > {strings.UnderWork} </Text>
       </View>
     );
   }
