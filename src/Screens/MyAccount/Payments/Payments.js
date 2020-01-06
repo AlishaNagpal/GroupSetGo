@@ -20,20 +20,12 @@ return(
         <TouchableOpacity style={styles.backIcon} onPress={() => this.props.navigation.goBack()}>
           <VectorIcons.Ionicons name='ios-arrow-back' color={Colors.fadedRed} size={vh(30)} />
         </TouchableOpacity>
-        <View style={styles.center}>
-          <FlatList
-            ListHeaderComponent={
-              <FlatList
-                horizontal={true}
-                data={DATA2}
-            keyExtractor={(item, index) => index.toString()}
-            renderItem={this.renderItems}
-              />
-            }
-            data={DATA}
-            keyExtractor={(item, index) => index.toString()}
-            renderItem={this.renderItems}
+        <View style={styles.center} >
+          <Image
+            source={Images.logo}
+            style={styles.imageStyle}
           />
+          <Text style={styles.text} > {strings.UnderWork} </Text>
         </View>
       </View>
     );
