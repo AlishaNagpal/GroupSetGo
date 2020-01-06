@@ -30,7 +30,9 @@ const Images = {
     accountExit: require('../Assets/Images/icAccountExit.png'),
     editProfile: require('../Assets/Images/icProEdit.png'),
     profileBio: require('../Assets/Images/icProfileBiography.jpg'),
-    
+    bday: require('../Assets/Images/icProfileBirthday.png'),
+    gender: require('../Assets/Images/icProfileGender.png'),
+    phone: require('../Assets/Images/icProfilePhone.png'),
 }
 
 export default Images;

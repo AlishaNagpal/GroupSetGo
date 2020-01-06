@@ -1,6 +1,7 @@
 import {StyleSheet} from 'react-native';
 import {Colors, vh, vw} from '../../../../Constants';
 const Styles = StyleSheet.create({
+    outerView: { flex: 1 },
     mainView: {
         flex: 1,
         backgroundColor: Colors.profileGrey
@@ -13,8 +14,8 @@ const Styles = StyleSheet.create({
         borderRadius: vh(3.3)
     },
     img: {
-        marginHorizontal: vw(26),
-        marginVertical: vh(46.7)
+        marginHorizontal: vw(25.3),
+        marginVertical: vh(24.3)
     },
     separator: {
         backgroundColor: Colors.profileGrey,
@@ -22,7 +23,9 @@ const Styles = StyleSheet.create({
         height: '70%'
     },
     textView: {
-        paddingLeft: vw(12.7),
+        marginHorizontal: vw(12.7),
+        width: '70%',
+        marginVertical: vw(12.7),
     },
     heading: {
         fontFamily: 'SourceSansPro-Semibold',
