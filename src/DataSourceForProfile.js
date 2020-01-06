@@ -8,7 +8,8 @@ export const PROFILE =
     gender: 'male',
     password: 'Gsg@123',
     biography: 'Not Available',
-    phone: '9876543210'
+    phone: '9876543210',
+    address: 'Adress has to be filled',
 }
 
 export const DEFAULT =
@@ -21,5 +22,6 @@ export const DEFAULT =
     gender: 'male',
     password: 'Gsg@123',
     biography: 'Not Available',
-    phone: '9876543210'
+    phone: '9876543210',
+    address: 'Adress has to be filled',
 }

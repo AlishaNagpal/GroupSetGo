@@ -8,7 +8,6 @@ const ReviewStyle = StyleSheet.create({
     center: {
         justifyContent: 'center',
         alignItems: 'center',
-        paddingTop: vh(200)
     },
     imageStyle: {
         height: vw(100),

@@ -73,6 +73,8 @@ import Notification from './Screens/MyAccount/Settings/Notification';
 import Privacy from './Screens/MyAccount/Settings/Privacy';
 import Blocked from './Screens/MyAccount/Settings/Blocked';
 import LogoutDialog from './Screens/MyAccount/Settings/SkipLoginDialog';
+import ProfileTab from './Screens/MyAccount/MyProfile/ProfileTab';
+
 
 console.disableYellowBox = true
 
@@ -192,6 +194,7 @@ const MainStack = createStackNavigator(
         Notification: Notification,
         Privacy: Privacy,
         Blocked: Blocked,
+        ProfileTab: ProfileTab,
     },
     {
         initialRouteName: 'HomeNavigator',

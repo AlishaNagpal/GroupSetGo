@@ -28,6 +28,9 @@ const Images = {
     listArrow: require('../Assets/Images/icAccountNextArrow.png'),
     launchScreen: require('../Assets/Images/launch_screen.png'),
     accountExit: require('../Assets/Images/icAccountExit.png'),
+    editProfile: require('../Assets/Images/icProEdit.png'),
+    profileBio: require('../Assets/Images/icProfileBiography.jpg'),
+    
 }
 
 export default Images;
