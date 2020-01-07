@@ -189,7 +189,10 @@ const strings = {
     biography: 'Biography',
     bday: 'Birthday',
     gender: 'Gender',
-    phone: 'Phone Number'
+    phone: 'Phone Number',
+    hobies: 'Hobies',
+    interest: 'Interest',
+    personalID: 'Personal ID'
 }
 
 export default strings;

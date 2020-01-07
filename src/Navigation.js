@@ -74,10 +74,11 @@ import Privacy from './Screens/MyAccount/Settings/Privacy';
 import Blocked from './Screens/MyAccount/Settings/Blocked';
 import LogoutDialog from './Screens/MyAccount/Settings/SkipLoginDialog';
 import ProfileTab from './Screens/MyAccount/MyProfile/ProfileTab';
+import EditProfile from './Screens/MyAccount/MyProfile/EditProfile';
 import RenderCard from './Screens/ExploreHome/ExploreHomeScreen/RenderCard'
 
 
-console.disableYellowBox = true
+// console.disableYellowBox = true
 
 const Explore = createStackNavigator({ Explore: ExploreHomeScreen, Map: ExploreMapScreen },
     { defaultNavigationOptions: { header: null } });
@@ -196,6 +197,7 @@ const MainStack = createStackNavigator(
         Privacy: Privacy,
         Blocked: Blocked,
         ProfileTab: ProfileTab,
+        EditProfile: EditProfile,
     },
     {
         initialRouteName: 'HomeNavigator',

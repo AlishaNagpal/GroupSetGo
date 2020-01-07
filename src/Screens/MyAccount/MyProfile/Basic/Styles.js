@@ -24,7 +24,6 @@ const Styles = StyleSheet.create({
     },
     textView: {
         marginHorizontal: vw(12.7),
-        width: '70%',
         marginVertical: vw(12.7),
     },
     heading: {
@@ -34,6 +33,11 @@ const Styles = StyleSheet.create({
     title: {
         color: Colors.fadedGray2,
         fontFamily: 'SourceSansPro-Regular'
+    },
+    idView: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-between'
     },
 })
 export default Styles;

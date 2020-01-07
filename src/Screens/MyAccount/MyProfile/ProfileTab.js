@@ -32,7 +32,7 @@ const NavTabBar = createMaterialTopTabNavigator({
         },
         indicatorStyle: {
           backgroundColor: 'white',
-          height: vh(2.7),
+          height: vh(3.7),
         },
       },
       swipeEnabled: true,
