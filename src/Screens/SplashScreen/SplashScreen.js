@@ -15,7 +15,7 @@ const {width,height} = Dimensions.get("window");
 export default class SplashScreen extends Component {
   constructor(props) {
     super(props);
-    this.moveAnimationLogo = new Animated.ValueXY({ x: 0, y: height/2.5 })
+    this.moveAnimationLogo = new Animated.ValueXY({ x: 0, y: height/2.4 })
     this.moveAnimationText = new Animated.ValueXY({ x: width, y: height/2 })
     this.animatedValue = new Animated.Value(0)
     this.state = {
@@ -46,7 +46,7 @@ export default class SplashScreen extends Component {
     ]),
     Animated.timing(this.animatedValue, {
       toValue: 1,
-      duration: 1500,
+      duration: 1000,
     })]
     ).start(() => { this.props.navigation.navigate('OnboardingLogin') } )
   }

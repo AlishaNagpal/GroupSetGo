@@ -9,7 +9,9 @@ export const PROFILE =
     password: 'Gsg@123',
     biography: 'Not Available',
     phone: '9876543210',
-    address: 'Adress has to be filled',
+    address: 'Address has to be filled',
+    hobbies: ['Playing','Dance'],
+    interest: ['Comedy','Action'],
 }
 
 export const DEFAULT =
@@ -23,5 +25,7 @@ export const DEFAULT =
     password: 'Gsg@123',
     biography: 'Not Available',
     phone: '9876543210',
-    address: 'Adress has to be filled',
+    address: 'Address has to be filled',
+    hobies: ['Playing','Dance'],
+    interest: ['Comedy','Action'],
 }

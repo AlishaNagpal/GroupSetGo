@@ -185,7 +185,14 @@ const strings = {
     fixedPerson:'Fixed Per Person Cost',
     settings: 'Settings',
     touch: 'Touch ID',
-    noEvents: 'No Events Found!'
+    noEvents: 'No Events Found!',
+    biography: 'Biography',
+    bday: 'Birthday',
+    gender: 'Gender',
+    phone: 'Phone Number',
+    hobies: 'Hobies',
+    interest: 'Interest',
+    personalID: 'Personal ID'
 }
 
 export default strings;

@@ -4,6 +4,7 @@ import { vh, vw, Colors, } from '../../../Constants';
 const ReviewStyle = StyleSheet.create({
     containerView: {
         flex: 1,
+        alignItems: 'flex-end'
     },
     center: {
         justifyContent: 'center',
