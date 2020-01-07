@@ -8,7 +8,7 @@ import { Toast, CustomSwitch, RadioButton } from '../../ReusableComponents'
 import LinearGradient from 'react-native-linear-gradient'
 const colors = [Colors.fadedRed, Colors.darkishPink]
 import ImagePicker from 'react-native-image-crop-picker';
-import { saveCategoryData} from '../../Store/Action/Action'
+import { saveCategoryData } from '../../Store/Action/Action'
 import { connect } from 'react-redux'
 class CreateEventStep2 extends Component {
 
@@ -51,7 +51,10 @@ class CreateEventStep2 extends Component {
       cropping: true
     }).then(image => {
       var data = this.state.imageData;
-      data.push(image.path);
+      let payload = {
+        pic: image.path
+      }
+      data.push(payload)
       this.setState({ imageData: data.splice(0) });
     });
     this.setState({
@@ -63,14 +66,15 @@ class CreateEventStep2 extends Component {
     if (this.state.imageData === [] || this.props.selected === false || this.state.value === '') {
       this.resetCall(true)
     } else {
-      let payload={
+      let payload = {
         details: this.state.value,
-        source: this.state.imageData[0],
-        fullSource:this.state.imageData
+        source: this.state.imageData[0].pic,
+        fullSource: this.state.imageData,
       }
+      console.log(this.state.imageData)
       let data = this.props.navigation.getParam('payloadPassed')
-      let mergedData = {...data, ...payload}
-      this.props.navigation.navigate('CreateEventStep3',{payloadPassed: mergedData})
+      let mergedData = { ...data, ...payload }
+      this.props.navigation.navigate('CreateEventStep3', { payloadPassed: mergedData })
     }
   }
 
@@ -98,10 +102,11 @@ class CreateEventStep2 extends Component {
 
   renderData = (rowData) => {
     const { item, index } = rowData
+    console.log("Alisha ", item.pic)
     return (
       <>
         <Image
-          source={{ uri: item }}
+          source={{ uri: item.pic }}
           style={styles.flatlistImage}
         />
         <View style={styles.delete} >
@@ -145,14 +150,15 @@ class CreateEventStep2 extends Component {
           </View>
           <Text style={styles.addPhoto} > {strings.addPhoto} </Text>
           <View style={[styles.addPhotoView, { height: this.state.showImages ? vh(253.7) : vh(193.3) }]}>
-            <View style={styles.addPhotoSelect} >
-              <TouchableOpacity style={styles.addPhotoButton} onPress={() => this.pickImage()} >
+
+            <TouchableOpacity style={styles.addPhotoSelect} onPress={() => this.pickImage()} activeOpacity={1} >
+              <View style={styles.addPhotoButton} >
                 <View style={styles.rowStyle}>
                   <VectorIcons.Foundation name='photo' size={vh(18)} color={Colors.white} />
                   <Text style={styles.addPhotoText} > {strings.addPhoto} </Text>
                 </View>
-              </TouchableOpacity>
-            </View>
+              </View>
+            </TouchableOpacity>
             <Text style={styles.addphotoDescrption} > {strings.addPhotoTextString} </Text>
             {this.state.showImages &&
               <FlatList
@@ -225,7 +231,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-  const { savedCategories, selected} = state.Reducer;
+  const { savedCategories, selected } = state.Reducer;
   return {
     savedCategories,
     selected

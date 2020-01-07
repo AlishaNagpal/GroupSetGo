@@ -24,12 +24,14 @@ export default styles = StyleSheet.create({
         fontSize: vh(20),
         fontFamily: 'SourceSansPro-Semibold',
         marginLeft: vh(5),
+        marginBottom: Platform.OS === 'ios' ? vw(3) : vw(0)
     },
     skipText: {
         color: Colors.white,
         fontFamily: 'SourceSansPro-Regular',
         fontSize: vh(15.3),
-        marginLeft: vw(5)
+        marginLeft: vw(5),
+        marginBottom: Platform.OS === 'ios' ? vw(3) : vw(0)
     },
     skipView: {
         right: vw(20),
@@ -94,7 +96,6 @@ export default styles = StyleSheet.create({
     AddressStyle: {
         width: vw(380),
         color: Colors.verLightGrey,
-        // left: Platform.OS === 'ios' ? vw(-3) : vw(5),
         marginBottom: Platform.OS === 'ios' ? vw(0) : vw(10)
     },
     textInputStyle: {
@@ -157,7 +158,7 @@ export default styles = StyleSheet.create({
         alignItems: 'center'
     },
     icon: {
-        // marginTop: vh(5)
+        marginTop: Platform.OS === 'ios' ? vw(3) : vw(0)
     },
     textBox: {
         backgroundColor: Colors.white,
@@ -552,7 +553,8 @@ export default styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         textAlign: 'center',
-        color: Colors.fadedGray,
+        color: Colors.black,
+        backgroundColor: Colors.darkerButLightGray
     },
     perPersonTextInput: {
         height: vw(40),
@@ -598,9 +600,9 @@ export default styles = StyleSheet.create({
         justifyContent: 'center',
         marginRight: vw(10)
     },
-    searchView:{
-        backgroundColor:Colors.white,
-        width:vw(DesignWidth),
-        height:vh(450)
+    searchView: {
+        backgroundColor: Colors.white,
+        width: vw(DesignWidth),
+        height: vh(450)
     }
 });

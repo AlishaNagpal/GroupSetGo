@@ -93,6 +93,8 @@ export default styles = StyleSheet.create({
         position: 'absolute',
         marginLeft: vw(320),
         marginTop: vh(10),
+        height: vw(150),
+        width: vw(150)
     },
     cheers: {
         height: vh(22.7),
@@ -200,7 +202,9 @@ export default styles = StyleSheet.create({
     flatlist2Heart: {
         position: 'absolute',
         left: vw(155),
-        marginTop: vh(10)
+        marginTop: vh(10),
+        height: vw(100),
+        width: vw(100)
     },
     flatlist2Image: {
         height: vh(112),

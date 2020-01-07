@@ -13,7 +13,8 @@ export default styles = StyleSheet.create({
     profile: {
         height: vw(40),
         width: vw(40),
-        borderRadius: vw(25)
+        borderRadius: vw(25),
+        marginLeft: vw(20)
     },
     text: {
         marginTop: vh(30),
@@ -24,11 +25,9 @@ export default styles = StyleSheet.create({
         width: vw(100)
     },
     header:{
-        marginTop: vh(40),
-        marginLeft: vw(10),
+        marginTop: vh(38),
         flexDirection:'row',
         alignItems:'center',
-        marginBottom:vw(10)
     },
     saveText:{
         fontFamily:'SourceSansPro-Semibold',

@@ -198,7 +198,7 @@ const MainStack = createStackNavigator(
         ProfileTab: ProfileTab,
     },
     {
-        initialRouteName: 'HomeNavigator',
+        initialRouteName: 'CreateEventStep1',
         defaultNavigationOptions: ({ navigation }) => ({
             headerBackTitle: null,
             header: null,

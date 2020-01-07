@@ -9,7 +9,7 @@ const colors = [Colors.fadedRed, Colors.darkishPink]
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scrollview'
 import PickerViewAndroid from './PickerViewAndroid'
 import { connect } from 'react-redux'
-import { DURATION_SELECTED, getAddress } from '../../Store/Action/Action'
+import { DURATION_SELECTED, getAddress, gettingEventDate } from '../../Store/Action/Action'
 
 class CreateEventStep1 extends Component {
     constructor(props) {
@@ -19,7 +19,6 @@ class CreateEventStep1 extends Component {
         this.state = {
             title: '',
             Hashtag: '',
-            startDate: null,
             timeNoted: null,
             call: false,
             colorChangeTime: false,
@@ -48,10 +47,15 @@ class CreateEventStep1 extends Component {
         this.callinAddress()
     }
 
+    gettingMinimumDate = (date) => {
+        this.props.gettingEventDate(date)
+    }
+
     callAlert = () => {
-        if (this.state.title === '' || this.state.Hashtag === '' || this.props.address === 'Address *' || this.state.startDate === null || this.state.timeNoted === null) {
+        if (this.state.title === '' || this.state.Hashtag === '' || this.props.address === 'Address *' || this.props.eventStartDate === '' || this.state.timeNoted === null) {
             this.resetCall(true)
         } else {
+            console.log("in step 4 ", this.props.eventStartDate)
             let payload = {
                 heading: this.state.title,
                 hashtag: this.state.Hashtag,
@@ -127,8 +131,8 @@ class CreateEventStep1 extends Component {
                         </View>
                         <View style={styles.textInputView} >
                             <TouchableOpacity style={styles.addressButton} onPress={this.callinAddress} >
-                                <Text style={[styles.AddressStyle, { color: this.props.address === 'Address *' ? Colors.fadedGray : Colors.black, left: this.props.address === 'Address *' ? vw(-3) : vw(5), }]}> {this.props.address} </Text>
-                                {this.state.addressCall && <FloatingLabel style={{ position:'absolute', left: 0, top: Platform.OS === 'ios' ? -10 : 15, marginBottom: -10, }} title={'Address *'} goFrom={10} goTo={Platform.OS=== 'ios' ? -5 : -28 } />}
+                                <Text style={[styles.AddressStyle, { color: this.props.address === 'Address *' ? Colors.fadedGray : Colors.black, left: this.props.address === 'Address *' ? vw(-3) : Platform.OS === 'ios' ? vw(-2) : vw(5), }]}> {this.props.address} </Text>
+                                {this.state.addressCall && <FloatingLabel style={{ position: 'absolute', left: 0, top: Platform.OS === 'ios' ? -10 : 15, marginBottom: -10, }} title={'Address *'} goFrom={10} goTo={Platform.OS === 'ios' ? -5 : -28} />}
                             </TouchableOpacity>
                         </View>
                         <View style={styles.textInputView} >
@@ -137,9 +141,9 @@ class CreateEventStep1 extends Component {
                                 textStyle={[styles.dateText, { color: this.state.colorChangeDate ? Colors.black : Colors.fadedGray, }]}
                                 mode={'date'}
                                 updateMasterState={this._updateMasterState}
-                                attrName={'startDate'}
+                                attrName={null}
                                 title={'Event Date *'}
-                                value={this.state.startDate}
+                                value={this.props.eventStartDate}
                                 makingFormattedDate={this.makingFormattedDate}
                             />
                         </View>
@@ -157,7 +161,7 @@ class CreateEventStep1 extends Component {
                                 Platform.OS === 'ios'
                                     ? <TouchableOpacity style={[styles.dateTimePicker, { width: vw(170), justifyContent: 'flex-start' }]} onPress={() => this.callingPicker()} activeOpacity={1} >
                                         <Text style={[styles.durationSelect, { color: this.props.duration === 'Duration' ? Colors.fadedGray : Colors.black }]}> {this.props.duration} </Text>
-                                        {this.state.callingPicker && <FloatingLabel style={{ position: 'absolute', left: 0, top: -10 }} title={'Duration'} goFrom={5} goTo={Platform.OS=== 'ios' ? 0 : -5} />}
+                                        {this.state.callingPicker && <FloatingLabel style={{ position: 'absolute', left: 0, top: -10 }} title={'Duration'} goFrom={5} goTo={Platform.OS === 'ios' ? 0 : -5} />}
                                     </TouchableOpacity>
                                     : <PickerViewAndroid />
                             }
@@ -169,8 +173,9 @@ class CreateEventStep1 extends Component {
                     <TouchableOpacity
                         onPress={() => this.callAlert()}
                         activeOpacity={1}
+                        style={{ alignItems: 'center' }}
                     >
-                        <VectorIcons.Ionicons name='ios-arrow-round-forward' size={vh(55)} color={Colors.white} style={styles.icon} />
+                        <VectorIcons.Ionicons name='ios-arrow-round-forward' size={vw(55)} color={Colors.white} style={styles.icon} />
                     </TouchableOpacity>
                 </LinearGradient>
                 {this.state.call === true &&
@@ -185,15 +190,17 @@ class CreateEventStep1 extends Component {
 function mapDispatchToProps(dispatch) {
     return {
         getAddress: (value) => dispatch(getAddress(value)),
-        DURATION_SELECTED: (value) => dispatch(DURATION_SELECTED(value))
+        DURATION_SELECTED: (value) => dispatch(DURATION_SELECTED(value)),
+        gettingEventDate: (value) => dispatch(gettingEventDate(value))
     }
 }
 
 function mapStateToProps(state) {
-    const { duration, address } = state.Reducer;
+    const { duration, address, eventStartDate } = state.Reducer;
     return {
         duration,
-        address
+        address,
+        eventStartDate
     }
 }
 

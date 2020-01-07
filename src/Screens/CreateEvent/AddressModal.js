@@ -19,7 +19,7 @@ class AddressModal extends Component {
           <GooglePlacesAutocomplete
             placeholder='Search'
             minLength={2} // minimum length of text to search
-            autoFocus={false}
+            autoFocus={true}
             returnKeyType={'search'} // Can be left out for default return key https://facebook.github.io/react-native/docs/textinput.html#returnkeytype
             keyboardAppearance={'light'} // Can be left out for default keyboardAppearance https://facebook.github.io/react-native/docs/textinput.html#keyboardappearance
             listViewDisplayed='auto'    // true/false/undefined

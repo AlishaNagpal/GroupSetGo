@@ -118,12 +118,8 @@ export const DURATION_SELECTED = (value) => {
     }
 }
 
-export const mapEventData = () => {
-    return (dispatch, getState) => {
-        const { map_event_data } = getState().Reducer;
-        let emptyArray = map_event_data;
-        emptyArray = emptyArray.slice();
-        dispatch({ type: Actions.MAP_EVENT_DATA, payload: { data: emptyArray } });
+export const gettingEventDate = (value) => {
+    return (dispatch) => {
+        dispatch({ type: Actions.EVENT_START_DATE, payload: { data: value } });
     }
 }
-

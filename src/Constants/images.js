@@ -21,7 +21,6 @@ const Images = {
     maleDefault: require('../Assets/Images/maleImageDefault.jpg'),
     recommend: require('../Assets/Images/recommend.jpg'),
     venue: require('../Assets/Images/venue.jpg'),
-    maleImage: require('../Assets/Images/maleImage.jpeg'),
     cancel: require('../Assets/Images/icCancel.png'),
     info: require('../Assets/Images/icInfo.png'),
     smallInfo: require('../Assets/Images/icNewinfo.png'),
@@ -30,7 +29,6 @@ const Images = {
     accountExit: require('../Assets/Images/icAccountExit.png'),
     editProfile: require('../Assets/Images/icProEdit.png'),
     profileBio: require('../Assets/Images/icProfileBiography.jpg'),
-    
 }
 
 export default Images;

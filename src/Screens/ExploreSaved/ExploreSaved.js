@@ -128,7 +128,7 @@ class ExploreSaved extends Component {
       <View style={styling.main}>
         <TouchableOpacity style={styling.header} onPress={() => this.props.navigation.navigate('MyAccount')} activeOpacity={1} >
           <Image
-            source={Images.maleImage}
+            source={{uri: this.props.profileData.profilePic}}
             style={styling.profile}
           />
           <Text style={styling.saveText} > {strings.savedIcon} </Text>
@@ -149,10 +149,11 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-  const { savedEvents, Event_Data } = state.Reducer;
+  const { savedEvents, Event_Data, profileData } = state.Reducer;
   return {
     savedEvents,
-    Event_Data
+    Event_Data,
+    profileData
   }
 }
 

@@ -42,6 +42,7 @@ export default class ExploreMapScreen extends Component {
 
   Press(id) {
     this.props.navigate('RenderCard', { id: id })
+    this.marker.hideCallout()
   }
 
   render() {

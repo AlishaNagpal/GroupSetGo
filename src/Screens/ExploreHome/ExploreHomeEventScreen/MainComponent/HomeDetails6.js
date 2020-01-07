@@ -65,10 +65,6 @@ class HomeDetails6 extends Component {
                 this.props.savedEvents.splice(indexToDelete, 1)
             }
         }
-
-        // setTimeout(() => {
-        //     console.log(this.props.savedEvents)
-        // }, 1000);
     }
 
     joined(id, value) {
@@ -138,7 +134,7 @@ class HomeDetails6 extends Component {
         return (
             <ProgressiveImage
                 thumbnailSource={{ uri: this.state.data.thumbnail }}
-                source={{ uri: item }}
+                source={{ uri: item.pic }}
                 style={styles.pic}
             />
         )
@@ -157,6 +153,7 @@ class HomeDetails6 extends Component {
                             horizontal
                             bounces={false}
                             pagingEnabled={true}
+                            showsHorizontalScrollIndicator={false}
                         />
                         {/* <ProgressiveImage
                             thumbnailSource={{ uri: data.thumbnail }}

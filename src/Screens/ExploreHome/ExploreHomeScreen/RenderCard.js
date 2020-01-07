@@ -5,7 +5,7 @@ import { View, Text, Image, TouchableOpacity, } from 'react-native';
 import styles from './style'
 import { VectorIcons, Images, vh, Colors } from '../../../Constants'
 import { connect } from 'react-redux'
-import { mapEventData } from '../../../Store/Action/Action'
+import { eventDATA } from '../../../Store/Action/Action'
 
 class RenderCard extends PureComponent {
 
@@ -15,7 +15,7 @@ class RenderCard extends PureComponent {
 
     componentDidMount() {
         let id = this.props.navigation.getParam('id')
-        let temp = this.props.map_event_data
+        let temp = this.props.Event_Data
         let indexToEdit = temp.findIndex(item => item.serialNo == id)
         let newData = temp[indexToEdit]
         if (indexToEdit != -1) {
@@ -25,18 +25,18 @@ class RenderCard extends PureComponent {
         }
     }
 
-    // callScreen = (id) => {
-    //     this.props.navigate('HomeDetails6', {
-    //         data: this.props.map_event_data,
-    //         id: { id }
-    //     })
-    // }
+    callScreen = (id) => {
+        this.props.navigation.navigate('HomeDetails6', {
+            data: this.props.Event_Data,
+            id: { id }
+        })
+    }
 
     toggle = (id, value) => {
-        let index = this.props.map_event_data.findIndex((e) => e.serialNo === id)
+        let index = this.props.Event_Data.findIndex((e) => e.serialNo === id)
         if (index != -1) {
-            this.props.map_event_data[index].hearted = !value
-            this.props.mapEventData()
+            this.props.Event_Data[index].hearted = !value
+            this.props.eventDATA()
         }
     }
 
@@ -45,7 +45,7 @@ class RenderCard extends PureComponent {
         return (
             <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.goBack()} style={styles.containerStyle}>
                 <View style={styles.mainCardView}>
-                    <TouchableOpacity onPress={() => this.props.navigation.goBack()} activeOpacity={1} >
+                    <TouchableOpacity onPress={() => this.callScreen(data.serialNo)} activeOpacity={1} >
                         <Image source={{ uri: data.source }} style={styles.flatlistImage} />
                         <TouchableOpacity onPress={() => { this.toggle(data.serialNo, data.hearted) }} style={styles.heart} activeOpacity={1}  >
                             <Image source={data.hearted ? Images.heartFilled : Images.heartEmpty} />
@@ -78,14 +78,14 @@ class RenderCard extends PureComponent {
 
 function mapDispatchToProps(dispatch) {
     return {
-        mapEventData: () => dispatch(mapEventData())
+        eventDATA: () => dispatch(eventDATA())
     }
 }
 
 function mapStateToProps(state) {
-    const { map_event_data } = state.Reducer;
+    const { Event_Data } = state.Reducer;
     return {
-        map_event_data
+        Event_Data
     }
 }
 

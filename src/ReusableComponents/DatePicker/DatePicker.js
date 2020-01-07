@@ -59,10 +59,10 @@ export default class DatePicker extends Component {
         var dateName = d.getDate()
         var monthName = months[d.getMonth()];
         this.props.makingFormattedDate && this.props.makingFormattedDate(dayName, dateName, monthName)
+        this.props.gettingMinimumDate && this.props.gettingMinimumDate(date)
         var data = moment(date).format("DD-MMM-YYYY")
         this.setState({ dateText: data })
         this._onChangeText(data)
-
     };
 
     handleTimePicked = (time) => {
@@ -128,13 +128,14 @@ export default class DatePicker extends Component {
                     this.renderLabel()
                 }
 
-                <Text style={{marginBottom: 5}} > {this.state.dateText} </Text>
+                <Text style={{ marginBottom: 5 }} > {this.state.dateText} </Text>
                 <VectorIcons.EvilIcons name="calendar" color={Colors.verLightGrey} size={25} style={styles.bottomIcon} />
                 <DateTimePicker
                     isVisible={this.state.isDateTimePickerVisible}
                     onConfirm={this.props.mode === 'time' ? this.handleTimePicked : this.handleDatePicked}
                     onCancel={this.hideDateTimePicker}
                     mode={this.props.mode}
+                    minimumDate={this.props.mode === 'time' ? null : this.props.minimum}
                 />
             </TouchableOpacity>
         )

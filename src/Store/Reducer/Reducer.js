@@ -5,7 +5,7 @@ import * as CATEGORIES from '../../DataSourceForCategories'
 import * as PROFILES from '../../DataSourceForProfile'
 
 const initialState = {
-    Event_Data: [],
+    Event_Data: DATA,
     categoryData: CATEGORIES.CATEGORIES,
     categoryDataType2: CATEGORIES.CATEGORIES2,
     savedCategories: [],
@@ -14,7 +14,7 @@ const initialState = {
     savedEvents: [],
     address: 'Address *',
     duration: 'Duration',
-    map_event_data: DATA,
+    eventStartDate: null,
 };
 
 
@@ -39,8 +39,8 @@ const Reducer = (state = initialState, action) => {
             return { ...state, address: action.payload.data }
         case Actions.GET_DURATION:
             return { ...state, duration: action.payload.duration }
-        case Actions.MAP_EVENT_DATA:
-            return { ...state, map_event_data: action.payload.data }
+        case Actions.EVENT_START_DATE:
+            return { ...state, eventStartDate: action.payload.data }
         default:
             return state
     }

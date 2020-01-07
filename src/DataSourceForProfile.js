@@ -2,7 +2,7 @@ export const PROFILE =
 {
     name: 'Guest',
     email: 'Not Available',
-    profilePic: 'https://images.pexels.com/photos/1308881/pexels-photo-1308881.jpeg?cs=srgb&dl=woman-holding-pink-petaled-flower-1308881.jpg&fm=jpg',
+    profilePic: 'https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg',
     type: 'normal',
     birthday: '01-Jan-1990',
     gender: 'male',
@@ -16,7 +16,7 @@ export const DEFAULT =
 {
     name: 'Guest',
     email: 'Not Available',
-    profilePic: 'https://images.pexels.com/photos/1308881/pexels-photo-1308881.jpeg?cs=srgb&dl=woman-holding-pink-petaled-flower-1308881.jpg&fm=jpg',
+    profilePic: 'https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg',
     type: 'normal',
     birthday: '01-Jan-1990',
     gender: 'male',

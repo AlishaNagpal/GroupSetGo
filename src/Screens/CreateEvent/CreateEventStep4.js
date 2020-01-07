@@ -7,21 +7,26 @@ import { CustomSwitch, DatePicker, RadioButton, Toast } from '../../ReusableComp
 import LinearGradient from 'react-native-linear-gradient'
 import { TextInput } from 'react-native-gesture-handler';
 const colors = [Colors.fadedRed, Colors.darkishPink]
+import { connect } from 'react-redux'
+import { eventDATA } from '../../Store/Action/Action'
+class CreateEventStep4 extends Component {
 
-export default class CreateEventStep4 extends Component {
-
-  state = {
-    shareCostPosition: new Animated.ValueXY({ x: vw(0), y: vh(0) }),
-    shareCost: false,
-    cancelByDate: null,
-    costTotal: true,
-    totalCostValue: '',
-    minPersonCost: '',
-    maxPersonCost: '',
-    guestsData: [{ no: 1 }],
-    breakDown1: '',
-    addingMore: false,
-    call: false,
+  constructor(props) {
+    super(props);
+    this.state = {
+      shareCostPosition: new Animated.ValueXY({ x: vw(0), y: vh(0) }),
+      shareCost: false,
+      cancelByDate: null,
+      costTotal: true,
+      totalCostValue: '',
+      minPersonCost: '',
+      maxPersonCost: '',
+      guestsData: [{ no: 1 }],
+      breakDown1: '',
+      addingMore: false,
+      call: false,
+      // serialNo: (new Math.random() * new Math.random()),
+    };
   }
 
   toggleSwitch() {
@@ -58,6 +63,7 @@ export default class CreateEventStep4 extends Component {
         cancelDate: this.state.cancelByDate,
         moneyTotal: '$' + this.state.totalCostValue,
         money: '$' + this.state.minPersonCost + '-' + '$' + this.state.maxPersonCost,
+        serialNo: this.props.Event_Data.length + 1,
       }
       let data = this.props.navigation.getParam('payloadPassed')
       let mergedData = { ...data, ...payload }
@@ -112,7 +118,7 @@ export default class CreateEventStep4 extends Component {
   }
 
   scroll = () => {
-    scrollView.scrollTo({ x: 0, y: 200, animated: true })
+    ScrollView.scrollTo({ x: 0, y: 200, animated: true })
   }
 
   render() {
@@ -156,6 +162,7 @@ export default class CreateEventStep4 extends Component {
                 attrName={'cancelByDate'}
                 title={'Cancel By Date'}
                 value={this.state.cancelByDate}
+                minimum = {this.props.eventStartDate} 
               />
             </View>
             <View style={styles.costSegregation} >
@@ -179,12 +186,14 @@ export default class CreateEventStep4 extends Component {
               <View style={styles.select3} >
                 <Text style={styles.dollarText} > $ </Text>
                 <TextInput
-                  style={[styles.totalCostTextInput, { backgroundColor: this.state.totalCostValue === '' ? Colors.white : Colors.darkerButLightGray }]}
+                  style={styles.totalCostTextInput}
                   value={this.state.totalCostValue}
                   onChangeText={(text) => this.setState({ totalCostValue: text })}
                   keyboardType={'number-pad'}
                   ref={ref => this.input1 = ref}
                   onSubmitEditing={() => this.submitInput(1)}
+                  maxLength={4}
+                  placeholder={'9999'}
                 />
               </View>
             </View>
@@ -193,7 +202,7 @@ export default class CreateEventStep4 extends Component {
               <Text style={styles.select} > {!this.state.costTotal ? strings.totalCost : strings.perPersonCost} </Text>
               <View style={styles.select3} >
                 <Text style={styles.dollarText} > $ </Text>
-                <View style={[styles.totalCostTextInput, { width: vw(105), backgroundColor: Colors.darkerButLightGray }]} >
+                <View style={[styles.totalCostTextInput, { width: vw(105) }]} >
                   <TextInput
                     style={styles.perPersonTextInput}
                     value={this.state.minPersonCost}
@@ -202,6 +211,7 @@ export default class CreateEventStep4 extends Component {
                     ref={ref => this.input2 = ref}
                     onSubmitEditing={() => this.submitInput(2)}
                     placeholder={'50'}
+                    maxLength={3}
                   />
                   <VectorIcons.Octicons name='dash' color={Colors.black} size={vw(15)} />
                   <TextInput
@@ -212,6 +222,7 @@ export default class CreateEventStep4 extends Component {
                     ref={ref => this.input3 = ref}
                     onSubmitEditing={() => this.submitInput(3)}
                     placeholder={'100'}
+                    maxLength={3}
                   />
                 </View>
               </View>
@@ -226,19 +237,21 @@ export default class CreateEventStep4 extends Component {
                   style={styles.breakdownTextInput}
                   ref={ref => this.input6 = ref}
                   onSubmitEditing={() => this.submitInput(6)}
+                  maxLength={3}
                 />
                 <View style={styles.halfSeparator} />
               </View>
               <View style={styles.select4} >
                 <Text style={styles.dollarText} > $ </Text>
                 <TextInput
-                  style={[styles.totalCostTextInput, { backgroundColor: Colors.darkerButLightGray }]}
+                  style={styles.totalCostTextInput}
                   value={this.state.breakDown1}
                   placeholder='10'
                   onChangeText={(text) => this.setState({ breakDown1: text })}
                   keyboardType={'number-pad'}
                   ref={ref => this.input4 = ref}
                   onSubmitEditing={() => this.submitInput(4)}
+                  maxLength={3}
                 />
               </View>
             </View>
@@ -274,7 +287,7 @@ export default class CreateEventStep4 extends Component {
               <TouchableOpacity style={styles.addButton} activeOpacity={1}
                 onPress={() => {
                   {
-                    this.state.guestsData.length < 4
+                    this.state.guestsData.length < 3
                       ? this.setState({
                         guestsData: [
                           ...this.state.guestsData,
@@ -292,15 +305,16 @@ export default class CreateEventStep4 extends Component {
             </View>
 
           </View>
+          <TouchableOpacity
+            onPress={this.callAlert}
+            activeOpacity={1}
+          >
+            <LinearGradient colors={colors} start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} style={styles.publishButton}  >
 
-          <LinearGradient colors={colors} start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} style={styles.publishButton}  >
-            <TouchableOpacity
-              onPress={this.callAlert}
-              activeOpacity={1}
-            >
               <Text style={styles.publishText} > {strings.publish} </Text>
-            </TouchableOpacity>
-          </LinearGradient>
+
+            </LinearGradient>
+          </TouchableOpacity>
         </ScrollView>
         {this.state.call === true &&
           <Toast top={-15} from={0} to={-60} message={strings.fillAll} call={(value) => this.resetCall(value)} />
@@ -311,8 +325,27 @@ export default class CreateEventStep4 extends Component {
 }
 
 
+function mapDispatchToProps(dispatch) {
+  return {
+    eventDATA: () => dispatch(eventDATA())
+  }
+}
+
+function mapStateToProps(state) {
+  const { Event_Data, eventStartDate } = state.Reducer;
+  return {
+    Event_Data,
+    eventStartDate
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CreateEventStep4);
+
+
 const DATA = {
-  serialNo:  Math.random(),
   hashtagEvent: 'Dance Floor Table',
   location: '3570 S Las Vegas Blvd, Las Vegas, NV 89109',
   going: 10,
